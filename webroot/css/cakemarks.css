@@ -1,0 +1,339 @@
+/* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
+
+BODY {
+	color: #000;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 35px;
+	margin: 0;
+	padding: 7px 0 0 100px;
+}
+TABLE IMG {
+	margin-left: 10px;
+}
+A, A:visited {
+	color: #000;
+	padding: 0;
+	text-decoration: none;
+}
+DIV.padding {
+	padding: 5px;
+}
+A IMG {
+	border: 0px;
+}
+
+div.clearheinz {
+	clear: both;
+}
+
+#footer {
+	left: 50px;
+	margin-bottom: 10px;
+	position: absolute;
+	top: 0px;
+	width: 200px;
+	z-index: 1000;
+}
+#footer A {
+	display: block;
+	font-size: 100%;
+	padding: 5px;
+}
+#footer A:HOVER {
+	-moz-border-radius: 5px;
+	background-color: #AAC;
+	border-radius: 5px;
+}
+
+#key_kasten {
+	border: 1px solid #333;
+	float: right;
+	padding: 10px;
+	width: 200px;
+}
+#key_kasten A, #key_kasten A:visited {
+	color: #000;
+	display: block;
+	float: left;
+	margin: 0 10px 5px 0;
+	padding: 0;
+	text-decoration: none;
+}
+#key_kasten A:hover {
+	text-decoration: underline;
+}
+#keywordbox {
+	float: left;
+	margin-bottom: 10px;
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	width: 200px;
+}
+A.tagcloudlink {
+	border-bottom: 1px dotted #CCC;
+	margin-right: 5px;
+}
+A.tagcloudlink:HOVER {
+	background-color: #DDD;
+}
+DIV.key_check {
+	float: left;
+	height: 20px;
+	width: 170px;
+}
+UL.nobullets {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 15px;
+}
+UL.nobullets LI {
+	margin: 0;
+	padding: 0;
+}
+
+DIV.handle {
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+	background-color: #444;
+	border-radius: 0 0 10px 10px;
+	color: #FFF;
+	cursor: pointer;
+	text-align: center;
+}
+DIV.handle:hover {
+	background-color: #666;
+}
+DIV.unfold {
+	background-color: #FFF;
+	border-color: #444;
+	border-style: solid;
+	border-width: 0px 1px;
+	display: none;
+}
+
+#inhalt {
+	margin:15px 15px 0 15px;
+	padding: 0;
+}
+
+#schnellwahlbox {
+	float: right;
+	margin: 0;
+	padding: 0px;
+	width: 150px;
+}
+DIV.thumb, DIV.thumb_wvl {
+	float: left;
+	height: 90px;
+	overflow: hidden;
+	padding: 0px;
+	text-align: center;
+	width: 120px;
+}
+DIV.thumb {
+	border: 1px dotted #ccc;
+	margin: 5px 0px 0px 10px;
+}
+DIV.thumb_wvl {
+	border: 2px solid #F00;
+	margin: 5px 0px 0px 8px;
+}
+
+#navigation {
+	color: #000000;
+	left: 0px;
+	position: absolute;
+	top: 30px;
+}
+#navigation A {
+	color: #000;
+	margin: 0 15px 0 0;
+	padding: 0px;
+	text-decoration: none;
+}
+#navigation A:hover {
+	background-color: #CCC;
+}
+.nav_item {
+	clear: both;
+	height: 28px;
+	margin-bottom: 5px;
+	overflow: hidden;
+}
+.hhandle {
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-topright: 10px;
+	background-color: #444;
+	border-color: #444;
+	border-radius: 0 10px 10px 0;
+	border-style: solid;
+	border-width: 1px 0px;
+	color: #FFF;
+	cursor: pointer;
+	float: left;
+	padding: 4px 7px 4px 4px;
+	text-align: center;
+}
+.hhandle:hover {
+	background-color: #666;
+}
+.hunfold {
+	background-color: #FFF;
+	border-color: #444;
+	border-style: solid;
+	border-width: 1px 0px;
+	display: none;
+	float: left;
+	padding: 4px 4px;
+}
+
+#stats {
+	background-color: #EEE;
+	font-size: 90%;
+	margin: 30px 0px 0px 5px;
+	padding: 3px;
+	width: 95px;
+}
+
+#add {
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-topleft: 10px;
+	background-color: #444;
+	border-color: #444;
+	border-radius: 10px 0 0 10px;
+	border-style: solid;
+	border-width: 1px 0px;
+	position: absolute;
+	right: 0px;
+	top: 40px;
+}
+.hhandle_right {
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-radius: 10px 0 0 10px;
+	color: #FFF;
+	cursor: pointer;
+	float: left;
+	font-size: 100%;
+	padding: 4px 4px 4px 7px;
+	text-align: center;
+}
+.hhandle_right:hover {
+	background-color: #666;
+}
+.hunfold_right {
+	background-color: #FFF;
+	display: none;
+	float: left;
+	padding: 4px 4px;
+	width: 600px;
+}
+
+DIV.portal {
+	border: 1px solid #333;
+	float: left;
+	margin: 0 10px 20px 0;
+	padding: 0px;
+	width: 220px;
+}
+DIV.portal Span.header {
+	background-color: #454545;
+	color: #FFF;
+	display: block;
+	font-weight: bold;
+	margin: 0px 0px 5px 0px;
+	padding: 2px 0px;
+	text-align: center;
+}
+DIV.portal TABLE {
+	border-collapse: collapse;
+	font-size: 108%;
+	margin: 0;
+	padding: 0px;
+	width: 100%;
+}
+DIV.portal TABLE TR {
+	margin: 0px 0px;
+	padding: 0px;
+}
+DIV.portal TABLE TD DIV.cutoff {
+	height: 20px;
+	overflow: hidden;
+	width: 180px;
+}
+DIV.portal TABLE TD {
+	margin: 0px;
+}
+DIV.portal TABLE TD:first-child {
+	padding-left: 5px;
+}
+DIV.portal TABLE TD:last-child {
+	padding-right: 5px;
+}
+DIV.portal TABLE TR:hover {
+	background-color: #DDD;
+}
+
+DIV#hinz {
+	clear: left;
+	margin-top: 20px;
+	width: 600px;
+}
+
+#tabelle A, #tabelle A:visited {
+	color: #000;
+	padding: 0;
+	text-decoration: none;
+}
+#tabelle TD, #tabelle TH {
+	border-right: 1px solid #D7DAD7;
+	height: 14px;
+	line-height: 16px;
+	margin: 0px;
+	padding: 0px 0px 0px 5px;
+}
+#tabelle TH {
+	background-image: url(top.gif);
+	background-repeat: repeat-x;
+	color: #000;
+	text-align: left;
+}
+#tabelle TR.weiss A, #tabelle TR.blau A {
+	color: #888;
+	text-decoration: line-through;
+}
+#tabelle TR.weiss, #tabelle TR.weiss_aktiv {
+	background-color: #FFF;
+}
+#tabelle TR.blau, #tabelle TR.blau_altiv {
+	background-color: #EDF3FE;
+}
+#tabelle TR.weiss:HOVER, #tabelle TR.weiss_aktiv:HOVER {
+	background-color: #ddd;
+}
+#tabelle TR.blau:HOVER, #tabelle TR.blau_aktiv:HOVER {
+	background-color: #CDD3CD;
+}
+DIV#quote {
+	margin: 0px 20%;
+	max-width: 60%;
+}
+DIV#quote P {
+	-moz-border-radius: 10px;
+	background-color: #EFE;
+	border-radius: 10px;
+	border: 1px solid #cdc;
+	float: left;
+	font-size: 120%;
+	padding: 10px;
+}
+
+A.bookmarklet {
+	background-color: #eee;
+	border: 1px solid #ddd;
+	padding: 3px 5px;
+}
+
