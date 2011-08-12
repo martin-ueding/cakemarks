@@ -232,14 +232,14 @@ DIV.thumb_wvl {
 	width: 600px;
 }
 
-DIV.portal {
+DIV.bookmarkbox {
 	border: 1px solid #333;
 	float: left;
 	margin: 0 10px 20px 0;
 	padding: 0px;
 	width: 220px;
 }
-DIV.portal Span.header {
+DIV.bookmarkbox DIV.title {
 	background-color: #454545;
 	color: #FFF;
 	display: block;
@@ -248,32 +248,32 @@ DIV.portal Span.header {
 	padding: 2px 0px;
 	text-align: center;
 }
-DIV.portal TABLE {
+DIV.bookmarkbox TABLE {
 	border-collapse: collapse;
 	font-size: 108%;
 	margin: 0;
 	padding: 0px;
 	width: 100%;
 }
-DIV.portal TABLE TR {
+DIV.bookmarkbox TABLE TR {
 	margin: 0px 0px;
 	padding: 0px;
 }
-DIV.portal TABLE TD DIV.cutoff {
+DIV.bookmarkbox TABLE TD DIV.cutoff {
 	height: 20px;
 	overflow: hidden;
 	width: 180px;
 }
-DIV.portal TABLE TD {
+DIV.bookmarkbox TABLE TD {
 	margin: 0px;
 }
-DIV.portal TABLE TD:first-child {
+DIV.bookmarkbox TABLE TD:first-child {
 	padding-left: 5px;
 }
-DIV.portal TABLE TD:last-child {
+DIV.bookmarkbox TABLE TD:last-child {
 	padding-right: 5px;
 }
-DIV.portal TABLE TR:hover {
+DIV.bookmarkbox TABLE TR:hover {
 	background-color: #DDD;
 }
 
