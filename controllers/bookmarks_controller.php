@@ -65,7 +65,7 @@ class BookmarksController extends AppController {
 	}
 
 	function startscreen() {
-		$this->layout='custon';
+		$this->layout='custom';
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1))));
 
 		$this->set('most_visits', $this->Bookmark->find('all', array(
