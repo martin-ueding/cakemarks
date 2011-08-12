@@ -64,6 +64,7 @@ class BookmarksController extends AppController {
 	}
 
 	function startscreen() {
+		$this->layout='custon';
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'))));
 	}
 }

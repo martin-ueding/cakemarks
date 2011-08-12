@@ -8,7 +8,10 @@
 
 <div class="content">
 <?PHP
-print_r($bookmarks)
+foreach ($bookmarks as $bookmark) {
+	echo $bookmark['Bookmark']['title'];
+	echo '<br />';
+}
 ?>
 </div>
 
