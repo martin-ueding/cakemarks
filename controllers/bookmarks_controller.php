@@ -2,6 +2,7 @@
 class BookmarksController extends AppController {
 
 	var $name = 'Bookmarks';
+	var $uses = array('Bookmark', 'Visit');
 
 	function index() {
 		$this->Bookmark->recursive = 0;
@@ -74,11 +75,17 @@ class BookmarksController extends AppController {
 
 	function visit($id) {
 		$to_visit = $this->Bookmark->find('first', array('conditions' => array('Bookmark.id' => $id)));
+
+		// Write a Visit to the DB
+		$today_time=date('Y-m-d H:i:s');
+		$visit = array('Visit' => array('bookmark_id' => $id, 'time' => $today_time));
+		$this->Visit->save($visit);
+
 		$to_url = $to_visit['Bookmark']['url'];
 		if (!strpos("://", $to_url)) {
 			$to_url = "http://".$to_url;
 		}
-		$this->redirect($to_url);
+		#$this->redirect($to_url);
 	}
 }
 ?>
