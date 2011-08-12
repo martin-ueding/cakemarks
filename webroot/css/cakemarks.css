@@ -29,10 +29,10 @@ div.clearheinz {
 }
 
 #navigation {
-	left: 50px;
 	margin-bottom: 10px;
 	position: absolute;
 	top: 0px;
+	left: 50px;
 	width: 200px;
 	z-index: 1000;
 }
@@ -142,21 +142,6 @@ DIV.thumb_wvl {
 	margin: 5px 0px 0px 8px;
 }
 
-#navigation {
-	color: #000000;
-	left: 0px;
-	position: absolute;
-	top: 30px;
-}
-#navigation A {
-	color: #000;
-	margin: 0 15px 0 0;
-	padding: 0px;
-	text-decoration: none;
-}
-#navigation A:hover {
-	background-color: #CCC;
-}
 .nav_item {
 	clear: both;
 	height: 28px;

@@ -25,6 +25,8 @@
 
 
 
+
+
 		<?=$content_for_layout?>
 	</body>
 </html>
