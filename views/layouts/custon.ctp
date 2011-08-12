@@ -10,17 +10,19 @@
 		<!-- navigation -->
 		<div id="navigation">
 			<div class="padding unfold">
-				<a href="?"><?=__('home page', false)?></a>
-				<a href="?mode=edit"><?=__('new bookmark', false)?></a>
-				<a href="?mode=tabelle"><?=__('table', false)?></a>
-				<a href="?mode=key_tabelle"><?=__('edit tags', false)?></a>
-				<a href="expunge.php?return='.$mode.(isset($l['key_id']) ? '&return_key='.$l['key_id'] : '', false)?>"><?=__('expunge deleted bookmarks', false)?></a>
-				<a href="https://bugs.launchpad.net/personalphpbookmark/+filebug" target="_blank"><?=__('report a bug', false)?></a>
-				<a href="?mode=refcheck" rel="noreferrer"><?=__('check referrer', false)?></a>
-				<a href="?mode=bookmarklet"><?=__('bookmarklet', false)?></a>
-				<a href="?mode=remove_duplicate_associations"><?=__('remove duplicate associations', false)?></a>
+<?PHP
+echo $this->Html->link(__('home page', true), array());
+echo $this->Html->link(__('new bookmark', true), array('controller' => 'bookmarks', 'action' => 'add'));
+echo $this->Html->link(__('list bookmarks', true), array('controller' => 'bookmarks'));
+echo $this->Html->link(__('list keywords', true), array('controller' => 'keywords'));
+echo $this->Html->link(__('report a bug', true), "https://bugs.launchpad.net/personalphpbookmark/+filebug");
+?>
+<hr />
+				<a href="expunge.php?return='.$mode.(isset($l['key_id']) ? '&return_key='.$l['key_id'] : '', true)?>"><?=__('expunge deleted bookmarks', true)?></a>
+				<a href="?mode=refcheck" rel="noreferrer"><?=__('check referrer', true)?></a>
+				<a href="?mode=bookmarklet"><?=__('bookmarklet', true)?></a>
 			</div>
-			<div class="handle"><?=__('navigation', false)?></div>
+			<div class="handle"><?=__('navigation', true)?></div>
 		</div>
 
 
