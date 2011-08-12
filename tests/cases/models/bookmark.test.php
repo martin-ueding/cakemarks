@@ -1,5 +1,5 @@
 <?php
-/* Bookmark Test cases generated on: 2011-08-12 14:08:21 : 1313153421*/
+/* Bookmark Test cases generated on: 2011-08-12 15:08:06 : 1313155926*/
 App::import('Model', 'Bookmark');
 
 class BookmarkTestCase extends CakeTestCase {

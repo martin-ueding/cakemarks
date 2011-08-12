@@ -16,6 +16,33 @@ class Keyword extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
+	var $belongsTo = array(
+		'ParentKeyword' => array(
+			'className' => 'Keyword',
+			'foreignKey' => 'parent_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
+	var $hasMany = array(
+		'ChildKeyword' => array(
+			'className' => 'Keyword',
+			'foreignKey' => 'parent_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
+
 	var $hasAndBelongsToMany = array(
 		'Bookmark' => array(
 			'className' => 'Bookmark',
