@@ -21,6 +21,16 @@
 			<?php echo $bookmark['Bookmark']['created']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Modified'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $bookmark['Bookmark']['modified']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Revisit'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $bookmark['Bookmark']['revisit']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -81,6 +91,9 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Title'); ?></th>
+		<th><?php __('Created'); ?></th>
+		<th><?php __('Modified'); ?></th>
+		<th><?php __('Parent Id'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -94,6 +107,9 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $keyword['id'];?></td>
 			<td><?php echo $keyword['title'];?></td>
+			<td><?php echo $keyword['created'];?></td>
+			<td><?php echo $keyword['modified'];?></td>
+			<td><?php echo $keyword['parent_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'keywords', 'action' => 'edit', $keyword['id'])); ?>

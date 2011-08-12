@@ -6,6 +6,8 @@
 			<th><?php echo $this->Paginator->sort('title');?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
+			<th><?php echo $this->Paginator->sort('revisit');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -21,6 +23,8 @@
 		<td><?php echo $bookmark['Bookmark']['title']; ?>&nbsp;</td>
 		<td><?php echo $bookmark['Bookmark']['url']; ?>&nbsp;</td>
 		<td><?php echo $bookmark['Bookmark']['created']; ?>&nbsp;</td>
+		<td><?php echo $bookmark['Bookmark']['modified']; ?>&nbsp;</td>
+		<td><?php echo $bookmark['Bookmark']['revisit']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $bookmark['Bookmark']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $bookmark['Bookmark']['id'])); ?>
