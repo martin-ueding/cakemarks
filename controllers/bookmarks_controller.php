@@ -62,5 +62,8 @@ class BookmarksController extends AppController {
 		$this->Session->setFlash(__('Bookmark was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	function startscreen() {
+	}
 }
 ?>
