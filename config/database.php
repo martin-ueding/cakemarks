@@ -73,7 +73,7 @@
  */
 class DATABASE_CONFIG {
 
-	var $default = array(
+	var $test = array(
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
@@ -83,13 +83,13 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 	);
 
-	var $test = array(
+	var $default = array(
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
-		'prefix' => '',
+		'login' => 'testing',
+		'password' => 'testing',
+		'database' => 'cakemarks',
+		'prefix' => 'cakemarks_',
 	);
 }
