@@ -68,7 +68,9 @@ class BookmarksController extends AppController {
 		$this->layout='custon';
 		# TODO reading list
 		# TODO most visits
+
 		# TODO last visited
+		#
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'))));
 
 	}
