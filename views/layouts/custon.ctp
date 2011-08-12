@@ -16,11 +16,9 @@ echo $this->Html->link(__('new bookmark', true), array('controller' => 'bookmark
 echo $this->Html->link(__('list bookmarks', true), array('controller' => 'bookmarks', 'action' => 'index'));
 echo $this->Html->link(__('list keywords', true), array('controller' => 'keywords', 'action' => 'index'));
 echo $this->Html->link(__('report a bug', true), "https://bugs.launchpad.net/personalphpbookmark/+filebug");
+echo $this->Html->link(__('check referrer', true), array('controller' => 'pages', 'action' => 'referrer'), array('rel' => 'noreferrer'));
+echo $this->Html->link(__('bookmarklet', true), array('controller' => 'pages', 'action' => 'bookmarklet'));
 ?>
-<hr />
-				<a href="expunge.php?return='.$mode.(isset($l['key_id']) ? '&return_key='.$l['key_id'] : '', true)?>"><?=__('expunge deleted bookmarks', true)?></a>
-				<a href="?mode=refcheck" rel="noreferrer"><?=__('check referrer', true)?></a>
-				<a href="?mode=bookmarklet"><?=__('bookmarklet', true)?></a>
 			</div>
 			<div class="handle"><?=__('navigation', true)?></div>
 		</div>
