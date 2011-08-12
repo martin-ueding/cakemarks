@@ -92,7 +92,7 @@ class BookmarksController extends AppController {
 		if (!strpos("://", $to_url)) {
 			$to_url = "http://".$to_url;
 		}
-		#$this->redirect($to_url);
+		$this->redirect($to_url);
 	}
 }
 ?>
