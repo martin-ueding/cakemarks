@@ -1,5 +1,5 @@
 <?php
-/* Bookmarks Test cases generated on: 2011-08-12 15:08:38 : 1313154578*/
+/* Bookmarks Test cases generated on: 2011-08-12 15:08:50 : 1313157050*/
 App::import('Controller', 'Bookmarks');
 
 class TestBookmarksController extends BookmarksController {
@@ -21,6 +21,46 @@ class BookmarksControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->Bookmarks);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
+	}
+
+	function testAdminIndex() {
+
+	}
+
+	function testAdminView() {
+
+	}
+
+	function testAdminAdd() {
+
+	}
+
+	function testAdminEdit() {
+
+	}
+
+	function testAdminDelete() {
+
 	}
 
 }
