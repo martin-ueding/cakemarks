@@ -13,8 +13,8 @@
 <?PHP
 echo $this->Html->link(__('home page', true), array());
 echo $this->Html->link(__('new bookmark', true), array('controller' => 'bookmarks', 'action' => 'add'));
-echo $this->Html->link(__('list bookmarks', true), array('controller' => 'bookmarks'));
-echo $this->Html->link(__('list keywords', true), array('controller' => 'keywords'));
+echo $this->Html->link(__('list bookmarks', true), array('controller' => 'bookmarks', 'action' => 'index'));
+echo $this->Html->link(__('list keywords', true), array('controller' => 'keywords', 'action' => 'index'));
 echo $this->Html->link(__('report a bug', true), "https://bugs.launchpad.net/personalphpbookmark/+filebug");
 ?>
 <hr />
