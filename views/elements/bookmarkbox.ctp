@@ -9,7 +9,7 @@
 <div class="content">
 <?PHP
 foreach ($bookmarks as $bookmark) {
-	echo $bookmark['Bookmark']['title'];
+	echo $this->Html->link($bookmark['Bookmark']['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['Bookmark']['id']), array('rel' => 'noreferrer'));
 	echo '<br />';
 }
 ?>
