@@ -67,5 +67,14 @@ class BookmarksController extends AppController {
 		$this->layout='custon';
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'))));
 	}
+
+	function visit($id) {
+		$to_visit = $this->Bookmark->find('first', array('conditions' => array('Bookmark.id' => $id)));
+		$to_url = $to_visit['Bookmark']['url'];
+		if (!strpos("://", $to_url)) {
+			$to_url = "http://".$to_url;
+		}
+		$this->redirect($to_url);
+	}
 }
 ?>
