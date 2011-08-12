@@ -31,6 +31,11 @@
 			<?php echo $bookmark['Bookmark']['revisit']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Reading List'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $bookmark['Bookmark']['reading_list']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -53,7 +58,7 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Bookmark Id'); ?></th>
-		<th><?php __('Time'); ?></th>
+		<th><?php __('Created'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -67,7 +72,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $visit['id'];?></td>
 			<td><?php echo $visit['bookmark_id'];?></td>
-			<td><?php echo $visit['time'];?></td>
+			<td><?php echo $visit['created'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'visits', 'action' => 'view', $visit['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'visits', 'action' => 'edit', $visit['id'])); ?>
