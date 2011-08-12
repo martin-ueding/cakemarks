@@ -3,16 +3,6 @@ class Visit extends AppModel {
 	var $name = 'Visit';
 	var $displayField = 'created';
 	var $validate = array(
-		'id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'bookmark_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
