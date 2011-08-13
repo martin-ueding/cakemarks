@@ -348,6 +348,7 @@ DIV.index TABLE TH {
 	font-weight: bold;
 	background-color: #ddd;
 	padding: 2px 20px;
+	border-bottom: 1px solid #aaa;
 }
 DIV.index TABLE TR:nth-child(odd) {
 	background-color: #eee;
