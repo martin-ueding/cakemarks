@@ -55,7 +55,7 @@ class BookmarksController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Bookmark->read(null, $id);
 		}
-		$keywords = $this->Bookmark->Keyword->find('list');
+		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
 	}
 
