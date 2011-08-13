@@ -12,6 +12,8 @@ class BookmarksController extends AppController {
 	}
 
 	function view($id = null) {
+		$this->layout = 'custom';
+
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
@@ -36,6 +38,8 @@ class BookmarksController extends AppController {
 	}
 
 	function edit($id = null) {
+		$this->layout = 'custom';
+
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
