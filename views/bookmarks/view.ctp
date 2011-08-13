@@ -9,9 +9,7 @@
 </div>
 <div class="related">
 <h3><?php __('Related Keywords');?></h3>
-<?php
-foreach ($bookmark['Keyword'] as $keyword):
-?>
+<?php foreach ($bookmark['Keyword'] as $keyword): ?>
 <td><?php echo $keyword['title'];?></td>
 <?php echo $this->Html->link(__('View', true), array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?>
 <?php endforeach; ?>
