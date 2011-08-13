@@ -6,7 +6,8 @@ class Bookmark extends AppModel {
 		'url' => array(
 			'url' => array(
 				'rule' => array('url'),
-				//'message' => 'Your custom message here',
+				// TODO i18n
+				'message' => 'Enter a valid URL',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

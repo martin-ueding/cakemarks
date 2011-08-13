@@ -359,3 +359,29 @@ DIV.index TABLE TD.number {
 DIV.index TABLE TD.checkmark {
 	text-align: center;
 }
+
+DIV.input {
+	margin: 20px 0;
+}
+DIV.input label {
+	display: block;
+
+}
+
+DIV.form DIV.checkbox label {
+	display: inline;
+}
+
+div.input div.checkbox {
+	float: left;
+	margin-right: 10px;
+}
+
+DIV.form div.submit {
+	padding-top: 20px;
+}
+
+div.form div.error-message {
+	color: #800;
+	font-weight: bold;
+}

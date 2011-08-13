@@ -20,6 +20,8 @@ class BookmarksController extends AppController {
 	}
 
 	function add() {
+		$this->layout = 'custom';
+
 		if (!empty($this->data)) {
 			$this->Bookmark->create();
 			if ($this->Bookmark->save($this->data)) {
