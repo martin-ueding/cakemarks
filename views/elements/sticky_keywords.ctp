@@ -13,5 +13,15 @@ foreach ($sticky_keywords as $keyword) {
 	echo '<div class="hhandle">'.$keyword['Keyword']['title'].'</div>';
 	echo '</div>';
 }
+echo '<div id="stats">';
+echo '<table>';
+// TODO fix format strings, remove HTML
+printf("<tr><td>%d</td><td>%s</td></tr>", $stats['bookmark_count'], __n('bookmark', 'bookmarks', $stats['bookmark_count'], true));
+printf("<tr><td>%d</td><td>%s</td></tr>", $stats['quote_count'], __n('quote', 'quotes', $stats['bookmark_count'], true));
+printf("<tr><td>%d</td><td>%s</td></tr>", $stats['visit_count'], __n('visit', 'visits', $stats['bookmark_count'], true));
+printf("<tr><td>%d</td><td>%s</td></tr>", $stats['keyword_count'], __n('keyword', 'keywords', $stats['bookmark_count'], true));
+
+echo '</table>';
+echo '</div>';
 echo '</div>';
 ?>

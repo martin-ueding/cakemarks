@@ -9,7 +9,7 @@ CREATE TABLE `cakemarks_bookmarks` (
   `revisit` int(11) DEFAULT NULL,
   `reading_list` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether this should be read at some point in time.',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Bookmarks for Webpages';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Bookmarks for Webpages';
 
 
 CREATE TABLE `cakemarks_bookmarks_keywords` (
@@ -17,7 +17,7 @@ CREATE TABLE `cakemarks_bookmarks_keywords` (
   `bookmark_id` int(10) unsigned NOT NULL,
   `keyword_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Relates Keywords to the Bookmarks';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Relates Keywords to the Bookmarks';
 
 
 CREATE TABLE `cakemarks_keywords` (
@@ -28,7 +28,7 @@ CREATE TABLE `cakemarks_keywords` (
   `parent_id` int(11) DEFAULT NULL,
   `sticky` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Keywords that describe Bookmarks';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Keywords that describe Bookmarks';
 
 
 CREATE TABLE `cakemarks_quotes` (
@@ -44,4 +44,4 @@ CREATE TABLE `cakemarks_visits` (
   `bookmark_id` int(10) unsigned NOT NULL,
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Visits of the Webpages the Bookmarks refer to';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Visits of the Webpages the Bookmarks refer to';

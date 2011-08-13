@@ -96,6 +96,14 @@ class BookmarksController extends AppController {
 			ORDER BY Visit.created DESC';
 
 		$this->set('recently_visited', $this->Bookmark->query($latest_query));
+
+		$stats = array(
+			'bookmark_count' => $this->Bookmark->find('count'),
+			'quote_count' => $this->Quote->find('count'),
+			'visit_count' => $this->Visit->find('count'),
+			'keyword_count' => $this->Keyword->find('count'),
+		);
+		$this->set('stats', $stats);
 	}
 
 	function visit($id) {
