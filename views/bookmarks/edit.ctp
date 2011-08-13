@@ -6,7 +6,7 @@
 		echo $this->Form->input('url', array('rows' => '1', 'cols' => '40'));
 		echo $this->Form->input('revisit');
 		echo $this->Form->input('reading_list');
-		echo $this->Form->input('Keyword');
+		echo $this->Form->input('Keyword', array('multiple' => 'checkbox'));
 		echo '<div class="clearheinz"></div>';
 	?>
 <?php echo $this->Form->end(__('Submit', true));?>
