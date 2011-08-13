@@ -2,10 +2,7 @@
 	<h2><?php __('Keywords');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th><?php echo $this->Paginator->sort('parent_id');?></th>
 			<th><?php echo $this->Paginator->sort('sticky');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -19,14 +16,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $keyword['Keyword']['id']; ?>&nbsp;</td>
 		<td><?php echo $keyword['Keyword']['title']; ?>&nbsp;</td>
-		<td><?php echo $keyword['Keyword']['created']; ?>&nbsp;</td>
-		<td><?php echo $keyword['Keyword']['modified']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($keyword['ParentKeyword']['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['ParentKeyword']['id'])); ?>
 		</td>
-		<td><?php echo $keyword['Keyword']['sticky']; ?>&nbsp;</td>
+			<td><?php if ($keyword['Keyword']['sticky']) echo '✓'; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $keyword['Keyword']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $keyword['Keyword']['id'])); ?>
@@ -48,14 +42,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Keyword', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Keywords', true), array('controller' => 'keywords', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Keyword', true), array('controller' => 'keywords', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Bookmarks', true), array('controller' => 'bookmarks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Bookmark', true), array('controller' => 'bookmarks', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

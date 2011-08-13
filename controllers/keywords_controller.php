@@ -4,11 +4,14 @@ class KeywordsController extends AppController {
 	var $name = 'Keywords';
 
 	function index() {
+		$this->layout = 'custom';
+
 		$this->Keyword->recursive = 0;
 		$this->set('keywords', $this->paginate());
 	}
 
 	function view($id = null) {
+
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid keyword', true));
 			$this->redirect(array('action' => 'index'));

@@ -337,3 +337,17 @@ A.bookmarklet {
 	padding: 3px 5px;
 }
 
+
+DIV.index TABLE {
+	border-collapse: collapse;
+}
+DIV.index TABLE TD {
+	padding: 2px 20px;
+}
+DIV.index TABLE TH {
+	font-weight: bold;
+	background-color: #ddd;
+}
+DIV.index TABLE TR:nth-child(odd) {
+	background-color: #eee;
+}
