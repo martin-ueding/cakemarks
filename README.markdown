@@ -45,3 +45,5 @@ TODO
 * add keywords tree
 * redirect to the page where the edit was requested after the edit
 * add flash message spots in main layout
+* automatically fetch the page title if left blank
+* add a quick add box to the startscreen
