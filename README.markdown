@@ -35,3 +35,11 @@ Requirements
 * Webspace
 * PHP
 * MySQL
+
+
+TODO
+====
+
+* create new keywords while adding a new bookmark
+* show revisit bookmarks on the startscreen
+* add keywords tree

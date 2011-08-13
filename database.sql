@@ -9,7 +9,7 @@ CREATE TABLE `cakemarks_bookmarks` (
   `revisit` int(11) DEFAULT NULL,
   `reading_list` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether this should be read at some point in time.',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=787 DEFAULT CHARSET=utf8 COMMENT='Bookmarks for Webpages';
+) ENGINE=InnoDB AUTO_INCREMENT=784 DEFAULT CHARSET=utf8 COMMENT='Bookmarks for Webpages';
 
 
 CREATE TABLE `cakemarks_bookmarks_keywords` (
@@ -17,7 +17,7 @@ CREATE TABLE `cakemarks_bookmarks_keywords` (
   `bookmark_id` int(10) unsigned NOT NULL,
   `keyword_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=349 DEFAULT CHARSET=utf8 COMMENT='Relates Keywords to the Bookmarks';
+) ENGINE=InnoDB AUTO_INCREMENT=334 DEFAULT CHARSET=utf8 COMMENT='Relates Keywords to the Bookmarks';
 
 
 CREATE TABLE `cakemarks_keywords` (
