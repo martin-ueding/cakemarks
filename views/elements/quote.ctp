@@ -1,7 +1,10 @@
 <?PHP
 echo '<div id="quote">';
 echo '<p id="quote_paragraph">';
-echo $quote['text'].' -- '.$quote['author'];
+echo $quote['text'];
+if (!empty($quote['author'])) {
+	echo ' -- '.$quote['author'];
+}
 echo '</p>';
 echo '</div>';
 
