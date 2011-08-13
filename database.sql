@@ -17,7 +17,7 @@ CREATE TABLE `cakemarks_bookmarks_keywords` (
   `bookmark_id` int(10) unsigned NOT NULL,
   `keyword_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Relates Keywords to the Bookmarks';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Relates Keywords to the Bookmarks';
 
 
 CREATE TABLE `cakemarks_keywords` (

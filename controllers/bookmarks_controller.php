@@ -75,14 +75,27 @@ class BookmarksController extends AppController {
 				'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id')))
 		)));
 
-		# TODO last visited
-
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'))));
 
 		$this->set('quote', $this->Quote->find('first', array('order' => array('rand()'))));
 
 		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 
+		$latest_query = '
+			SELECT Bookmark.id, Bookmark.title, Visit.created
+			FROM (
+				SELECT *
+				FROM (
+					SELECT *
+					FROM cakemarks_visits
+					ORDER BY cakemarks_visits.created DESC
+				) sorted_visits
+				GROUP BY bookmark_id
+			) Visit
+			JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
+			ORDER BY Visit.created DESC';
+
+		$this->set('recently_visited', $this->Bookmark->query($latest_query));
 	}
 
 	function visit($id) {
