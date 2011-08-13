@@ -31,7 +31,7 @@ class BookmarksController extends AppController {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
-		$keywords = $this->Bookmark->Keyword->find('list');
+		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
 	}
 
