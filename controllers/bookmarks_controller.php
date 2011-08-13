@@ -73,19 +73,25 @@ class BookmarksController extends AppController {
 	}
 
 	function startscreen() {
+		$limit = 30;
+
 		$this->layout='custom';
-		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1))));
+		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
 
 		$this->set('most_visits', $this->Bookmark->find('all', array(
 			'fields' => array('Bookmark.id', 'Bookmark.title', 'count(Bookmark.id)'),
 			'group' => 'cakemarks_visits.bookmark_id',
 			'joins' => array(array('table' => 'cakemarks_visits',
-				'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id')))
-		)));
+			'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id'))
+		),
+		'limit' => $limit,
 
-		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'))));
 
-		$this->set('quote', $this->Quote->find('first', array('order' => array('rand()'))));
+	)));
+
+		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
+
+		$this->set('quote', $this->Quote->find('first', array('order' => array('rand()'), 'limit' => $limit)));
 
 		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 
@@ -101,7 +107,8 @@ class BookmarksController extends AppController {
 				GROUP BY bookmark_id
 			) Visit
 			JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
-			ORDER BY Visit.created DESC';
+			ORDER BY Visit.created DESC
+			LIMIT '.$limit;
 
 		$this->set('recently_visited', $this->Bookmark->query($latest_query));
 
