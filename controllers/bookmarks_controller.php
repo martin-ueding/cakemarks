@@ -129,7 +129,7 @@ class BookmarksController extends AppController {
 		$this->Visit->save($visit);
 
 		$to_url = $to_visit['Bookmark']['url'];
-		if (!strpos("://", $to_url)) {
+		if (!strpos($to_url, "://")) {
 			$to_url = "http://".$to_url;
 		}
 		$this->redirect($to_url);
