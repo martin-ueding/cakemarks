@@ -1,7 +1,7 @@
 <div id="navigation">
 <div class="padding unfold">
 <?PHP
-echo $this->Html->link(__('home page', true), array());
+echo $this->Html->link(__('home page', true), array('controller' => null));
 echo $this->Html->link(__('new bookmark', true), array('controller' => 'bookmarks', 'action' => 'add'));
 echo $this->Html->link(__('list bookmarks', true), array('controller' => 'bookmarks', 'action' => 'index'));
 echo $this->Html->link(__('list keywords', true), array('controller' => 'keywords', 'action' => 'index'));
