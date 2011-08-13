@@ -1,6 +1,9 @@
 <?PHP
+// Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
 echo $this->element('quote', array('quote' => $quote['Quote']));
+
+echo $this->element('sticky_keywords', array('sticky_keywords' => $sticky_keywords));
 
 echo $this->element('bookmarkbox', array('title' => __("reading list", true), 'bookmarks' => $reading_list));
 echo $this->element('bookmarkbox', array('title' => __("newest", true), 'bookmarks' => $newest));
