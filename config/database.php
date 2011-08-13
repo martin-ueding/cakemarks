@@ -91,5 +91,6 @@ class DATABASE_CONFIG {
 		'password' => 'testing',
 		'database' => 'cakemarks',
 		'prefix' => 'cakemarks_',
+		'encoding' => 'utf8',
 	);
 }
