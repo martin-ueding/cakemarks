@@ -44,4 +44,4 @@ CREATE TABLE `cakemarks_visits` (
   `bookmark_id` int(10) unsigned NOT NULL,
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Visits of the Webpages the Bookmarks refer to';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Visits of the Webpages the Bookmarks refer to';
