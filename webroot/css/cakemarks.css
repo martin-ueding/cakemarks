@@ -142,6 +142,22 @@ DIV.thumb_wvl {
 	margin: 5px 0px 0px 8px;
 }
 
+#sticky_keywords {
+	color: #000000;
+	left: 0px;
+	position: absolute;
+	top: 30px;
+}
+#sticky_keywords A {
+	color: #000;
+	margin: 0 15px 0 0;
+	padding: 0px;
+	text-decoration: none;
+}
+#sticky_keywords A:hover {
+	background-color: #CCC;
+}
+
 .sticky_keyword {
 	clear: both;
 	height: 28px;

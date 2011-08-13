@@ -19,10 +19,10 @@ $(document).ready(function() {
 		$("#add .hunfold_right").toggle(300);
 	});
 
-	$(".nav_item .hhandle").click(function() {
+	$(".sticky_keyword .hhandle").click(function() {
 		$(this).parent().children(".hunfold").toggle(200);
 	});
-	$(".nav_item").mouseleave(function() {
+	$(".sticky_keyword").mouseleave(function() {
 		$(this).children(".hunfold").hide(300);
 	});
 });

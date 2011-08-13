@@ -2,7 +2,7 @@
 class BookmarksController extends AppController {
 
 	var $name = 'Bookmarks';
-	var $uses = array('Bookmark', 'Visit', 'Quote');
+	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
 
 	function index() {
 		$this->Bookmark->recursive = 0;
@@ -80,6 +80,8 @@ class BookmarksController extends AppController {
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'))));
 
 		$this->set('quote', $this->Quote->find('first', array('order' => array('rand()'))));
+
+		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 
 	}
 
