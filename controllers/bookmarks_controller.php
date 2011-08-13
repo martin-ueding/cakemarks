@@ -5,6 +5,8 @@ class BookmarksController extends AppController {
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
 
 	function index() {
+		$this->layout = 'custom';
+
 		$this->Bookmark->recursive = 0;
 		$this->set('bookmarks', $this->paginate());
 	}

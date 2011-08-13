@@ -2,7 +2,6 @@
 	<h2><?php __('Bookmarks');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('title');?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
@@ -20,13 +19,12 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $bookmark['Bookmark']['id']; ?>&nbsp;</td>
 		<td><?php echo $bookmark['Bookmark']['title']; ?>&nbsp;</td>
 		<td><?php echo $bookmark['Bookmark']['url']; ?>&nbsp;</td>
 		<td><?php echo $bookmark['Bookmark']['created']; ?>&nbsp;</td>
 		<td><?php echo $bookmark['Bookmark']['modified']; ?>&nbsp;</td>
-		<td><?php echo $bookmark['Bookmark']['revisit']; ?>&nbsp;</td>
-		<td><?php echo $bookmark['Bookmark']['reading_list']; ?>&nbsp;</td>
+		<td class="number"><?php echo $bookmark['Bookmark']['revisit']; ?>&nbsp;</td>
+		<td class="checkmark"><?php if ($bookmark['Bookmark']['reading_list']) echo '✓'; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $bookmark['Bookmark']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $bookmark['Bookmark']['id'])); ?>
@@ -48,14 +46,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Bookmark', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Visits', true), array('controller' => 'visits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Visit', true), array('controller' => 'visits', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Keywords', true), array('controller' => 'keywords', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Keyword', true), array('controller' => 'keywords', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

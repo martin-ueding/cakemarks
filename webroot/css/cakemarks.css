@@ -347,7 +347,14 @@ DIV.index TABLE TD {
 DIV.index TABLE TH {
 	font-weight: bold;
 	background-color: #ddd;
+	padding: 2px 20px;
 }
 DIV.index TABLE TR:nth-child(odd) {
 	background-color: #eee;
+}
+DIV.index TABLE TD.number {
+	text-align: right;
+}
+DIV.index TABLE TD.checkmark {
+	text-align: center;
 }

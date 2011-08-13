@@ -11,7 +11,6 @@ class KeywordsController extends AppController {
 	}
 
 	function view($id = null) {
-
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid keyword', true));
 			$this->redirect(array('action' => 'index'));
