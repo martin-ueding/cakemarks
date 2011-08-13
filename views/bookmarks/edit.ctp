@@ -2,6 +2,7 @@
 <?php echo $this->Form->create('Bookmark');?>
  		<legend><?php __('Edit Bookmark'); ?></legend>
 	<?php
+		echo $this->Form->input('id');
 		echo $this->Form->input('title', array('rows' => '1', 'cols' => '40'));
 		echo $this->Form->input('url', array('rows' => '1', 'cols' => '40'));
 		echo $this->Form->input('revisit');
