@@ -43,4 +43,3 @@ TODO
 * create new keywords while adding a new bookmark
 * add keywords tree
 * redirect to the page where the edit was requested after the edit
-* add flash message spots in main layout
