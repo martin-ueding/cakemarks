@@ -112,6 +112,27 @@ class BookmarksController extends AppController {
 
 		$this->set('recently_visited', $this->Bookmark->query($latest_query));
 
+
+		$revisit_query = '
+			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Bookmark.revisit, Visit.created
+				FROM (
+				SELECT *
+				FROM (
+					SELECT *
+					FROM cakemarks_visits
+					ORDER BY cakemarks_visits.created DESC
+				) sorted_visits
+				GROUP BY bookmark_id
+			) Visit
+			JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
+			WHERE Visit.created IS NOT NULL
+			&& Bookmark.revisit IS NOT NULL
+			&& (Bookmark.revisit + Visit.created*3600) < now()
+			ORDER BY Visit.created DESC
+			LIMIT '.$limit;
+
+		$this->set('revisit', $this->Bookmark->query($revisit_query));
+
 		$stats = array(
 			'bookmark_count' => $this->Bookmark->find('count'),
 			'quote_count' => $this->Quote->find('count'),
