@@ -1,13 +1,10 @@
-<?PHP
-echo '<div id="quote">';
-echo '<p id="quote_paragraph">';
-echo $quote['text'];
-if (!empty($quote['author'])) {
-	echo ' -- '.$quote['author'];
-}
-echo '</p>';
-echo '</div>';
+<div id="quote">
+<p id="quote_paragraph">
+<?=$quote['text']?>
+<? if (!empty($quote['author'])): ?>
+	-- <?=$quote['author']?>
+<? endif; ?>
+</p>
+</div>
 
-# TODO put this in CSS
-echo '<div style="clear: both;"></div>';
-?>
+<div class="clearheinz"></div>
