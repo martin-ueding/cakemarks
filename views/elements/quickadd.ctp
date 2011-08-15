@@ -6,6 +6,6 @@
 		<?=$this->Form->input('title', array('rows' => '1', 'cols' => '20'))?>
 		<?=$this->Form->input('url', array('rows' => '1', 'cols' => '20'))?>
 		<?=$this->Form->input('reading_list')?>
-		<?=$this->Form->end(__('Submit', true))?>
+		<?=$this->Form->end(__('Create Bookmark', true))?>
 	</div>
 </div>

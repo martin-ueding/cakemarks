@@ -163,3 +163,9 @@ DIV#keyword_tree {
 	padding-right: 10px;
 	border: 1px solid #888;
 }
+
+DIV#quickadd {
+	border: 1px solid #888;
+	float: left;
+	padding: 5px;
+}

@@ -16,4 +16,5 @@
 <?=$this->element('bookmarkbox', array('title' => __("most visits", true), 'bookmarks' => $most_visits))?>
 <?=$this->element('bookmarkbox', array('title' => __("recently visited", true), 'bookmarks' => $recently_visited))?>
 <?=$this->element('bookmarkbox', array('title' => __("newest", true), 'bookmarks' => $newest))?>
+
 <?=$this->element('quickadd')?>
