@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<?=$this->element('navigation')?>
-<?=$this->Session->flash()?>
+		<?=$this->Session->flash()?>
 
 		<?=$content_for_layout?>
 	</body>
