@@ -157,3 +157,9 @@ DIV.index TABLE TD.number {
 DIV.index TABLE TD.checkmark {
 	text-align: center;
 }
+
+DIV#keyword_tree {
+	float: right;
+	padding-right: 10px;
+	border: 1px solid #888;
+}
