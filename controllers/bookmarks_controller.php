@@ -115,7 +115,6 @@ class BookmarksController extends AppController {
 
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
 
-		$this->set('quote', $this->Quote->find('first', array('order' => array('rand()'), 'limit' => $limit)));
 
 		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 

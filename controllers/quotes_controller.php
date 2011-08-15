@@ -58,5 +58,9 @@ class QuotesController extends AppController {
 		$this->Session->setFlash(__('Quote was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	function random() {
+		return $this->Quote->find('first', array('order' => array('rand()')));
+	}
 }
 ?>

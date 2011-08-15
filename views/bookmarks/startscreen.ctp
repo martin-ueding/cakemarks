@@ -1,6 +1,6 @@
 <? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<?=$this->element('quote', array('quote' => $quote['Quote']))?>
+<?=$this->element('quote')?>
 
 <div id="keyword_tree">
 	<?=$this->element('keyword_tree', array('show_edit' => false))?>
