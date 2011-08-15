@@ -2,7 +2,7 @@
 
 <div id="quickadd">
 	<div class="form">
-		<?=$this->Form->create('Bookmark')?>
+		<?=$this->Form->create('Bookmark', array('action' => 'add'))?>
 		<?=$this->Form->input('title', array('rows' => '1', 'cols' => '20'))?>
 		<?=$this->Form->input('url', array('rows' => '1', 'cols' => '20'))?>
 		<?=$this->Form->input('reading_list')?>
