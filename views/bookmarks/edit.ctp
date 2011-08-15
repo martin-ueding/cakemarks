@@ -1,3 +1,4 @@
+<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 <div class="bookmarks form">
 	<?=$this->Form->create('Bookmark')?>
 	<legend><?=__('Edit Bookmark', true)?></legend>

@@ -1,4 +1,6 @@
 <?php
+// Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
+
 class KeywordsController extends AppController {
 
 	var $name = 'Keywords';
