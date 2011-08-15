@@ -1,3 +1,4 @@
+<?debug($this->data);?>
 <div class="bookmarks form">
 	<?=$this->Form->create('Bookmark')?>
 	<legend><?=__('Edit Bookmark', true)?></legend>
@@ -7,6 +8,7 @@
 	<?=$this->Form->input('revisit')?>
 	<?=$this->Form->input('reading_list')?>
 	<?=$this->Form->input('Keyword', array('multiple' => 'checkbox'))?>
+	<?=$this->Form->input('Keyword.title')?>
 	<div class="clearheinz"></div>
 	<?=$this->Form->end(__('Submit', true))?>
 

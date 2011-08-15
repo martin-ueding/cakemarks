@@ -61,6 +61,7 @@ class BookmarksController extends AppController {
 
 	function edit($id = null) {
 		$this->layout = 'custom';
+			debug($this->data);
 
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
@@ -68,8 +69,14 @@ class BookmarksController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Bookmark->save($this->data)) {
+				$this->Keyword->set('title', $this->data['Keyword']['title']);
+				$this->Keyword->set('Bookmark', array('id' => $this->data['Bookmark']['id']));
+				//debug($this->Keyword);
+				if ($this->Keyword->save()) {
+
 				$this->Session->setFlash(__('The bookmark has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				}
 			} else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
