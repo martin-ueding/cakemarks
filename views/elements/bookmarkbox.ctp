@@ -7,7 +7,7 @@
 		<? foreach ($bookmarks as $bookmark): ?>
 			<tr>
 				<td>
-				<?=this->Html->link($bookmark['Bookmark']['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['Bookmark']['id']), array('rel' => 'noreferrer'))?>
+				<?=$this->Html->link($bookmark['Bookmark']['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['Bookmark']['id']), array('rel' => 'noreferrer'))?>
 				</td>
 				<td>
 				<?=$this->Html->image('edit.png',

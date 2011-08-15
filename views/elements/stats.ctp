@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 			<td><?=$stats['visit_count']?></td>
-			<td><?=__n('visit', 'visits', $stats['visits_count'], true)?></td>
+			<td><?=__n('visit', 'visits', $stats['visit_count'], true)?></td>
 		</tr>
 		<tr>
 			<td><?=$stats['keyword_count']?></td>
