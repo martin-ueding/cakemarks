@@ -2,7 +2,7 @@
 <ul>
 <?
 
-$keywords = $this->requestAction(array('controller' => 'keywords', 'action' => 'tree'));
+$keywords = $this->requestAction(array('controller' => 'keywords', 'action' => 'tree'), array('cache' => '+5 min'));
 
 function traverse_tree($tree, $that, $show_edit) {
 	foreach ($tree as $node) {
