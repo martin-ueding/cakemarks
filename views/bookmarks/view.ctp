@@ -1,3 +1,5 @@
+<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
 <div class="bookmarks_view">
 <h2><?php  __('Bookmark');?></h2>
 <p class="title"><?=$bookmark['Bookmark']['title']?></p>
@@ -11,24 +13,20 @@ if (!empty($bookmark['Bookmark']['revisit'])) {
 }
 
 ?>
-<?  if ($bookmark['Bookmark']['reading_list']): ?>
-<p class="reading_list">
-This is on your reading list.
-</p>
-
+<? if ($bookmark['Bookmark']['reading_list']): ?>
+	<p class="reading_list">This is on your reading list.</p>
 <? endif; ?>
-<h3><?php __('Keywords');?></h3>
+
+<h3><? __('Keywords');?></h3>
 <ul>
-<?php foreach ($bookmark['Keyword'] as $keyword): ?>
-<li>
-<?=$this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])) ?>
-</li>
-<?php endforeach; ?>
+<? foreach ($bookmark['Keyword'] as $keyword): ?>
+	<li>
+	<?=$this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])) ?>
+	</li>
+<? endforeach; ?>
 </ul>
 
 <?=$this->Html->link(__('edit', true), array('action' => 'edit', $bookmark['Bookmark']['id']))?>
 
-<?
-echo '<p class="created">Created: '.$bookmark['Bookmark']['created'].'</p>';
-echo '<p class="modified">Modified: '.$bookmark['Bookmark']['modified'].'</p>';
-?>
+<p class="created"><?=__('Created', true)?>: <?=$bookmark['Bookmark']['created']?></p>
+<p class="modified"><?=__('Modified', true)?>: <?=$bookmark['Bookmark']['modified']?></p>
