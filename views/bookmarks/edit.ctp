@@ -9,4 +9,7 @@
 	<?=$this->Form->input('Keyword', array('multiple' => 'checkbox'))?>
 	<div class="clearheinz"></div>
 	<?=$this->Form->end(__('Submit', true))?>
+
+
+	<p class="delete"><?=$this->Html->link(__('Delete', true), array('action' => 'delete', $this->data['Bookmark']['id']), null, sprintf(__('Are you sure you want to delete this bookmark?', true), $this->data['Bookmark']['id'])) ?></p>
 </div>
