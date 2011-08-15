@@ -3,7 +3,7 @@
 <?=$this->element('quote', array('quote' => $quote['Quote']))?>
 
 <div id="keyword_tree">
-	<?=$this->element('keyword_tree', array('keywords' => $keyword_tree, 'show_edit' => false))?>
+	<?=$this->element('keyword_tree', array('show_edit' => false))?>
 </div>
 
 

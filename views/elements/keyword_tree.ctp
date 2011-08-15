@@ -1,6 +1,9 @@
 <?  // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> ?>
 <ul>
 <?
+
+$keywords = $this->requestAction(array('controller' => 'keywords', 'action' => 'tree'));
+
 function traverse_tree($tree, $that, $show_edit) {
 	foreach ($tree as $node) {
 		echo '<li>';

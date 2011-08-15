@@ -8,12 +8,20 @@ class KeywordsController extends AppController {
 	function index() {
 		$this->Keyword->recursive = 0;
 		$this->layout = 'custom';
-		$this->set('keyword_tree', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
+	}
+
+	function tree() {
+		$keyword_tree = $this->Keyword->find('threaded', array('order' => 'Keyword.title'));
+		if (!empty($this->params['requested'])) {
+			return $keyword_tree;
+		}
+		else {
+			$this->set(compact('keyword_tree'));
+		}
 	}
 
 	function view($id = null) {
 		$this->layout = 'custom';
-		$this->set('keyword_tree', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid keyword', true));
 			$this->redirect(array('action' => 'index'));
