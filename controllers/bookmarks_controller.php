@@ -26,6 +26,12 @@ class BookmarksController extends AppController {
 
 		if (!empty($this->data)) {
 			$this->Bookmark->create();
+
+			// add page title if missing
+			if (empty($this->data['Bookmark']['title'])) {
+				$this->data['Bookmark']['title'] = $this->_get_page_title($this->data['Bookmark']['url']);
+			}
+
 			if ($this->Bookmark->save($this->data)) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -35,6 +41,22 @@ class BookmarksController extends AppController {
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
+	}
+
+	function _get_page_title($url) {
+		// append the http in case it is missing
+		if (substr($url, 0, 4) != 'http') {
+			$url = 'http://'.$url;
+		}
+
+		$data = file_get_contents($url);
+
+		preg_match('/<title>(.*?)<\/title>/', $data, $matches);
+		if (isset($matches[1])) {
+			$titel = $matches[1];
+			return $titel;
+		}
+		return null;
 	}
 
 	function edit($id = null) {
