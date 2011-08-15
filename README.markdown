@@ -40,5 +40,4 @@ Requirements
 TODO
 ====
 
-* create new keywords while adding a new bookmark
 * redirect to the page where the edit was requested after the edit
