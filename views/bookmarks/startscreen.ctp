@@ -12,3 +12,4 @@
 <?=$this->element('bookmarkbox', array('title' => __("recently visited", true), 'bookmarks' => $recently_visited))?>
 <?=$this->element('bookmarkbox', array('title' => __("newest", true), 'bookmarks' => $newest))?>
 <?=$this->element('quickadd')?>
+<?=$this->element('keyword_tree', array('keywords' => $keyword_tree, 'show_edit' => false))?>

@@ -4,12 +4,9 @@ class KeywordsController extends AppController {
 	var $name = 'Keywords';
 
 	function index() {
-		$this->layout = 'custom';
-
 		$this->Keyword->recursive = 0;
-		$this->set('keywords', $this->paginate());
-
-		$this->set('my', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
+		$this->layout = 'custom';
+		$this->set('keyword_tree', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
 	}
 
 	function view($id = null) {
