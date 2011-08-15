@@ -8,6 +8,8 @@ class KeywordsController extends AppController {
 
 		$this->Keyword->recursive = 0;
 		$this->set('keywords', $this->paginate());
+
+		$this->set('my', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
 	}
 
 	function view($id = null) {
