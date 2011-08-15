@@ -1,14 +1,12 @@
 <div class="bookmarks form">
-<?php echo $this->Form->create('Bookmark');?>
- 		<legend><?php __('Edit Bookmark'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('title', array('rows' => '1', 'cols' => '40'));
-		echo $this->Form->input('url', array('rows' => '1', 'cols' => '40'));
-		echo $this->Form->input('revisit');
-		echo $this->Form->input('reading_list');
-		echo $this->Form->input('Keyword', array('multiple' => 'checkbox'));
-		echo '<div class="clearheinz"></div>';
-	?>
-<?php echo $this->Form->end(__('Submit', true));?>
+	<?=$this->Form->create('Bookmark')?>
+	<legend><?=__('Edit Bookmark', true)?></legend>
+	<?=$this->Form->input('id')?>
+	<?=$this->Form->input('title', array('rows' => '1', 'cols' => '40'))?>
+	<?=$this->Form->input('url', array('rows' => '1', 'cols' => '40'))?>
+	<?=$this->Form->input('revisit')?>
+	<?=$this->Form->input('reading_list')?>
+	<?=$this->Form->input('Keyword', array('multiple' => 'checkbox'))?>
+	<div class="clearheinz"></div>
+	<?=$this->Form->end(__('Submit', true))?>
 </div>

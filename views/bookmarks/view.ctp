@@ -21,7 +21,7 @@ This is on your reading list.
 <ul>
 <?php foreach ($bookmark['Keyword'] as $keyword): ?>
 <li>
-<?php echo $this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?>
+<?=$this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])) ?>
 </li>
 <?php endforeach; ?>
 </ul>
