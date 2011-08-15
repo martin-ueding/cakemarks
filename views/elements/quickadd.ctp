@@ -1,0 +1,11 @@
+<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
+<div id="quickadd">
+	<div class="form">
+		<?=$this->Form->create('Bookmark')?>
+		<?=$this->Form->input('title', array('rows' => '1', 'cols' => '20'))?>
+		<?=$this->Form->input('url', array('rows' => '1', 'cols' => '20'))?>
+		<?=$this->Form->input('reading_list')?>
+		<?=$this->Form->end(__('Submit', true))?>
+	</div>
+</div>
