@@ -10,6 +10,8 @@ class KeywordsController extends AppController {
 	}
 
 	function view($id = null) {
+		$this->layout = 'custom';
+		$this->set('keyword_tree', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid keyword', true));
 			$this->redirect(array('action' => 'index'));
