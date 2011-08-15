@@ -79,7 +79,7 @@ class BookmarksController extends AppController {
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
 
 		$this->set('most_visits', $this->Bookmark->find('all', array(
-			'fields' => array('Bookmark.id', 'Bookmark.title', 'count(Bookmark.id)'),
+			'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'count(Bookmark.id)'),
 			'group' => 'cakemarks_visits.bookmark_id',
 			'joins' => array(array('table' => 'cakemarks_visits',
 			'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id'))
@@ -96,7 +96,7 @@ class BookmarksController extends AppController {
 		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 
 		$latest_query = '
-			SELECT Bookmark.id, Bookmark.title, Visit.created
+			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Visit.created
 			FROM (
 				SELECT *
 				FROM (
