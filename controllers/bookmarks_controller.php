@@ -97,8 +97,6 @@ class BookmarksController extends AppController {
 	function startscreen() {
 		$limit = 30;
 
-		$this->set('keyword_tree', $this->Keyword->find('threaded', array('order' => 'Keyword.title')));
-
 		$this->layout='custom';
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
 
