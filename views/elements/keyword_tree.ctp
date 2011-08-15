@@ -1,6 +1,6 @@
+<?  // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> ?>
+<ul>
 <?
-// Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
-
 function traverse_tree($tree, $that, $show_edit) {
 	foreach ($tree as $node) {
 		echo '<li>';
@@ -15,7 +15,7 @@ function traverse_tree($tree, $that, $show_edit) {
 
 		if (!empty($node['children'])) {
 			echo '<ul>';
-			traverse_tree($node['children'], $that);
+			traverse_tree($node['children'], $that, $show_edit);
 			echo '</ul>';
 		}
 		echo '</li>';
@@ -24,3 +24,4 @@ function traverse_tree($tree, $that, $show_edit) {
 
 traverse_tree($keywords, $this, $show_edit);
 ?>
+</ul>
