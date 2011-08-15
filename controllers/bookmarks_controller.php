@@ -127,7 +127,7 @@ class BookmarksController extends AppController {
 			JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
 			WHERE Visit.created IS NOT NULL
 			&& Bookmark.revisit IS NOT NULL
-			&& (Bookmark.revisit + Visit.created*3600) < now()
+			&& (Bookmark.revisit*3600 + Visit.created) < now()
 			ORDER BY Visit.created DESC
 			LIMIT '.$limit;
 
