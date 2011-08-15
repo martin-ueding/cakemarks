@@ -1,3 +1,5 @@
+<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
 <div id="navigation">
 	<div class="padding unfold">
 		<?=$this->Html->link(__('home page', true), array('controller' => 'bookmarks', 'action' => 'startscreen'))?>

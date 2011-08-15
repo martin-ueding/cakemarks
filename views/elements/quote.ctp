@@ -1,3 +1,5 @@
+<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
 <div id="quote">
 <p id="quote_paragraph">
 <?=$quote['text']?>
