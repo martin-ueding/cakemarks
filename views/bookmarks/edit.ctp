@@ -1,4 +1,3 @@
-<?debug($this->data);?>
 <div class="bookmarks form">
 	<?=$this->Form->create('Bookmark')?>
 	<legend><?=__('Edit Bookmark', true)?></legend>
