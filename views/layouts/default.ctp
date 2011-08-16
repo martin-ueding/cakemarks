@@ -17,18 +17,18 @@
 		</div>
 
 
+		<left>
 		<?=$this->element('sticky_keywords',
 			array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
 		<?=$this->element('quickadd')?>
+		</left>
 
-		<div id="page">
-			<div id="middle">
-				<?=$this->Session->flash()?>
+		<middle>
+			<?=$this->Session->flash()?>
 
-				<?=$content_for_layout?>
-			</div>
+			<?=$content_for_layout?>
+		</middle>
 
-			<?=$this->element('stats')?>
-		</div>
+		<?=$this->element('stats')?>
 	</body>
 </html>

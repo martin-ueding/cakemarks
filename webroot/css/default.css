@@ -123,7 +123,6 @@ div.toolbar_unfold {
 /* */
 div.hhandle {
 	height: 25px;
-	background-color: rgb(255,238,214);
 	cursor: pointer;
 	height: 23px;
 	padding-top: 2px;
@@ -147,4 +146,16 @@ div.hunfold A:HOVER {
 }
 div.hunfold {
 	display: none;
+	background-color: #fff;
+	border-right: 1px solid rgb(255,238,214);
+}
+
+middle {
+	float: left;
+	border: 1px solid red;
+}
+
+left {
+	float: left;
+	background-color: rgb(255,238,214);
 }
