@@ -6,8 +6,7 @@ body {
 }
 
 #toolbar, div.toolbar_handle {
-	height: 25px;
-
+	color: #000;
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
@@ -15,13 +14,12 @@ body {
 		color-stop(0.45, rgb(240,145,3)),
 		color-stop(0.71, rgb(242,182,78))
 	);
-		background-image: -moz-linear-gradient(
+	background-image: -moz-linear-gradient(
 		center bottom,
 		rgb(240,145,3) 45%,
 		rgb(242,182,78) 71%
 	);
-
-	color: #000;
+	height: 25px;
 }
 
 div.toolbar_handle:hover {
@@ -37,14 +35,13 @@ div.toolbar_handle:hover {
 		rgb(227,132,0) 45%,
 		rgb(242,182,78) 71%
 	);
-
 }
 
 #logo {
-	float: left;
-	padding: 2px 10px;
 	color: #FFF;
+	float: left;
 	font-weight: bold;
+	padding: 2px 10px;
 }
 
 #navigation {
@@ -71,10 +68,10 @@ div.toolbar_unfold A:HOVER {
 div.toolbar_handle {
 	color: #FFF;
 	cursor: pointer;
-	text-align: center;
-	padding-top: 2px;
-	height: 23px;
 	font-weight: bold;
+	height: 23px;
+	padding-top: 2px;
+	text-align: center;
 }
 div.toolbar_unfold {
 	background-color: #FFF;
