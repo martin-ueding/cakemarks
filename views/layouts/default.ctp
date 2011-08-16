@@ -30,6 +30,7 @@
 
 			<middle>
 				<?=$content_for_layout?>
+				<footer></footer>
 			</middle>
 
 			<?=$this->element('stats')?>

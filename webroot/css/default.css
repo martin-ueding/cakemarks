@@ -153,16 +153,19 @@ div.hunfold {
 	border-right: 1px solid rgb(255,238,214);
 }
 
-left, middle, right {
+left, right {
 	padding-bottom:32767px;
 	margin-bottom:-32767px;
 }
 
 middle {
-	float: left;
 	padding-top: 30px;
 	padding-left: 30px;
 	padding-right: 30px;
+	margin: 0px 150px 0 150px;
+	border: 1px solid blue;
+	background-color: #ff8;
+	width: 400px;
 }
 
 left {
