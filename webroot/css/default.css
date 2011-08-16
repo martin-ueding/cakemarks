@@ -80,3 +80,15 @@ div.toolbar_unfold {
 	border-width: 0px 1px 0px 1px;
 	display: none;
 }
+
+#keyword_tree {
+	float: right;
+	padding: 10px;
+	border: 1px solid rgb(240,145,3);
+}
+#keyword_tree li {
+	list-style: none inside;
+}
+#keyword_tree ul {
+	margin: 0px;
+}

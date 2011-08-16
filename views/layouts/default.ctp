@@ -12,6 +12,8 @@
 		<?=$this->element('navigation')?>
 		<?=$this->Session->flash()?>
 
-		<?=$content_for_layout?>
+		<div id="page">
+			<?=$content_for_layout?>
+		</div>
 	</body>
 </html>

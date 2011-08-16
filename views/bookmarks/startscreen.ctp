@@ -1,11 +1,12 @@
 <? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<?=$this->element('quote')?>
+<div id="page">
 
 <div id="keyword_tree">
 	<?=$this->element('keyword_tree', array('show_edit' => false))?>
 </div>
 
+<?=$this->element('quote')?>
 
 <?=$this->element('sticky_keywords',
 	array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
@@ -26,3 +27,4 @@
 	array('title' => __("newest", true), 'bookmarks' => $newest))?>
 
 <?=$this->element('quickadd')?>
+</div>
