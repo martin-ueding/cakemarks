@@ -1,22 +1,11 @@
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
 $(document).ready(function() {
-	$("#keywordbox .handle").click(function() {
-		$("#keywordbox .unfold").slideDown(200);
+	$(".toolbar_handle").click(function() {
+		$(this).parent().children(".toolbar_unfold").slideDown(400);
 	});
-	$("#keywordbox").mouseleave(function() {
-		$("#keywordbox .unfold").slideUp(300);
-	});
-
-	$("#navigation .handle").click(function() {
-		$("#navigation .unfold").slideDown(400);
-	});
-	$("#navigation").mouseleave(function() {
-		$("#navigation .unfold").slideUp(500);
-	});
-
-	$("#add .hhandle_right").click(function() {
-		$("#add .hunfold_right").toggle(300);
+	$(".toolbar_handle").parent().mouseleave(function() {
+		$(this).children(".toolbar_unfold").slideUp(500);
 	});
 
 	$(".sticky_keyword .hhandle").click(function() {

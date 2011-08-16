@@ -5,7 +5,7 @@ body {
 	padding: 0px;
 }
 
-#toolbar, #navigation div.handle {
+#toolbar, div.toolbar_handle {
 	height: 25px;
 
 	background-image: -webkit-gradient(
@@ -24,7 +24,7 @@ body {
 	color: #000;
 }
 
-#navigation div.handle:hover {
+div.toolbar_handle:hover {
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
@@ -56,17 +56,17 @@ body {
 	float: left;
 	padding: 0px 10px;
 }
-#navigation A {
+div.toolbar_unfold A {
 	display: block;
 	font-size: 100%;
 	padding: 5px;
 }
-#navigation A:HOVER {
+div.toolbar_unfold A:HOVER {
 	-moz-border-radius: 5px;
 	background-color: #AAC;
 	border-radius: 5px;
 }
-#navigation DIV.handle {
+div.toolbar_handle {
 	color: #FFF;
 	cursor: pointer;
 	text-align: center;
@@ -74,7 +74,7 @@ body {
 	height: 23px;
 	font-weight: bold;
 }
-DIV.unfold {
+div.toolbar_unfold {
 	background-color: #FFF;
 	border-color: rgb(240,145,3);
 	border-style: solid;

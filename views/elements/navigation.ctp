@@ -5,7 +5,7 @@
 Cakemarks
 </div>
 <div id="navigation">
-	<div class="padding unfold">
+	<div class="toolbar_unfold">
 		<?=$this->Html->link(__('home page', true), array('controller' => 'bookmarks', 'action' => 'startscreen'))?>
 		<?=$this->Html->link(__('new bookmark', true), array('controller' => 'bookmarks', 'action' => 'add'))?>
 		<?=$this->Html->link(__('list bookmarks', true), array('controller' => 'bookmarks', 'action' => 'index'))?>
@@ -15,6 +15,6 @@ Cakemarks
 		<?=$this->Html->link(__('check referrer', true), array('controller' => 'pages', 'action' => 'referrer'), array('rel' => 'noreferrer'))?>
 		<?=$this->Html->link(__('bookmarklet', true), array('controller' => 'pages', 'action' => 'bookmarklet'))?>
 	</div>
-	<div class="handle"><?=__('Navigation', true)?></div>
+	<div class="toolbar_handle"><?=__('Navigation', true)?></div>
 </div>
 </div>
