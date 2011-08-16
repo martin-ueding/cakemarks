@@ -159,11 +159,7 @@ left, right {
 }
 
 #middle {
-	padding-top: 30px;
-	padding-left: 30px;
-	padding-right: 30px;
-	border: 1px solid blue;
-	background-color: #ff8;
+	padding: 30px;
 	margin: 0 200px 0 200px;
 }
 
