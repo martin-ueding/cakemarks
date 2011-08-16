@@ -135,7 +135,6 @@ div.hhandle:hover {
 
 #sticky_keywords {
 	width: 200px;
-	float: left;
 }
 div.hunfold A {
 	display: block;
@@ -195,4 +194,19 @@ A.black, A.black:visited {
 A.black:hover {
 	text-decoration: underline;
 	color: #000;
+}
+#quickadd {
+	margin-top: 20px;
+	padding: 0 10px;
+}
+#quickadd label {
+	display: block;
+}
+
+div.form input[type=submit] {
+	margin-top: 15px;
+}
+
+div.input {
+	margin-bottom: 10px;
 }
