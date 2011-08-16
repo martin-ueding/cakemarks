@@ -176,3 +176,11 @@ page {
 footer {
 	clear: both;
 }
+
+#flashMessage {
+	text-align: center;
+	background-color: #ddf;
+	padding: 10px;
+	border: 1px solid #ccf;
+	width: 100%;
+}

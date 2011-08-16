@@ -7,10 +7,12 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 		<?=$this->Html->css('default')?>
 		<?=$this->Html->script('navigation_drawers')?>
+		<?=$this->Html->script('flash')?>
 	</head>
 	<body>
 		<?=$this->element('navigation')?>
 		<?=$this->element('quote')?>
+		<?=$this->Session->flash()?>
 
 		<page>
 			<right>
@@ -26,8 +28,6 @@
 			</left>
 
 			<middle>
-				<?=$this->Session->flash()?>
-
 				<?=$content_for_layout?>
 			</middle>
 

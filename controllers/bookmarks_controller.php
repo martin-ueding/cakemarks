@@ -24,7 +24,7 @@ class BookmarksController extends AppController {
 			$this->Bookmark->create();
 
 			// add page title if missing
-			if (empty($this->data['Bookmark']['title'])) {
+			if (empty($this->data['Bookmark']['title']) && !empty($this->data['Bookmark']['url'])) {
 				$this->data['Bookmark']['title'] = $this->_get_page_title($this->data['Bookmark']['url']);
 			}
 
