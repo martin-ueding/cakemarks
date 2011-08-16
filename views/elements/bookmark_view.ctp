@@ -23,6 +23,5 @@ if (isset($bookmark['Bookmark'])) {
 </div>
 </div>
 <?php endforeach; ?>
-<footer></footer>
 </div>
 <?php endif; ?>
