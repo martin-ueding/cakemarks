@@ -11,14 +11,15 @@
 	<body>
 		<?=$this->element('navigation')?>
 		<?=$this->element('quote')?>
-<div id="keyword_tree">
-	<?=$this->element('keyword_tree', array('show_edit' => false))?>
-</div>
+
+		<div id="keyword_tree">
+			<?=$this->element('keyword_tree', array('show_edit' => false))?>
+		</div>
 
 
-<?=$this->element('sticky_keywords',
-	array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
-<?=$this->element('quickadd')?>
+		<?=$this->element('sticky_keywords',
+			array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
+		<?=$this->element('quickadd')?>
 
 		<div id="page">
 			<div id="middle">
