@@ -5,10 +5,6 @@ class KeywordsController extends AppController {
 
 	var $name = 'Keywords';
 
-	function index() {
-		$this->Keyword->recursive = 0;
-	}
-
 	function tree() {
 		$keyword_tree = $this->Keyword->find('threaded', array('order' => 'Keyword.title'));
 		if (!empty($this->params['requested'])) {
