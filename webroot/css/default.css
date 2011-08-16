@@ -162,10 +162,9 @@ left, right {
 	padding-top: 30px;
 	padding-left: 30px;
 	padding-right: 30px;
-	margin: 0px 150px 0 150px;
 	border: 1px solid blue;
 	background-color: #ff8;
-	width: 400px;
+	margin: 0 200px 0 200px;
 }
 
 left {
