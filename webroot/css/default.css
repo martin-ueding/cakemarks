@@ -213,3 +213,14 @@ div.form input[type=submit] {
 div.input {
 	margin-bottom: 10px;
 }
+
+div.bookmark_view {
+	border: 2px solid green;
+}
+div.bookmark_view div.bookmark_element {
+	border: 1px solid red;
+}
+div.bookmark_view div.bookmark_element div.edit {
+	border: 1px solid blue;
+	float: right;
+}

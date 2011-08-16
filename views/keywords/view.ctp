@@ -1,15 +1,6 @@
-<h2><?php  __('Keyword');?></h2>
-			<?php echo $keyword['Keyword']['title']; ?>
+<h1><?php echo $keyword['Keyword']['title']; ?></h1>
 
-	<?php if (!empty($keyword['Bookmark'])):?>
-		<hr />
-	<?php
-		foreach ($keyword['Bookmark'] as $bookmark):
-		?>
-				<?php echo $this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id'])); ?>
-		<br />
-	<?php endforeach; ?>
-<?php endif; ?>
+<?=$this->element('bookmark_view', array('bookmarks' => $keyword['Bookmark']))?>
 
 
 <div id="actions" class="toolbar_element">

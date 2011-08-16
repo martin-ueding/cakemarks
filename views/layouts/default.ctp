@@ -8,6 +8,7 @@
 		<?=$this->Html->css('default')?>
 		<?=$this->Html->script('navigation_drawers')?>
 		<?=$this->Html->script('flash')?>
+		<?=$this->Html->script('bookmark_view')?>
 	</head>
 	<body>
 		<?=$this->element('navigation')?>
