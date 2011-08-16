@@ -1,14 +1,24 @@
-<?php if (!empty($bookmarks)):?>
+<?php if (!empty($bookmarks)): ?>
+<?
+if (isset($bookmarks['Bookmark'][0]['id'])) {
+	$bookmarks = $bookmarks['Bookmark'];
+}
+?>
 <div class="bookmark_view">
 
 <?php foreach ($bookmarks as $bookmark): ?>
+<?
+if (isset($bookmark['Bookmark'])) {
+	$bookmark = $bookmark['Bookmark'];
+}
+?>
 <div class="bookmark_element">
-<?php echo $this->Html->link($bookmark['Bookmark']['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['Bookmark']['id']), array('class' => 'black', 'title' => $bookmark['Bookmark']['url'])); ?>
+<?php echo $this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']), array('class' => 'black', 'title' => $bookmark['url'])); ?>
 
 <div class="edit">
-<?=$this->Html->link(__('View', true), array('controller' => 'bookmarks', 'action' => 'view', $bookmark['Bookmark']['id'])) ?>
-<?=$this->Html->link(__('Edit', true), array('controller' => 'bookmarks', 'action' => 'edit', $bookmark['Bookmark']['id'])) ?>
-<?=$this->Html->link(__('Delete', true), array('controller' => 'bookmarks', 'action' => 'delete', $bookmark['Bookmark']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $bookmark['Bookmark']['id'])) ?>
+<?=$this->Html->link(__('View', true), array('controller' => 'bookmarks', 'action' => 'view', $bookmark['id'])) ?>
+<?=$this->Html->link(__('Edit', true), array('controller' => 'bookmarks', 'action' => 'edit', $bookmark['id'])) ?>
+<?=$this->Html->link(__('Delete', true), array('controller' => 'bookmarks', 'action' => 'delete', $bookmark['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $bookmark['id'])) ?>
 
 </div>
 </div>

@@ -159,7 +159,7 @@ left, middle, right {
 }
 
 middle {
-	float: left;
+	//float: left;
 	padding: 30px;
 }
 
