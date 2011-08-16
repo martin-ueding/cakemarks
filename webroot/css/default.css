@@ -48,13 +48,15 @@ div.toolbar_handle:hover {
 }
 
 #navigation {
-	position: absolute;
-	top: 0px;
 	left: 250px;
 	width: 200px;
-	z-index: 1000;
+}
+div.toolbar_element {
 	float: left;
 	padding: 0px 10px;
+	position: absolute;
+	top: 0px;
+	z-index: 1000;
 }
 div.toolbar_unfold A {
 	display: block;

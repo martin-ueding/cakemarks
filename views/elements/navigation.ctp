@@ -4,7 +4,7 @@
 <div id="logo">
 Cakemarks
 </div>
-<div id="navigation">
+<div id="navigation" class="toolbar_element">
 	<div class="toolbar_unfold">
 		<?=$this->Html->link(__('home page', true), array('controller' => 'bookmarks', 'action' => 'startscreen'))?>
 		<?=$this->Html->link(__('new bookmark', true), array('controller' => 'bookmarks', 'action' => 'add'))?>
