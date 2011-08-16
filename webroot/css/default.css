@@ -106,3 +106,15 @@ div.toolbar_unfold {
 	text-align: center;
 	padding: 2px 5px;
 }
+#stats {
+	clear: both;
+	width: 100%;
+	background-color: rgb(255,238,214);
+}
+#stats p {
+	display: block;
+	margin: 0 auto;
+	font-size: 80%;
+	text-align: center;
+	padding: 2px 5px;
+}

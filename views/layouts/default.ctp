@@ -14,6 +14,8 @@
 
 		<div id="page">
 			<?=$content_for_layout?>
+
+			<?=$this->element('stats')?>
 		</div>
 	</body>
 </html>

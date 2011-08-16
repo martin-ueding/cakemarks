@@ -11,5 +11,4 @@
 		<div class="hhandle"><?=$keyword['Keyword']['title']?></div>
 	</div>
 <? endforeach; ?>
-<?=$this->element('stats')?>
 </div>
