@@ -9,9 +9,7 @@ $(document).ready(function() {
 	});
 
 	$(".sticky_keyword .hhandle").click(function() {
-		$(this).parent().children(".hunfold").toggle(200);
-	});
-	$(".sticky_keyword").mouseleave(function() {
-		$(this).children(".hunfold").hide(300);
+		$(this).parent().parent().children("div.sticky_keyword").not($(this).parent()).children(".hunfold").slideUp(200);
+		$(this).parent().children(".hunfold").slideDown(200);
 	});
 });
