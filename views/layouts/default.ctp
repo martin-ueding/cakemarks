@@ -10,10 +10,22 @@
 	</head>
 	<body>
 		<?=$this->element('navigation')?>
-		<?=$this->Session->flash()?>
+		<?=$this->element('quote')?>
+<div id="keyword_tree">
+	<?=$this->element('keyword_tree', array('show_edit' => false))?>
+</div>
+
+
+<?=$this->element('sticky_keywords',
+	array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
+<?=$this->element('quickadd')?>
 
 		<div id="page">
-			<?=$content_for_layout?>
+			<div id="middle">
+				<?=$this->Session->flash()?>
+
+				<?=$content_for_layout?>
+			</div>
 
 			<?=$this->element('stats')?>
 		</div>
