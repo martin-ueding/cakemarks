@@ -9,6 +9,7 @@
 		<?=$this->Html->script('navigation_drawers')?>
 		<?=$this->Html->script('flash')?>
 		<?=$this->Html->script('bookmark_view')?>
+		<?=$this->Html->script('center_width')?>
 	</head>
 	<body>
 		<?=$this->element('navigation')?>
