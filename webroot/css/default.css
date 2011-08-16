@@ -84,11 +84,25 @@ div.toolbar_unfold {
 #keyword_tree {
 	float: right;
 	padding: 10px;
-	border: 1px solid rgb(240,145,3);
+	background-color: rgb(255,238,214);
 }
 #keyword_tree li {
 	list-style: none inside;
 }
 #keyword_tree ul {
 	margin: 0px;
+}
+
+#quote {
+	background-color: rgb(255,238,214);
+	width: 100%;
+}
+
+#quote p {
+	display: block;
+	margin: 0 auto;
+	font-size: 80%;
+	font-family: serif;
+	text-align: center;
+	padding: 2px 5px;
 }
