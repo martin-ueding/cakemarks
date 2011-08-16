@@ -81,13 +81,16 @@ div.toolbar_unfold {
 }
 
 #keyword_tree {
-	padding: 10px;
+	padding: 10px 10px 10px 0;
 }
 #keyword_tree li {
-	list-style: none inside;
+	list-style: none;
+	padding: 2px 5px;
+	margin: 0 0 0 15px;
 }
 #keyword_tree ul {
 	margin: 0px;
+	padding: 0px;
 }
 
 #quote {
@@ -183,4 +186,13 @@ footer {
 	padding: 10px;
 	border: 1px solid #ccf;
 	width: 100%;
+}
+
+A.black, A.black:visited {
+	text-decoration: none;
+	color: #000;
+}
+A.black:hover {
+	text-decoration: underline;
+	color: #000;
 }

@@ -7,7 +7,7 @@ $keywords = $this->requestAction(array('controller' => 'keywords', 'action' => '
 function traverse_tree($tree, $that, $show_edit) {
 	foreach ($tree as $node) {
 		echo '<li>';
-		echo $that->Html->link($node['Keyword']['title'], array('controller' => 'keywords', 'action' => 'view', $node['Keyword']['id']));
+		echo $that->Html->link($node['Keyword']['title'], array('controller' => 'keywords', 'action' => 'view', $node['Keyword']['id']), array('class' => 'black'));
 
 		if ($show_edit) {
 			echo ' &nbsp; ';
