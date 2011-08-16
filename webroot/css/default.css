@@ -159,8 +159,10 @@ left, middle, right {
 }
 
 middle {
-	//float: left;
-	padding: 30px;
+	float: left;
+	padding-top: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 left {
