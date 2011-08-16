@@ -1,5 +1,7 @@
 <? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
+<? $sticky_keywords = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'sticky_keywords'), array('cache' => '+5 min')); ?>
+
 <div id="sticky_keywords">
 <? foreach ($sticky_keywords as $keyword): ?>
 	<div class="sticky_keyword">

@@ -107,7 +107,6 @@ class BookmarksController extends AppController {
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
 
 
-		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 
 		$latest_query = '
 			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Visit.created
@@ -154,6 +153,10 @@ class BookmarksController extends AppController {
 			'keyword_count' => $this->Keyword->find('count'),
 		);
 		$this->set('stats', $stats);
+	}
+
+	function sticky_keywords() {
+		return $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1)));
 	}
 
 	function visit($id) {

@@ -21,8 +21,7 @@
 
 
 			<left>
-				<?=$this->element('sticky_keywords',
-					array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
+				<?=$this->element('sticky_keywords')?>
 				<?=$this->element('quickadd')?>
 			</left>
 
