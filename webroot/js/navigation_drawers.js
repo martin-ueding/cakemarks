@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	$(".toolbar_handle").click(function() {
-		$(this).parent().children(".toolbar_unfold").slideDown(400);
+		$(this).parent().children(".toolbar_unfold").slideDown(300);
 	});
 	$(".toolbar_handle").parent().mouseleave(function() {
 		$(this).children(".toolbar_unfold").slideUp(500);
