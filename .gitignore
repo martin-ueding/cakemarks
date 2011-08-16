@@ -1,1 +1,3 @@
 tmp/cache/*
+config/database.php
+.htaccess
