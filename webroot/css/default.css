@@ -99,7 +99,6 @@ div.toolbar_unfold {
 #quote {
 	background-color: rgb(255,238,214);
 	width: 100%;
-	border-bottom: 1px solid #ddd;
 }
 
 #quote p {
@@ -160,6 +159,7 @@ left, right {
 #middle {
 	padding: 30px;
 	margin: 0 200px 0 200px;
+	border: 1px solid #ddd;
 }
 
 left {
