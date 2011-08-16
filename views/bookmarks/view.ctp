@@ -1,8 +1,6 @@
 <? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<div class="bookmarks_view">
-<h2><?php  __('Bookmark');?></h2>
-<p class="title"><?=$bookmark['Bookmark']['title']?></p>
+<h1><?=$bookmark['Bookmark']['title']?></h1>
 <p class="url"><?=$this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id']))?></p>
 
 
@@ -17,16 +15,20 @@ if (!empty($bookmark['Bookmark']['revisit'])) {
 	<p class="reading_list">This is on your reading list.</p>
 <? endif; ?>
 
-<h3><? __('Keywords');?></h3>
-<ul>
+	<div class="small_tag">
 <? foreach ($bookmark['Keyword'] as $keyword): ?>
-	<li>
-	<?=$this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])) ?>
-	</li>
+	<?=$this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id']), array('class' => 'black')) ?>
 <? endforeach; ?>
-</ul>
-
-<?=$this->Html->link(__('edit', true), array('action' => 'edit', $bookmark['Bookmark']['id']))?>
+	</div>
 
 <p class="created"><?=__('Created', true)?>: <?=$bookmark['Bookmark']['created']?></p>
 <p class="modified"><?=__('Modified', true)?>: <?=$bookmark['Bookmark']['modified']?></p>
+
+<div id="actions" class="toolbar_element">
+	<div class="toolbar_unfold">
+		<?=$this->Html->link(__('Edit Bookmark', true), array('action' => 'edit', $bookmark['Bookmark']['id']))?>
+		<?php echo $this->Html->link(__('Delete Bookmark', true), array('action' => 'delete', $bookmark['Bookmark']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $bookmark['Bookmark']['id'])); ?>
+		<?php echo $this->Html->link(__('New Bookmark', true), array('action' => 'add')); ?>
+	</div>
+	<div class="toolbar_handle"><?php __('Actions'); ?></div>
+</div>

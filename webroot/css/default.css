@@ -252,3 +252,8 @@ div.bookmarkbox div.title {
 	text-align: center;
 	padding: 2px 0px;
 }
+div.small_tag A {
+	border: 1px solid #777;
+	background-color: #ddd;
+	padding: 2px 5px; margin: 0 10px 10px 0;
+}
