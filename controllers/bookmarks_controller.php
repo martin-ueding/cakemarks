@@ -145,18 +145,20 @@ class BookmarksController extends AppController {
 			LIMIT '.$limit;
 
 		$this->set('revisit', $this->Bookmark->query($revisit_query));
+	}
 
+	function sticky_keywords() {
+		return $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1)));
+	}
+
+	function stats() {
 		$stats = array(
 			'bookmark_count' => $this->Bookmark->find('count'),
 			'quote_count' => $this->Quote->find('count'),
 			'visit_count' => $this->Visit->find('count'),
 			'keyword_count' => $this->Keyword->find('count'),
 		);
-		$this->set('stats', $stats);
-	}
-
-	function sticky_keywords() {
-		return $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1)));
+		return $stats;
 	}
 
 	function visit($id) {
