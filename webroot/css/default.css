@@ -82,9 +82,7 @@ div.toolbar_unfold {
 }
 
 #keyword_tree {
-	float: right;
 	padding: 10px;
-	background-color: rgb(255,238,214);
 }
 #keyword_tree li {
 	list-style: none inside;
@@ -150,6 +148,11 @@ div.hunfold {
 	border-right: 1px solid rgb(255,238,214);
 }
 
+left, middle, right {
+	padding-bottom:32767px;
+	margin-bottom:-32767px;
+}
+
 middle {
 	float: left;
 	border: 1px solid red;
@@ -158,4 +161,19 @@ middle {
 left {
 	float: left;
 	background-color: rgb(255,238,214);
+}
+
+right {
+	float: right;
+	background-color: rgb(255,238,214);
+}
+
+page {
+	width: 100%;
+	overflow: hidden;
+	float: left;
+}
+
+footer {
+	clear: both;
 }

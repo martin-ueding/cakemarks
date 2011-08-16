@@ -12,23 +12,28 @@
 		<?=$this->element('navigation')?>
 		<?=$this->element('quote')?>
 
-		<div id="keyword_tree">
-			<?=$this->element('keyword_tree', array('show_edit' => false))?>
-		</div>
+		<page>
+			<right>
+				<div id="keyword_tree">
+					<?=$this->element('keyword_tree', array('show_edit' => false))?>
+				</div>
+			</right>
 
 
-		<left>
-		<?=$this->element('sticky_keywords',
-			array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
-		<?=$this->element('quickadd')?>
-		</left>
+			<left>
+				<?=$this->element('sticky_keywords',
+					array('sticky_keywords' => $sticky_keywords, 'stats' => $stats))?>
+				<?=$this->element('quickadd')?>
+			</left>
 
-		<middle>
-			<?=$this->Session->flash()?>
+			<middle>
+				<?=$this->Session->flash()?>
 
-			<?=$content_for_layout?>
-		</middle>
+				<?=$content_for_layout?>
+			</middle>
 
-		<?=$this->element('stats')?>
+			<?=$this->element('stats')?>
+		</page>
+		<footer></footer>
 	</body>
 </html>
