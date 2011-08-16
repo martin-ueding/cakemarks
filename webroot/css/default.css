@@ -160,6 +160,7 @@ left, middle, right {
 
 middle {
 	float: left;
+	padding: 30px;
 }
 
 left {
@@ -215,12 +216,27 @@ div.input {
 }
 
 div.bookmark_view {
-	border: 2px solid green;
 }
 div.bookmark_view div.bookmark_element {
-	border: 1px solid red;
+	border-bottom: 1px solid #ddd;
+	padding: 2px 5px;
+	width: 100%;
+}
+div.bookmark_view div.bookmark_element:last-child {
+	border: 0;
+}
+div.bookmark_view div.bookmark_element:nth-child(even) {
+	background-color: #eee;
 }
 div.bookmark_view div.bookmark_element div.edit {
-	border: 1px solid blue;
 	float: right;
+}
+div.bookmark_view div.bookmark_element div.edit A {
+	margin-left: 5px;
+}
+
+h1 {
+	margin: 0 0 20px 0;
+	padding: 0;
+	font-size: 130%;
 }
