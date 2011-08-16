@@ -220,15 +220,14 @@ div.input {
 div.bookmark_view {
 }
 div.bookmark_view div.bookmark_element {
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #eee;
 	padding: 2px 5px;
-	width: 100%;
 }
 div.bookmark_view div.bookmark_element:last-child {
 	border: 0;
 }
 div.bookmark_view div.bookmark_element:nth-child(even) {
-	background-color: #eee;
+	background-color: #f7f7f7;
 }
 div.bookmark_view div.bookmark_element div.edit {
 	float: right;
@@ -241,4 +240,18 @@ h1 {
 	margin: 0 0 20px 0;
 	padding: 0;
 	font-size: 130%;
+}
+div.bookmarkbox {
+	background-color: #fff;
+	width: 250px;
+	float: left;
+	margin-right: 20px;
+	border: 1px solid #444;
+}
+div.bookmarkbox div.title {
+	background-color: #444;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	padding: 2px 0px;
 }
