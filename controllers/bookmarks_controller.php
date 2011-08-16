@@ -99,7 +99,6 @@ class BookmarksController extends AppController {
 	function startscreen() {
 		$limit = 30;
 
-		$this->layout='custom';
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
 
 		$this->set('most_visits', $this->Bookmark->find('all', array(

@@ -1,5 +1,9 @@
 <? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
+<div id="toolbar">
+<div id="logo">
+Cakemarks
+</div>
 <div id="navigation">
 	<div class="padding unfold">
 		<?=$this->Html->link(__('home page', true), array('controller' => 'bookmarks', 'action' => 'startscreen'))?>
@@ -11,5 +15,6 @@
 		<?=$this->Html->link(__('check referrer', true), array('controller' => 'pages', 'action' => 'referrer'), array('rel' => 'noreferrer'))?>
 		<?=$this->Html->link(__('bookmarklet', true), array('controller' => 'pages', 'action' => 'bookmarklet'))?>
 	</div>
-	<div class="handle"><?=__('navigation', true)?></div>
+	<div class="handle"><?=__('Navigation', true)?></div>
+</div>
 </div>
