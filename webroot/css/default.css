@@ -45,7 +45,9 @@ div.toolbar_handle:hover {
 
 #navigation {
 	left: 250px;
-	width: 200px;
+}
+#actions {
+	left: 500px;
 }
 div.toolbar_element {
 	float: left;
@@ -53,6 +55,7 @@ div.toolbar_element {
 	position: absolute;
 	top: 0px;
 	z-index: 1000;
+	width: 200px;
 }
 div.toolbar_unfold A {
 	display: block;

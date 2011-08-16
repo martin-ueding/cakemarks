@@ -8,7 +8,7 @@
 		<div class="hhandle"><?=$keyword['Keyword']['title']?></div>
 		<div class="hunfold">
 			<? foreach ($keyword['Bookmark'] as $bookmark): ?>
-			<?=$this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']))?>
+			<?=$this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']), array('class' => 'black'))?>
 			<? endforeach; ?>
 		</div>
 	</div>
