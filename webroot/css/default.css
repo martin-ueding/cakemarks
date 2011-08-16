@@ -57,15 +57,15 @@ div.toolbar_element {
 	z-index: 1000;
 	width: 200px;
 }
-div.toolbar_unfold A {
+div.toolbar_unfold A,  div.toolbar_unfold A:visited {
 	display: block;
 	font-size: 100%;
 	padding: 5px;
+	color: #000;
+	text-decoration: none;
 }
 div.toolbar_unfold A:HOVER {
-	-moz-border-radius: 5px;
-	background-color: #AAC;
-	border-radius: 5px;
+	background-color: #f5c582;
 }
 div.toolbar_handle {
 	color: #FFF;
