@@ -1,6 +1,5 @@
-<div class="quotes index">
-	<h2><?php __('Quotes');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<h1><?php __('Quotes');?></h1>
+	<table>
 	<tr>
 			<th><?php echo $this->Paginator->sort('text');?></th>
 			<th><?php echo $this->Paginator->sort('author');?></th>

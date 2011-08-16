@@ -260,10 +260,17 @@ div.small_tag A {
 
 table {
 	margin: 0px;
-	padding 0px;
+	padding: 0px;
+	border-collapse: collapse;
 }
-table td {
+table td, table th {
 	padding: 2px 5px;
+	margin: 0;
+	border-spacing: 0;
+}
+table tr {
+	margin: 0;
+	padding: 0;
 }
 table tr:nth-child(even) {
 	background-color: #eeeeee;
@@ -278,7 +285,6 @@ table tr:hover {
 table th {
 	background-color: #aaa;
 	color: #000;
-	padding: 2px 5px;
 }
 table th a, table th a:visited {
 	color: #000;
