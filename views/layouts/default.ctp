@@ -28,10 +28,10 @@
 				<?=$this->element('quickadd')?>
 			</left>
 
-			<middle>
+			<div id="middle">
 				<?=$content_for_layout?>
 				<footer></footer>
-			</middle>
+			</div>
 
 			<?=$this->element('stats')?>
 		</page>
