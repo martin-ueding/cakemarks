@@ -7,7 +7,6 @@ class KeywordsController extends AppController {
 
 	function index() {
 		$this->Keyword->recursive = 0;
-		$this->layout = 'custom';
 	}
 
 	function tree() {
@@ -21,7 +20,6 @@ class KeywordsController extends AppController {
 	}
 
 	function view($id = null) {
-		$this->layout = 'custom';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid keyword', true));
 			$this->redirect(array('action' => 'index'));

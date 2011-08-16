@@ -7,15 +7,11 @@ class BookmarksController extends AppController {
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
 
 	function index() {
-		$this->layout = 'custom';
-
 		$this->Bookmark->recursive = 0;
 		$this->set('bookmarks', $this->paginate());
 	}
 
 	function view($id = null) {
-		$this->layout = 'custom';
-
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
@@ -24,8 +20,6 @@ class BookmarksController extends AppController {
 	}
 
 	function add() {
-		$this->layout = 'custom';
-
 		if (!empty($this->data)) {
 			$this->Bookmark->create();
 
@@ -62,8 +56,6 @@ class BookmarksController extends AppController {
 	}
 
 	function edit($id = null) {
-		$this->layout = 'custom';
-
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
