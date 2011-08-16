@@ -94,6 +94,7 @@ div.toolbar_unfold {
 #quote {
 	background-color: rgb(255,238,214);
 	width: 100%;
+	border-bottom: 1px solid #ddd;
 }
 
 #quote p {
