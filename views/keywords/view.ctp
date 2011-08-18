@@ -1,6 +1,6 @@
 <h1><?php echo $keyword['Keyword']['title']; ?></h1>
 
-<?=$this->element('bookmark_view', array('bookmarks' => $keyword))?>
+<?php echo $this->element('bookmark_view', array('bookmarks' => $keyword)); ?>
 
 
 <div id="actions" class="toolbar_element">

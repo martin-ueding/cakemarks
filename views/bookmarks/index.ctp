@@ -1,14 +1,14 @@
 <h1><?php __('Bookmarks');?></h1>
 <p><?php __('sort by'); ?>
 
-<?=$this->Paginator->sort('title')?>
-<?=$this->Paginator->sort('url')?>
-<?=$this->Paginator->sort('created')?>
-<?=$this->Paginator->sort('modified')?>
-<?=$this->Paginator->sort('revisit')?>
-<?=$this->Paginator->sort('reading_list')?>
+<?php echo $this->Paginator->sort('title'); ?>
+<?php echo $this->Paginator->sort('url'); ?>
+<?php echo $this->Paginator->sort('created'); ?>
+<?php echo $this->Paginator->sort('modified'); ?>
+<?php echo $this->Paginator->sort('revisit'); ?>
+<?php echo $this->Paginator->sort('reading_list'); ?>
 	</p>
-<?=$this->element('bookmark_view', array('bookmarks' => $bookmarks))?>
+<?php echo $this->element('bookmark_view', array('bookmarks' => $bookmarks)); ?>
 <p>
 <?php
 echo $this->Paginator->counter(array(
@@ -17,7 +17,7 @@ echo $this->Paginator->counter(array(
 ?>	</p>
 
 	<div class="paging">
-		<?=$this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'))?>
-	 | 	<?=$this->Paginator->numbers()?>
-		<?=$this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'))?>
+		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled')); ?>
+	 | 	<?php echo $this->Paginator->numbers(); ?>
+		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled')); ?>
 	</div>

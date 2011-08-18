@@ -4,9 +4,9 @@
 
 <div id="quote">
 <p>
-<?=$quote['Quote']['text']?>
+<?php echo $quote['Quote']['text']; ?>
 <?php if (!empty($quote['Quote']['author'])): ?>
-	-- <?=$quote['Quote']['author']?>
+	-- <?php echo $quote['Quote']['author']; ?>
 <?php endif; ?>
 </p>
 </div>

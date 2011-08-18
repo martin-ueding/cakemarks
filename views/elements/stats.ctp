@@ -4,18 +4,18 @@
 
 <div id="stats">
 <p>
-<?=$stats['bookmark_count']?> <?=__n('bookmark', 'bookmarks', $stats['bookmark_count'], true)?>
+<?php echo $stats['bookmark_count']?> <?php echo __n('bookmark', 'bookmarks', $stats['bookmark_count'], true); ; ?>
 
 &bull;
 
-<?=$stats['quote_count']?> <?=__n('quote', 'quotes', $stats['quote_count'], true)?>
+<?php echo $stats['quote_count']?> <?php echo __n('quote', 'quotes', $stats['quote_count'], true); ; ?>
 	
 &bull;
 
-<?=$stats['visit_count']?> <?=__n('visit', 'visits', $stats['visit_count'], true)?>
+<?php echo $stats['visit_count']?> <?php echo __n('visit', 'visits', $stats['visit_count'], true); ; ?>
 
 &bull;
 
-<?=$stats['keyword_count']?> <?=__n('keyword', 'keywords', $stats['keyword_count'], true)?>
+<?php echo $stats['keyword_count']?> <?php echo __n('keyword', 'keywords', $stats['keyword_count'], true); ; ?>
 <p>
 </div>

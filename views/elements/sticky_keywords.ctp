@@ -5,10 +5,10 @@
 <div id="sticky_keywords">
 <?php foreach ($sticky_keywords as $keyword): ?>
 	<div class="sticky_keyword">
-		<div class="hhandle"><?=$keyword['Keyword']['title']?></div>
+		<div class="hhandle"><?php echo $keyword['Keyword']['title']; ?></div>
 		<div class="hunfold">
 			<?php foreach ($keyword['Bookmark'] as $bookmark): ?>
-			<?=$this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']), array('class' => 'black'))?>
+			<?php echo $this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']), array('class' => 'black')); ?>
 			<?php endforeach; ?>
 		</div>
 	</div>

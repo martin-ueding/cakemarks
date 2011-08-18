@@ -3,38 +3,38 @@
 	<head>
 		<?php echo $this->Html->charset(); ?>
 
-		<title><?=$title_for_layout?></title>
+		<title><?php echo $title_for_layout; ?></title>
 		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-		<?=$this->Html->css('default')?>
-		<?=$this->Html->script('navigation_drawers')?>
-		<?=$this->Html->script('flash')?>
-		<?=$this->Html->script('bookmark_view')?>
-		<?=$this->Html->script('center_width')?>
+		<?php echo $this->Html->css('default'); ?>
+		<?php echo $this->Html->script('navigation_drawers'); ?>
+		<?php echo $this->Html->script('flash'); ?>
+		<?php echo $this->Html->script('bookmark_view'); ?>
+		<?php echo $this->Html->script('center_width'); ?>
 	</head>
 	<body>
-		<?=$this->element('navigation')?>
-		<?=$this->element('quote')?>
-		<?=$this->Session->flash()?>
+		<?php echo $this->element('navigation'); ?>
+		<?php echo $this->element('quote'); ?>
+		<?php echo $this->Session->flash(); ?>
 
 		<page>
 			<right>
 				<div id="keyword_tree">
-					<?=$this->element('keyword_tree', array('show_edit' => false))?>
+					<?php echo $this->element('keyword_tree', array('show_edit' => false)); ?>
 				</div>
 			</right>
 
 
 			<left>
-				<?=$this->element('sticky_keywords')?>
-				<?=$this->element('quickadd')?>
+				<?php echo $this->element('sticky_keywords'); ?>
+				<?php echo $this->element('quickadd'); ?>
 			</left>
 
 			<div id="middle">
-				<?=$content_for_layout?>
+				<?php echo $content_for_layout; ?>
 				<footer></footer>
 			</div>
 
-			<?=$this->element('stats')?>
+			<?php echo $this->element('stats'); ?>
 		</page>
 		<footer></footer>
 	</body>

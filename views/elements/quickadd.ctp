@@ -2,10 +2,10 @@
 
 <div id="quickadd">
 	<div class="form">
-		<?=$this->Form->create('Bookmark', array('action' => 'add'))?>
-		<?=$this->Form->input('title', array('type'=>'text'))?>
-		<?=$this->Form->input('url', array('type'=>'text'))?>
-		<?=$this->Form->input('reading_list')?>
-		<?=$this->Form->end(__('Create Bookmark', true))?>
+		<?php echo $this->Form->create('Bookmark', array('action' => 'add')); ?>
+		<?php echo $this->Form->input('title', array('type'=>'text')); ?>
+		<?php echo $this->Form->input('url', array('type'=>'text')); ?>
+		<?php echo $this->Form->input('reading_list'); ?>
+		<?php echo $this->Form->end(__('Create Bookmark', true)); ?>
 	</div>
 </div>
