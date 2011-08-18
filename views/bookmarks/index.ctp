@@ -1,7 +1,12 @@
 <h1><?php __('Bookmarks');?></h1>
 <p><?php __('sort by'); ?>
 
-<?=$this->Paginator->sort('title')?> <?=$this->Paginator->sort('url')?> <?=$this->Paginator->sort('created')?> <?=$this->Paginator->sort('modified')?> <?=$this->Paginator->sort('revisit')?> <?=$this->Paginator->sort('reading_list')?>
+<?=$this->Paginator->sort('title')?>
+<?=$this->Paginator->sort('url')?>
+<?=$this->Paginator->sort('created')?>
+<?=$this->Paginator->sort('modified')?>
+<?=$this->Paginator->sort('revisit')?>
+<?=$this->Paginator->sort('reading_list')?>
 	</p>
 <?=$this->element('bookmark_view', array('bookmarks' => $bookmarks))?>
 <p>
