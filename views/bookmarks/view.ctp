@@ -21,8 +21,8 @@ if (!empty($bookmark['Bookmark']['revisit'])) {
 <?php endforeach; ?>
 	</div>
 
-<p class="created"><?php echo __('Created', true)?>: <?php echo $bookmark['Bookmark']['created']; ; ?></p>
-<p class="modified"><?php echo __('Modified', true)?>: <?php echo $bookmark['Bookmark']['modified']; ; ?></p>
+<p class="created"><?php echo __('Created', true)?>: <?php echo $bookmark['Bookmark']['created']; ?></p>
+<p class="modified"><?php echo __('Modified', true)?>: <?php echo $bookmark['Bookmark']['modified']; ?></p>
 
 <div id="actions" class="toolbar_element">
 	<div class="toolbar_unfold">
