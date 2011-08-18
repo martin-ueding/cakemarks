@@ -1,4 +1,4 @@
-<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <h1><?=$bookmark['Bookmark']['title']?></h1>
 <p class="url"><?=$this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id']))?></p>
@@ -11,14 +11,14 @@ if (!empty($bookmark['Bookmark']['revisit'])) {
 }
 
 ?>
-<? if ($bookmark['Bookmark']['reading_list']): ?>
+<?php if ($bookmark['Bookmark']['reading_list']): ?>
 	<p class="reading_list">This is on your reading list.</p>
-<? endif; ?>
+<?php endif; ?>
 
 	<div class="small_tag">
-<? foreach ($bookmark['Keyword'] as $keyword): ?>
+<?php foreach ($bookmark['Keyword'] as $keyword): ?>
 	<?=$this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id']), array('class' => 'black')) ?>
-<? endforeach; ?>
+<?php endforeach; ?>
 	</div>
 
 <p class="created"><?=__('Created', true)?>: <?=$bookmark['Bookmark']['created']?></p>

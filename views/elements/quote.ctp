@@ -1,13 +1,13 @@
-<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<? $quote = $this->requestAction(array('controller' => 'quotes', 'action' => 'random')); ?>
+<?php $quote = $this->requestAction(array('controller' => 'quotes', 'action' => 'random')); ?>
 
 <div id="quote">
 <p>
 <?=$quote['Quote']['text']?>
-<? if (!empty($quote['Quote']['author'])): ?>
+<?php if (!empty($quote['Quote']['author'])): ?>
 	-- <?=$quote['Quote']['author']?>
-<? endif; ?>
+<?php endif; ?>
 </p>
 </div>
 

@@ -1,9 +1,9 @@
-<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<? if (!empty($revisit)): ?>
+<?php if (!empty($revisit)): ?>
 <?=$this->element('bookmarkbox',
 	array('title' => __("revisit", true), 'bookmarks' => $revisit))?>
-<? endif; ?>
+<?php endif; ?>
 
 <?=$this->element('bookmarkbox',
 	array('title' => __("reading list", true), 'bookmarks' => $reading_list))?>

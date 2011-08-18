@@ -1,6 +1,6 @@
-<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<? $stats = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'stats'), array('cache' => '+5 min')); ?>
+<?php $stats = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'stats'), array('cache' => '+5 min')); ?>
 
 <div id="stats">
 <p>
