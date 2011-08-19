@@ -147,7 +147,6 @@ div.hunfold A:HOVER {
 	background-color: #f5c582;
 }
 div.hunfold {
-	display: none;
 	background-color: #fff;
 	border-right: 1px solid rgb(255,238,214);
 	max-width: 200px;

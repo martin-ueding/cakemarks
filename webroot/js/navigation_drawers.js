@@ -1,6 +1,8 @@
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
 $(document).ready(function() {
+	$(".hunfold").slideUp(0);
+
 	$(".toolbar_handle").click(function() {
 		$(this).parent().children(".toolbar_unfold").slideDown(300);
 	});
