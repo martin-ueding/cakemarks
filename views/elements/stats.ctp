@@ -1,22 +1,21 @@
-<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
+<?php $stats = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'stats'), array('cache' => '+5 min')); ?>
 
 <div id="stats">
-	<table>
-		<tr>
-			<td><?=$stats['bookmark_count']?></td>
-			<td><?=__n('bookmark', 'bookmarks', $stats['bookmark_count'], true)?></td>
-		</tr>
-		<tr>
-			<td><?=$stats['quote_count']?></td>
-			<td><?=__n('quote', 'quotes', $stats['quote_count'], true)?></td>
-		</tr>
-		<tr>
-			<td><?=$stats['visit_count']?></td>
-			<td><?=__n('visit', 'visits', $stats['visit_count'], true)?></td>
-		</tr>
-		<tr>
-			<td><?=$stats['keyword_count']?></td>
-			<td><?=__n('keyword', 'keywords', $stats['keyword_count'], true)?></td>
-		</tr>
-	</table>
+<p>
+<?php echo $stats['bookmark_count']?> <?php echo __n('bookmark', 'bookmarks', $stats['bookmark_count'], true); ?>
+
+&bull;
+
+<?php echo $stats['quote_count']?> <?php echo __n('quote', 'quotes', $stats['quote_count'], true); ?>
+	
+&bull;
+
+<?php echo $stats['visit_count']?> <?php echo __n('visit', 'visits', $stats['visit_count'], true); ?>
+
+&bull;
+
+<?php echo $stats['keyword_count']?> <?php echo __n('keyword', 'keywords', $stats['keyword_count'], true); ?>
+<p>
 </div>

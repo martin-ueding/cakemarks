@@ -1,15 +1,16 @@
-<? /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
+<?php $sticky_keywords = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'sticky_keywords'), array('cache' => '+5 min')); ?>
 
 <div id="sticky_keywords">
-<? foreach ($sticky_keywords as $keyword): ?>
+<?php foreach ($sticky_keywords as $keyword): ?>
 	<div class="sticky_keyword">
+		<div class="hhandle"><?php echo $keyword['Keyword']['title']; ?></div>
 		<div class="hunfold">
-			<? foreach ($keyword['Bookmark'] as $bookmark): ?>
-			<?=$this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']))?>
-			<? endforeach; ?>
+			<?php foreach ($keyword['Bookmark'] as $bookmark): ?>
+			<?php echo $this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']), array('class' => 'black')); ?>
+			<?php endforeach; ?>
 		</div>
-		<div class="hhandle"><?=$keyword['Keyword']['title']?></div>
 	</div>
-<? endforeach; ?>
-<?=$this->element('stats')?>
+<?php endforeach; ?>
 </div>
