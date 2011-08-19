@@ -5,11 +5,6 @@ class KeywordsController extends AppController {
 
 	var $name = 'Keywords';
 
-	function index() {
-		$this->Keyword->recursive = 0;
-		$this->layout = 'custom';
-	}
-
 	function tree() {
 		$keyword_tree = $this->Keyword->find('threaded', array('order' => 'Keyword.title'));
 		if (!empty($this->params['requested'])) {
@@ -21,7 +16,6 @@ class KeywordsController extends AppController {
 	}
 
 	function view($id = null) {
-		$this->layout = 'custom';
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid keyword', true));
 			$this->redirect(array('action' => 'index'));

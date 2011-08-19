@@ -7,15 +7,11 @@ class BookmarksController extends AppController {
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
 
 	function index() {
-		$this->layout = 'custom';
-
 		$this->Bookmark->recursive = 0;
 		$this->set('bookmarks', $this->paginate());
 	}
 
 	function view($id = null) {
-		$this->layout = 'custom';
-
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
@@ -24,13 +20,11 @@ class BookmarksController extends AppController {
 	}
 
 	function add() {
-		$this->layout = 'custom';
-
 		if (!empty($this->data)) {
 			$this->Bookmark->create();
 
 			// add page title if missing
-			if (empty($this->data['Bookmark']['title'])) {
+			if (empty($this->data['Bookmark']['title']) && !empty($this->data['Bookmark']['url'])) {
 				$this->data['Bookmark']['title'] = $this->_get_page_title($this->data['Bookmark']['url']);
 			}
 
@@ -62,14 +56,14 @@ class BookmarksController extends AppController {
 	}
 
 	function edit($id = null) {
-		$this->layout = 'custom';
-
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Bookmark->save($this->data) && $this->Keyword->save($this->data)) {
+			if ($this->Bookmark->save($this->data) &&
+				(empty($this->data['Keyword']['title']) || $this->Keyword->save($this->data))
+			) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -99,7 +93,6 @@ class BookmarksController extends AppController {
 	function startscreen() {
 		$limit = 30;
 
-		$this->layout='custom';
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
 
 		$this->set('most_visits', $this->Bookmark->find('all', array(
@@ -116,7 +109,6 @@ class BookmarksController extends AppController {
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
 
 
-		$this->set('sticky_keywords', $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1))));
 
 		$latest_query = '
 			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Visit.created
@@ -155,14 +147,20 @@ class BookmarksController extends AppController {
 			LIMIT '.$limit;
 
 		$this->set('revisit', $this->Bookmark->query($revisit_query));
+	}
 
+	function sticky_keywords() {
+		return $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1)));
+	}
+
+	function stats() {
 		$stats = array(
 			'bookmark_count' => $this->Bookmark->find('count'),
 			'quote_count' => $this->Quote->find('count'),
 			'visit_count' => $this->Visit->find('count'),
 			'keyword_count' => $this->Keyword->find('count'),
 		);
-		$this->set('stats', $stats);
+		return $stats;
 	}
 
 	function visit($id) {
