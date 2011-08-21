@@ -1,7 +1,7 @@
 <?php
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
-App::import('CakemarksWebTestCase');
+App::import('Lib', 'CakemarksWebTestCase');
 
 /**
  * Excerises the quick add box in the sidebar.

@@ -1,6 +1,8 @@
 <?php
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
+App::import('Lib', 'CakemarksWebTestCase');
+
 /**
  * Exercises the adding of bookmarks on the main adding page.
  *
