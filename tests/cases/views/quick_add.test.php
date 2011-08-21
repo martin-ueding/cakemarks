@@ -1,16 +1,14 @@
 <?php
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
+App::import('CakemarksWebTestCase');
+
 /**
  * Excerises the quick add box in the sidebar.
  *
  * @author Martin Ueding <dev@martin-ueding.de>
  */
-class QuickAddTestCase extends CakeWebTestCase {
-	function __construct() {
-		$this->baseurl = "127.0.0.1".current(split("app", $_SERVER['PHP_SELF']));
-	}
-
+class QuickAddTestCase extends CakemarksWebTestCase {
 	/**
 	 * Adds bookmark via the sidebar and checks whether it appears on the
 	 * startscreen.
@@ -19,8 +17,7 @@ class QuickAddTestCase extends CakeWebTestCase {
 	 */
 	function test_input_to_reading_list() {
 		$this->get($this->baseurl."/");
-		$this->assertResponse(200);
-		$this->assertNoPattern("/Missing Controller/");
+		$this->verify_page_load();
 
 		$this->input_title = String::uuid();
 		$this->input_url = String::uuid().'.tld';
@@ -29,8 +26,7 @@ class QuickAddTestCase extends CakeWebTestCase {
 		$this->setField('data[Bookmark][reading_list]', "1");
 		$this->click("Create Bookmark");
 
-		$this->assertResponse(200);
-		$this->assertNoPattern("/Missing Controller/");
+		$this->verify_page_load();
 
 		$this->assertPattern("/$this->input_title/");
 		$this->assertPattern("/$this->input_url/");

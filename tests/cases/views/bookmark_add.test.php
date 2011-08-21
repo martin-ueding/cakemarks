@@ -6,11 +6,7 @@
  *
  * @author Martin Ueding <dev@martin-ueding.de>
  */
-class BookmarkAddTestCase extends CakeWebTestCase {
-	function __construct() {
-		$this->baseurl = "127.0.0.1".current(split("app", $_SERVER['PHP_SELF']));
-	}
-
+class BookmarkAddTestCase extends CakemarksWebTestCase {
 	/**
 	 * Loads the bookmark adding view.
 	 *
@@ -19,17 +15,6 @@ class BookmarkAddTestCase extends CakeWebTestCase {
 	function load_bookmark_add_page() {
 		$this->get($this->baseurl."/bookmarks/add");
 		$this->verify_page_load();
-	}
-
-	/**
-	 * Verifies the load of a page by checking the HTTP code and possible
-	 * CakePHP warnings.
-	 *
-	 * @author Martin Ueding <dev@martin-ueding.de>
-	 */
-	function verify_page_load() {
-		$this->assertResponse(200);
-		$this->assertNoPattern("/Missing Controller/");
 	}
 
 	/**
