@@ -18,23 +18,22 @@ class QuickAddTestCase extends CakeWebTestCase {
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
 	function test_input_to_reading_list() {
-		$input = String::uuid();
-
 		$this->get($this->baseurl."/");
 		$this->assertResponse(200);
-		$this->assertNoPattern("/$input/");
 		$this->assertNoPattern("/Missing Controller/");
 
-		$this->setField('data[Bookmark][title]', $input);
-		$this->setField('data[Bookmark][url]', "$input.tld");
+		$this->input_title = String::uuid();
+		$this->input_url = String::uuid().'.tld';
+		$this->setField('data[Bookmark][title]', $this->input_title);
+		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Bookmark][reading_list]', "1");
 		$this->click("Create Bookmark");
 
-		$this->get($this->baseurl."/");
 		$this->assertResponse(200);
 		$this->assertNoPattern("/Missing Controller/");
 
-		$this->assertPattern("/newest/");
-		$this->assertPattern("/$input/");
+		$this->assertPattern("/$this->input_title/");
+		$this->assertPattern("/$this->input_url/");
+		$this->assertNoPattern("/This is on your reading list./");
 	}
 }
