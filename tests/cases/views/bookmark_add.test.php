@@ -41,8 +41,8 @@ class BookmarkAddTestCase extends CakeWebTestCase {
 	function test_bookmark_add() {
 		$this->load_bookmark_add_page();
 
-		$this->input_title = uniqid();
-		$this->input_url = uniqid().'.tld';
+		$this->input_title = String::uuid();
+		$this->input_url = String::uuid().'.tld';
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Bookmark][reading_list]', "0");
@@ -63,8 +63,8 @@ class BookmarkAddTestCase extends CakeWebTestCase {
 	function test_bookmark_add_reading_list() {
 		$this->load_bookmark_add_page();
 
-		$this->input_title = uniqid();
-		$this->input_url = uniqid().'.tld';
+		$this->input_title = String::uuid();
+		$this->input_url = String::uuid().'.tld';
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Bookmark][reading_list]', "1");
@@ -85,9 +85,9 @@ class BookmarkAddTestCase extends CakeWebTestCase {
 	function test_bookmark_with_new_keyword() {
 		$this->load_bookmark_add_page();
 
-		$this->input_title = uniqid();
-		$this->input_url = uniqid().'.tld';
-		$this->input_new_keyword = uniqid();
+		$this->input_title = String::uuid();
+		$this->input_url = String::uuid().'.tld';
+		$this->input_new_keyword = String::uuid();
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Keyword][title]', $this->input_new_keyword);
@@ -112,8 +112,8 @@ class BookmarkAddTestCase extends CakeWebTestCase {
 	function test_bookmark_with_existing_keyword() {
 		$this->load_bookmark_add_page();
 
-		$this->input_title = uniqid();
-		$this->input_url = uniqid().'.tld';
+		$this->input_title = String::uuid();
+		$this->input_url = String::uuid().'.tld';
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Keyword][Keyword][]', array(124));

@@ -18,7 +18,7 @@ class QuickAddTestCase extends CakeWebTestCase {
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
 	function test_input_to_reading_list() {
-		$input = uniqid();
+		$input = String::uuid();
 
 		$this->get($this->baseurl."/");
 		$this->assertResponse(200);
