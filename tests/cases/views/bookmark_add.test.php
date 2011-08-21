@@ -20,48 +20,42 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 	}
 
 	/**
-	 * Adds a bookmark which is not on the reading list and does not have any
+	 * Adds a bookmark which can be on the reading list and does not have any
 	 * keywords.
 	 *
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
-	function test_bookmark_add() {
+	function bookmark_add($reading_list = false) {
 		$this->load_bookmark_add_page();
 
 		$this->input_title = String::uuid();
 		$this->input_url = String::uuid().'.tld';
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
-		$this->setField('data[Bookmark][reading_list]', "0");
+		$this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : "0");
 		$this->click("Create Bookmark");
 
 		$this->verify_page_load();
 
 		$this->assertPattern("/$this->input_title/");
 		$this->assertPattern("/$this->input_url/");
-		$this->assertNoPattern("/This is on your reading list./");
+
+		if ($reading_list) {
+			$this->assertPattern("/This is on your reading list./");
+		}
+		else {
+			$this->assertNoPattern("/This is on your reading list./");
+		}
 	}
 
 	/**
-	 * Adds a bookmark which is on the reading list but has no keywords.
+	 * Adds two bookmarks, one on the reading list, the other not.
 	 *
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
 	function test_bookmark_add_reading_list() {
-		$this->load_bookmark_add_page();
-
-		$this->input_title = String::uuid();
-		$this->input_url = String::uuid().'.tld';
-		$this->setField('data[Bookmark][title]', $this->input_title);
-		$this->setField('data[Bookmark][url]', $this->input_url);
-		$this->setField('data[Bookmark][reading_list]', "1");
-		$this->click("Create Bookmark");
-
-		$this->verify_page_load();
-
-		$this->assertPattern("/$this->input_title/");
-		$this->assertPattern("/$this->input_url/");
-		$this->assertPattern("/This is on your reading list./");
+		$this->bookmark_add(true);
+		$this->bookmark_add(false);
 	}
 
 	/**
