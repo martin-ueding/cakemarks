@@ -76,5 +76,55 @@ class BookmarkAddTestCase extends CakeWebTestCase {
 		$this->assertPattern("/$this->input_url/");
 		$this->assertPattern("/This is on your reading list./");
 	}
+
+	/**
+	 * Adds a bookmark with a new keyword.
+	 *
+	 * @author Martin Ueding <dev@martin-ueding.de>
+	 */
+	function test_bookmark_with_new_keyword() {
+		$this->load_bookmark_add_page();
+
+		$this->input_title = uniqid();
+		$this->input_url = uniqid().'.tld';
+		$this->input_new_keyword = uniqid();
+		$this->setField('data[Bookmark][title]', $this->input_title);
+		$this->setField('data[Bookmark][url]', $this->input_url);
+		$this->setField('data[Keyword][title]', $this->input_new_keyword);
+		$this->click("Create Bookmark");
+
+		$this->verify_page_load();
+
+		$this->assertPattern("/$this->input_title/");
+		$this->assertPattern("/$this->input_url/");
+		$this->assertPattern("/$this->input_new_keyword/");
+		$this->assertNoPattern("/This is on your reading list./");
+	}
+
+	/**
+	 * Adds a bookmark and selects the "Linux" keyword which has to exist at ID
+	 * 124 in the database before this test.
+	 *
+	 * TODO create a keyword dynamically
+	 *
+	 * @author Martin Ueding <dev@martin-ueding.de>
+	 */
+	function test_bookmark_with_existing_keyword() {
+		$this->load_bookmark_add_page();
+
+		$this->input_title = uniqid();
+		$this->input_url = uniqid().'.tld';
+		$this->setField('data[Bookmark][title]', $this->input_title);
+		$this->setField('data[Bookmark][url]', $this->input_url);
+		$this->setField('data[Keyword][Keyword][]', array(124));
+		$this->click("Create Bookmark");
+
+		$this->verify_page_load();
+
+		$this->assertPattern("/$this->input_title/");
+		$this->assertPattern("/$this->input_url/");
+		$this->assertPattern('$<a href="[^"]+" class="black">Linux</a>$');
+		$this->assertNoPattern("/This is on your reading list./");
+	}
 }
 ?>
