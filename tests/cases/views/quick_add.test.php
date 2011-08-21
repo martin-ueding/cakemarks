@@ -38,6 +38,11 @@ class QuickAddTestCase extends CakemarksWebTestCase {
 		}
 	}
 
+	/**
+	 * Adds two bookmarks, one with reading list, one without.
+	 *
+	 * @author Martin Ueding <dev@martin-ueding.de>
+	 */
 	function test_input() {
 		$this->input_to_reading_list(true);
 		$this->input_to_reading_list(false);
