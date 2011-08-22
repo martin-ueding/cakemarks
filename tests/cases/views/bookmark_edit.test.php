@@ -58,6 +58,7 @@ class BookmarkEditTestCase extends CakemarksWebTestCase {
 
 		$this->click("Edit Bookmark");
 		$this->verify_page_load();
+		$this->assertPattern("/Edit Bookmark/");
 
 		$this->assertPattern("/$this->input_title/");
 		$this->assertPattern("/$this->input_url/");
@@ -65,9 +66,9 @@ class BookmarkEditTestCase extends CakemarksWebTestCase {
 		$new_title = String::uuid();
 		$new_url = String::uuid().".tld";
 
-		$this->setField('data[Bookmark][title]', $new_title);
-		$this->setField('data[Bookmark][url]', $new_url);
-		$this->setField('data[Bookmark][reading_list]', $edit_to_list ? "1" : "0");
+		$this->assertTrue($this->setField('data[Bookmark][title]', $new_title));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $new_url));
+		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $edit_to_list ? "1" : ""));
 		$this->click("Submit");
 
 		$this->verify_page_load();
