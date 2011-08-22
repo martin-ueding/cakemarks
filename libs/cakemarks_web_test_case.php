@@ -14,6 +14,7 @@ class CakemarksWebTestCase extends CakeWebTestCase {
 	 */
 	function verify_page_load() {
 		$this->assertResponse(200);
+		$this->assertMime(array('text/plain', 'text/html'));
 		$this->assertNoPattern("/Missing Controller/");
 	}
 
