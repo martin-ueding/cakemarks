@@ -9,7 +9,8 @@
  */
 class TestCaseTestCase extends CakeWebTestCase {
 	function __construct() {
-		$this->baseurl = "127.0.0.1".current(split("webroot", $_SERVER['PHP_SELF']));
+		$this->baseurl = "127.0.0.1".current(split("webroot",
+			$_SERVER['PHP_SELF']));
 	}
 
 	function testPositive() {
