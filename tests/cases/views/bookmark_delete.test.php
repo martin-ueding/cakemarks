@@ -49,7 +49,8 @@ class BookmarkDeleteTestCase extends CakemarksWebTestCase {
 	}
 
 	/**
-	 * Adds two bookmarks, one on the reading list, the other not.
+	 * Adds a bookmark and deletes it right after. Then it checks the main page
+	 * whether it is still there.
 	 *
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
