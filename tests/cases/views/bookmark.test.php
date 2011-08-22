@@ -33,7 +33,7 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 		$this->input_url = String::uuid().'.tld';
 		$this->assertTrue($this->setField('data[Bookmark][title]', $this->input_title));
 		$this->assertTrue($this->setField('data[Bookmark][url]', $this->input_url));
-		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : "0"));
+		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : false));
 		$this->click("Submit");
 
 		$this->verify_page_load();
@@ -136,7 +136,7 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 
 		$this->assertTrue($this->setField('data[Bookmark][title]', $new_title));
 		$this->assertTrue($this->setField('data[Bookmark][url]', $new_url));
-		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $edit_to_list ? "1" : 0));
+		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $edit_to_list ? "1" : false));
 		$this->click("Submit");
 
 		$this->verify_page_load();
