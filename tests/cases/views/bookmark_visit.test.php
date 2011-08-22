@@ -8,6 +8,7 @@ class BookmarkVisitTestCase extends CakemarksWebTestCase {
 		$this->bookmark_add(false);
 
 		$this->assertPattern("/Visits: 0\D+/");
+		$this->assertNoPattern("/Visits: [1-9]\d*/");
 	}
 
 	function test_init_one_visit_after_visit() {
@@ -33,6 +34,7 @@ class BookmarkVisitTestCase extends CakemarksWebTestCase {
 		$this->verify_page_load();
 
 		$this->assertPattern("/Visits: 1\D+/");
+		$this->assertNoPattern("/Visits: [02-9]\d*/");
 	}
 }
 ?>
