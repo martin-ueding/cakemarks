@@ -67,7 +67,7 @@ class BookmarksController extends AppController {
 				(empty($this->data['Keyword']['title']) || $this->Keyword->save($this->data))
 			) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Bookmark->id));
 			} else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
