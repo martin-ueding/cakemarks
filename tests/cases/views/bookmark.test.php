@@ -67,19 +67,19 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 	function test_add_bookmark_with_new_keyword() {
 		$this->load_bookmark_add_page();
 
-		$this->input_title = String::uuid();
-		$this->input_url = String::uuid().'.tld';
-		$this->input_new_keyword = String::uuid();
-		$this->assertTrue($this->setField('data[Bookmark][title]', $this->input_title));
-		$this->assertTrue($this->setField('data[Bookmark][url]', $this->input_url));
-		$this->assertTrue($this->setField('data[Keyword][title]', $this->input_new_keyword));
+		$input_title = String::uuid();
+		$input_url = String::uuid().'.tld';
+		$input_new_keyword = String::uuid();
+		$this->assertTrue($this->setField('data[Bookmark][title]', $input_title));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $input_url));
+		$this->assertTrue($this->setField('data[Keyword][title]', $input_new_keyword));
 		$this->click("Submit");
 
 		$this->verify_page_load();
 
-		$this->assertPattern("/$this->input_title/");
-		$this->assertPattern("/$this->input_url/");
-		$this->assertPattern("/$this->input_new_keyword/");
+		$this->assertPattern("/$input_title/");
+		$this->assertPattern("/$input_url/");
+		$this->assertPattern('#<div class="small_tag">[\s\n]*<a href="[^"]+" class="black">'.$input_new_keyword.'#');
 		$this->assertNoPattern("/This is on your reading list./");
 	}
 
@@ -105,7 +105,7 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 
 		$this->assertPattern("/$this->input_title/");
 		$this->assertPattern("/$this->input_url/");
-		$this->assertPattern('$<a href="[^"]+" class="black">Linux</a>$');
+		$this->assertPattern('$<div class="small_tag">\s*<a href="[^"]+" class="black">Linux</a>$');
 		$this->assertNoPattern("/This is on your reading list./");
 	}
 
