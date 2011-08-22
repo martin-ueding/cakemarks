@@ -46,5 +46,21 @@ class BookmarkEditTestCase extends CakemarksWebTestCase {
 		$this->bookmark_edit_put_on_off_reading_list(true);
 		$this->bookmark_edit_put_on_off_reading_list(false);
 	}
+
+	function test_add_new_keyword_to_bookmark() {
+		$this->bookmark_add();
+
+		$this->click("Edit Bookmark");
+
+		$input_new_keyword = String::uuid();
+		$this->assertTrue($this->setField('data[Keyword][title]',
+			$input_new_keyword));
+		$this->click("Submit");
+
+		$this->verify_page_load();
+
+		$this->assertPattern('#<div class="small_tag">[\s\n]*'
+			.'<a href="[^"]+" class="black">'.$input_new_keyword.'#');
+	}
 }
 ?>
