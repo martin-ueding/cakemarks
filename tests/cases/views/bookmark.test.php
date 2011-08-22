@@ -31,9 +31,9 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 
 		$this->input_title = String::uuid();
 		$this->input_url = String::uuid().'.tld';
-		$this->setField('data[Bookmark][title]', $this->input_title);
-		$this->setField('data[Bookmark][url]', $this->input_url);
-		$this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : "0");
+		$this->assertTrue($this->setField('data[Bookmark][title]', $this->input_title));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $this->input_url));
+		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : "0"));
 		$this->click("Submit");
 
 		$this->verify_page_load();
@@ -70,9 +70,9 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 		$this->input_title = String::uuid();
 		$this->input_url = String::uuid().'.tld';
 		$this->input_new_keyword = String::uuid();
-		$this->setField('data[Bookmark][title]', $this->input_title);
-		$this->setField('data[Bookmark][url]', $this->input_url);
-		$this->setField('data[Keyword][title]', $this->input_new_keyword);
+		$this->assertTrue($this->setField('data[Bookmark][title]', $this->input_title));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $this->input_url));
+		$this->assertTrue($this->setField('data[Keyword][title]', $this->input_new_keyword));
 		$this->click("Submit");
 
 		$this->verify_page_load();
@@ -96,9 +96,9 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 
 		$this->input_title = String::uuid();
 		$this->input_url = String::uuid().'.tld';
-		$this->setField('data[Bookmark][title]', $this->input_title);
-		$this->setField('data[Bookmark][url]', $this->input_url);
-		$this->setField('data[Keyword][Keyword][]', array(124));
+		$this->assertTrue($this->setField('data[Bookmark][title]', $this->input_title));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $this->input_url));
+		$this->assertTrue($this->setField('data[Keyword][Keyword][]', array(124)));
 		$this->click("Submit");
 
 		$this->verify_page_load();
