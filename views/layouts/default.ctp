@@ -26,7 +26,11 @@
 
 			<left>
 				<?php echo $this->element('sticky_keywords'); ?>
-				<?php echo $this->element('quickadd'); ?>
+				<?php
+				if ($this->params['controller'] != 'bookmarks' || ($this->params['action'] != 'add' && $this->params['action'] != 'edit')) {
+					echo $this->element('quickadd');
+				}
+				?>
 			</left>
 
 			<div id="middle">
