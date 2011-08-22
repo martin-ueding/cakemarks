@@ -17,7 +17,8 @@ class BookmarksController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('bookmark', $this->Bookmark->read(null, $id));
-		$this->set('visits', $this->Bookmark->Visit->find('count'));
+		$this->set('visits', $this->Bookmark->Visit->find('count', array(
+			"conditions" => array("Visit.bookmark_id" => $id))));
 	}
 
 	function add() {
