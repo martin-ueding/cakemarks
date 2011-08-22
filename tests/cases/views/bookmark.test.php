@@ -94,17 +94,17 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 	function test_add_bookmark_with_existing_keyword() {
 		$this->load_bookmark_add_page();
 
-		$this->input_title = String::uuid();
-		$this->input_url = String::uuid().'.tld';
-		$this->assertTrue($this->setField('data[Bookmark][title]', $this->input_title));
-		$this->assertTrue($this->setField('data[Bookmark][url]', $this->input_url));
+		$input_title = String::uuid();
+		$input_url = String::uuid().'.tld';
+		$this->assertTrue($this->setField('data[Bookmark][title]', $input_title));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $input_url));
 		$this->assertTrue($this->setField('data[Keyword][Keyword][]', array(124)));
 		$this->click("Submit");
 
 		$this->verify_page_load();
 
-		$this->assertPattern("/$this->input_title/");
-		$this->assertPattern("/$this->input_url/");
+		$this->assertPattern("/$input_title/");
+		$this->assertPattern("/$input_url/");
 		$this->assertPattern('$<div class="small_tag">\s*<a href="[^"]+" class="black">Linux</a>$');
 		$this->assertNoPattern("/This is on your reading list./");
 	}
