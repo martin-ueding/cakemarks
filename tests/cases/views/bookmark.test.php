@@ -4,11 +4,11 @@
 App::import('Lib', 'CakemarksWebTestCase');
 
 /**
- * Exercises the adding of bookmarks on the main adding page.
+ * Exercises the bookmarks.
  *
  * @author Martin Ueding <dev@martin-ueding.de>
  */
-class BookmarkAddTestCase extends CakemarksWebTestCase {
+class BookmarkTestCase extends CakemarksWebTestCase {
 	/**
 	 * Loads the bookmark adding view.
 	 *
