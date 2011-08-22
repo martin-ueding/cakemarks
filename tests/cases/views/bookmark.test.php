@@ -64,7 +64,7 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 	 *
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
-	function test_bookmark_with_new_keyword() {
+	function test_add_bookmark_with_new_keyword() {
 		$this->load_bookmark_add_page();
 
 		$this->input_title = String::uuid();
@@ -91,7 +91,7 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 	 *
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
-	function test_bookmark_with_existing_keyword() {
+	function test_add_bookmark_with_existing_keyword() {
 		$this->load_bookmark_add_page();
 
 		$this->input_title = String::uuid();
@@ -109,6 +109,12 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 		$this->assertNoPattern("/This is on your reading list./");
 	}
 
+
+	/*************************************************************************/
+	/*                                                                       */
+	/*                                Editing                                */
+	/*                                                                       */
+	/*************************************************************************/
 
 	/**
 	 * Adds two bookmarks, one on the reading list, the other not.
@@ -130,7 +136,7 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 
 		$this->assertTrue($this->setField('data[Bookmark][title]', $new_title));
 		$this->assertTrue($this->setField('data[Bookmark][url]', $new_url));
-		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $edit_to_list ? "1" : ""));
+		$this->assertTrue($this->setField('data[Bookmark][reading_list]', $edit_to_list ? "1" : 0));
 		$this->click("Submit");
 
 		$this->verify_page_load();
@@ -150,6 +156,13 @@ class BookmarkTestCase extends CakemarksWebTestCase {
 		$this->bookmark_edit_put_on_off_reading_list(true);
 		$this->bookmark_edit_put_on_off_reading_list(false);
 	}
+
+
+	/*************************************************************************/
+	/*                                                                       */
+	/*                               Deleting                                */
+	/*                                                                       */
+	/*************************************************************************/
 
 	/**
 	 * Adds a bookmark and deletes it right after. Then it checks the main page
