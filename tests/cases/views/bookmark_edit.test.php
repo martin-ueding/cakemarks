@@ -33,7 +33,7 @@ class BookmarkEditTestCase extends CakemarksWebTestCase {
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : "0");
-		$this->click("Create Bookmark");
+		$this->click("Submit");
 
 		$this->verify_page_load();
 

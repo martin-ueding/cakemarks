@@ -17,6 +17,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 	function load_bookmark_add_page() {
 		$this->get($this->baseurl."/bookmarks/add");
 		$this->verify_page_load();
+		$this->assertPattern("/Add Bookmark/");
 	}
 
 	/**
@@ -33,7 +34,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Bookmark][reading_list]', $reading_list ? "1" : "0");
-		$this->click("Create Bookmark");
+		$this->click("Submit");
 
 		$this->verify_page_load();
 
@@ -72,7 +73,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Keyword][title]', $this->input_new_keyword);
-		$this->click("Create Bookmark");
+		$this->click("Submit");
 
 		$this->verify_page_load();
 
@@ -98,7 +99,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->setField('data[Bookmark][title]', $this->input_title);
 		$this->setField('data[Bookmark][url]', $this->input_url);
 		$this->setField('data[Keyword][Keyword][]', array(124));
-		$this->click("Create Bookmark");
+		$this->click("Submit");
 
 		$this->verify_page_load();
 
