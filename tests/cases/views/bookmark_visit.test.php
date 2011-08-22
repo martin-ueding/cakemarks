@@ -18,8 +18,7 @@ class BookmarkVisitTestCase extends CakemarksWebTestCase {
 		$input_url = "http://127.0.0.1/";
 		$this->assertTrue($this->setField('data[Bookmark][title]',
 			$input_title));
-		$this->assertTrue($this->setField('data[Bookmark][url]',
-			$input_url));
+		$this->assertTrue($this->setField('data[Bookmark][url]', $input_url));
 		$this->click("Submit");
 
 		$this->verify_page_load();
