@@ -27,7 +27,8 @@
 
 	?>
 	<?php if ($bookmark['Bookmark']['reading_list']): ?>
-		<p class="reading_list">This is on your reading list.</p>
+		<dt><?php __('Reading List'); ?></dt>
+		<dd><?php __('This is on your reading list.'); ?></dd>
 	<?php endif; ?>
 
 	<?php if (!empty($bookmark['Keyword'])): ?>
