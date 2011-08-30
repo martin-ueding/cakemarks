@@ -1,7 +1,7 @@
-<div class="keywords form">
+<div class="keywords_form">
+<legend><?php __('Add Keyword'); ?></legend>
 <?php echo $this->Form->create('Keyword');?>
 	<fieldset>
- 		<legend><?php __('Add Keyword'); ?></legend>
 	<?php
 		echo $this->Form->input('title');
 		echo $this->Form->input('parent_id');
