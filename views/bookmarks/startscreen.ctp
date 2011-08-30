@@ -1,5 +1,7 @@
 <?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
+<h2><?php __('Startscreen'); ?></h2>
+
 <?php if (!empty($revisit)): ?>
 <?=$this->element('bookmarkbox',
 	array('title' => __("revisit", true), 'bookmarks' => $revisit))?>
