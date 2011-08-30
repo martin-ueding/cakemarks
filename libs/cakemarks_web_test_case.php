@@ -6,6 +6,8 @@ class CakemarksWebTestCase extends CakeWebTestCase {
 		$this->baseurl = "127.0.0.1".current(split("app", $_SERVER['PHP_SELF']));
 	}
 
+	// TODO refactor the checking for a keyword into a function
+
 	/**
 	 * Verifies the load of a page by checking the HTTP code and possible
 	 * CakePHP warnings.
