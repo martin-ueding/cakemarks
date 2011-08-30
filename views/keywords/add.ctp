@@ -1,18 +1,5 @@
-<div class="keywords_form">
-<legend><?php __('Add Keyword'); ?></legend>
-<?php echo $this->Form->create('Keyword');?>
-	<fieldset>
-	<?php
-		echo $this->Form->input('title');
-		echo $this->Form->input('parent_id');
-		echo $this->Form->input('sticky');
-		echo $this->Form->input('Bookmark');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h2><?php __('Actions'); ?></h2>
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Keywords', true), array('action' => 'index'));?></li>
@@ -21,4 +8,15 @@
 		<li><?php echo $this->Html->link(__('List Bookmarks', true), array('controller' => 'bookmarks', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Bookmark', true), array('controller' => 'bookmarks', 'action' => 'add')); ?> </li>
 	</ul>
+</div>
+
+<div class="keywords_form">
+	<h2><?php __('Add Keyword'); ?></h2>
+
+	<?php echo $this->Form->create('Keyword');?>
+	<?php echo $this->Form->input('title'); ?>
+	<?php echo $this->Form->input('parent_id'); ?>
+	<?php echo $this->Form->input('sticky'); ?>
+	<?php echo $this->Form->input('Bookmark'); ?>
+	<?php echo $this->Form->end(__('Submit', true));?>
 </div>
