@@ -13,42 +13,43 @@
 	<h2><?php __('View Bookmark'); ?></h2>
 
 	<dl>
-	<dt><?php __('Title'); ?></dt>
-	<dd><?php echo $bookmark['Bookmark']['title']; ?></p>
+		<dt><?php __('Title'); ?></dt>
+		<dd><?php echo $bookmark['Bookmark']['title']; ?></dd>
 
-	<dt><?php __('URL'); ?></dt>
-	<dd><?php echo $this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id'])); ?></p>
+		<dt><?php __('URL'); ?></dt>
+		<dd><?php echo $this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id'])); ?></dd>
 
 
-	<?php
-	if (!empty($bookmark['Bookmark']['revisit'])) {
-		printf(__('revisit every %d hours', true), $bookmark['Bookmark']['revisit']);
-	}
+		<?php
+		if (!empty($bookmark['Bookmark']['revisit'])) {
+			printf(__('revisit every %d hours', true), $bookmark['Bookmark']['revisit']);
+		}
 
-	?>
-	<?php if ($bookmark['Bookmark']['reading_list']): ?>
-		<dt><?php __('Reading List'); ?></dt>
-		<dd><?php __('This is on your reading list.'); ?></dd>
-	<?php endif; ?>
+		?>
+		<?php if ($bookmark['Bookmark']['reading_list']): ?>
+			<dt><?php __('Reading List'); ?></dt>
+			<dd><?php __('This is on your reading list.'); ?></dd>
+		<?php endif; ?>
 
-	<?php if (!empty($bookmark['Keyword'])): ?>
-	<dt><?php __('Related Keywords'); ?></dt>
-	<dd>
-		<ul>
-		<?php foreach ($bookmark['Keyword'] as $keyword): ?>
-			<li><?php echo $this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?></li>
-		<?php endforeach; ?>
-		</ul>
-	</dd>
-	<?php endif; ?>
+		<?php if (!empty($bookmark['Keyword'])): ?>
+		<dt><?php __('Related Keywords'); ?></dt>
+		<dd>
+			<ul>
+			<?php foreach ($bookmark['Keyword'] as $keyword): ?>
+				<li><?php echo $this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?></li>
+			<?php endforeach; ?>
+			</ul>
+		</dd>
+		<?php endif; ?>
 
-	<dt><?php __('Visits'); ?></dt>
-	<dd><?php echo $visits; ?></dd>
+		<dt><?php __('Visits'); ?></dt>
+		<dd><?php echo $visits; ?></dd>
 
-	<dt><?php __('Created'); ?></dt>
-	<dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
+		<dt><?php __('Created'); ?></dt>
+		<dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
 
-	<dt><?php __('Modified'); ?></dt>
-	<dd><?php echo $bookmark['Bookmark']['modified']; ?></dd>
+		<dt><?php __('Modified'); ?></dt>
+		<dd><?php echo $bookmark['Bookmark']['modified']; ?></dd>
+	</dl>
 
 </div>
