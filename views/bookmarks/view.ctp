@@ -9,31 +9,43 @@
 	</ul>
 </div>
 
-<h2><?php __('View Bookmark'); ?></h2>
-<p class="title"><?php echo $bookmark['Bookmark']['title']; ?></p>
-<p class="url"><?php echo $this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id'])); ?></p>
+<div class="bookmark_view">
+	<h2><?php __('View Bookmark'); ?></h2>
+
+	<dl>
+	<dt><?php __('Title'); ?></dt>
+	<dd><?php echo $bookmark['Bookmark']['title']; ?></p>
+
+	<dt><?php __('URL'); ?></dt>
+	<dd><?php echo $this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id'])); ?></p>
 
 
-<?php
-if (!empty($bookmark['Bookmark']['revisit'])) {
-	printf(__('revisit every %d hours', true), $bookmark['Bookmark']['revisit']);
-}
+	<?php
+	if (!empty($bookmark['Bookmark']['revisit'])) {
+		printf(__('revisit every %d hours', true), $bookmark['Bookmark']['revisit']);
+	}
 
-?>
-<?php if ($bookmark['Bookmark']['reading_list']): ?>
-	<p class="reading_list">This is on your reading list.</p>
-<?php endif; ?>
+	?>
+	<?php if ($bookmark['Bookmark']['reading_list']): ?>
+		<p class="reading_list">This is on your reading list.</p>
+	<?php endif; ?>
 
-<div class="related_keywords">
-<h3><?php __('Related Keywords'); ?></h3>
-<ul>
-<?php foreach ($bookmark['Keyword'] as $keyword): ?>
-	<li><?php echo $this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?></li>
-<?php endforeach; ?>
-</ul>
+	<dt><?php __('Related Keywords'); ?></dt>
+	<dd>
+		<ul>
+		<?php foreach ($bookmark['Keyword'] as $keyword): ?>
+			<li><?php echo $this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?></li>
+		<?php endforeach; ?>
+		</ul>
+	</dd>
+
+	<dt><?php __('Visits'); ?></dt>
+	<dd><?php echo $visits; ?></dd>
+
+	<dt><?php __('Created'); ?></dt>
+	<dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
+
+	<dt><?php __('Modified'); ?></dt>
+	<dd><?php echo $bookmark['Bookmark']['modified']; ?></dd>
+
 </div>
-
-<p class="visits"><?php echo __('Visits', true)?>: <?php echo $visits; ?></p>
-<p class="created"><?php echo __('Created', true)?>: <?php echo $bookmark['Bookmark']['created']; ?></p>
-<p class="modified"><?php echo __('Modified', true)?>: <?php echo $bookmark['Bookmark']['modified']; ?></p>
-
