@@ -12,7 +12,13 @@
 	</ul>
 </div>
 
-<h2><?php __('View Keyword'); ?></h2>
-<?php echo $keyword['Keyword']['title']; ?>
+<div class="keyword_view">
+	<h2><?php __('View Keyword'); ?></h2>
+	<dl>
+		<dt><?php __('Title'); ?></dt>
+		<dd><?php echo $keyword['Keyword']['title']; ?></dd>
 
-<?php echo $this->element('bookmark_view', array('bookmarks' => $keyword)); ?>
+		<dt><?php __('Related Bookmarks'); ?></dt>
+		<dd><?php echo $this->element('bookmark_view', array('bookmarks' => $keyword)); ?></dd>
+	</dl>
+</div>
