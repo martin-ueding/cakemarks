@@ -59,8 +59,8 @@ class BookmarkEditTestCase extends CakemarksWebTestCase {
 
 		$this->verify_page_load();
 
-		$this->assertPattern('#<div class="small_tag">[\s\n]*'
-			.'<a href="[^"]+" class="black">'.$input_new_keyword.'#');
+		$this->assertPattern('$<dd>[\s\n]*<ul>[\s\n]*<li>[\s\n]*'
+			.'<a href="[^"]+">'.$input_new_keyword.'$');
 	}
 }
 ?>
