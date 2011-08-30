@@ -16,4 +16,3 @@
 <?php echo $keyword['Keyword']['title']; ?>
 
 <?php echo $this->element('bookmark_view', array('bookmarks' => $keyword)); ?>
-<?php debug($keyword); ?>
