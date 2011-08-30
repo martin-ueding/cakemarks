@@ -16,13 +16,15 @@
 
 			<div id="keyword_tree">
 				<h2><?php __('Keywords'); ?></h2>
-				<?php echo $this->element('keyword_tree', array('show_edit' => false)); ?>
+				<?php echo $this->element('keyword_tree',
+					array('show_edit' => false)); ?>
 			</div>
 
 
 			<?php echo $this->element('sticky_keywords'); ?>
-			<?php
-			if ($this->params['controller'] != 'bookmarks' || ($this->params['action'] != 'add' && $this->params['action'] != 'edit')) {
+			<?php if ($this->params['controller'] != 'bookmarks'
+				|| ($this->params['action'] != 'add'
+				&& $this->params['action'] != 'edit')) {
 				echo $this->element('quickadd');
 			}
 			?>
