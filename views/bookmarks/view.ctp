@@ -3,9 +3,14 @@
 <div id="actions">
 	<h2><?php __('Actions'); ?></h2>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Bookmark', true), array('action' => 'edit', $bookmark['Bookmark']['id'])); ?></li>
-		<li><?php echo $this->Html->link(__('Delete Bookmark', true), array('action' => 'delete', $bookmark['Bookmark']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $bookmark['Bookmark']['id'])); ?></li>
-		<li><?php echo $this->Html->link(__('New Bookmark', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Edit Bookmark', true),
+			array('action' => 'edit', $bookmark['Bookmark']['id'])); ?></li>
+		<li><?php echo $this->Html->link(__('Delete Bookmark', true),
+			array('action' => 'delete', $bookmark['Bookmark']['id']), null,
+			sprintf(__('Are you sure you want to delete # %s?', true),
+			$bookmark['Bookmark']['id'])); ?></li>
+		<li><?php echo $this->Html->link(__('New Bookmark', true),
+			array('action' => 'add')); ?></li>
 	</ul>
 </div>
 
@@ -17,15 +22,17 @@
 		<dd><?php echo $bookmark['Bookmark']['title']; ?></dd>
 
 		<dt><?php __('URL'); ?></dt>
-		<dd><?php echo $this->Html->link($bookmark['Bookmark']['url'], array('action' => 'visit', $bookmark['Bookmark']['id'])); ?></dd>
+		<dd><?php echo $this->Html->link($bookmark['Bookmark']['url'],
+			array('action' => 'visit', $bookmark['Bookmark']['id'])); ?></dd>
 
 
-		<?php
-		if (!empty($bookmark['Bookmark']['revisit'])) {
-			printf(__('revisit every %d hours', true), $bookmark['Bookmark']['revisit']);
+		<?php if (!empty($bookmark['Bookmark']['revisit'])): ?>
+			<dt><?php __('Revisit'); ?></dt>
+			<dd><?php printf(__('every %d hours', true),
+				$bookmark['Bookmark']['revisit']); ?></dd>
 		}
+		<?php endif; ?>
 
-		?>
 		<?php if ($bookmark['Bookmark']['reading_list']): ?>
 			<dt><?php __('Reading List'); ?></dt>
 			<dd><?php __('This is on your reading list.'); ?></dd>
@@ -36,7 +43,9 @@
 		<dd>
 			<ul>
 			<?php foreach ($bookmark['Keyword'] as $keyword): ?>
-				<li><?php echo $this->Html->link($keyword['title'], array('controller' => 'keywords', 'action' => 'view', $keyword['id'])); ?></li>
+				<li><?php echo $this->Html->link($keyword['title'],
+					array('controller' => 'keywords', 'action' => 'view',
+					$keyword['id'])); ?></li>
 			<?php endforeach; ?>
 			</ul>
 		</dd>
