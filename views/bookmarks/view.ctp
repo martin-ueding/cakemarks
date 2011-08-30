@@ -30,6 +30,7 @@
 		<p class="reading_list">This is on your reading list.</p>
 	<?php endif; ?>
 
+	<?php if (!empty($bookmark['Keyword'])): ?>
 	<dt><?php __('Related Keywords'); ?></dt>
 	<dd>
 		<ul>
@@ -38,6 +39,7 @@
 		<?php endforeach; ?>
 		</ul>
 	</dd>
+	<?php endif; ?>
 
 	<dt><?php __('Visits'); ?></dt>
 	<dd><?php echo $visits; ?></dd>
