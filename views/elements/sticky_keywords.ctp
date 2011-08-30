@@ -7,11 +7,7 @@
 <?php foreach ($sticky_keywords as $keyword): ?>
 	<div class="sticky_keyword">
 		<h3><?php echo $keyword['Keyword']['title']; ?></h3>
-		<ul>
-			<?php foreach ($keyword['Bookmark'] as $bookmark): ?>
-			<li><?php echo $this->Html->link($bookmark['title'], array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']), array('class' => 'black')); ?></li>
-			<?php endforeach; ?>
-		</ul>
+		<?php echo $this->element('bookmark_view', array('bookmarks' => $keyword['Bookmark'])); ?>
 	</div>
 <?php endforeach; ?>
 </div>
