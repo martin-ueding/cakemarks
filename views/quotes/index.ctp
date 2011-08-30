@@ -1,9 +1,16 @@
-	<h1><?php __('Quotes');?></h1>
+<div id="actions">
+	<h2><?php __('Actions'); ?></h2>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Quote', true), array('action' => 'add')); ?></li>
+	</ul>
+</div>
+
+<h2><?php __('Quotes');?></h2>
 	<table>
 	<tr>
-			<th><?php echo $this->Paginator->sort('text');?></th>
-			<th><?php echo $this->Paginator->sort('author');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+		<th><?php echo $this->Paginator->sort('text');?></th>
+		<th><?php echo $this->Paginator->sort('author');?></th>
+		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -37,10 +44,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div id="actions" class="toolbar_element">
-	<div class="toolbar_unfold">
-		<?php echo $this->Html->link(__('New', true), array('action' => 'add')); ?>
-	</div>
-	<div class="toolbar_handle"><?php __('Actions'); ?></div>
 </div>
