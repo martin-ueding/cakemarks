@@ -51,5 +51,4 @@
 		<dt><?php __('Modified'); ?></dt>
 		<dd><?php echo $bookmark['Bookmark']['modified']; ?></dd>
 	</dl>
-
 </div>
