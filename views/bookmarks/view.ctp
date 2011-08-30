@@ -16,8 +16,7 @@
 
 <?php
 if (!empty($bookmark['Bookmark']['revisit'])) {
-	// TODO i18n
-	echo 'revisit every '.$bookmark['Bookmark']['revisit'].' hours';
+	printf(__('revisit every %d hours', true), $bookmark['Bookmark']['revisit']);
 }
 
 ?>
