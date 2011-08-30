@@ -8,7 +8,8 @@
 		<li><?php echo $this->Html->link(__('Delete Keyword', true),
 			array('action' => 'delete', $keyword['Keyword']['id']),
 			null,
-			sprintf(__('Are you sure you want to delete # %s?', true), $keyword['Keyword']['id'])); ?></li>
+			sprintf(__('Are you sure you want to delete # %s?', true),
+			$keyword['Keyword']['id'])); ?></li>
 	</ul>
 </div>
 
@@ -19,6 +20,7 @@
 		<dd><?php echo $keyword['Keyword']['title']; ?></dd>
 
 		<dt><?php __('Related Bookmarks'); ?></dt>
-		<dd><?php echo $this->element('bookmark_view', array('bookmarks' => $keyword)); ?></dd>
+		<dd><?php echo $this->element('bookmark_view',
+			array('bookmarks' => $keyword)); ?></dd>
 	</dl>
 </div>
