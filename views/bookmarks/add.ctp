@@ -1,7 +1,7 @@
 <?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div class="bookmarks_form">
-	<h2><?php echo __('Exit Bookmark', true); ?></h2>
+	<h2><?php echo __('Add Bookmark', true); ?></h2>
 
 	<?php echo $this->Form->create('Bookmark'); ?>
 	<?php echo $this->Form->input('title',
