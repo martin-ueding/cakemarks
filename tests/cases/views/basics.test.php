@@ -7,7 +7,7 @@
  * 
  * @author Martin Ueding <dev@martin-ueding.de>
  */
-class TestCaseTestCase extends CakeWebTestCase {
+class BasicsTestCase extends CakeWebTestCase {
 	function __construct() {
 		$this->baseurl = "127.0.0.1".current(split("webroot",
 			$_SERVER['PHP_SELF']));
