@@ -1,8 +1,12 @@
 <div class="actions">
 	<h2><?php __('Actions'); ?></h2>
 	<ul>
-		<li><?php echo $this->Html->link(__('List Quotes', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Delete This Quote', true), array('action' => 'delete', $this->Form->value('Quote.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Quote.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('List Quotes', true),
+			array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Delete This Quote', true),
+			array('action' => 'delete', $this->Form->value('Quote.id')), null,
+			sprintf(__('Are you sure you want to delete # %s?', true),
+			$this->Form->value('Quote.id'))); ?></li>
 	</ul>
 </div>
 

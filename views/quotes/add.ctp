@@ -1,7 +1,8 @@
 <div class="actions">
 	<h2><?php __('Actions'); ?></h2>
 	<ul>
-		<li><?php echo $this->Html->link(__('List Quotes', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Quotes', true),
+			array('action' => 'index'));?></li>
 	</ul>
 </div>
 
