@@ -38,6 +38,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->assertPattern("/$input_url/");
 		$this->check_for_keyword($input_new_keyword);
 		$this->assertNoPattern("/This is on your reading list./");
+		$this->assertPattern("/$input_new_keyword/");
 	}
 
 	/**
@@ -66,6 +67,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->assertPattern("/$input_url/");
 		$this->check_for_keyword("Linux");
 		$this->assertNoPattern("/This is on your reading list./");
+		$this->assertPattern("/Linux/");
 	}
 }
 ?>
