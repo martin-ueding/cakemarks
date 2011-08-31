@@ -42,6 +42,7 @@ class BookmarksController extends AppController {
 		if ($url != null) {
 			$url = str_replace("__slash__", "/", $url);
 			$url = str_replace("__colon__", ":", $url);
+			$url = str_replace("__hash__", "#", $url);
 			$this->data['Bookmark']['url'] = $url;
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
