@@ -42,14 +42,28 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 	}
 
 	/**
-	 * Adds a bookmark and selects the "Linux" keyword which has to exist at ID
-	 * 124 in the database before this test.
-	 *
-	 * TODO create a keyword dynamically
+	 * Creates a new keyword and then creates a new bookmark which uses this
+	 * keyword.
 	 *
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
 	function test_add_bookmark_with_existing_keyword() {
+		$this->get($this->baseurl."/keywords/add");
+		$this->verify_page_load();
+
+		$new_keyword = String::uuid();
+		$this->assertTrue($this->setField('data[Keyword][title]', $new_keyword));
+		$this->click("Submit");
+
+		$this->verify_page_load();
+
+		// Find the ID of the newly created bookmark.
+		$urlparts = explode('/', $this->getUrl());
+		$this->assertTrue(!empty($urlparts));
+		$keyword_id = $urlparts[count($urlparts)-1];
+		$this->assertTrue($keyword_id > 0);
+
+
 		$this->load_bookmark_add_page();
 
 		$input_title = String::uuid();
@@ -58,16 +72,16 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 			$input_title));
 		$this->assertTrue($this->setField('data[Bookmark][url]', $input_url));
 		$this->assertTrue($this->setField('data[Keyword][Keyword][]',
-			array(124)));
+			array($keyword_id)));
 		$this->click("Submit");
 
 		$this->verify_page_load();
 
 		$this->assertPattern("/$input_title/");
 		$this->assertPattern("/$input_url/");
-		$this->check_for_keyword("Linux");
+		$this->check_for_keyword($new_keyword);
 		$this->assertNoPattern("/This is on your reading list./");
-		$this->assertPattern("/Linux/");
+		$this->assertPattern("/$new_keyword/");
 	}
 }
 ?>
