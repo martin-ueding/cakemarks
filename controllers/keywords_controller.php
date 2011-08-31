@@ -46,7 +46,7 @@ class KeywordsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Keyword->save($this->data)) {
 				$this->Session->setFlash(__('The keyword has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Keyword->id));
 			} else {
 				$this->Session->setFlash(__('The keyword could not be saved. Please, try again.', true));
 			}
