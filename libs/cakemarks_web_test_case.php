@@ -6,8 +6,6 @@ class CakemarksWebTestCase extends CakeWebTestCase {
 		$this->baseurl = "127.0.0.1".current(split("app", $_SERVER['PHP_SELF']));
 	}
 
-	// TODO refactor the checking for a keyword into a function
-
 	/**
 	 * Verifies the load of a page by checking the HTTP code and possible
 	 * CakePHP warnings.
@@ -60,6 +58,17 @@ class CakemarksWebTestCase extends CakeWebTestCase {
 		}
 		else {
 			$this->assertNoPattern("/This is on your reading list./");
+		}
+	}
+
+	function check_for_keyword($keyword, $expected = true) {
+		$pattern = '$<dd>[\s\n]*<ul>[\s\n]*<li>[\s\n]*<a href="[^"]+">'
+			.$keyword.'$';
+		if ($expected) {
+			$this->assertPattern($pattern);
+		}
+		else {
+			$this->assertNoPattern($pattern);
 		}
 	}
 }
