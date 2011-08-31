@@ -30,7 +30,6 @@
 			<dt><?php __('Revisit'); ?></dt>
 			<dd><?php printf(__('every %d hours', true),
 				$bookmark['Bookmark']['revisit']); ?></dd>
-		}
 		<?php endif; ?>
 
 		<?php if ($bookmark['Bookmark']['reading_list']): ?>
