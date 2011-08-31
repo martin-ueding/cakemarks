@@ -23,6 +23,7 @@ class BookmarksController extends AppController {
 
 	function add($url = null) {
 		if (!empty($this->data)) {
+					debug($this->data);
 			$this->Bookmark->create();
 
 			// add page title if missing
@@ -30,12 +31,14 @@ class BookmarksController extends AppController {
 				$this->data['Bookmark']['title'] = $this->_get_page_title($this->data['Bookmark']['url']);
 			}
 
-			if ($this->Bookmark->save($this->data) &&
-				(empty($this->data['Keyword']['title']) || $this->Keyword->save($this->data))
-			) {
+			if ($this->Bookmark->save($this->data)) {
+				$this->data['Bookmark']['id'] = $this->Bookmark->id;
+				$this->Keyword->save($this->data);
+
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
-			} else {
+			}
+			else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
@@ -76,7 +79,8 @@ class BookmarksController extends AppController {
 			) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
-			} else {
+			}
+			else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
@@ -142,7 +146,7 @@ class BookmarksController extends AppController {
 
 		$revisit_query = '
 			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Bookmark.revisit, Visit.created
-				FROM (
+			FROM (
 				SELECT *
 				FROM (
 					SELECT *

@@ -39,6 +39,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->assertPattern('#<div class="small_tag">[\s\n]*'
 			.'<a href="[^"]+" class="black">'.$input_new_keyword.'#');
 		$this->assertNoPattern("/This is on your reading list./");
+		$this->assertPattern("/$input_new_keyword/");
 	}
 
 	/**
@@ -68,6 +69,7 @@ class BookmarkAddTestCase extends CakemarksWebTestCase {
 		$this->assertPattern('$<div class="small_tag">\s*'
 			.'<a href="[^"]+" class="black">Linux</a>$');
 		$this->assertNoPattern("/This is on your reading list./");
+		$this->assertPattern("/Linux/");
 	}
 }
 ?>
