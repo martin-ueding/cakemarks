@@ -21,7 +21,7 @@ class BookmarksController extends AppController {
 			"conditions" => array("Visit.bookmark_id" => $id))));
 	}
 
-	function add() {
+	function add($url = null) {
 		if (!empty($this->data)) {
 			$this->Bookmark->create();
 
@@ -38,6 +38,9 @@ class BookmarksController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
+		}
+		if ($url != null) {
+			$this->data['Bookmark']['url'] = urldecode($url);
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
