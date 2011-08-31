@@ -60,5 +60,16 @@ class CakemarksWebTestCase extends CakeWebTestCase {
 			$this->assertNoPattern("/This is on your reading list./");
 		}
 	}
+
+	function check_for_keyword($keyword, $expected = true) {
+		$pattern = '$<dd>[\s\n]*<ul>[\s\n]*<li>[\s\n]*<a href="[^"]+">'
+			.$keyword.'$';
+		if ($expected) {
+			$this->assertPattern($pattern);
+		}
+		else {
+			$this->assertNoPattern($pattern);
+		}
+	}
 }
 ?>
