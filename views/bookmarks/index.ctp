@@ -1,3 +1,5 @@
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
 <h1><?php __('Bookmarks');?></h1>
 <p><?php __('sort by'); ?>
 

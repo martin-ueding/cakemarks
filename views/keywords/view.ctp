@@ -1,3 +1,5 @@
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
 <h1><?php echo $keyword['Keyword']['title']; ?></h1>
 
 <?php echo $this->element('bookmark_view', array('bookmarks' => $keyword)); ?>
