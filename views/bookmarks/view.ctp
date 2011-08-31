@@ -50,8 +50,17 @@
 		</dd>
 		<?php endif; ?>
 
-		<dt><?php __('Visits'); ?></dt>
+		<dt><?php __('Visit Count'); ?></dt>
 		<dd><?php echo $visits; ?></dd>
+
+		<?php if (!empty($bookmark['Visit'])): ?>
+			<dt><?php __('Visits'); ?><dt>
+			<dd><ul>
+			<?php foreach($bookmark['Visit'] as $visit): ?>
+				<li><?php echo $visit['created']; ?></li>
+			<?php endforeach; ?>
+			</ul></dd>
+		<?php endif; ?>
 
 		<dt><?php __('Created'); ?></dt>
 		<dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
