@@ -13,6 +13,7 @@
 		}
 		?>
 		
+		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
 		<li>
 			<?php echo $this->Html->link($bookmark['title'],
 				array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']),
@@ -31,6 +32,7 @@
 				$bookmark['id']),
 				array('class' => 'edit_option')); ?>
 		</li>
+		<?php endif; ?>
 	<?php endforeach; ?>
 	</ul>
 	</div>
