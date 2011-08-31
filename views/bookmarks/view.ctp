@@ -14,7 +14,7 @@
 	</ul>
 </div>
 
-<div class="bookmark_view">
+<div id="content" class="bookmark_view">
 	<h2><?php __('View Bookmark'); ?></h2>
 
 	<dl>

@@ -5,7 +5,8 @@
 	</ul>
 </div>
 
-<h2><?php __('Quotes');?></h2>
+<div id="content" class="quotes_view">
+	<h2><?php __('Quotes');?></h2>
 	<table>
 	<tr>
 		<th><?php echo $this->Paginator->sort('text');?></th>

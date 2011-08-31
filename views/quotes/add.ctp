@@ -6,7 +6,7 @@
 	</ul>
 </div>
 
-<div class="quotes_form">
+<div id="content" class="quotes_form">
 	<h2><?php __('Add Quote'); ?></h2>
 
 	<?php echo $this->Form->create('Quote');?>

@@ -11,7 +11,7 @@
 	</ul>
 </div>
 
-<div class="bookmarks_form">
+<div id="content" class="bookmarks_form">
 	<h2><?php echo __('Edit Bookmark', true); ?></h2>
 
 	<?php echo $this->Form->create('Bookmark'); ?>

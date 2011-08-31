@@ -12,7 +12,7 @@
 	</ul>
 </div>
 
-<div class="keywords_form">
+<div id="content" class="keywords_form">
 	<h2><?php __('Add Keyword'); ?></h2>
 
 	<?php echo $this->Form->create('Keyword');?>

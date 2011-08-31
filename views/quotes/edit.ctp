@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-<div class="quotes_form">
+<div id="content" class="quotes_form">
 	<h3><?php __('Edit Quote'); ?></h3>
 
 	<?php echo $this->Form->create('Quote');?>

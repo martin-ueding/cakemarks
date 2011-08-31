@@ -8,7 +8,7 @@
 	</ul>
 </div>
 
-<div class="quotes_view">
+<div id="content" class="quotes_view">
 	<h2><?php  __('Quote');?></h2>
 	<dl>
 		<dt><?php __('Text'); ?></dt>

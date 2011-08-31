@@ -15,7 +15,7 @@
 	</ul>
 </div>
 
-<div class="keyword_view">
+<div id="content" class="keyword_view">
 	<h2><?php __('View Keyword'); ?></h2>
 	<dl>
 		<dt><?php __('Title'); ?></dt>

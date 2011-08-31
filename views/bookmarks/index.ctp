@@ -1,6 +1,6 @@
 <?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<div id="bookmark_view">
+<div id="content" id="bookmark_view">
 	<h2><?php __('All Bookmarks');?></h2>
 	<table>
 	<tr>
