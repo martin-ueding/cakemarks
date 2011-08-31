@@ -23,6 +23,7 @@ class BookmarksController extends AppController {
 
 	function add($url = null) {
 		if (!empty($this->data)) {
+					debug($this->data);
 			$this->Bookmark->create();
 
 			// add page title if missing
@@ -30,9 +31,13 @@ class BookmarksController extends AppController {
 				$this->data['Bookmark']['title'] = $this->_get_page_title($this->data['Bookmark']['url']);
 			}
 
-			if ($this->Bookmark->save($this->data) &&
-				(empty($this->data['Keyword']['title']) || $this->Keyword->save($this->data))
-			) {
+			if ($this->Bookmark->save($this->data)) {
+				if (!empty($this->data['Keyword']['title'])) {
+					$this->Keyword->create();
+					$this->Keyword->save($this->data);
+					$this->data['Keyword']['id'] = $this->Keyword->id;
+					$this->Bookmark->saveAll($this->data);
+				}
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
 			}
