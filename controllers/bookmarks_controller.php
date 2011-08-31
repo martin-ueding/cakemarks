@@ -40,7 +40,9 @@ class BookmarksController extends AppController {
 			}
 		}
 		if ($url != null) {
-			$this->data['Bookmark']['url'] = urldecode($url);
+			$url = str_replace("__slash__", "/", $url);
+			$url = str_replace("__colon__", ":", $url);
+			$this->data['Bookmark']['url'] = $url;
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
