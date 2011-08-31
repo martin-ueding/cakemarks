@@ -105,13 +105,15 @@ class BookmarksController extends AppController {
 		$this->set('most_visits', $this->Bookmark->find('all', array(
 			'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'count(Bookmark.id)'),
 			'group' => 'cakemarks_visits.bookmark_id',
-			'joins' => array(array('table' => 'cakemarks_visits',
-			'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id'))
-		),
-		'limit' => $limit,
-
-
-	)));
+			'joins' => array(
+				array(
+					'table' => 'cakemarks_visits',
+					'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id')
+				)
+			),
+			'limit' => $limit,
+			'order' => 'count(Bookmark.id) DESC',
+		)));
 
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
 
