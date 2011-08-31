@@ -35,7 +35,8 @@ class BookmarksController extends AppController {
 			) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
-			} else {
+			}
+			else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
@@ -76,7 +77,8 @@ class BookmarksController extends AppController {
 			) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
-			} else {
+			}
+			else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
@@ -142,7 +144,7 @@ class BookmarksController extends AppController {
 
 		$revisit_query = '
 			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Bookmark.revisit, Visit.created
-				FROM (
+			FROM (
 				SELECT *
 				FROM (
 					SELECT *
