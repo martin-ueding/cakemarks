@@ -1,3 +1,5 @@
+<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+
 <div id="actions">
 	<h2><?php __('Actions'); ?></h2>
 	<ul>
