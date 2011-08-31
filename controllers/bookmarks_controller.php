@@ -166,7 +166,11 @@ class BookmarksController extends AppController {
 	}
 
 	function sticky_keywords() {
-		return $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1)));
+		// TODO Order the bookmarks in some predictable way.
+		return $this->Keyword->find('all', array(
+			'conditions' => array('Keyword.sticky' => 1),
+			'order' => array('Keyword.title'),
+		));
 	}
 
 	function stats() {
