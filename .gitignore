@@ -1,4 +1,4 @@
 .htaccess
 config/database.php
-tmp/cache/*
+tmp/
 webroot/.htaccess
