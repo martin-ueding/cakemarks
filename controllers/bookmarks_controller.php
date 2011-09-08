@@ -23,7 +23,6 @@ class BookmarksController extends AppController {
 
 	function add($url = null) {
 		if (!empty($this->data)) {
-					debug($this->data);
 			$this->Bookmark->create();
 
 			// add page title if missing
