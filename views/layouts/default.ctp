@@ -7,8 +7,13 @@
 	</head>
 	<body>
 		<div id="page">
-			<?php echo $this->element('navigation'); ?>
+			<div id="logo">
+				<h1>Cakemarks</h1>
+			</div>
+
 			<?php echo $this->Session->flash(); ?>
+
+			<?php echo $this->element('navigation'); ?>
 
 			<?php echo $content_for_layout; ?>
 

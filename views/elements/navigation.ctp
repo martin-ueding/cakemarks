@@ -1,9 +1,5 @@
 <?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<div id="logo">
-<h1>Cakemarks</h1>
-</div>
-
 <div id="navigation">
 	<h2><?php __('Navigation'); ?></h2>
 	<ul>
