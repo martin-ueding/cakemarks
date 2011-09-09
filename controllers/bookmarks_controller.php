@@ -24,13 +24,10 @@ class BookmarksController extends AppController {
 		$last_visit = $this->Bookmark->Visit->find('first', array(
 			"conditions" => array("Visit.bookmark_id" => $id),
 			"order" => array('Visit.created DESC')));
-		$last_visit = $last_visit['Visit']['created'];
+		$last_visit = strtotime($last_visit['Visit']['created']);
 		$this->set('last_visit', $last_visit);
 		if ($data['Bookmark']['revisit'] > 0) {
-			$format = "PT".$data['Bookmark']['revisit']."H";
-			debug($format);
-			$last_visit_object = new DateTime($last_visit);
-			$this->set('next_visit',  $last_visit_object->add(new DateInterval($format))->format(DATE_RSS));
+			$this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
 		}
 	}
 
