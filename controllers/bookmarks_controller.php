@@ -5,6 +5,7 @@ class BookmarksController extends AppController {
 
 	var $name = 'Bookmarks';
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
+	var $helpers = array('Time');
 
 	function index() {
 		$this->Bookmark->recursive = 0;
@@ -16,9 +17,21 @@ class BookmarksController extends AppController {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('bookmark', $this->Bookmark->read(null, $id));
+		$data = $this->Bookmark->read(null, $id);
+		$this->set('bookmark', $data);
 		$this->set('visits', $this->Bookmark->Visit->find('count', array(
 			"conditions" => array("Visit.bookmark_id" => $id))));
+		$last_visit = $this->Bookmark->Visit->find('first', array(
+			"conditions" => array("Visit.bookmark_id" => $id),
+			"order" => array('Visit.created DESC')));
+		$last_visit = $last_visit['Visit']['created'];
+		$this->set('last_visit', $last_visit);
+		if ($data['Bookmark']['revisit'] > 0) {
+			$format = "PT".$data['Bookmark']['revisit']."H";
+			debug($format);
+			$last_visit_object = new DateTime($last_visit);
+			$this->set('next_visit',  $last_visit_object->add(new DateInterval($format))->format(DATE_RSS));
+		}
 	}
 
 	function add($url = null) {

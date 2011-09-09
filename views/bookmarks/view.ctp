@@ -30,6 +30,8 @@
 			<dt><?php __('Revisit'); ?></dt>
 			<dd><?php printf(__('every %d hours', true),
 				$bookmark['Bookmark']['revisit']); ?></dd>
+			<dt><?php __('Next Scheduled Visit'); ?></dt>
+			<dd><?php __('in'); echo ' '.$this->Time->timeAgoInWords($next_visit, array(), true); ?></dd>
 		<?php endif; ?>
 
 		<?php if ($bookmark['Bookmark']['reading_list']): ?>
@@ -52,6 +54,9 @@
 
 		<dt><?php __('Visit Count'); ?></dt>
 		<dd><?php echo $visits; ?></dd>
+
+		<dt><?php __('Last Visit'); ?></dt>
+		<dd><?php echo $last_visit; ?></dd>
 
 		<?php if (!empty($bookmark['Visit'])): ?>
 			<dt><?php __('Visits'); ?><dt>
