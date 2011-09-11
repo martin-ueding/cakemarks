@@ -54,13 +54,17 @@ class BookmarksController extends AppController {
 			}
 		}
 		if ($url != null) {
-			$url = str_replace("__slash__", "/", $url);
-			$url = str_replace("__colon__", ":", $url);
-			$url = str_replace("__hash__", "#", $url);
-			$this->data['Bookmark']['url'] = $url;
+			$this->data['Bookmark']['url'] = $this->_decode_url($url);
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
+	}
+
+	function _decode_url($url) {
+		$url = str_replace("__slash__", "/", $url);
+		$url = str_replace("__colon__", ":", $url);
+		$url = str_replace("__hash__", "#", $url);
+		return $url;
 	}
 
 	function _get_page_title($url) {
