@@ -8,8 +8,10 @@
 		array('title' => __("Revisit", true), 'bookmarks' => $revisit))?>
 	<?php endif; ?>
 
+	<?php if (!empty($reading_list)): ?>
 	<?=$this->element('bookmarkbox',
 		array('title' => __("Reading List", true), 'bookmarks' => $reading_list))?>
+	<?php endif; ?>
 	<?=$this->element('bookmarkbox',
 		array('title' => __("Most Visits", true), 'bookmarks' => $most_visits))?>
 	<?=$this->element('bookmarkbox',
