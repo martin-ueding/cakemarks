@@ -213,9 +213,10 @@ class BookmarksController extends AppController {
 	}
 
 	function export() {
-		//header('Content-type: application/json');
+		header('Content-type: application/json');
 		$this->layout = 'ajax';
-		$this->set("data", json_encode(array("foo" => array("Hello, World", 2))));
+		$bookmarks = $this->Bookmark->find('all');
+		$this->set("data", json_encode($bookmarks));
 	}
 }
 ?>
