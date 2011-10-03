@@ -223,13 +223,15 @@ class BookmarksController extends AppController {
 			foreach ($bookmark['Keyword'] as $keyword) {
 				$keywords[] = $keyword['title'];
 			}
-			$current['keywords'] = $keywords;
+			if (isset($keywords)) {
+				$current['keywords'] = $keywords;
+			}
 
 			$data[] = $current;
 			unset($current);
 			unset($keywords);
 		}
-		$this->set("data", json_encode($bookmarks));
+		$this->set("data", json_encode($data));
 	}
 }
 ?>
