@@ -233,5 +233,7 @@ class BookmarksController extends AppController {
 		}
 		$this->set("data", json_encode($data));
 	}
+
+	# TODO add import function
 }
 ?>
