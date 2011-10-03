@@ -5,6 +5,7 @@ class BookmarksController extends AppController {
 
 	var $name = 'Bookmarks';
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
+	var $helpers = array('Time');
 
 	function index() {
 		$this->Bookmark->recursive = 0;
@@ -16,10 +17,21 @@ class BookmarksController extends AppController {
 			$this->Session->setFlash(__('Invalid bookmark', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('bookmark', $this->Bookmark->read(null, $id));
+		$data = $this->Bookmark->read(null, $id);
+		$this->set('bookmark', $data);
+		$this->set('visits', $this->Bookmark->Visit->find('count', array(
+			"conditions" => array("Visit.bookmark_id" => $id))));
+		$last_visit = $this->Bookmark->Visit->find('first', array(
+			"conditions" => array("Visit.bookmark_id" => $id),
+			"order" => array('Visit.created DESC')));
+		$last_visit = strtotime($last_visit['Visit']['created']);
+		$this->set('last_visit', $last_visit);
+		if ($data['Bookmark']['revisit'] > 0) {
+			$this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
+		}
 	}
 
-	function add() {
+	function add($url = null) {
 		if (!empty($this->data)) {
 			$this->Bookmark->create();
 
@@ -29,14 +41,30 @@ class BookmarksController extends AppController {
 			}
 
 			if ($this->Bookmark->save($this->data)) {
+				if (!empty($this->data['Keyword']['title'])) {
+					$this->data['Bookmark']['id'] = $this->Bookmark->id;
+					$this->Keyword->save($this->data);
+				}
+
 				$this->Session->setFlash(__('The bookmark has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
+				$this->redirect(array('action' => 'view', $this->Bookmark->id));
+			}
+			else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
+		if ($url != null) {
+			$this->data['Bookmark']['url'] = $this->_decode_url($url);
+		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
+	}
+
+	function _decode_url($url) {
+		$url = str_replace("__slash__", "/", $url);
+		$url = str_replace("__colon__", ":", $url);
+		$url = str_replace("__hash__", "#", $url);
+		return $url;
 	}
 
 	function _get_page_title($url) {
@@ -65,8 +93,9 @@ class BookmarksController extends AppController {
 				(empty($this->data['Keyword']['title']) || $this->Keyword->save($this->data))
 			) {
 				$this->Session->setFlash(__('The bookmark has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
+				$this->redirect(array('action' => 'view', $this->Bookmark->id));
+			}
+			else {
 				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
 			}
 		}
@@ -98,13 +127,15 @@ class BookmarksController extends AppController {
 		$this->set('most_visits', $this->Bookmark->find('all', array(
 			'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'count(Bookmark.id)'),
 			'group' => 'cakemarks_visits.bookmark_id',
-			'joins' => array(array('table' => 'cakemarks_visits',
-			'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id'))
-		),
-		'limit' => $limit,
-
-
-	)));
+			'joins' => array(
+				array(
+					'table' => 'cakemarks_visits',
+					'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id')
+				)
+			),
+			'limit' => $limit,
+			'order' => 'count(Bookmark.id) DESC',
+		)));
 
 		$this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
 
@@ -130,7 +161,7 @@ class BookmarksController extends AppController {
 
 		$revisit_query = '
 			SELECT Bookmark.id, Bookmark.title, Bookmark.url, Bookmark.revisit, Visit.created
-				FROM (
+			FROM (
 				SELECT *
 				FROM (
 					SELECT *
@@ -142,7 +173,7 @@ class BookmarksController extends AppController {
 			JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
 			WHERE Visit.created IS NOT NULL
 			&& Bookmark.revisit IS NOT NULL
-			&& (Bookmark.revisit*3600 + Visit.created) < now()
+			&& ADDTIME(Visit.created, MAKETIME(Bookmark.revisit, 0, 0)) < now()
 			ORDER BY Visit.created DESC
 			LIMIT '.$limit;
 
@@ -150,7 +181,11 @@ class BookmarksController extends AppController {
 	}
 
 	function sticky_keywords() {
-		return $this->Keyword->find('all', array('conditions' => array('Keyword.sticky' => 1)));
+		// TODO Order the bookmarks in some predictable way.
+		return $this->Keyword->find('all', array(
+			'conditions' => array('Keyword.sticky' => 1),
+			'order' => array('Keyword.title'),
+		));
 	}
 
 	function stats() {

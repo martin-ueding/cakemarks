@@ -41,3 +41,9 @@ TODO
 ====
 
 * redirect to the page where the edit was requested after the edit
+
+
+Written By
+==========
+
+Martin Ueding <dev@martin-ueding.de>
