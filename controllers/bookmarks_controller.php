@@ -245,12 +245,37 @@ class BookmarksController extends AppController {
 			foreach ($bookmark['keywords'] as $keyword) {
 				$q['Keyword'][] = array('title' => $keyword);
 			}
+
 			# check whether this title/url combination already exists
+			$count = $this->Bookmark->find('count', array(
+				'conditions' => array(
+					'Bookmark.title' => $q['Bookmark']['title'],
+					'Bookmark.url' => $q['Bookmark']['url'],
+				)
+			));
+			debug("Bookmark count: $count");
+
+			if ($count > 0) {
+				continue;
+			}
+
+			# add bookmark
+			$this->Bookmark->save($q);
+			$result['added']++;
+
+			# save bookmark id in array
+			debug($q['Bookmark']['id'] = $this->Bookmark->id);
+
+			# save keywords
+			$this->Keyword->saveAll($q);
 
 			$output[] = $q;
 			unset($q);
 		}
 		debug($output);
+		debug($result);
+
+		$this->set($result);
 	}
 }
 ?>
