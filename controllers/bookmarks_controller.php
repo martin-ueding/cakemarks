@@ -240,7 +240,7 @@ class BookmarksController extends AppController {
 	}
 
 	function import() {
-		$this->import_result['added'] = 0;
+		$this->import_result['added_bookmarks'] = 0;
 
 		if (isset($this->data['Bookmark']['json'])) {
 			$this->_import(json_decode($this->data['Bookmark']['json'], true));
@@ -248,7 +248,7 @@ class BookmarksController extends AppController {
 		}
 
 		$this->set('show_form', true);
-		$this->set($this->import_result);
+		$this->set('import_result', $this->import_result);
 	}
 
 	/**
@@ -298,7 +298,7 @@ class BookmarksController extends AppController {
 
 			# Add bookmark to the database.
 			$this->Bookmark->save($q);
-			$this->import_result['added']++;
+			$this->import_result['added_bookmarks']++;
 
 			unset($q);
 		}
