@@ -240,9 +240,15 @@ class BookmarksController extends AppController {
 	}
 
 	function import() {
+		$this->import_result['added'] = 0;
+
 		if (isset($this->data['Bookmark']['json'])) {
 			$this->_import(json_decode($this->data['Bookmark']['json'], true));
+			$this->set('show_results', true);
 		}
+
+		$this->set('show_form', true);
+		$this->set($this->import_result);
 	}
 
 	/**
@@ -257,7 +263,6 @@ class BookmarksController extends AppController {
 		if (!isset($input) || empty($input) || count($input) == 0) {
 			return;
 		}
-		$result['added'] = 0;
 		foreach ($input as $bookmark) {
 			# Build a CakePHP style array.
 			$q['Bookmark']['title'] = $bookmark['title'];
@@ -277,7 +282,6 @@ class BookmarksController extends AppController {
 
 				}
 			}
-			debug($q);
 
 			# Check whether this title/url combination already exists.
 			$count = $this->Bookmark->find('count', array(
@@ -294,18 +298,10 @@ class BookmarksController extends AppController {
 
 			# Add bookmark to the database.
 			$this->Bookmark->save($q);
-			$result['added']++;
+			$this->import_result['added']++;
 
-			# Save the Bookmark.id in the array.
-			debug($q['Bookmark']['id'] = $this->Bookmark->id);
-
-			$output[] = $q;
 			unset($q);
 		}
-		debug($output);
-		debug($result);
-
-		$this->set($result);
 	}
 }
 ?>
