@@ -14,7 +14,7 @@ if ($show_results): ?>
 
 <?php if ($show_form) {
 	echo $this->Form->create('Bookmark', array('action' => 'import'));
-	echo $this->Form->input('json', array('type' => 'text'));
+	echo $this->Form->input('json', array('type' => 'text', 'rows' => 20, 'cols' => 80));
 	echo $this->Form->end(__('import', true));
 }
 
