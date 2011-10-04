@@ -282,7 +282,7 @@ class BookmarksController extends AppController {
 			debug($q['Bookmark']['id'] = $this->Bookmark->id);
 
 			# Save all the keywords.
-			$this->Keyword->saveAll($q);
+			$this->Keyword->saveAll($q['Keyword']);
 
 			$output[] = $q;
 			unset($q);
