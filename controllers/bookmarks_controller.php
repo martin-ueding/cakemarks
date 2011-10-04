@@ -7,6 +7,11 @@ class BookmarksController extends AppController {
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
 	var $helpers = array('Time');
 
+	/**
+	 * Lists all bookmarks.
+	 *
+	 * @author Martin Ueding <dev@martin-ueding.de>
+	 */
 	function index() {
 		$this->Bookmark->recursive = 0;
 		$this->set('bookmarks', $this->paginate());
