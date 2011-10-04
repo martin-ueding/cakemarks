@@ -274,14 +274,14 @@ class BookmarksController extends AppController {
 				continue;
 			}
 
-			# add bookmark
+			# Add bookmark to the database.
 			$this->Bookmark->save($q);
 			$result['added']++;
 
-			# save bookmark id in array
+			# Save the Bookmark.id in the array.
 			debug($q['Bookmark']['id'] = $this->Bookmark->id);
 
-			# save keywords
+			# Save all the keywords.
 			$this->Keyword->saveAll($q);
 
 			$output[] = $q;
