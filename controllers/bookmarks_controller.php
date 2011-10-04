@@ -245,6 +245,7 @@ class BookmarksController extends AppController {
 	 * Each bookmark is created if it does not exist, keywords are attached to
 	 * it.
 	 *
+	 * @param input array Bookmarks and Keywords to be imported
 	 * @author Martin Ueding <dev@martin-ueding.de>
 	 */
 	function _import($input) {
