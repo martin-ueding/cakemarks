@@ -241,6 +241,9 @@ class BookmarksController extends AppController {
 
 	function import() {
 		$this->import_result['added_bookmarks'] = 0;
+		$this->import_result['added_keywords'] = 0;
+		$this->import_result['existing_bookmarks'] = 0;
+		$this->import_result['existing_keywords'] = 0;
 
 		if (isset($this->data['Bookmark']['json'])) {
 			$this->_import(json_decode($this->data['Bookmark']['json'], true));
@@ -275,11 +278,12 @@ class BookmarksController extends AppController {
 
 				if (isset($db_keyword['Keyword']['id'])) {
 					$q['Keyword'][] = $db_keyword['Keyword']['id'];
+					$this->import_result['existing_keywords']++;
 				}
 				else {
 					$this->Keyword->save(array('title' => $keyword));
 					$q['Keyword'][] = $this->Keyword->id;
-
+					$this->import_result['added_keywords']++;
 				}
 			}
 
@@ -293,6 +297,7 @@ class BookmarksController extends AppController {
 
 			# Go to the next bookmark if this already exists.
 			if ($count > 0) {
+				$this->import_result['existing_bookmarks']++;
 				continue;
 			}
 
