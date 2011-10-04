@@ -254,22 +254,22 @@ class BookmarksController extends AppController {
 		}
 		$result['added'] = 0;
 		foreach ($input as $bookmark) {
-			# build a CakePHP style array
+			# Build a CakePHP style array.
 			$q['Bookmark']['title'] = $bookmark['title'];
 			$q['Bookmark']['url'] = $bookmark['url'];
 			foreach ($bookmark['keywords'] as $keyword) {
 				$q['Keyword'][] = array('title' => $keyword);
 			}
 
-			# check whether this title/url combination already exists
+			# Check whether this title/url combination already exists.
 			$count = $this->Bookmark->find('count', array(
 				'conditions' => array(
 					'Bookmark.title' => $q['Bookmark']['title'],
 					'Bookmark.url' => $q['Bookmark']['url'],
 				)
 			));
-			debug("Bookmark count: $count");
 
+			# Go to the next bookmark if this already exists.
 			if ($count > 0) {
 				continue;
 			}
