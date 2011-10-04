@@ -235,6 +235,22 @@ class BookmarksController extends AppController {
 	}
 
 	function import() {
+		$input = json_decode($this->data['Bookmark']['json'], true);
+		debug($input);
+		$result['added'] = 0;
+		foreach ($input as $bookmark) {
+			# build a CakePHP style array
+			$q['Bookmark']['title'] = $bookmark['title'];
+			$q['Bookmark']['url'] = $bookmark['url'];
+			foreach ($bookmark['keywords'] as $keyword) {
+				$q['Keyword'][] = array('title' => $keyword);
+			}
+			# check whether this title/url combination already exists
+
+			$output[] = $q;
+			unset($q);
+		}
+		debug($output);
 	}
 }
 ?>
