@@ -216,5 +216,27 @@ class BookmarksController extends AppController {
 		}
 		$this->redirect($to_url);
 	}
+
+	function export() {
+		header('Content-type: application/json');
+		$this->layout = 'ajax';
+		$bookmarks = $this->Bookmark->find('all');
+		foreach ($bookmarks as $bookmark) {
+			$current['title'] = $bookmark['Bookmark']['title'];
+			$current['url'] = $bookmark['Bookmark']['url'];
+
+			foreach ($bookmark['Keyword'] as $keyword) {
+				$keywords[] = $keyword['title'];
+			}
+			if (isset($keywords)) {
+				$current['keywords'] = $keywords;
+			}
+
+			$data[] = $current;
+			unset($current);
+			unset($keywords);
+		}
+		$this->set("data", json_encode($data));
+	}
 }
 ?>
