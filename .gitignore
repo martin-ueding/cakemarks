@@ -1,4 +1,5 @@
 .htaccess
+_dev-doc
 config/database.php
 tmp/
 webroot/.htaccess
