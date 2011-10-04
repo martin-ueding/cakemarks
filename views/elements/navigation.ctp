@@ -19,5 +19,7 @@
 			array('rel' => 'noreferrer')); ?></li>
 		<li><?php echo $this->Html->link(__('Bookmarklet', true),
 			array('controller' => 'pages', 'action' => 'bookmarklet')); ?></li>
+		<li><?php echo $this->Html->link(__('Export Bookmarks', true),
+			array('controller' => 'bookmarks', 'action' => 'export')); ?></li>
 	</ul>
 </div>
