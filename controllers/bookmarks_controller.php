@@ -240,6 +240,13 @@ class BookmarksController extends AppController {
 		}
 	}
 
+	/**
+	 * Takes an array with the format specified in the import/export document.
+	 * Each bookmark is created if it does not exist, keywords are attached to
+	 * it.
+	 *
+	 * @author Martin Ueding <dev@martin-ueding.de>
+	 */
 	function _import($input) {
 		if (!isset($input) || empty($input) || count($input) == 0) {
 			return;
