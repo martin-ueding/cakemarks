@@ -8,10 +8,10 @@ class ImportTest extends CakeTestCase {
 			array('fixturize' => false, 'return' => 'vars', 'data' => $data, 'method' => 'post')); 
 
 		$this->assertTrue(isset($result));
-		$this->assertTrue(isset($result['added']));
-		$this->assertTrue(isset($result['ids']));
-		$this->assertEqual(0, $result['added']);
-		$this->assertEqual(0, $result['ids']);
+		if ($this->assertTrue(isset($result['added'])))
+			$this->assertEqual(0, $result['added']);
+		if ($this->assertTrue(isset($result['ids'])))
+			$this->assertEqual(0, $result['ids']);
 	}
 
 	function testReAdd() {
@@ -25,10 +25,10 @@ class ImportTest extends CakeTestCase {
 			array('fixturize' => false, 'return' => 'vars', 'data' => $data, 'method' => 'post')); 
 
 		$this->assertTrue(isset($result));
-		$this->assertTrue(isset($result['added']));
-		$this->assertTrue(isset($result['ids']));
-		$this->assertEqual(1, $result['added']);
-		$this->assertNotEqual(0, $result['ids']);
+		if ($this->assertTrue(isset($result['added'])))
+			$this->assertEqual(1, $result['added']);
+		if ($this->assertTrue(isset($result['ids'])))
+			$this->assertNotEqual(0, $result['ids']);
 
 		# Import the exact same data. It should not be imported again.
 
@@ -36,9 +36,9 @@ class ImportTest extends CakeTestCase {
 			array('fixturize' => false, 'return' => 'vars', 'data' => $data, 'method' => 'post')); 
 
 		$this->assertTrue(isset($result));
-		$this->assertTrue(isset($result['added']));
-		$this->assertTrue(isset($result['ids']));
-		$this->assertEqual(0, $result['added']);
-		$this->assertEqual(0, $result['ids']);
+		if ($this->assertTrue(isset($result['added'])))
+			$this->assertEqual(0, $result['added']);
+		if ($this->assertTrue(isset($result['ids'])))
+			$this->assertEqual(0, $result['ids']);
 	}
 }
