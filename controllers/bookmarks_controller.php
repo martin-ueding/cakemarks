@@ -263,8 +263,21 @@ class BookmarksController extends AppController {
 			$q['Bookmark']['title'] = $bookmark['title'];
 			$q['Bookmark']['url'] = $bookmark['url'];
 			foreach ($bookmark['keywords'] as $keyword) {
-				$q['Keyword'][] = array('title' => $keyword);
+				$db_keyword = $this->Keyword->find('first', array(
+					'conditions' => array(
+						'Keyword.title' => $keyword)
+					));
+
+				if (isset($db_keyword['Keyword']['id'])) {
+					$q['Keyword'][] = $db_keyword['Keyword']['id'];
+				}
+				else {
+					$this->Keyword->save(array('title' => $keyword));
+					$q['Keyword'][] = $this->Keyword->id;
+
+				}
 			}
+			debug($q);
 
 			# Check whether this title/url combination already exists.
 			$count = $this->Bookmark->find('count', array(
@@ -285,9 +298,6 @@ class BookmarksController extends AppController {
 
 			# Save the Bookmark.id in the array.
 			debug($q['Bookmark']['id'] = $this->Bookmark->id);
-
-			# Save all the keywords.
-			$this->Keyword->saveAll($q['Keyword']);
 
 			$output[] = $q;
 			unset($q);
