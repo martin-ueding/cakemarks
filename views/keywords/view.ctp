@@ -37,10 +37,14 @@
 		<dd><?php echo $this->element('bookmark_view',
 			array('bookmarks' => $keyword)); ?></dd>
 
+		<?php if ($keyword['Keyword']['created'] != "0000-00-00 00:00:00"): ?>
 		<dt><?php __('Created'); ?></dt>
 		<dd><?php echo $keyword['Keyword']['created']; ?></dd>
+		<?php endif; ?>
 
+		<?php if ($keyword['Keyword']['modified'] != "0000-00-00 00:00:00"): ?>
 		<dt><?php __('Modified'); ?></dt>
 		<dd><?php echo $keyword['Keyword']['modified']; ?></dd>
+		<?php endif; ?>
 	</dl>
 </div>
