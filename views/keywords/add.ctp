@@ -17,7 +17,7 @@
 
 	<?php echo $this->Form->create('Keyword');?>
 	<?php echo $this->Form->input('title'); ?>
-	<?php echo $this->Form->input('parent_id'); ?>
+	<?php echo $this->Form->input('parent_id', array('options' => $parentKeywords, 'empty' => '')); ?>
 	<?php echo $this->Form->input('sticky'); ?>
 	<?php echo $this->Form->input('Bookmark'); ?>
 	<?php echo $this->Form->end(__('Submit', true));?>

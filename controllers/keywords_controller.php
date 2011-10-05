@@ -33,9 +33,10 @@ class KeywordsController extends AppController {
 				$this->Session->setFlash(__('The keyword could not be saved. Please, try again.', true));
 			}
 		}
-		$parentKeywords = $this->Keyword->ParentKeyword->find('list');
+		$parentKeywords = $this->Keyword->ParentKeyword->find('list', array('order' => 'title'));
 		$bookmarks = $this->Keyword->Bookmark->find('list');
-		$this->set(compact('parentKeywords', 'bookmarks'));
+		$this->set('parentKeywords', $parentKeywords);
+		$this->set('bookmarks', $bookmarks);
 	}
 
 	function edit($id = null) {
