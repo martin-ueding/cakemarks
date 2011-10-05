@@ -54,9 +54,10 @@ class KeywordsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Keyword->read(null, $id);
 		}
-		$parentKeywords = $this->Keyword->ParentKeyword->find('list');
+		$parentKeywords = $this->Keyword->ParentKeyword->find('list', array('order' => 'title'));
 		$bookmarks = $this->Keyword->Bookmark->find('list');
-		$this->set(compact('parentKeywords', 'bookmarks'));
+		$this->set('parentKeywords', $parentKeywords);
+		$this->set('bookmarks', $bookmarks);
 	}
 
 	function delete($id = null) {

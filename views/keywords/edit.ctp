@@ -14,9 +14,8 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('title');
-		echo $this->Form->input('ParentKeyword', array('empty' => ''));
+		echo $this->Form->input('parent_id', array('options' => $parentKeywords, 'empty' => ''));
 		echo $this->Form->input('sticky');
-		echo $this->Form->input('Bookmark');
 	?>
 	<?php echo $this->Form->end(__('Submit', true));?>
 </div>
