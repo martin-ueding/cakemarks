@@ -21,6 +21,9 @@
 		<dt><?php __('Title'); ?></dt>
 		<dd><?php echo $keyword['Keyword']['title']; ?></dd>
 
+		<dt><?php __('Parent Keyword'); ?></dt>
+		<dd><?php echo $this->Html->link($keyword['ParentKeyword']['title'], array('action' => 'view', $keyword['ParentKeyword']['id'])); ?></dd>
+
 		<dt><?php __('Related Bookmarks'); ?></dt>
 		<dd><?php echo $this->element('bookmark_view',
 			array('bookmarks' => $keyword)); ?></dd>
