@@ -70,6 +70,7 @@ class BookmarksController extends AppController {
 		$url = str_replace("__colon__", ":", $url);
 		$url = str_replace("__hash__", "#", $url);
 		$url = str_replace("__ques__", "?", $url);
+		$url = str_replace("__amp__", "&", $url);
 		return $url;
 	}
 

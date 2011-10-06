@@ -12,6 +12,7 @@
 		."s=s.replace(/:/g, '__colon__');"
 		."s=s.replace(/#/g, '__hash__');"
 		."s=s.replace(/\?/g, '__ques__');"
+		."s=s.replace(/&/g, '__amp__');"
 		."return s;"
 		."}"
 		."location.href="
