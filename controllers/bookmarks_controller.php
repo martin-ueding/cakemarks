@@ -272,7 +272,7 @@ class BookmarksController extends AppController {
 			# Build a CakePHP style array.
 			$q['Bookmark']['title'] = $bookmark['title'];
 			$q['Bookmark']['url'] = $bookmark['url'];
-			if (isset($bookmark['keyword'])) {
+			if (isset($bookmark['keywords'])) {
 				foreach ($bookmark['keywords'] as $keyword) {
 					$db_keyword = $this->Keyword->find('first', array(
 						'conditions' => array(
@@ -284,7 +284,8 @@ class BookmarksController extends AppController {
 						$this->import_result['existing_keywords']++;
 					}
 					else {
-						$this->Keyword->save(array('title' => $keyword));
+						$this->Keyword->create();
+						$this->Keyword->save(array('Keyword' => array('title' => $keyword)));
 						$q['Keyword'][] = $this->Keyword->id;
 						$this->import_result['added_keywords']++;
 					}
