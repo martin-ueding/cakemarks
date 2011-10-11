@@ -315,7 +315,6 @@ class BookmarksController extends AppController {
 		}
 	}
 
-	var $tries = 3;
 	function favicon($id) {
 		$this->view = 'media';
 		$this->Bookmark->id = $id;
@@ -334,10 +333,6 @@ class BookmarksController extends AppController {
 		}
 
 		if (!file_exists($file)) {
-			if ($this->tries-- < 0) {
-				return;
-			}
-
 			$contents = @file_get_contents($url);
 			if ($contents) {
 				$h = fopen($file, "w");
