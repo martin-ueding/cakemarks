@@ -5,9 +5,6 @@ class FavicoHelper extends AppHelper {
 	var $tries = 3;
 
 	function get($url) {
-		if ($this->tries-- < 0)
-			return;
-
 		$url = trim(str_replace('http://', '', trim($url)), '/');
         $url = explode('/', $url);
 		$hash = md5($url[0]);
@@ -23,6 +20,10 @@ class FavicoHelper extends AppHelper {
 		}
 
 		if (!file_exists($file)) {
+			if ($this->tries-- < 0) {
+				return;
+			}
+
 			$contents = @file_get_contents($url);
 			if ($contents) {
 				$h = fopen($file, "w");
