@@ -23,12 +23,16 @@ class FavicoHelper extends AppHelper {
 		}
 
 		if (!file_exists($file)) {
-			$h = fopen($file, "w");
-			fwrite($h, file_get_contents($url));
-			fclose($h);
+			$contents = @file_get_contents($url);
+			if ($contents) {
+				$h = fopen($file, "w");
+				fwrite($h, $contents);
+				fclose($h);
+				return $file;
+			}
 		}
-
-		return $file;
-
+		else {
+			return $file;
+		}
 	}
 }
