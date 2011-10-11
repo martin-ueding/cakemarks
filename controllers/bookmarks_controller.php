@@ -5,7 +5,7 @@ class BookmarksController extends AppController {
 
 	var $name = 'Bookmarks';
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
-	var $helpers = array('Time', 'Favico');
+	var $helpers = array('Time');
 
 	/**
 	 * Lists all bookmarks.
@@ -312,6 +312,42 @@ class BookmarksController extends AppController {
 			$this->import_result['added_bookmarks']++;
 
 			unset($q);
+		}
+	}
+
+	var $tries = 3;
+	function favicon($id) {
+		$this->view = 'media';
+		$this->Bookmark->id = $id;
+		$url = trim(str_replace('http://', '', trim($this->Bookmark->field('url'))), '/');
+        $url = explode('/', $url);
+		$hash = md5($url[0]);
+        $url = 'http://' . $url[0] . '/favicon.ico';
+
+		$dir = 'cache/favico';
+		$file = $dir.'/'.$hash;
+
+		if (!file_exists($dir)) {
+			if (!mkdir($dir, 0777, true)) {
+				die(__('Could not create favico temp dir', true));
+			}
+		}
+
+		if (!file_exists($file)) {
+			if ($this->tries-- < 0) {
+				return;
+			}
+
+			$contents = @file_get_contents($url);
+			if ($contents) {
+				$h = fopen($file, "w");
+				fwrite($h, $contents);
+				fclose($h);
+				header('location:../../'.$file);
+			}
+		}
+		else {
+			header('location:../../'.$file);
 		}
 	}
 }
