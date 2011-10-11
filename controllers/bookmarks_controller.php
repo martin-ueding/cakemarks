@@ -5,7 +5,7 @@ class BookmarksController extends AppController {
 
 	var $name = 'Bookmarks';
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
-	var $helpers = array('Time');
+	var $helpers = array('Time', 'Favico');
 
 	/**
 	 * Lists all bookmarks.

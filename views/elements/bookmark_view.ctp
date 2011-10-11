@@ -15,6 +15,7 @@
 		
 		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
 		<li>
+			<!-- <img src="<?php echo $this->Favico->get($bookmark['url']); ?>" /> -->
 			<?php echo $this->Html->link($bookmark['title'],
 				array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']),
 				array('title' => $bookmark['url'])); ?>
