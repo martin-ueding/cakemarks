@@ -3,3 +3,4 @@ _dev-doc
 config/database.php
 tmp/
 webroot/.htaccess
+webroot/cache
