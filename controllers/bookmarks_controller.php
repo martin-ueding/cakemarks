@@ -251,6 +251,9 @@ class BookmarksController extends AppController {
 			$this->_import(json_decode($this->data['Bookmark']['json'], true));
 			$this->set('show_results', true);
 		}
+		else {
+			$this->set('show_results', false);
+		}
 
 		$this->set('show_form', true);
 		$this->set('import_result', $this->import_result);
