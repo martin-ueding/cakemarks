@@ -289,6 +289,7 @@ class BookmarksController extends AppController {
 						$this->import_result['existing_keywords']++;
 					}
 					else {
+						$this->Keyword->create();
 						$this->Keyword->save(array('title' => $keyword));
 						$q['Keyword'][] = $this->Keyword->id;
 						$this->import_result['added_keywords']++;
