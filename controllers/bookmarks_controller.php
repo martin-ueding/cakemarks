@@ -311,6 +311,7 @@ class BookmarksController extends AppController {
 			}
 			# Add bookmark to the database.
 			else {
+				$this->Bookmark->create();
 				$this->Bookmark->save($q);
 				$this->import_result['added_bookmarks']++;
 			}
