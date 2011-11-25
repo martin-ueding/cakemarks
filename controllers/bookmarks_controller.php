@@ -251,6 +251,9 @@ class BookmarksController extends AppController {
 			$this->_import(json_decode($this->data['Bookmark']['json'], true));
 			$this->set('show_results', true);
 		}
+		else {
+			$this->set('show_results', false);
+		}
 
 		$this->set('show_form', true);
 		$this->set('import_result', $this->import_result);
@@ -272,6 +275,8 @@ class BookmarksController extends AppController {
 			# Build a CakePHP style array.
 			$q['Bookmark']['title'] = $bookmark['title'];
 			$q['Bookmark']['url'] = $bookmark['url'];
+
+			# If there are any keywords, add them to the array.
 			if (isset($bookmark['keywords'])) {
 				foreach ($bookmark['keywords'] as $keyword) {
 					$db_keyword = $this->Keyword->find('first', array(
@@ -285,7 +290,7 @@ class BookmarksController extends AppController {
 					}
 					else {
 						$this->Keyword->create();
-						$this->Keyword->save(array('Keyword' => array('title' => $keyword)));
+						$this->Keyword->save(array('title' => $keyword));
 						$q['Keyword'][] = $this->Keyword->id;
 						$this->import_result['added_keywords']++;
 					}
@@ -303,13 +308,13 @@ class BookmarksController extends AppController {
 			# Go to the next bookmark if this already exists.
 			if ($count > 0) {
 				$this->import_result['existing_bookmarks']++;
-				continue;
 			}
-
 			# Add bookmark to the database.
-			$this->Bookmark->create();
-			$this->Bookmark->save($q);
-			$this->import_result['added_bookmarks']++;
+			else {
+				$this->Bookmark->create();
+				$this->Bookmark->save($q);
+				$this->import_result['added_bookmarks']++;
+			}
 
 			unset($q);
 		}
