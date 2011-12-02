@@ -36,6 +36,7 @@ function print_bookmark($that, $bookmark) {
 		$bookmarks = $bookmarks['Bookmark'];
 	}
 	?>
+	<?php if (!isset($wrapper) || $wrapper == "ul"): ?>
 	<div class="bookmark_view">
 	<ul>
 	<?php foreach ($bookmarks as $bookmark): ?>
@@ -53,4 +54,22 @@ function print_bookmark($that, $bookmark) {
 	<?php endforeach; ?>
 	</ul>
 	</div>
+	<?php endif; ?>
+
+	<?php if (isset($wrapper) && $wrapper == "dd"): ?>
+	<?php foreach ($bookmarks as $bookmark): ?>
+		<?
+		if (isset($bookmark['Bookmark'])) {
+			$bookmark = $bookmark['Bookmark'];
+		}
+		?>
+		
+		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
+		<dd>
+			<?php print_bookmark($this, $bookmark); ?>
+		</dd>
+		<?php endif; ?>
+	<?php endforeach; ?>
+	<?php endif; ?>
+
 <?php endif; ?>
