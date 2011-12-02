@@ -41,15 +41,11 @@
 
 		<?php if (!empty($bookmark['Keyword'])): ?>
 		<dt><?php __('Related Keywords'); ?></dt>
-		<dd>
-			<ul>
-			<?php foreach ($bookmark['Keyword'] as $keyword): ?>
-				<li><?php echo $this->Html->link($keyword['title'],
-					array('controller' => 'keywords', 'action' => 'view',
-					$keyword['id'])); ?></li>
-			<?php endforeach; ?>
-			</ul>
-		</dd>
+		<?php foreach ($bookmark['Keyword'] as $keyword): ?>
+			<dd><?php echo $this->Html->link($keyword['title'],
+				array('controller' => 'keywords', 'action' => 'view',
+				$keyword['id'])); ?></dd>
+		<?php endforeach; ?>
 		<?php endif; ?>
 
 		<dt><?php __('Visit Count'); ?></dt>
@@ -60,11 +56,9 @@
 
 		<?php if (!empty($bookmark['Visit'])): ?>
 			<dt><?php __('Visits'); ?><dt>
-			<dd><ul>
 			<?php foreach($bookmark['Visit'] as $visit): ?>
-				<li><?php echo $visit['created']; ?></li>
+				<dd><?php echo $visit['created']; ?></dd>
 			<?php endforeach; ?>
-			</ul></dd>
 		<?php endif; ?>
 
 		<dt><?php __('Created'); ?></dt>
