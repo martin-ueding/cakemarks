@@ -26,16 +26,14 @@
 
 		<?php if (count($keyword['ChildKeyword']) > 0): ?>
 		<dt><?php __('Child Keywords'); ?></dt>
-		<dd><ul>
-			<?php foreach ($keyword['ChildKeyword'] as $childKeyword): ?>
-			<li><?php echo $this->Html->link($childKeyword['title'], array('action' => 'view', $childKeyword['id'])); ?></li>
-			<?php endforeach; ?>
-		</ul></dd>
+		<?php foreach ($keyword['ChildKeyword'] as $childKeyword): ?>
+			<dd><?php echo $this->Html->link($childKeyword['title'], array('action' => 'view', $childKeyword['id'])); ?></dd>
+		<?php endforeach; ?>
 		<?php endif; ?>
 
 		<dt><?php __('Related Bookmarks'); ?></dt>
-		<dd><?php echo $this->element('bookmark_view',
-			array('bookmarks' => $keyword)); ?></dd>
+		<?php echo $this->element('bookmark_view',
+			array('bookmarks' => $keyword, 'wrapper' => 'dd')); ?>
 
 		<?php if ($keyword['Keyword']['created'] != "0000-00-00 00:00:00"): ?>
 		<dt><?php __('Created'); ?></dt>
