@@ -1,6 +1,8 @@
 /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
 
 $background: white;
+$foreground: black;
+$foreground_light: #666;
 
 /*****************************************************************************/
 /*                                  Common                                   */
@@ -18,6 +20,21 @@ body {
 #page {
 	background-color: $background;
 	padding: 10px 20px;
+}
+
+#navigation {
+	li {
+	}
+}
+
+div.bookmark_view {
+	a {
+		color: $foreground;
+	}
+
+	a.edit_option {
+		color: $foreground_light;
+	}
 }
 
 /*****************************************************************************/
