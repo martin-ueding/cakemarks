@@ -26,13 +26,12 @@ body {
 	padding: 0px 20px;
 }
 
-#navigation {
+#navigation, #actions {
 	overflow: hidden;
 
 	h2 {
 		display: none;
 	}
-
 
 	li {
 		list-style: none;
@@ -41,9 +40,16 @@ body {
 			display: block;
 			padding: 2px 5px;
 			text-decoration: none;
-			color: $foreground;
+			color: $foreground_light;
+
+			&:hover {
+				background-color: $foreground_light;
+				color: $background_light;
+			}
 		}
 	}
+
+	margin-bottom: 5px;
 }
 
 div.bookmark_view {
@@ -89,10 +95,6 @@ div.bookmark_view {
 		border-bottom-right-radius: 5px;
 		margin-left: 3px;
 
-		&:hover {
-			background-color: $foreground_light;
-			color: $background_light;
-		}
 	}
 }
 
