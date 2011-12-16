@@ -343,11 +343,13 @@ class BookmarksController extends AppController {
 				$h = fopen($file, "w");
 				fwrite($h, $contents);
 				fclose($h);
-				header('location:../../'.$file);
 			}
 		}
-		else {
+		if (file_exists($file)) {
 			header('location:../../'.$file);
+		}
+		else {
+			header('location:../../img/blank16.png');
 		}
 	}
 }
