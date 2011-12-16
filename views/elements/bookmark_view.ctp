@@ -4,8 +4,8 @@
 # XXX Use a helper or component instead?
 if (!function_exists("print_bookmark")) {
 	function print_bookmark($that, $bookmark) {
-		# echo '<img width="16" height="16" src="'.$that->Html->url(array('controller' => 'bookmarks', 'action' => 'favicon', $bookmark['id'])).'" />';
-		# echo ' ';
+		echo '<img width="16" height="16" src="'.$that->Html->url(array('controller' => 'bookmarks', 'action' => 'favicon', $bookmark['id'])).'" />';
+		echo ' ';
 
 		echo $that->Html->link($bookmark['title'],
 			array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']),
