@@ -24,10 +24,10 @@ if (!function_exists("print_bookmark")) {
 		
 		echo $that->Html->link(__('Delete', true),
 			array('controller' => 'bookmarks', 'action' => 'delete', $bookmark['id']),
-			null,
+			array('class' => 'edit_option'),
 			sprintf(__('Are you sure you want to delete # %s?', true),
-			$bookmark['id']),
-			array('class' => 'edit_option'));
+			$bookmark['id'])
+			);
 	}
 }
 ?>
