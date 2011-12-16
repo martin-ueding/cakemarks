@@ -1,6 +1,7 @@
 /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
 
 $background: white;
+$background_light: #aaa;
 $foreground: black;
 $foreground_light: #666;
 
@@ -23,7 +24,25 @@ body {
 }
 
 #navigation {
+	overflow: hidden;
+
+	h2 {
+		display: none;
+	}
+
 	li {
+		list-style: none;
+		float: left;
+		a {
+			display: block;
+			padding: 2px 5px;
+			text-decoration: none;
+			color: $foreground;
+
+			&:hover {
+				background-color: $background_light;
+			}
+		}
 	}
 }
 
@@ -50,6 +69,10 @@ div.bookmark_view {
 	}
 }
 
+	#logo {
+		display: none;
+	}
+
 /*****************************************************************************/
 /*                                Huge Screen                                */
 /*****************************************************************************/
@@ -68,9 +91,5 @@ div.bookmark_view {
 @media(max-width:1024px) {
 	#page {
 		margin: 0px;
-	}
-
-	#logo {
-		display: none;
 	}
 }
