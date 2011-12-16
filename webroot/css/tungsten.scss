@@ -30,10 +30,19 @@ body {
 div.bookmark_view {
 	a {
 		color: $foreground;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 
 	a.edit_option {
 		color: $foreground_light;
+	}
+
+	a:hover {
+		color: $foreground;
 	}
 }
 
