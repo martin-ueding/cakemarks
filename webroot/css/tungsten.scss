@@ -42,10 +42,6 @@ body {
 			padding: 2px 5px;
 			text-decoration: none;
 			color: $foreground;
-
-			&:hover {
-				background-color: $background_light;
-			}
 		}
 	}
 }
@@ -85,6 +81,18 @@ div.bookmark_view {
 	#page {
 		box-shadow: 5px 5px 10px #777;
 		margin: 0px 20px;
+	}
+
+	#navigation a {
+		background-color: $background_light;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		margin-left: 3px;
+
+		&:hover {
+			background-color: $foreground_light;
+			color: $background_light;
+		}
 	}
 }
 
