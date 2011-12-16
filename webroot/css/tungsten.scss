@@ -1,1 +1,10 @@
 /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
+
+$background: #eee;
+
+body {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	line-height: 140%;
+	background-color: $background;
+}
