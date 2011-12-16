@@ -112,6 +112,16 @@ div.bookmark_view {
 	}
 }
 
+#sticky_keywords {
+	overflow: hidden;
+
+	div.sticky_keyword {
+		float: left;
+		padding: 3px;
+		margin: 3px;
+	}
+}
+
 /*****************************************************************************/
 /*                                Huge Screen                                */
 /*****************************************************************************/
@@ -130,15 +140,14 @@ div.bookmark_view {
 	}
 
 	h2 {
-		margin-top: 2px;
+		margin-top: 4px;
 		margin-bottom: 4px;
 	}
 
 	h3 {
-		margin-top: 2px;
+		margin-top: 3px;
 		margin-bottom: 3px;
 	}
-
 }
 
 /*****************************************************************************/
