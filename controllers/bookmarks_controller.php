@@ -321,6 +321,8 @@ class BookmarksController extends AppController {
 	}
 
 	function favicon($id) {
+		# TODO Show an empty picture if the favicon cannot be retrieved.
+
 		$this->view = 'media';
 		$this->Bookmark->id = $id;
 		$url = trim(str_replace('http://', '', trim($this->Bookmark->field('url'))), '/');
