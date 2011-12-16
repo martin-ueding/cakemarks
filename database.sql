@@ -45,3 +45,19 @@ CREATE TABLE `cakemarks_visits` (
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Visits of the Webpages the Bookmarks refer to';
+
+
+CREATE TABLE `lz_ass` (
+  `ass_id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `ass_link` int(5) unsigned NOT NULL DEFAULT '0',
+  `ass_key` int(5) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ass_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+
+
+CREATE TABLE `lz_hits` (
+  `hit_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `hit_lz` int(5) unsigned NOT NULL,
+  `hit_time` int(16) unsigned NOT NULL,
+  PRIMARY KEY (`hit_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci COMMENT='Saves every single hit on a bookmark';
