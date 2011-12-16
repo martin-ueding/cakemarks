@@ -50,11 +50,15 @@ body {
 	}
 }
 
+#content, #quote {
+	background-color: #fff;
+	box-shadow: 5px 5px 10px #777;
+	margin-bottom: 20px;
+}
+
 #content {
 	overflow: hidden;
 	padding: 10px 10px;
-	background-color: #fff;
-	box-shadow: 5px 5px 10px #777;
 
 	div.bookmarkbox {
 		float: left;
@@ -93,10 +97,6 @@ div.bookmark_view {
 
 #quote {
 	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background-color: #fff;
-	box-shadow: 5px 5px 10px #777;
 
 	h2 {
 		display: none;
