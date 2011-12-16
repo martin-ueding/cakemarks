@@ -9,18 +9,21 @@ $foreground_light: #666;
 /*                                  Common                                   */
 /*****************************************************************************/
 
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 body {
 	background-color: #eee;
 	font-family: arial, sans-serif;
 	font-size: 13px;
 	line-height: 140%;
-	margin: 0px;
-	padding: 0px;
 }
 
 #page {
 	background-color: $background;
-	padding: 10px 20px;
+	padding: 0px 20px;
 }
 
 #navigation {
@@ -30,14 +33,8 @@ body {
 		display: none;
 	}
 
-	ul {
-		padding: 0;
-		margin: 0px;
-	}
 
 	li {
-		padding: 0;
-		margin: 0px;
 		list-style: none;
 		float: left;
 		a {
