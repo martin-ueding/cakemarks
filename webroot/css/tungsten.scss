@@ -8,3 +8,9 @@ body {
 	line-height: 140%;
 	background-color: $background;
 }
+
+@media(max-width:480px) {
+	body {
+		background-color: red;
+	}
+}
