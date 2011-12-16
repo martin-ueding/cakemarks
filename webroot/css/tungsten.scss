@@ -50,15 +50,15 @@ body {
 	}
 }
 
-#content, #quote {
+#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
 	margin-bottom: 20px;
+	padding: 10px 10px;
 }
 
 #content {
 	overflow: hidden;
-	padding: 10px 10px;
 
 	div.bookmarkbox {
 		float: left;
@@ -128,6 +128,14 @@ div.bookmark_view {
 	}
 }
 
+#quickadd {
+	max-width: 300px;
+}
+
+#stats {
+	max-width: 400px;
+}
+
 
 /*****************************************************************************/
 /*                                Huge Screen                                */
@@ -155,7 +163,7 @@ div.bookmark_view {
 		margin-bottom: 3px;
 	}
 
-	#content, #quote {
+	#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
 		margin-right: 20px;
 		margin-left: 20px;
 	}
