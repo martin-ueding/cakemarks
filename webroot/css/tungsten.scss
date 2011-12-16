@@ -1,7 +1,7 @@
 /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
 
 $background: white;
-$background_light: #aaa;
+$background_light: #ddd;
 $foreground: black;
 $foreground_light: #666;
 
@@ -30,7 +30,14 @@ body {
 		display: none;
 	}
 
+	ul {
+		padding: 0;
+		margin: 0px;
+	}
+
 	li {
+		padding: 0;
+		margin: 0px;
 		list-style: none;
 		float: left;
 		a {
