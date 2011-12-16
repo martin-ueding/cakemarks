@@ -1,16 +1,41 @@
 /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
 
-$background: #eee;
+$background: white;
+
+/*****************************************************************************/
+/*                                  Common                                   */
+/*****************************************************************************/
 
 body {
+	background-color: #eee;
 	font-family: arial, sans-serif;
 	font-size: 12px;
 	line-height: 140%;
-	background-color: $background;
+	margin: 0px;
+	padding: 0px;
 }
 
-@media(max-width:480px) {
-	body {
-		background-color: red;
+#page {
+	background-color: $background;
+	padding: 20px;
+}
+
+/*****************************************************************************/
+/*                                Huge Screen                                */
+/*****************************************************************************/
+
+@media(min-width:1024px) {
+	#page {
+		border-radius: 10px;
+		box-shadow: 5px 5px 10px #777;
+		margin: 20px;
 	}
+}
+
+/*****************************************************************************/
+/*                                  Netbook                                  */
+/*****************************************************************************/
+
+@media(max-width:1024px) {
+	margin: 0px;
 }
