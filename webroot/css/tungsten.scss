@@ -136,6 +136,26 @@ div.bookmark_view {
 	max-width: 400px;
 }
 
+div.select {
+	label {
+		display: none;
+	}
+	overflow: hidden;
+	margin: 10px 0px;
+	div.checkbox {
+		min-width: 150px;
+		float: left;
+		margin-right: 10px;
+		label {
+			display: inline;
+		}
+
+		&:hover {
+			background-color: #eee;
+		}
+	}
+}
+
 
 /*****************************************************************************/
 /*                                Huge Screen                                */
