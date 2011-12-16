@@ -28,21 +28,25 @@ body {
 }
 
 div.bookmark_view {
+	li {
+		list-style: none;
+	}
+
 	a {
 		color: $foreground;
 		text-decoration: none;
-	}
-
-	a:hover {
-		text-decoration: underline;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	a.edit_option {
 		color: $foreground_light;
-	}
 
-	a:hover {
-		color: $foreground;
+		&:hover {
+			color: $foreground;
+			text-decoration: none;
+		}
 	}
 }
 
