@@ -52,7 +52,7 @@ body {
 
 #content {
 	overflow: hidden;
-	padding: 0px 20px;
+	padding: 10px 10px;
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
 
@@ -129,8 +129,10 @@ div.bookmark_view {
 /*****************************************************************************/
 
 @media(min-width:1024px) {
-	#navigation {
+	#navigation, #actions {
 		margin-left: 20px;
+	}
+	#navigation {
 		a {
 			background-color: $background_light;
 			border-bottom-left-radius: 5px;
@@ -140,12 +142,11 @@ div.bookmark_view {
 	}
 
 	h2 {
-		margin-top: 4px;
 		margin-bottom: 4px;
 	}
 
 	h3 {
-		margin-top: 3px;
+		margin-top: 1px;
 		margin-bottom: 3px;
 	}
 
