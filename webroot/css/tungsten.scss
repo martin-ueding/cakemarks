@@ -63,7 +63,6 @@ body {
 	div.bookmarkbox {
 		float: left;
 		padding: 3px;
-		margin: 5px;
 		box-shadow: 1px 1px 5px #aaa;
 	}
 }
@@ -196,7 +195,8 @@ div.select {
 
 @media(max-width:1023px) {
 	#content {
-		margin: 0px;
+		margin-left: 0px;
+		margin-right: 0px;
 	}
 }
 
