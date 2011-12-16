@@ -2,6 +2,7 @@
 <!doctype html>
 	<head>
 		<?php echo $this->Html->charset(); ?>
+		<?php echo $this->Html->css("tungsten.css"); ?>
 
 		<title><?php echo $title_for_layout; ?></title>
 	</head>
