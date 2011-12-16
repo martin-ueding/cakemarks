@@ -129,11 +129,14 @@ div.bookmark_view {
 /*****************************************************************************/
 
 @media(min-width:1024px) {
-	#navigation a {
-		background-color: $background_light;
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
-		margin-left: 3px;
+	#navigation {
+		margin-left: 20px;
+		a {
+			background-color: $background_light;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			margin-left: 3px;
+		}
 	}
 
 	h2 {
