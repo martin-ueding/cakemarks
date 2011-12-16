@@ -321,8 +321,6 @@ class BookmarksController extends AppController {
 	}
 
 	function favicon($id) {
-		# TODO Show an empty picture if the favicon cannot be retrieved.
-
 		$this->view = 'media';
 		$this->Bookmark->id = $id;
 		$url = trim(str_replace('http://', '', trim($this->Bookmark->field('url'))), '/');
@@ -345,11 +343,13 @@ class BookmarksController extends AppController {
 				$h = fopen($file, "w");
 				fwrite($h, $contents);
 				fclose($h);
-				header('location:../../'.$file);
 			}
 		}
-		else {
+		if (file_exists($file)) {
 			header('location:../../'.$file);
+		}
+		else {
+			header('location:../../img/blank16.png');
 		}
 	}
 }
