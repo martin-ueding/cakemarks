@@ -1,0 +1,460 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright 2011 NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2011-12-17 15:58+0100\n"
+"PO-Revision-Date: 2011-12-17 16:01+0100\n"
+"Last-Translator: Martin Ueding <dev@martin-ueding.de>\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+
+#: /controllers/bookmarks_controller.php:22;95
+msgid "Invalid bookmark"
+msgstr "üngültiges Lesezeichen"
+
+#: /controllers/bookmarks_controller.php:54;102
+msgid "The bookmark has been saved"
+msgstr "Das Lesezeichen wurde gespeichert"
+
+#: /controllers/bookmarks_controller.php:58;106
+msgid "The bookmark could not be saved. Please, try again."
+msgstr "Das Lesezeichen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+
+#: /controllers/bookmarks_controller.php:118
+msgid "Invalid id for bookmark"
+msgstr "ungültige ID für das Lesezeichen"
+
+#: /controllers/bookmarks_controller.php:122
+msgid "Bookmark deleted"
+msgstr "Lesezeichen gelöscht"
+
+#: /controllers/bookmarks_controller.php:125
+msgid "Bookmark was not deleted"
+msgstr "Lesezeichen nicht gelöscht"
+
+#: /controllers/bookmarks_controller.php:336
+msgid "Could not create favico temp dir"
+msgstr "konnte keinen Ordner für Favicons nicht erstellen"
+
+#: /controllers/keywords_controller.php:20;44
+msgid "Invalid keyword"
+msgstr "ungültiges Schlüsselwort"
+
+#: /controllers/keywords_controller.php:30;49
+msgid "The keyword has been saved"
+msgstr "das Schlüsselwort wurde gespeichert"
+
+#: /controllers/keywords_controller.php:33;52
+msgid "The keyword could not be saved. Please, try again."
+msgstr "das Schlüsselwort konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+
+#: /controllers/keywords_controller.php:66
+msgid "Invalid id for keyword"
+msgstr "ungültige ID für Schlüsselwort"
+
+#: /controllers/keywords_controller.php:70
+msgid "Keyword deleted"
+msgstr "Schlüsselwort gelöscht"
+
+#: /controllers/keywords_controller.php:73
+msgid "Keyword was not deleted"
+msgstr "Schlüsselwort nicht gelöscht"
+
+#: /controllers/quotes_controller.php:15;35
+msgid "Invalid quote"
+msgstr "ungültiges Zitat"
+
+#: /controllers/quotes_controller.php:25;40
+msgid "The quote has been saved"
+msgstr "das Zitat wurde gespeichert"
+
+#: /controllers/quotes_controller.php:28;43
+msgid "The quote could not be saved. Please, try again."
+msgstr "das Zitat konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+
+#: /controllers/quotes_controller.php:53
+msgid "Invalid id for quote"
+msgstr "ungültige ID für Zitat"
+
+#: /controllers/quotes_controller.php:57
+msgid "Quote deleted"
+msgstr "Zitat gelöscht"
+
+#: /controllers/quotes_controller.php:60
+msgid "Quote was not deleted"
+msgstr "Zitat nicht gelöscht"
+
+#: /models/bookmark.php:50
+msgid "Enter a valid URL"
+msgstr "geben Sie eine gültige URL ein"
+
+#: /views/bookmarks/add.ctp:4
+msgid "Add Bookmark"
+msgstr "Lesezeichen hinzufügen"
+
+#: /views/bookmarks/add.ctp:16 /views/bookmarks/edit.ctp:28
+msgid "new keyword"
+msgstr "neues Schlüsselwort"
+
+#: /views/bookmarks/add.ctp:17 /views/bookmarks/edit.ctp:29
+#: /views/keywords/add.ctp:23 /views/keywords/edit.ctp:20
+#: /views/quotes/add.ctp:15 /views/quotes/edit.ctp:20
+msgid "Submit"
+msgstr "Abschicken"
+
+#: /views/bookmarks/edit.ctp:4 /views/bookmarks/index.ctp:13
+#: /views/bookmarks/view.ctp:4 /views/keywords/add.ctp:4
+#: /views/keywords/edit.ctp:4 /views/keywords/view.ctp:4
+#: /views/quotes/add.ctp:2 /views/quotes/edit.ctp:2
+#: /views/quotes/index.ctp:2;14 /views/quotes/view.ctp:2
+msgid "Actions"
+msgstr "Aktionen"
+
+#: /views/bookmarks/edit.ctp:6
+msgid "Delete this bookmark"
+msgstr "dieses Lesezeichen löschen"
+
+#: /views/bookmarks/edit.ctp:9
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Wollen Sie dieses Lesezeichen wirklich löschen?"
+
+#: /views/bookmarks/edit.ctp:15 /views/bookmarks/view.ctp:6
+msgid "Edit Bookmark"
+msgstr "Lesezeichen bearbeiten"
+
+#: /views/bookmarks/import.ctp:4
+msgid "Import"
+msgstr "Importieren"
+
+#: /views/bookmarks/import.ctp:8
+msgid "Last Import"
+msgstr "letzter Import"
+
+#: /views/bookmarks/import.ctp:10
+msgid "imported bookmarks"
+msgstr "importierte Lesezeichen"
+
+#: /views/bookmarks/import.ctp:12
+msgid "already existing bookmarks"
+msgstr "schon existierende Lesezeichen"
+
+#: /views/bookmarks/import.ctp:14
+msgid "imported keywords"
+msgstr "importierte Schlüsselwörter"
+
+#: /views/bookmarks/import.ctp:16
+msgid "already existing keywords"
+msgstr ""
+
+#: /views/bookmarks/import.ctp:23
+msgid "New Import"
+msgstr "neuer Import"
+
+#: /views/bookmarks/import.ctp:26
+msgid "import"
+msgstr "importieren"
+
+#: /views/bookmarks/index.ctp:4
+msgid "All Bookmarks"
+msgstr "alle Lesezeichen"
+
+#: /views/bookmarks/index.ctp:24 /views/elements/bookmark_view.ctp:15
+#: /views/quotes/index.ctp:21
+msgid "View"
+msgstr "anzeigen"
+
+#: /views/bookmarks/index.ctp:26 /views/elements/bookmark_view.ctp:20
+#: /views/elements/keyword_tree.ctp:15 /views/quotes/index.ctp:23
+msgid "Edit"
+msgstr "bearbeiten"
+
+#: /views/bookmarks/index.ctp:28 /views/elements/bookmark_view.ctp:25
+#: /views/elements/keyword_tree.ctp:17 /views/keywords/edit.ctp:6
+#: /views/quotes/index.ctp:25
+msgid "Delete"
+msgstr "löschen"
+
+#: /views/bookmarks/index.ctp:30 /views/bookmarks/view.ctp:10
+#: /views/elements/bookmark_view.ctp:28 /views/elements/keyword_tree.ctp:17
+#: /views/keywords/edit.ctp:6 /views/keywords/view.ctp:13
+#: /views/quotes/edit.ctp:8 /views/quotes/index.ctp:27
+#: /views/quotes/view.ctp:5
+msgid "Are you sure you want to delete # %s?"
+msgstr ""
+
+#: /views/bookmarks/index.ctp:39 /views/quotes/index.ctp:36
+msgid ""
+"Page %page% of %pages%, showing %current% records out of %count% total, "
+"starting on record %start%, ending on %end%"
+msgstr ""
+
+#: /views/bookmarks/index.ctp:44 /views/quotes/index.ctp:41
+msgid "previous"
+msgstr "verheriges"
+
+#: /views/bookmarks/index.ctp:47 /views/quotes/index.ctp:44
+msgid "next"
+msgstr "nächste"
+
+#: /views/bookmarks/startscreen.ctp:4
+msgid "Startscreen"
+msgstr "Startseite"
+
+#: /views/bookmarks/startscreen.ctp:8 /views/bookmarks/view.ctp:30
+msgid "Revisit"
+msgstr "Wiedervorlage"
+
+#: /views/bookmarks/startscreen.ctp:13 /views/bookmarks/view.ctp:38
+msgid "Reading List"
+msgstr "Leseliste"
+
+#: /views/bookmarks/startscreen.ctp:16
+msgid "Most Visits"
+msgstr "meiste Besuche"
+
+#: /views/bookmarks/startscreen.ctp:18
+msgid "Recently Visited"
+msgstr "kürzlich besucht"
+
+#: /views/bookmarks/startscreen.ctp:21
+msgid "Newest"
+msgstr "neuste"
+
+#: /views/bookmarks/view.ctp:8
+msgid "Delete Bookmark"
+msgstr "Lesezeichen löschen"
+
+#: /views/bookmarks/view.ctp:12 /views/elements/navigation.ctp:9
+#: /views/keywords/add.ctp:11
+msgid "New Bookmark"
+msgstr "neues Lesezeichen"
+
+#: /views/bookmarks/view.ctp:18
+msgid "View Bookmark"
+msgstr "Lesezeichen anzeigen"
+
+#: /views/bookmarks/view.ctp:21 /views/keywords/view.ctp:21
+msgid "Title"
+msgstr "Titel"
+
+#: /views/bookmarks/view.ctp:24
+msgid "URL"
+msgstr ""
+
+#: /views/bookmarks/view.ctp:31
+msgid "every %d hours"
+msgstr "alle %d Stunden"
+
+#: /views/bookmarks/view.ctp:33
+msgid "Next Scheduled Visit"
+msgstr "nächste Wiedervorlage"
+
+#: /views/bookmarks/view.ctp:39
+msgid "This is on your reading list."
+msgstr "Dies ist auf Ihrer Leseliste."
+
+#: /views/bookmarks/view.ctp:43
+msgid "Related Keywords"
+msgstr "verwandte Schlüsselwörter"
+
+#: /views/bookmarks/view.ctp:51
+msgid "Visit Count"
+msgstr "Besuchszähler"
+
+#: /views/bookmarks/view.ctp:54
+msgid "Last Visit"
+msgstr "letzter Besucht"
+
+#: /views/bookmarks/view.ctp:58
+msgid "Visits"
+msgstr "Besuche"
+
+#: /views/bookmarks/view.ctp:64 /views/keywords/view.ctp:39
+msgid "Created"
+msgstr "erstellt"
+
+#: /views/bookmarks/view.ctp:67 /views/keywords/view.ctp:44
+msgid "Modified"
+msgstr "bearbeitet"
+
+#: /views/elements/navigation.ctp:4
+msgid "Navigation"
+msgstr ""
+
+#: /views/elements/navigation.ctp:6
+msgid "Home Page"
+msgstr "Startseite"
+
+#: /views/elements/navigation.ctp:11 /views/keywords/add.ctp:10
+msgid "List Bookmarks"
+msgstr "Lesezeichen anzeigen"
+
+#: /views/elements/navigation.ctp:13 /views/quotes/add.ctp:4
+#: /views/quotes/edit.ctp:4 /views/quotes/view.ctp:6
+msgid "List Quotes"
+msgstr "Zitate anzeigen"
+
+#: /views/elements/navigation.ctp:15
+msgid "Report a Bug"
+msgstr "einen Fehler melden"
+
+#: /views/elements/navigation.ctp:17 /views/pages/referrer.ctp:4
+msgid "Check Referrer"
+msgstr "Referrer überprüfen"
+
+#: /views/elements/navigation.ctp:20 /views/pages/bookmarklet.ctp:4
+msgid "Bookmarklet"
+msgstr ""
+
+#: /views/elements/navigation.ctp:22
+msgid "Import Bookmarks"
+msgstr "Lesezeichen importieren"
+
+#: /views/elements/navigation.ctp:24
+msgid "Export Bookmarks"
+msgstr "Lesezeichen exportieren"
+
+#: /views/elements/quickadd.ctp:4
+msgid "Quick Add"
+msgstr "schnell hinzufügen"
+
+#: /views/elements/quickadd.ctp:9
+msgid "Create Bookmark"
+msgstr "Lesezeichen erstellen"
+
+#: /views/elements/quote.ctp:6 /views/quotes/view.ctp:12
+msgid "Quote"
+msgstr "Zitat"
+
+#: /views/elements/stats.ctp:6
+msgid "Statistics"
+msgstr "Statistiken"
+
+#: /views/elements/stats.ctp:8
+msgid "bookmark"
+msgid_plural "bookmarks"
+msgstr[0] "Lesezeichen"
+msgstr[1] "Lesezeichen"
+
+#: /views/elements/stats.ctp:12
+msgid "quote"
+msgid_plural "quotes"
+msgstr[0] "Zitat"
+msgstr[1] "Zitate"
+
+#: /views/elements/stats.ctp:16
+msgid "visit"
+msgid_plural "visits"
+msgstr[0] "Besuch"
+msgstr[1] "Besuche"
+
+#: /views/elements/stats.ctp:20
+msgid "keyword"
+msgid_plural "keywords"
+msgstr[0] "Schlüsselwort"
+msgstr[1] "Schlüsselwörter"
+
+#: /views/keywords/add.ctp:7;8 /views/keywords/edit.ctp:7
+msgid "List Keywords"
+msgstr "Schlüsselwörter anzeigen"
+
+#: /views/keywords/add.ctp:9
+msgid "New Parent Keyword"
+msgstr "neues übergeordnetes Schlüsselwort"
+
+#: /views/keywords/add.ctp:16
+msgid "Add Keyword"
+msgstr "Schlüsselwort hinzufügen"
+
+#: /views/keywords/edit.ctp:12 /views/keywords/view.ctp:8
+msgid "Edit Keyword"
+msgstr "Schlüsselwort bearbeiten"
+
+#: /views/keywords/view.ctp:6
+msgid "New Keyword"
+msgstr "neues Schlüsselwort"
+
+#: /views/keywords/view.ctp:10
+msgid "Delete Keyword"
+msgstr "Schlüsselwort löschen"
+
+#: /views/keywords/view.ctp:19
+msgid "View Keyword"
+msgstr "Schlüsselwort anzeigen"
+
+#: /views/keywords/view.ctp:24
+msgid "Parent Keyword"
+msgstr "übergeordnetes Schlüsselwort"
+
+#: /views/keywords/view.ctp:28
+msgid "Child Keywords"
+msgstr "untergeordnete Schlüsselwort"
+
+#: /views/keywords/view.ctp:34
+msgid "Related Bookmarks"
+msgstr "verwandte Lesezeichen"
+
+#: /views/layouts/default.ctp:24
+msgid "Keywords"
+msgstr "Schlüsselwörter"
+
+#: /views/pages/bookmarklet.ctp:6
+msgid ""
+"This is a bookmarklet to put into your bookmarks. Whenever you are on a site "
+"that you want to bookmark, click it and you will get directed to the "
+"creation page."
+msgstr ""
+
+#: /views/pages/bookmarklet.ctp:8
+msgid "Bookmark this Page"
+msgstr "Lesezeichen anlegen"
+
+#: /views/pages/referrer.ctp:7
+msgid "You referrer is not transmitted."
+msgstr "Ihr Referrer wird nicht übertragen."
+
+#: /views/pages/referrer.ctp:9
+msgid "You come from %s."
+msgstr "Sie kommen von %s."
+
+#: /views/quotes/add.ctp:10
+msgid "Add Quote"
+msgstr "Zitat hinzufügen"
+
+#: /views/quotes/edit.ctp:6
+msgid "Delete This Quote"
+msgstr "dieses Zitat löschen"
+
+#: /views/quotes/edit.ctp:14 /views/quotes/view.ctp:4
+msgid "Edit Quote"
+msgstr "Zitat bearbeiten"
+
+#: /views/quotes/index.ctp:4 /views/quotes/view.ctp:7
+msgid "New Quote"
+msgstr "neues Zitat"
+
+#: /views/quotes/index.ctp:9
+msgid "Quotes"
+msgstr "Zitate"
+
+#: /views/quotes/view.ctp:5
+msgid "Delete Quote"
+msgstr "Zitat löschen"
+
+#: /views/quotes/view.ctp:14
+msgid "Text"
+msgstr ""
+
+#: /views/quotes/view.ctp:18
+msgid "Author"
+msgstr "Autor"
+
+#: /webroot/test.php:88
+msgid "Debug setting does not allow access to this url."
+msgstr ""
