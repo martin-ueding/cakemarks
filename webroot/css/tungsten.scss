@@ -109,7 +109,7 @@ div.bookmark_view {
 }
 
 #keyword_tree {
-	width: 200px;
+	float: left;
 	text-overflow: ellipsis;
 	li {
 		list-style: none;
@@ -122,6 +122,7 @@ div.bookmark_view {
 
 #sticky_keywords {
 	overflow: hidden;
+	float: left;
 
 	div.sticky_keyword {
 		float: left;
@@ -132,10 +133,12 @@ div.bookmark_view {
 
 #quickadd {
 	max-width: 300px;
+	float: left;
 }
 
 #stats {
 	max-width: 400px;
+	float: left;
 }
 
 div.select {
