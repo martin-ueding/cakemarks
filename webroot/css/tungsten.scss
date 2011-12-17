@@ -109,6 +109,8 @@ div.bookmark_view {
 }
 
 #keyword_tree {
+	width: 200px;
+	text-overflow: ellipsis;
 	li {
 		list-style: none;
 
