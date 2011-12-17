@@ -13,18 +13,27 @@ $foreground_light: #666;
 	margin: 0px;
 	padding: 0px;
 }
-
 body {
 	background-color: #eee;
 	font-family: arial, sans-serif;
 	font-size: 13px;
 	line-height: 140%;
 }
-
 #page {
 	background-color: #eee;
 }
 
+/*****************************************************************************/
+/*                              Main Containers                              */
+/*****************************************************************************/
+
+#flashMessage {
+	background-color: #444;
+	border-bottom: #aaa;
+	color: #fff;
+	padding: 2px 5px;
+	text-align: center;
+}
 #navigation, #actions {
 	margin: 0px auto 10px auto;
 	overflow: hidden;
@@ -49,14 +58,12 @@ body {
 		}
 	}
 }
-
 #content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
 	margin-bottom: 20px;
 	padding: 10px 10px;
 }
-
 #content {
 	overflow: hidden;
 
@@ -67,13 +74,11 @@ body {
 		padding: 3px;
 	}
 }
-
 div.bookmark_view {
 	li {
 		list-style: none;
 	}
 }
-
 a.bookmark_link {
 	color: $foreground;
 	text-decoration: none;
@@ -81,7 +86,6 @@ a.bookmark_link {
 		text-decoration: underline;
 	}
 }
-
 a.edit_option {
 	color: $foreground_light;
 	text-decoration: none;
@@ -90,11 +94,9 @@ a.edit_option {
 		color: $foreground;
 	}
 }
-
 #logo {
 	display: none;
 }
-
 #quote {
 	text-align: center;
 
@@ -107,7 +109,6 @@ a.edit_option {
 		padding: 5px;
 	}
 }
-
 #keyword_tree {
 	float: left;
 	text-overflow: ellipsis;
@@ -129,7 +130,6 @@ a.edit_option {
 		}
 	}
 }
-
 #sticky_keywords {
 	border: 1px solid red;
 	overflow: hidden;
@@ -140,21 +140,18 @@ a.edit_option {
 		padding: 3px;
 	}
 }
-
 #quickadd {
 	float: left;
 	margin-left: 20px;
 	margin-right: 20px;
 	max-width: 300px;
 }
-
 #stats {
 	float: left;
 	margin-left: 20px;
 	margin-right: 20px;
 	max-width: 400px;
 }
-
 div.select {
 	label {
 		display: none;
@@ -175,13 +172,11 @@ div.select {
 		}
 	}
 }
-
 dl {
 	dd {
 		margin-left: 15px;
 	}
 }
-
 
 /*****************************************************************************/
 /*                                Huge Screen                                */
@@ -218,14 +213,6 @@ dl {
 		margin-left: 280px;
 		margin-right: 20px;
 	}
-}
-
-#flashMessage {
-	background-color: #444;
-	border-bottom: #aaa;
-	color: #fff;
-	padding: 2px 5px;
-	text-align: center;
 }
 
 /*****************************************************************************/
