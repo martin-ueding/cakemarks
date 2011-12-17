@@ -34,6 +34,8 @@ class BookmarksController extends AppController {
 		if ($data['Bookmark']['revisit'] > 0) {
 			$this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
 		}
+
+		$this->set('bin_data', $this->_visit_stats($id));
 	}
 
 	function add($url = null) {
@@ -351,6 +353,31 @@ class BookmarksController extends AppController {
 		else {
 			header('location:../../img/blank16.png');
 		}
+	}
+
+	function _visit_stats($id) {
+		$limit = 24*3600*365;
+		$oldest = time() - $limit;
+
+		$visits = $this->Bookmark->Visit->find('all', array(
+			"conditions" => array("Visit.bookmark_id" => $id)));
+
+		for ($i = 0; $i < 12; $i++) {
+			$bins[] = 0;
+		}
+
+		foreach ($visits as $v) {
+			$time = $v["Visit"]["created"];
+			$timestamp = strtotime($time);
+			if ($timestamp < $oldest)
+				continue;
+
+			$stamps[] = $timestamp;
+			$month = (int) date("m", $timestamp);
+			$bins[$month]++;
+		}
+		debug($stamps);
+		debug($bins);
 	}
 }
 ?>
