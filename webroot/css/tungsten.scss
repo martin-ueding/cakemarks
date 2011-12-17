@@ -84,10 +84,10 @@ a.bookmark_link {
 
 a.edit_option {
 	color: $foreground_light;
+	text-decoration: none;
 
 	&:hover {
 		color: $foreground;
-		text-decoration: none;
 	}
 }
 
