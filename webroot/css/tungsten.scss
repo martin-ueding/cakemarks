@@ -117,6 +117,15 @@ div.bookmark_view {
 		li {
 			margin-left: 20px;
 		}
+
+		a {
+			color: #000;
+			text-decoration: none;
+
+			&:hover {
+				background-color: #ddd;
+			}
+		}
 	}
 }
 
