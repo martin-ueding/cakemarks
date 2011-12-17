@@ -36,7 +36,6 @@ body {
 }
 #navigation, #actions {
 	margin-bottom: 10px;
-	margin-left: 20px;
 	overflow: hidden;
 	h2 {
 		display: none;
@@ -56,10 +55,13 @@ body {
 		}
 	}
 }
+@media(min-width:481px) {
+#navigation, #actions {
+	margin-left: 20px;
+}
+}
 @media(max-width:480px) {
 	#navigation, #actions {
-		margin: 0;
-		padding: 0;
 		li {
 			background-color: none;
 			a {
@@ -92,7 +94,13 @@ body {
 	padding: 10px 10px;
 }
 @media(min-width:481px) {
-	#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
+	#quickadd, #stats {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
+@media(min-width:1050px) {
+	#content, #quote, #keyword_tree, #sticky_keywords {
 		margin-left: 20px;
 		margin-right: 20px;
 	}
@@ -148,14 +156,18 @@ body {
 }
 @media(min-width:481px) {
 	#sticky_keywords {
+		margin-left: 240px;
 		overflow: hidden;
-		margin-left: 280px;
 		div.sticky_keyword {
 			float: left;
 			margin: 3px;
 			padding: 3px;
 		}
-
+	}
+}
+@media(min-width:1050px) {
+	#sticky_keywords {
+		margin-left: 280px;
 	}
 }
 #quickadd {
