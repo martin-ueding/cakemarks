@@ -26,21 +26,21 @@ body {
 }
 
 #navigation, #actions {
-	overflow: hidden;
 	margin: 0px auto 10px auto;
+	overflow: hidden;
 
 	h2 {
 		display: none;
 	}
 
 	li {
-		list-style: none;
 		float: left;
+		list-style: none;
 		a {
+			color: $foreground_light;
 			display: block;
 			padding: 2px 5px;
 			text-decoration: none;
-			color: $foreground_light;
 
 			&:hover {
 				background-color: $foreground_light;
@@ -61,10 +61,10 @@ body {
 	overflow: hidden;
 
 	div.bookmarkbox {
-		float: left;
-		padding: 3px;
 		box-shadow: 1px 1px 5px #aaa;
+		float: left;
 		margin: 5px;
+		padding: 3px;
 	}
 }
 
@@ -110,8 +110,8 @@ a.edit_option {
 
 #keyword_tree {
 	float: left;
-	width: 200px;
 	text-overflow: ellipsis;
+	width: 200px;
 	li {
 		list-style: none;
 
@@ -131,40 +131,40 @@ a.edit_option {
 }
 
 #sticky_keywords {
+	border: 1px solid red;
 	overflow: hidden;
-	margin-left: 240px;
 
 	div.sticky_keyword {
 		float: left;
-		padding: 3px;
 		margin: 3px;
+		padding: 3px;
 	}
 }
 
 #quickadd {
-	max-width: 300px;
 	float: left;
-	margin-right: 20px;
 	margin-left: 20px;
+	margin-right: 20px;
+	max-width: 300px;
 }
 
 #stats {
-	max-width: 400px;
 	float: left;
-	margin-right: 20px;
 	margin-left: 20px;
+	margin-right: 20px;
+	max-width: 400px;
 }
 
 div.select {
 	label {
 		display: none;
 	}
-	overflow: hidden;
 	margin: 10px 0px;
+	overflow: hidden;
 	div.checkbox {
-		min-width: 150px;
 		float: left;
 		margin-right: 10px;
+		min-width: 150px;
 		label {
 			display: inline;
 		}
@@ -205,27 +205,27 @@ dl {
 	}
 
 	h3 {
-		margin-top: 1px;
 		margin-bottom: 3px;
+		margin-top: 1px;
 	}
 
 	#content, #quote, #keyword_tree {
-		margin-right: 20px;
 		margin-left: 20px;
+		margin-right: 20px;
 	}
 
 	#sticky_keywords {
-		margin-right: 20px;
 		margin-left: 280px;
+		margin-right: 20px;
 	}
 }
 
 #flashMessage {
+	background-color: #444;
+	border-bottom: #aaa;
+	color: #fff;
 	padding: 2px 5px;
 	text-align: center;
-	background-color: #444;
-	color: #fff;
-	border-bottom: #aaa;
 }
 
 /*****************************************************************************/
