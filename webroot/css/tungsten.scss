@@ -110,6 +110,7 @@ a.edit_option {
 
 #keyword_tree {
 	float: left;
+	width: 200px;
 	text-overflow: ellipsis;
 	li {
 		list-style: none;
@@ -131,7 +132,7 @@ a.edit_option {
 
 #sticky_keywords {
 	overflow: hidden;
-	float: left;
+	margin-left: 240px;
 
 	div.sticky_keyword {
 		float: left;
@@ -143,11 +144,15 @@ a.edit_option {
 #quickadd {
 	max-width: 300px;
 	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 #stats {
 	max-width: 400px;
 	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 div.select {
@@ -204,9 +209,14 @@ dl {
 		margin-bottom: 3px;
 	}
 
-	#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
+	#content, #quote, #keyword_tree {
 		margin-right: 20px;
 		margin-left: 20px;
+	}
+
+	#sticky_keywords {
+		margin-right: 20px;
+		margin-left: 280px;
 	}
 }
 
