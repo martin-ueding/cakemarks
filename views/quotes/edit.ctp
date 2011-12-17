@@ -1,4 +1,4 @@
-<div class="actions">
+<div id="actions">
 	<h2><?php __('Actions'); ?></h2>
 	<ul>
 		<li><?php echo $this->Html->link(__('List Quotes', true),
