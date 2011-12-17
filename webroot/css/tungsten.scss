@@ -46,12 +46,27 @@ body {
 		a {
 			color: $foreground_light;
 			display: block;
-		float: left;
+			float: left;
 			padding: 2px 5px;
 			text-decoration: none;
 			&:hover {
 				background-color: $foreground_light;
 				color: $background_light;
+			}
+		}
+	}
+}
+@media(max-width:480px) {
+	#navigation, #actions {
+		margin: 0;
+		padding: 0;
+		li {
+			background-color: none;
+			a {
+				display: block;
+				border-radius: 5px;
+				width: 45%;
+				margin: 2px;
 			}
 		}
 	}
@@ -74,9 +89,13 @@ body {
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
 	margin-bottom: 20px;
-	margin-left: 20px;
-	margin-right: 20px;
 	padding: 10px 10px;
+}
+@media(min-width:481px) {
+	#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
 }
 #content {
 	overflow: hidden;
@@ -202,24 +221,5 @@ h3 {
 @media(max-width:480px) {
 	#quote, #stats, #quickadd {
 		display: none;
-	}
-
-	#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	#navigation, #actions {
-		margin: 0;
-		padding: 0;
-		li {
-			background-color: none;
-			a {
-				display: block;
-				border-radius: 5px;
-				width: 45%;
-				margin: 2px;
-			}
-		}
 	}
 }
