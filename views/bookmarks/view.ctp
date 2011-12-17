@@ -62,6 +62,10 @@
 		<?php endif; ?>
 
 		<?php if (!empty($bin_data)): ?>
+<?php echo $this->Html->script("raphael"); ?>
+<?php echo $this->Html->script("popup"); ?>
+<?php echo $this->Html->script("jquery"); ?>
+<?php echo $this->Html->script("analytics"); ?>
 			<dt><?php __('Visits by month'); ?><dt>
 			<dd>
 				<table id="data">

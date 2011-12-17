@@ -374,7 +374,7 @@ class BookmarksController extends AppController {
 
 			$stamps[] = $timestamp;
 			$month = (int) date("m", $timestamp);
-			$bins[$month]++;
+			$bins[$month-1]++;
 		}
 
 		return $bins;
