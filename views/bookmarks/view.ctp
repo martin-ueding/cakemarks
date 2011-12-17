@@ -61,6 +61,33 @@
 			<?php endforeach; ?>
 		<?php endif; ?>
 
+		<?php if (!empty($bin_data)): ?>
+			<dt><?php __('Visits by month'); ?><dt>
+			<dd>
+				<table id="data">
+					<tfoot>
+						<tr>
+<?php
+for ($i = 0; $i < count($bin_data); $i++) {
+	echo "<td>$i</td>";
+}
+?>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr>
+<?php
+for ($i = 0; $i < count($bin_data); $i++) {
+	echo '<td>'.$bin_data[$i].'</td>';
+}
+?>
+						</tr>
+					</tbody>
+				</table>
+				<div id="holder"></div>
+			</dd>
+		<?php endif; ?>
+
 		<dt><?php __('Created'); ?></dt>
 		<dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
 
