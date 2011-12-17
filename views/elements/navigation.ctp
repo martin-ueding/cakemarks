@@ -13,7 +13,8 @@
 		<li><?php echo $this->Html->link(__('List Quotes', true),
 			array('controller' => 'quotes', 'action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('Report a Bug', true),
-			"https://github.com/martin-ueding/cakemarks/issues/new"); ?></li>
+			"https://github.com/martin-ueding/cakemarks/issues/new",
+			array("class" => "external")); ?></li>
 		<li><?php echo $this->Html->link(__('Check Referrer', true),
 			array('controller' => 'pages', 'action' => 'referrer'),
 			array('rel' => 'noreferrer')); ?></li>
