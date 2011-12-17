@@ -68,11 +68,9 @@ body {
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
 	margin-bottom: 20px;
-	padding: 10px 10px;
-}
-#content, #quote, #keyword_tree {
 	margin-left: 20px;
 	margin-right: 20px;
+	padding: 10px 10px;
 }
 #content {
 	overflow: hidden;
@@ -120,7 +118,6 @@ body {
 #sticky_keywords {
 	overflow: hidden;
 	margin-left: 280px;
-	margin-right: 20px;
 
 	div.sticky_keyword {
 		float: left;
@@ -130,14 +127,10 @@ body {
 }
 #quickadd {
 	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
 	max-width: 300px;
 }
 #stats {
 	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
 	max-width: 400px;
 }
 
