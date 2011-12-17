@@ -64,13 +64,6 @@ body {
 		margin-left: 3px;
 	}
 }
-h2 {
-	margin-bottom: 4px;
-}
-h3 {
-	margin-bottom: 3px;
-	margin-top: 1px;
-}
 #content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
@@ -194,6 +187,13 @@ a.edit_option {
 	&:hover {
 		color: $foreground;
 	}
+}
+h2 {
+	margin-bottom: 4px;
+}
+h3 {
+	margin-bottom: 3px;
+	margin-top: 1px;
 }
 
 /*****************************************************************************/
