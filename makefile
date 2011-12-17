@@ -4,6 +4,3 @@ all: locale/deu/LC_MESSAGES/default.po
 
 %.po: %.pot
 	msgmerge -U $@ $^
-
-%.mo: %.po
-	msgcat $^ > $@
