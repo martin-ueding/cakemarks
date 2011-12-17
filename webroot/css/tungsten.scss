@@ -63,6 +63,12 @@ body {
 		border-bottom-right-radius: 5px;
 		margin-left: 3px;
 	}
+
+	a.external {
+		&:after {
+			content: ' …';
+		}
+	}
 }
 #content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
 	background-color: #fff;
