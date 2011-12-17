@@ -210,13 +210,15 @@ h3 {
 	}
 
 	#navigation, #actions {
+		margin: 0;
+		padding: 0;
 		li {
 			background-color: none;
 			a {
 				display: block;
-				border-radius: 0px;
-				margin: 0px;
-				padding: 2px 5px;
+				border-radius: 5px;
+				width: 45%;
+				margin: 2px;
 			}
 		}
 	}
