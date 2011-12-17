@@ -72,22 +72,22 @@ div.bookmark_view {
 	li {
 		list-style: none;
 	}
+}
 
-	a {
+a.bookmark_link {
+	color: $foreground;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+a.edit_option {
+	color: $foreground_light;
+
+	&:hover {
 		color: $foreground;
 		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-
-	a.edit_option {
-		color: $foreground_light;
-
-		&:hover {
-			color: $foreground;
-			text-decoration: none;
-		}
 	}
 }
 
@@ -104,7 +104,7 @@ div.bookmark_view {
 
 	p {
 		font-family: serif;
-	padding: 5px;
+		padding: 5px;
 	}
 }
 
@@ -168,6 +168,12 @@ div.select {
 			background-color: #eee;
 			border-radius: 5px;
 		}
+	}
+}
+
+dl {
+	dd {
+		margin-left: 15px;
 	}
 }
 

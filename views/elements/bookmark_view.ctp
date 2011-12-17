@@ -9,7 +9,7 @@ if (!function_exists("print_bookmark")) {
 
 		echo $that->Html->link($bookmark['title'],
 			array('controller' => 'bookmarks', 'action' => 'visit', $bookmark['id']),
-			array('title' => $bookmark['url']));
+			array('title' => $bookmark['url'], 'class' => 'bookmark_link'));
 		echo ' ';
 
 		echo $that->Html->link(__('View', true),
