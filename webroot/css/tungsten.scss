@@ -38,11 +38,9 @@ body {
 	margin: 0px auto 10px auto;
 	overflow: hidden;
 	margin-left: 20px;
-
 	h2 {
 		display: none;
 	}
-
 	li {
 		float: left;
 		list-style: none;
@@ -51,7 +49,6 @@ body {
 			display: block;
 			padding: 2px 5px;
 			text-decoration: none;
-
 			&:hover {
 				background-color: $foreground_light;
 				color: $background_light;
@@ -67,11 +64,9 @@ body {
 		margin-left: 3px;
 	}
 }
-
 h2 {
 	margin-bottom: 4px;
 }
-
 h3 {
 	margin-bottom: 3px;
 	margin-top: 1px;
@@ -88,7 +83,6 @@ h3 {
 }
 #content {
 	overflow: hidden;
-
 	div.bookmarkbox {
 		box-shadow: 1px 1px 5px #aaa;
 		float: left;
@@ -101,11 +95,9 @@ h3 {
 }
 #quote {
 	text-align: center;
-
 	h2 {
 		display: none;
 	}
-
 	p {
 		font-family: serif;
 		padding: 5px;
@@ -173,7 +165,6 @@ div.select {
 		label {
 			display: inline;
 		}
-
 		&:hover {
 			background-color: #eee;
 			border-radius: 5px;
@@ -200,7 +191,6 @@ a.bookmark_link {
 a.edit_option {
 	color: $foreground_light;
 	text-decoration: none;
-
 	&:hover {
 		color: $foreground;
 	}
