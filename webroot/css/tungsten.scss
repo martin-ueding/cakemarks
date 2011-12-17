@@ -35,18 +35,18 @@ body {
 	text-align: center;
 }
 #navigation, #actions {
-	margin: 0px auto 10px auto;
-	overflow: hidden;
+	margin-bottom: 10px;
 	margin-left: 20px;
+	overflow: hidden;
 	h2 {
 		display: none;
 	}
 	li {
-		float: left;
 		list-style: none;
 		a {
 			color: $foreground_light;
 			display: block;
+		float: left;
 			padding: 2px 5px;
 			text-decoration: none;
 			&:hover {
@@ -196,18 +196,28 @@ h3 {
 }
 
 /*****************************************************************************/
-/*                                  Netbook                                  */
-/*****************************************************************************/
-
-@media(max-width:1024px) {
-}
-
-/*****************************************************************************/
 /*                                Smartphones                                */
 /*****************************************************************************/
 
 @media(max-width:480px) {
-	#quote {
+	#quote, #stats, #quickadd {
 		display: none;
+	}
+
+	#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	#navigation, #actions {
+		li {
+			background-color: none;
+			a {
+				display: block;
+				border-radius: 0px;
+				margin: 0px;
+				padding: 2px 5px;
+			}
+		}
 	}
 }
