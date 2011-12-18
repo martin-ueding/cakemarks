@@ -356,6 +356,22 @@ class BookmarksController extends AppController {
 	}
 
 	function _visit_stats($id) {
+		$month_names = array(
+			__("January", true),
+			__("February", true),
+			__("March", true),
+			__("April", true),
+			__("May", true),
+			__("June", true),
+			__("July", true),
+			__("August", true),
+			__("September", true),
+			__("October", true),
+			__("November", true),
+			__("December", true)
+		);
+
+
 		$limit = 24*3600*365;
 		$oldest = time() - $limit;
 
@@ -363,7 +379,7 @@ class BookmarksController extends AppController {
 			"conditions" => array("Visit.bookmark_id" => $id)));
 
 		for ($i = 0; $i < 12; $i++) {
-			$bins[] = 0;
+			$bins[] = array("title" => $month_names[$i], "hits" => 0);
 		}
 
 		foreach ($visits as $v) {
@@ -374,7 +390,7 @@ class BookmarksController extends AppController {
 
 			$stamps[] = $timestamp;
 			$month = (int) date("m", $timestamp);
-			$bins[$month-1]++;
+			$bins[$month-1]["hits"]++;
 		}
 
 		return $bins;

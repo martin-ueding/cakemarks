@@ -73,7 +73,7 @@
 						<tr>
 <?php
 for ($i = 0; $i < count($bin_data); $i++) {
-	echo "<th>$i</th>";
+	echo '<th>'.$bin_data[$i]["title"].'</th>';
 }
 ?>
 						</tr>
@@ -82,7 +82,7 @@ for ($i = 0; $i < count($bin_data); $i++) {
 						<tr>
 <?php
 for ($i = 0; $i < count($bin_data); $i++) {
-	echo '<td>'.$bin_data[$i].'</td>';
+	echo '<td>'.$bin_data[$i]["hits"].'</td>';
 }
 ?>
 						</tr>
