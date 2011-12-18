@@ -5,8 +5,10 @@
 
 	<?php echo $this->Form->create('Bookmark'); ?>
 	<?php echo $this->Form->input('title',
+		# TODO Remove magic literal.
 		array('rows' => '1', 'cols' => '40')); ?>
 	<?php echo $this->Form->input('url',
+		# TODO Remove magic literal.
 		array('rows' => '1', 'cols' => '40')); ?>
 	<?php echo $this->Form->input('revisit'); ?>
 	<?php echo $this->Form->input('reading_list'); ?>

@@ -26,6 +26,7 @@ if ($show_results): ?>
 <?php if ($show_form) {
 	echo '<h3>'.__('New Import', true).'</h3>';
 	echo $this->Form->create('Bookmark', array('action' => 'import'));
+	# TODO Remove magic literal.
 	echo $this->Form->input('json', array('type' => 'text', 'rows' => 20, 'cols' => 80));
 	echo $this->Form->end(__('import', true));
 }
