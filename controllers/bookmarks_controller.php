@@ -35,7 +35,17 @@ class BookmarksController extends AppController {
 			$this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
 		}
 
-		$this->set('bin_data', $this->_visit_stats($id));
+		$bin_data = $this->_visit_stats($id);
+		$nonzero = false;
+		for ($i = 0; $i < count($bin_data); $i++) {
+			if ($bin_data[$i]["hits"] > 0) {
+				$nonzero = true;
+				break;
+			}
+		}
+		if ($nonzero) {
+			$this->set('bin_data', $bin_data);
+		}
 	}
 
 	function add($url = null) {
