@@ -12,6 +12,7 @@ Raphael.fn.drawGrid = function (x, y, w, h, wv, hv, color) {
 	return this.path(path.join(",")).attr({stroke: color});
 };
 
+// Hide the data table.
 $(function () {
 	$("#data").css({
 		position: "absolute",
