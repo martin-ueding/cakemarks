@@ -66,7 +66,7 @@
 <?php echo $this->Html->script("popup"); ?>
 <?php echo $this->Html->script("jquery"); ?>
 <?php echo $this->Html->script("analytics"); ?>
-			<dt><?php __('Visits by month'); ?><dt>
+			<dt><?php __('visits by interval'); ?><dt>
 			<dd>
 				<table id="data">
 					<tfoot>
