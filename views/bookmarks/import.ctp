@@ -1,6 +1,10 @@
 <?php
 # Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
+?>
 
+<div id="content" class="bookmarks_form">
+
+<?php
 echo '<h2>'.__('Import', true).'</h2>';
 
 if ($show_results): ?>
@@ -25,6 +29,5 @@ if ($show_results): ?>
 	echo $this->Form->input('json', array('type' => 'text', 'rows' => 20, 'cols' => 80));
 	echo $this->Form->end(__('import', true));
 }
-
-
 ?>
+</div>
