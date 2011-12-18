@@ -34,11 +34,6 @@ class BookmarksController extends AppController {
 		if ($data['Bookmark']['revisit'] > 0) {
 			$this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
 		}
-
-		$bin_data = $this->_visit_stats($id);
-		if ($bin_data != null) {
-			$this->set('bin_data', $bin_data);
-		}
 	}
 
 	function add($url = null) {
@@ -358,48 +353,5 @@ class BookmarksController extends AppController {
 		}
 	}
 
-	function _visit_stats($id) {
-		# TODO Move this into a view element off visits.
-
-		# TODO Put this value into a config.
-		$bin_count = 10;
-
-		$visits = $this->Bookmark->Visit->find('all', array(
-			"conditions" => array("Visit.bookmark_id" => $id)));
-
-		for ($i = 0; $i < $bin_count; $i++) {
-			$bins[] = array("hits" => 0);
-		}
-
-		foreach ($visits as $v) {
-			$time = $v["Visit"]["created"];
-			$timestamp = strtotime($time);
-			$stamps[] = $timestamp;
-		}
-
-		if (count($stamps) <= 1) {
-			return null;
-		}
-
-		$min = min($stamps);
-		$max = max($stamps);
-
-		foreach ($stamps as $stamp) {
-			$which = min($bin_count*($stamp-$min)/($max-$min), $bin_count-1);
-			$raw_bin[$which][] = $stamp;
-			$bins[$which]["hits"]++;
-		}
-		for ($i = 0; $i < $bin_count; $i++) {
-			if (!isset($bins[$i]["title"]) && count($raw_bin[$i]) > 1) {
-				$min = min($raw_bin[$i]);
-				$max = max($raw_bin[$i]);
-
-				# TODO Put date format into config.
-				$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
-			}
-		}
-
-		return $bins;
-	}
 }
 ?>

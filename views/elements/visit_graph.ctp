@@ -1,11 +1,13 @@
 <?php
 # Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
-?>
 
-<?php echo $this->Html->script("raphael"); ?>
-<?php echo $this->Html->script("popup"); ?>
-<?php echo $this->Html->script("jquery"); ?>
-<?php echo $this->Html->script("analytics"); ?>
+echo $this->Html->script("raphael");
+echo $this->Html->script("popup");
+echo $this->Html->script("jquery");
+echo $this->Html->script("analytics");
+
+$bin_data = $this->requestAction('/visits/bins/'.$id, array('cache' => '+5 min'));
+?>
 
 <table id="data">
 	<tfoot>

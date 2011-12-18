@@ -61,10 +61,10 @@
 			<?php endforeach; ?>
 		<?php endif; ?>
 
-		<?php if (!empty($bin_data)): ?>
+		<?php if ($visits > 1): ?>
 			<dt><?php __('visits by interval'); ?><dt>
 			<dd>
-			<?php echo $this->element('visit_graph', array("bin_data" => $bin_data)); ?>
+			<?php echo $this->element('visit_graph', array("id" => $bookmark["Bookmark"]["id"])); ?>
 			</dd>
 		<?php endif; ?>
 
