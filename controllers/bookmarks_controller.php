@@ -36,14 +36,7 @@ class BookmarksController extends AppController {
 		}
 
 		$bin_data = $this->_visit_stats($id);
-		$nonzero = false;
-		for ($i = 0; $i < count($bin_data); $i++) {
-			if ($bin_data[$i]["hits"] > 0) {
-				$nonzero = true;
-				break;
-			}
-		}
-		if ($nonzero) {
+		if ($bin_data != null) {
 			$this->set('bin_data', $bin_data);
 		}
 	}
@@ -368,6 +361,8 @@ class BookmarksController extends AppController {
 	function _visit_stats($id) {
 		# TODO Move this into a view element off visits.
 
+		$bin_count = 10;
+
 		$month_names = array(
 			__("January", true),
 			__("February", true),
@@ -384,26 +379,37 @@ class BookmarksController extends AppController {
 		);
 
 
-		$limit = 24*3600*365;
-		$oldest = time() - $limit;
-
 		$visits = $this->Bookmark->Visit->find('all', array(
 			"conditions" => array("Visit.bookmark_id" => $id)));
 
-		for ($i = 0; $i < 12; $i++) {
-			$bins[] = array("title" => $month_names[$i], "hits" => 0);
+		for ($i = 0; $i <= $bin_count; $i++) {
+			$bins[] = array("hits" => 0);
 		}
 
 		foreach ($visits as $v) {
 			$time = $v["Visit"]["created"];
 			$timestamp = strtotime($time);
-			if ($timestamp < $oldest)
-				continue;
-
 			$stamps[] = $timestamp;
-			$month = (int) date("m", $timestamp);
-			$bins[$month-1]["hits"]++;
 		}
+
+		if (count($stamps) <= 1) {
+			return null;
+		}
+
+		$min = min($stamps);
+		$max = max($stamps);
+
+		debug($min);
+
+		foreach ($stamps as $stamp) {
+			$which = $bin_count*($stamp-$min)/($max-$min);
+			if (!isset($bins[$which]["title"])) {
+				$bins[$which]["title"] = $month_names[((int)date("n", $stamp))-1]." ".date("Y", $stamp);
+			}
+			$bins[$which]["hits"]++;
+		}
+
+		debug($bins);
 
 		return $bins;
 	}
