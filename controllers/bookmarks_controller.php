@@ -127,7 +127,7 @@ class BookmarksController extends AppController {
 	}
 
 	function startscreen() {
-		$limit = 30;
+		$limit = Configure::read("UI.Startscreen.BoxLength");
 
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
 
