@@ -88,7 +88,7 @@ for ($i = 0; $i < count($bin_data); $i++) {
 						</tr>
 					</tbody>
 				</table>
-				<div id="holder"></div>
+				<div id="hitgraphholder"></div>
 			</dd>
 		<?php endif; ?>
 
