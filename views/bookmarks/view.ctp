@@ -61,6 +61,13 @@
 			<?php endforeach; ?>
 		<?php endif; ?>
 
+		<?php if ($visits > 1): ?>
+			<dt><?php __('visits by interval'); ?><dt>
+			<dd>
+			<?php echo $this->element('visit_graph', array("id" => $bookmark["Bookmark"]["id"])); ?>
+			</dd>
+		<?php endif; ?>
+
 		<dt><?php __('Created'); ?></dt>
 		<dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
 
