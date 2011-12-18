@@ -366,6 +366,8 @@ class BookmarksController extends AppController {
 	}
 
 	function _visit_stats($id) {
+		# TODO Move this into a view element off visits.
+
 		$month_names = array(
 			__("January", true),
 			__("February", true),
