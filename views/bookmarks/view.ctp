@@ -73,7 +73,7 @@
 						<tr>
 <?php
 for ($i = 0; $i < count($bin_data); $i++) {
-	echo "<td>$i</td>";
+	echo "<th>$i</th>";
 }
 ?>
 						</tr>
