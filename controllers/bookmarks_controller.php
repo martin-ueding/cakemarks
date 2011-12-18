@@ -352,5 +352,6 @@ class BookmarksController extends AppController {
 			header('location:../../img/blank16.png');
 		}
 	}
+
 }
 ?>
