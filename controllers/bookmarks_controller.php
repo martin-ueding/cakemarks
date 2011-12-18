@@ -361,6 +361,7 @@ class BookmarksController extends AppController {
 	function _visit_stats($id) {
 		# TODO Move this into a view element off visits.
 
+		# TODO Put this value into a config.
 		$bin_count = 10;
 
 		$visits = $this->Bookmark->Visit->find('all', array(
@@ -383,8 +384,6 @@ class BookmarksController extends AppController {
 		$min = min($stamps);
 		$max = max($stamps);
 
-		debug($min);
-
 		foreach ($stamps as $stamp) {
 			$which = min($bin_count*($stamp-$min)/($max-$min), $bin_count-1);
 			$raw_bin[$which][] = $stamp;
@@ -395,11 +394,10 @@ class BookmarksController extends AppController {
 				$min = min($raw_bin[$i]);
 				$max = max($raw_bin[$i]);
 
+				# TODO Put date format into config.
 				$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
 			}
 		}
-
-		debug($bins);
 
 		return $bins;
 	}
