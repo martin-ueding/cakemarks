@@ -363,26 +363,10 @@ class BookmarksController extends AppController {
 
 		$bin_count = 10;
 
-		$month_names = array(
-			__("January", true),
-			__("February", true),
-			__("March", true),
-			__("April", true),
-			__("May", true),
-			__("June", true),
-			__("July", true),
-			__("August", true),
-			__("September", true),
-			__("October", true),
-			__("November", true),
-			__("December", true)
-		);
-
-
 		$visits = $this->Bookmark->Visit->find('all', array(
 			"conditions" => array("Visit.bookmark_id" => $id)));
 
-		for ($i = 0; $i <= $bin_count; $i++) {
+		for ($i = 0; $i < $bin_count; $i++) {
 			$bins[] = array("hits" => 0);
 		}
 
@@ -402,11 +386,17 @@ class BookmarksController extends AppController {
 		debug($min);
 
 		foreach ($stamps as $stamp) {
-			$which = $bin_count*($stamp-$min)/($max-$min);
-			if (!isset($bins[$which]["title"])) {
-				$bins[$which]["title"] = $month_names[((int)date("n", $stamp))-1]." ".date("Y", $stamp);
-			}
+			$which = min($bin_count*($stamp-$min)/($max-$min), $bin_count-1);
+			$raw_bin[$which][] = $stamp;
 			$bins[$which]["hits"]++;
+		}
+		for ($i = 0; $i < $bin_count; $i++) {
+			if (!isset($bins[$i]["title"]) && count($raw_bin[$i]) > 1) {
+				$min = min($raw_bin[$i]);
+				$max = max($raw_bin[$i]);
+
+				$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
+			}
 		}
 
 		debug($bins);
