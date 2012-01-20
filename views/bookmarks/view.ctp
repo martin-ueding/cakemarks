@@ -54,13 +54,6 @@
 		<dt><?php __('Last Visit'); ?></dt>
 		<dd><?php echo $this->Time->timeAgoInWords($last_visit, array(), true); ?></dd>
 
-		<?php if (!empty($bookmark['Visit'])): ?>
-			<dt><?php __('Visits'); ?><dt>
-			<?php foreach($bookmark['Visit'] as $visit): ?>
-				<dd><?php echo $visit['created']; ?></dd>
-			<?php endforeach; ?>
-		<?php endif; ?>
-
 		<?php if ($visits > 1): ?>
 			<dt><?php __('visits by interval'); ?><dt>
 			<dd>
