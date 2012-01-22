@@ -38,12 +38,18 @@ class VisitsController extends AppController {
 		}
 		for ($i = 0; $i < $bin_count; $i++) {
 			if (!isset($bins[$i]["title"])) {
-				if (count($raw_bin[$i]) > 1) {
+				if (count($raw_bin[$i]) > 0) {
 					$min = min($raw_bin[$i]);
 					$max = max($raw_bin[$i]);
 
-					# TODO Put date format into config.
-					$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
+					if ($min == $max) {
+						# TODO Put date format into config.
+						$bins[$i]["title"] = date("Y-m-d", $min);
+					}
+					else {
+						# TODO Put date format into config.
+						$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
+					}
 				}
 				else {
 					$bins[$i]["title"] = "";
