@@ -37,12 +37,17 @@ class VisitsController extends AppController {
 			$bins[$which]["hits"]++;
 		}
 		for ($i = 0; $i < $bin_count; $i++) {
-			if (!isset($bins[$i]["title"]) && count($raw_bin[$i]) > 1) {
-				$min = min($raw_bin[$i]);
-				$max = max($raw_bin[$i]);
+			if (!isset($bins[$i]["title"])) {
+				if (count($raw_bin[$i]) > 1) {
+					$min = min($raw_bin[$i]);
+					$max = max($raw_bin[$i]);
 
-				# TODO Put date format into config.
-				$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
+					# TODO Put date format into config.
+					$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
+				}
+				else {
+					$bins[$i]["title"] = "";
+				}
 			}
 		}
 
