@@ -14,7 +14,8 @@ class VisitsController extends AppController {
 			"conditions" => array("Visit.bookmark_id" => $id)));
 
 		for ($i = 0; $i < $bin_count; $i++) {
-			$bins[$i] = array("hits" => 0);
+			$bins[] = array("hits" => 0);
+			$raw_bin[] = array();
 		}
 
 		foreach ($visits as $v) {
