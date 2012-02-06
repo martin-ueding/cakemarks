@@ -44,16 +44,16 @@ class Bookmark extends AppModel {
 		parent::__construct($id, $table, $ds);
 
 		$this->validate = array(
-			'url' => array(
-				'url' => array(
-					'rule' => array('url'),
-					'message' => __('Enter a valid URL', true),
+			// 'url' => array(
+				// 'url' => array(
+					// 'rule' => array('url'),
+					// 'message' => __('Enter a valid URL', true),
 					//'allowEmpty' => false,
 					//'required' => false,
 					//'last' => false, // Stop validation after this rule
 					//'on' => 'create', // Limit validation to 'create' or 'update' operations
-				),
-			),
+				// ),
+			// ),
 			'revisit' => array(
 				'numeric' => array(
 					'rule' => array('numeric'),
