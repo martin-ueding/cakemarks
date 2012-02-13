@@ -4,41 +4,43 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-12-17 15:58+0100\n"
+"POT-Creation-Date: 2012-02-13 19:30+0100\n"
 "PO-Revision-Date: 2011-12-17 16:01+0100\n"
 "Last-Translator: Martin Ueding <dev@martin-ueding.de>\n"
 "Language-Team: German\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de\n"
 
-#: /controllers/bookmarks_controller.php:22;95
+#: /controllers/bookmarks_controller.php:21;94
 msgid "Invalid bookmark"
 msgstr "üngültiges Lesezeichen"
 
-#: /controllers/bookmarks_controller.php:54;102
+#: /controllers/bookmarks_controller.php:53;101
 msgid "The bookmark has been saved"
 msgstr "Das Lesezeichen wurde gespeichert"
 
-#: /controllers/bookmarks_controller.php:58;106
+#: /controllers/bookmarks_controller.php:57;105
 msgid "The bookmark could not be saved. Please, try again."
-msgstr "Das Lesezeichen konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+msgstr ""
+"Das Lesezeichen konnte nicht gespeichert werden. Bitte versuchen Sie es "
+"erneut."
 
-#: /controllers/bookmarks_controller.php:118
+#: /controllers/bookmarks_controller.php:117
 msgid "Invalid id for bookmark"
 msgstr "ungültige ID für das Lesezeichen"
 
-#: /controllers/bookmarks_controller.php:122
+#: /controllers/bookmarks_controller.php:121
 msgid "Bookmark deleted"
 msgstr "Lesezeichen gelöscht"
 
-#: /controllers/bookmarks_controller.php:125
+#: /controllers/bookmarks_controller.php:124
 msgid "Bookmark was not deleted"
 msgstr "Lesezeichen nicht gelöscht"
 
-#: /controllers/bookmarks_controller.php:336
+#: /controllers/bookmarks_controller.php:335
 msgid "Could not create favico temp dir"
 msgstr "konnte keinen Ordner für Favicons nicht erstellen"
 
@@ -52,7 +54,9 @@ msgstr "das Schlüsselwort wurde gespeichert"
 
 #: /controllers/keywords_controller.php:33;52
 msgid "The keyword could not be saved. Please, try again."
-msgstr "das Schlüsselwort konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+msgstr ""
+"das Schlüsselwort konnte nicht gespeichert werden. Bitte versuchen Sie es "
+"erneut."
 
 #: /controllers/keywords_controller.php:66
 msgid "Invalid id for keyword"
@@ -76,7 +80,8 @@ msgstr "das Zitat wurde gespeichert"
 
 #: /controllers/quotes_controller.php:28;43
 msgid "The quote could not be saved. Please, try again."
-msgstr "das Zitat konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+msgstr ""
+"das Zitat konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
 
 #: /controllers/quotes_controller.php:53
 msgid "Invalid id for quote"
@@ -90,19 +95,15 @@ msgstr "Zitat gelöscht"
 msgid "Quote was not deleted"
 msgstr "Zitat nicht gelöscht"
 
-#: /models/bookmark.php:50
-msgid "Enter a valid URL"
-msgstr "geben Sie eine gültige URL ein"
-
 #: /views/bookmarks/add.ctp:4
 msgid "Add Bookmark"
 msgstr "Lesezeichen hinzufügen"
 
-#: /views/bookmarks/add.ctp:16 /views/bookmarks/edit.ctp:28
+#: /views/bookmarks/add.ctp:14 /views/bookmarks/edit.ctp:26
 msgid "new keyword"
 msgstr "neues Schlüsselwort"
 
-#: /views/bookmarks/add.ctp:17 /views/bookmarks/edit.ctp:29
+#: /views/bookmarks/add.ctp:15 /views/bookmarks/edit.ctp:27
 #: /views/keywords/add.ctp:23 /views/keywords/edit.ctp:20
 #: /views/quotes/add.ctp:15 /views/quotes/edit.ctp:20
 msgid "Submit"
@@ -128,35 +129,35 @@ msgstr "Wollen Sie dieses Lesezeichen wirklich löschen?"
 msgid "Edit Bookmark"
 msgstr "Lesezeichen bearbeiten"
 
-#: /views/bookmarks/import.ctp:4
+#: /views/bookmarks/import.ctp:8
 msgid "Import"
 msgstr "Importieren"
 
-#: /views/bookmarks/import.ctp:8
+#: /views/bookmarks/import.ctp:12
 msgid "Last Import"
 msgstr "letzter Import"
 
-#: /views/bookmarks/import.ctp:10
+#: /views/bookmarks/import.ctp:14
 msgid "imported bookmarks"
 msgstr "importierte Lesezeichen"
 
-#: /views/bookmarks/import.ctp:12
+#: /views/bookmarks/import.ctp:16
 msgid "already existing bookmarks"
 msgstr "schon existierende Lesezeichen"
 
-#: /views/bookmarks/import.ctp:14
+#: /views/bookmarks/import.ctp:18
 msgid "imported keywords"
 msgstr "importierte Schlüsselwörter"
 
-#: /views/bookmarks/import.ctp:16
+#: /views/bookmarks/import.ctp:20
 msgid "already existing keywords"
-msgstr ""
+msgstr "bereits existierende Schlüsselwörter"
 
-#: /views/bookmarks/import.ctp:23
+#: /views/bookmarks/import.ctp:27
 msgid "New Import"
 msgstr "neuer Import"
 
-#: /views/bookmarks/import.ctp:26
+#: /views/bookmarks/import.ctp:30
 msgid "import"
 msgstr "importieren"
 
@@ -164,35 +165,35 @@ msgstr "importieren"
 msgid "All Bookmarks"
 msgstr "alle Lesezeichen"
 
-#: /views/bookmarks/index.ctp:24 /views/elements/bookmark_view.ctp:15
+#: /views/bookmarks/index.ctp:24 /views/helpers/bookmark.php:16
 #: /views/quotes/index.ctp:21
 msgid "View"
 msgstr "anzeigen"
 
-#: /views/bookmarks/index.ctp:26 /views/elements/bookmark_view.ctp:20
-#: /views/elements/keyword_tree.ctp:15 /views/quotes/index.ctp:23
+#: /views/bookmarks/index.ctp:26 /views/elements/keyword_tree.ctp:15
+#: /views/quotes/index.ctp:23
 msgid "Edit"
 msgstr "bearbeiten"
 
-#: /views/bookmarks/index.ctp:28 /views/elements/bookmark_view.ctp:25
-#: /views/elements/keyword_tree.ctp:17 /views/keywords/edit.ctp:6
-#: /views/quotes/index.ctp:25
+#: /views/bookmarks/index.ctp:28 /views/elements/keyword_tree.ctp:17
+#: /views/keywords/edit.ctp:6 /views/quotes/index.ctp:25
 msgid "Delete"
 msgstr "löschen"
 
 #: /views/bookmarks/index.ctp:30 /views/bookmarks/view.ctp:10
-#: /views/elements/bookmark_view.ctp:28 /views/elements/keyword_tree.ctp:17
-#: /views/keywords/edit.ctp:6 /views/keywords/view.ctp:13
-#: /views/quotes/edit.ctp:8 /views/quotes/index.ctp:27
-#: /views/quotes/view.ctp:5
+#: /views/elements/keyword_tree.ctp:17 /views/keywords/edit.ctp:6
+#: /views/keywords/view.ctp:13 /views/quotes/edit.ctp:8
+#: /views/quotes/index.ctp:27 /views/quotes/view.ctp:5
 msgid "Are you sure you want to delete # %s?"
-msgstr ""
+msgstr "Wollen Sie wirklich # %s löschen?"
 
 #: /views/bookmarks/index.ctp:39 /views/quotes/index.ctp:36
 msgid ""
 "Page %page% of %pages%, showing %current% records out of %count% total, "
 "starting on record %start%, ending on %end%"
 msgstr ""
+"Seite %page% vom %pages%, zeige %current% aus %count% Einträgen, "
+"von %start% bis %end%"
 
 #: /views/bookmarks/index.ctp:44 /views/quotes/index.ctp:41
 msgid "previous"
@@ -272,8 +273,8 @@ msgid "Last Visit"
 msgstr "letzter Besuch"
 
 #: /views/bookmarks/view.ctp:58
-msgid "Visits"
-msgstr "Besuche"
+msgid "visits by interval"
+msgstr "Besuche nach Intervall"
 
 #: /views/bookmarks/view.ctp:64 /views/keywords/view.ctp:39
 msgid "Created"
@@ -304,19 +305,19 @@ msgstr "Zitate anzeigen"
 msgid "Report a Bug"
 msgstr "einen Fehler melden"
 
-#: /views/elements/navigation.ctp:17 /views/pages/referrer.ctp:4
+#: /views/elements/navigation.ctp:18 /views/pages/referrer.ctp:4
 msgid "Check Referrer"
 msgstr "Referrer überprüfen"
 
-#: /views/elements/navigation.ctp:20 /views/pages/bookmarklet.ctp:4
+#: /views/elements/navigation.ctp:21 /views/pages/bookmarklet.ctp:4
 msgid "Bookmarklet"
 msgstr ""
 
-#: /views/elements/navigation.ctp:22
+#: /views/elements/navigation.ctp:23
 msgid "Import Bookmarks"
 msgstr "Lesezeichen importieren"
 
-#: /views/elements/navigation.ctp:24
+#: /views/elements/navigation.ctp:25
 msgid "Export Bookmarks"
 msgstr "Lesezeichen exportieren"
 
@@ -409,7 +410,7 @@ msgid ""
 "This is a bookmarklet to put into your bookmarks. Whenever you are on a site "
 "that you want to bookmark, click it and you will get directed to the "
 "creation page."
-msgstr ""
+msgstr "Dies ist ein Bookmarklet, das Sie in Ihre Lesezeichen legen können. Wenn Sie auf einer Seite sind, können Sie diese damit hier speichern."
 
 #: /views/pages/bookmarklet.ctp:8
 msgid "Bookmark this Page"
