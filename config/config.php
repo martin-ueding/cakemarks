@@ -9,5 +9,7 @@ $config["UI"] = array(
 		"BinCount" => 12
 	),
 	// You can change the main theme here.
+	// Available themes:
+	// - tungsten
 	'CSS' => 'tungsten',
 );
