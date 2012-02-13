@@ -2,8 +2,8 @@
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
 class KeywordsController extends AppController {
-
 	var $name = 'Keywords';
+	var $helpers = array('Bookmark');
 
 	function tree() {
 		$keyword_tree = $this->Keyword->find('threaded', array('order' => 'Keyword.title'));
