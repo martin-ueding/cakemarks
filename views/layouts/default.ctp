@@ -4,7 +4,6 @@
 		<?php echo $this->Html->charset(); ?>
 		<?php echo $this->Html->css(Configure::read("UI.CSS")); ?>
 
-
 		<title><?php echo $title_for_layout; ?></title>
 	</head>
 	<body>
