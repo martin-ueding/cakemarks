@@ -163,6 +163,7 @@ a.edit_option {
 }
 h2 {
 	margin-bottom: 4px;
+	padding-left: 1%;
 }
 h3 {
 	margin-bottom: 3px;
@@ -205,10 +206,10 @@ h3 {
 	#content {
 		overflow: hidden;
 		div.bookmarkbox {
-			box-shadow: 1px 1px 5px #aaa;
 			float: left;
-			margin: 5px;
-			padding: 3px;
+			margin: 5px 1%;
+			padding: 0;
+			width: 48%;
 		}
 	}
 	#keyword_tree {
@@ -220,8 +221,9 @@ h3 {
 		overflow: hidden;
 		div.sticky_keyword {
 			float: left;
-			margin: 3px;
-			padding: 3px;
+			margin: 1%;
+			padding: 1%;
+			width: 45%
 		}
 	}
 }
@@ -229,3 +231,11 @@ h3 {
 /*****************************************************************************/
 /*                            bigger than NetBook                            */
 /*****************************************************************************/
+
+@media(min-width:1000px) {
+	#content {
+		div.bookmarkbox {
+			width: 30%;
+		}
+	}
+}
