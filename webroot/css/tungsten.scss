@@ -1,10 +1,5 @@
 /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
 
-$background: white;
-$background_light: #ddd;
-$foreground: black;
-$foreground_light: #666;
-
 /*****************************************************************************/
 /*                                  Common                                   */
 /*****************************************************************************/
@@ -40,14 +35,14 @@ body {
 	li {
 		list-style: none;
 		a {
-			color: $foreground_light;
+			color: hsl(0, 0, 20%);
 			display: block;
 			float: left;
 			padding: 2px 5px;
 			text-decoration: none;
 			&:hover {
-				background-color: $foreground_light;
-				color: $background_light;
+				background-color: hsl(0, 0, 70%);
+				color: hsl(0, 0, 20%);
 			}
 		}
 	}
@@ -55,7 +50,7 @@ body {
 /* TODO Fix navigation on smaller screens. */
 #navigation {
 	a {
-		background-color: $background_light;
+		background-color: hsl(0, 0, 85%);
 		border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px;
 		margin-left: 3px;
@@ -148,17 +143,17 @@ div.bookmark_view {
 	}
 }
 a.bookmark_link {
-	color: $foreground;
+	color: hsl(0, 0, 0%);
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
 	}
 }
 a.edit_option {
-	color: $foreground_light;
+	color: hsl(0, 0, 60%);
 	text-decoration: none;
 	&:hover {
-		color: $foreground;
+		color: hsl(0, 0, 20%);
 	}
 }
 h2 {
