@@ -13,3 +13,6 @@ $config["UI"] = array(
 	// - tungsten
 	'CSS' => 'tungsten',
 );
+
+Configure::write("dateformat", "Y-m-d");
+Configure::write("visits.bins", 10);
