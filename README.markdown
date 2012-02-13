@@ -1,5 +1,4 @@
-cakemarks
-=========
+# cakemarks
 
 cakemarks is a single user bookmark web application using
 [CakePHP](http://cakephp.org).
@@ -8,8 +7,7 @@ It can store your bookmarks and offers a page which shows you the most relevant
 of your bookmarks.
 
 
-Why?
-----
+## Why?
 
 Bookmarks are nice to have across all your devices and browsers, but there is
 hardly a bookmark syncing tool that covers all of them. Some of these tools are
@@ -19,8 +17,7 @@ browser is not as close, but this enables cakemarks to work with virtually
 every browser.
 
 
-Installation
-------------
+## Installation
 
 Download the [CakePHP
 1.3.11](https://github.com/cakephp/cakephp/zipball/1.3.11) and extract it. Then
@@ -28,8 +25,7 @@ place this into the `app/` directory, replacing all the files that came with
 CakePHP in this folder.
 
 
-Requirements
-------------
+## Requirements
 
 * CakePHP 1.3.11
 * Webspace
@@ -37,13 +33,11 @@ Requirements
 * MySQL
 
 
-TODO
-====
+# TODO
 
 * redirect to the page where the edit was requested after the edit
 
 
-Written By
-==========
+# Written By
 
 Martin Ueding <dev@martin-ueding.de>
