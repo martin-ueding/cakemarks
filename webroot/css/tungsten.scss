@@ -164,6 +164,27 @@ h3 {
 	margin-bottom: 3px;
 	margin-top: 1px;
 }
+table {
+	border-collapse: collapse;
+	tr {
+		padding: 0;
+		margin: 0;
+		th {
+			a {
+				color: hsl(0, 0, 0%);
+			}
+		}
+		td {
+			border-bottom: 1px solid hsl(0, 0, 80%);
+		}
+		td, th {
+			padding: 2px 5px;
+		}
+		&:hover {
+			background-color: hsl(0, 0, 90%);
+		}
+	}
+}
 
 /*****************************************************************************/
 /*                                Smartphone                                 */
