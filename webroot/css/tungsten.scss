@@ -229,13 +229,3 @@ h3 {
 /*****************************************************************************/
 /*                            bigger than NetBook                            */
 /*****************************************************************************/
-
-@media(min-width:1050px) {
-	#content, #quote, #keyword_tree, #sticky_keywords {
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-	#sticky_keywords {
-		margin-left: 280px;
-	}
-}
