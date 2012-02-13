@@ -269,7 +269,7 @@ msgstr "Besuchszähler"
 
 #: /views/bookmarks/view.ctp:54
 msgid "Last Visit"
-msgstr "letzter Besucht"
+msgstr "letzter Besuch"
 
 #: /views/bookmarks/view.ctp:58
 msgid "Visits"
