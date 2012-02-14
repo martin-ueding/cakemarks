@@ -2,7 +2,7 @@
 <ul>
 <?
 
-$keywords = $this->requestAction(array('controller' => 'keywords', 'action' => 'tree'), array('cache' => '+5 min'));
+$keywords = $this->requestAction(array('controller' => 'keywords', 'action' => 'tree'), array('cache' => '+1 min'));
 
 if (!function_exists('traverse_tree')) {
 	function traverse_tree($tree, $that, $show_edit) {
