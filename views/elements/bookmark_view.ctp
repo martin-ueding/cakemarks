@@ -20,7 +20,7 @@
 		
 		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
 		<li>
-			<?php $this->Bookmark->print_bookmark($this, $bookmark); ?>
+			<?php $this->Bookmark->print_bookmark($bookmark); ?>
 		</li>
 		<?php endif; ?>
 	<?php endforeach; ?>
@@ -38,7 +38,7 @@
 		
 		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
 		<dd>
-			<?php $this->Bookmark->print_bookmark($this, $bookmark); ?>
+			<?php $this->Bookmark->print_bookmark($bookmark); ?>
 		</dd>
 		<?php endif; ?>
 	<?php endforeach; ?>

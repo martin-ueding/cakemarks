@@ -16,3 +16,6 @@ $config["UI"] = array(
 
 Configure::write("dateformat", "Y-m-d");
 Configure::write("visits.bins", 10);
+
+Configure::write("favicon.runs", 1);
+Configure::write("favicon.show", true);
