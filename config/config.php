@@ -18,3 +18,4 @@ Configure::write("dateformat", "Y-m-d");
 Configure::write("visits.bins", 10);
 
 Configure::write("favicon.runs", 2);
+Configure::write("favicon.show", true);
