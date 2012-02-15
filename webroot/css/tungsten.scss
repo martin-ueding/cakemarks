@@ -186,6 +186,12 @@ table {
 		}
 	}
 }
+table.bookmark_view {
+	td {
+		padding: 0, 0;
+		border-bottom: 0;
+	}
+}
 .cake-debug {
 	background-color: white;
 	overflow: auto;

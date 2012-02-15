@@ -3,14 +3,15 @@
 ?>
 
 <?php if (!empty($bookmarks)): ?>
+	<?php if (isset($wrapper) && $wrapper == 'dd'): ?>
+	<dd>
+	<?php endif; ?>
 	<?
 	if (isset($bookmarks['Bookmark'][0]['id'])) {
 		$bookmarks = $bookmarks['Bookmark'];
 	}
 	?>
-	<?php if (!isset($wrapper) || $wrapper == "ul"): ?>
-	<div class="bookmark_view">
-	<ul>
+	<table class="bookmark_view">
 	<?php foreach ($bookmarks as $bookmark): ?>
 		<?
 		if (isset($bookmark['Bookmark'])) {
@@ -19,29 +20,13 @@
 		?>
 		
 		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
-		<li>
+		<tr>
 			<?php $this->Bookmark->print_bookmark($bookmark); ?>
-		</li>
+		</tr>
 		<?php endif; ?>
 	<?php endforeach; ?>
-	</ul>
-	</div>
+	</table>
+	<?php if (isset($wrapper) && $wrapper == 'dd'): ?>
+	</dd>
 	<?php endif; ?>
-
-	<?php if (isset($wrapper) && $wrapper == "dd"): ?>
-	<?php foreach ($bookmarks as $bookmark): ?>
-		<?
-		if (isset($bookmark['Bookmark'])) {
-			$bookmark = $bookmark['Bookmark'];
-		}
-		?>
-		
-		<?php if (!empty($bookmark) && !empty($bookmark['id']) && !empty($bookmark['title']) && !empty($bookmark['url'])): ?>
-		<dd>
-			<?php $this->Bookmark->print_bookmark($bookmark); ?>
-		</dd>
-		<?php endif; ?>
-	<?php endforeach; ?>
-	<?php endif; ?>
-
 <?php endif; ?>
