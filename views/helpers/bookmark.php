@@ -22,10 +22,18 @@ class BookmarkHelper extends AppHelper {
 		$html = '';
 
 		if (Configure::read('favicon.show')) {
-			$html .= '<img width="16" height="16" src="data:image/ico;base64,'
-				.$this->requestAction('/bookmarks/favicon/'.$bookmark['id'])
-				.'" />';
-			$html .= ' ';
+			$url = trim(
+				str_replace(
+					'http://',
+					'',
+					trim($bookmark['url'])
+				),
+				'/'
+			);
+			$url = explode('/', $url);
+			$url = 'http://' . $url[0] . '/favicon.ico';
+
+			$html .= '<img width="16" height="16" src="'.$url.'" /> ';
 		}
 
 		return $html;
