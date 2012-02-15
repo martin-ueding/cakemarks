@@ -5,7 +5,9 @@ class BookmarkHelper extends AppHelper {
 	var $helpers = array('Html');
 
 	function print_bookmark($that, $bookmark) {
-		echo '<img width="16" height="16" src="'.$that->Html->url(array('controller' => 'bookmarks', 'action' => 'favicon', $bookmark['id'])).'" />';
+		echo '<img width="16" height="16" src="data:image/ico;base64,'
+			.$this->requestAction('/bookmarks/favicon/'.$bookmark['id'])
+			.'" />';
 		echo ' ';
 
 		echo $that->Html->link($bookmark['title'],

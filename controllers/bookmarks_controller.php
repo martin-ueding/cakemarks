@@ -330,36 +330,44 @@ class BookmarksController extends AppController {
 	}
 
 	function favicon($id) {
-		$this->view = 'media';
 		$this->Bookmark->id = $id;
 		$url = trim(str_replace('http://', '', trim($this->Bookmark->field('url'))), '/');
         $url = explode('/', $url);
 		$hash = md5($url[0]);
         $url = 'http://' . $url[0] . '/favicon.ico';
+		$cachename = 'favicon-'.$hash;
 
-		$dir = 'cache/favico';
-		$file = $dir.'/'.$hash;
+		$cached = Cache::read($cachename);
 
-		if (!file_exists($dir)) {
-			if (!mkdir($dir, 0777, true)) {
-				die(__('Could not create favico temp dir', true));
-			}
-		}
+		$runs_left = Configure::read('favicon.runs');
 
-		if (!file_exists($file)) {
+		if ($cached === false && $runs_left > 0) {
 			$contents = @file_get_contents($url);
 			if ($contents) {
-				$h = fopen($file, "w");
-				fwrite($h, $contents);
-				fclose($h);
+				$cached = base64_encode($contents);
+				Cache::write($cachename, $cached);
+				$this->Session->setFlash(
+					sprintf(
+						__("Retrieved favicon for %s.", true),
+						$url
+					)
+				);
 			}
+			else {
+				$default = Cache::read('favicon-default');
+				if ($default === false) {
+					$contents = file_get_contents("webroot/img/blank16.ico");
+					if ($contents) {
+						$contents = base64_encode($contents);
+						Cache::write('favicon-default', base
+					}
+				}
+			}
+
+			Configure::write('favicon.runs', $runs_left - 1);
 		}
-		if (file_exists($file)) {
-			header('location:../../'.$file);
-		}
-		else {
-			header('location:../../img/blank16.png');
-		}
+
+		return $cached;
 	}
 
 }
