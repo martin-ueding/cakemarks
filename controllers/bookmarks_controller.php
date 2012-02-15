@@ -341,6 +341,7 @@ class BookmarksController extends AppController {
 
 		$runs_left = Configure::read('favicon.runs');
 
+		$start = microtime(true);
 		if ($cached === false && $runs_left > 0) {
 			$contents = @file_get_contents($url);
 			if ($contents) {
@@ -348,20 +349,29 @@ class BookmarksController extends AppController {
 				Cache::write($cachename, $cached);
 				$this->Session->setFlash(
 					sprintf(
-						__("Retrieved favicon for %s.", true),
-						$url
+						__("Retrieved favicon %s. (Took %.3f seconds)", true),
+						$url,
+						microtime(true) - $start
 					)
 				);
 			}
 			else {
-				$default = Cache::read('favicon-default');
-				if ($default === false) {
-					$contents = file_get_contents("webroot/img/blank16.ico");
+				$cached = Cache::read('favicon-default');
+				if ($cached === false) {
+					$contents = file_get_contents("img/blank16.ico");
 					if ($contents) {
 						$contents = base64_encode($contents);
-						Cache::write('favicon-default', base
+						Cache::write('favicon-default', $contents);
+						$cached = $contents;
 					}
 				}
+				$this->Session->setFlash(
+					sprintf(
+						__("No favicon %s found. (Took %.3f seconds)", true),
+						$url,
+						microtime(true) - $start
+					)
+				);
 			}
 
 			Configure::write('favicon.runs', $runs_left - 1);
