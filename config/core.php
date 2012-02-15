@@ -302,3 +302,4 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+	Cache::config('long', array('engine' => 'File', 'duration' => '+1000 days'));

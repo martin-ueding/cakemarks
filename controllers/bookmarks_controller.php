@@ -337,7 +337,7 @@ class BookmarksController extends AppController {
         $url = 'http://' . $url[0] . '/favicon.ico';
 		$cachename = 'favicon-'.$hash;
 
-		$cached = Cache::read($cachename);
+		$cached = Cache::read($cachename, 'long');
 
 		$runs_left = Configure::read('favicon.runs');
 
@@ -346,33 +346,33 @@ class BookmarksController extends AppController {
 			$contents = @file_get_contents($url);
 			if ($contents) {
 				$cached = base64_encode($contents);
-				Cache::write($cachename, $cached);
 				$this->Session->setFlash(
 					sprintf(
-						__("Retrieved favicon %s. (Took %.3f seconds)", true),
-						$url,
+						__("Retrieved favicon for “%s”. (Took %.3f seconds)", true),
+						$this->Bookmark->field('title'),
 						microtime(true) - $start
 					)
 				);
 			}
 			else {
-				$cached = Cache::read('favicon-default');
+				$cached = Cache::read('favicon-default', 'long');
 				if ($cached === false) {
 					$contents = file_get_contents("img/blank16.ico");
 					if ($contents) {
 						$contents = base64_encode($contents);
-						Cache::write('favicon-default', $contents);
+						Cache::write('favicon-default', $contents, 'long');
 						$cached = $contents;
 					}
 				}
 				$this->Session->setFlash(
 					sprintf(
-						__("No favicon %s found. (Took %.3f seconds)", true),
-						$url,
+						__("No favicon for “%s” found. (Took %.3f seconds)", true),
+						$this->Bookmark->field('title'),
 						microtime(true) - $start
 					)
 				);
 			}
+			Cache::write($cachename, $cached, 'long');
 
 			Configure::write('favicon.runs', $runs_left - 1);
 		}
