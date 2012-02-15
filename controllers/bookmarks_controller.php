@@ -339,46 +339,53 @@ class BookmarksController extends AppController {
 
 		$cached = Cache::read($cachename, 'long');
 
-		$runs_left = Configure::read('favicon.runs');
-
-		$start = microtime(true);
-		if ($cached === false && $runs_left > 0) {
-			$contents = @file_get_contents($url);
-			if ($contents) {
-				$cached = base64_encode($contents);
-				$this->Session->setFlash(
-					sprintf(
-						__("Retrieved favicon for “%s”. (Took %.3f seconds)", true),
-						$this->Bookmark->field('title'),
-						microtime(true) - $start
-					)
-				);
-			}
-			else {
-				$cached = Cache::read('favicon-default', 'long');
-				if ($cached === false) {
-					$contents = file_get_contents("img/blank16.ico");
-					if ($contents) {
-						$contents = base64_encode($contents);
-						Cache::write('favicon-default', $contents, 'long');
-						$cached = $contents;
-					}
-				}
-				$this->Session->setFlash(
-					sprintf(
-						__("No favicon for “%s” found. (Took %.3f seconds)", true),
-						$this->Bookmark->field('title'),
-						microtime(true) - $start
-					)
-				);
-			}
-			Cache::write($cachename, $cached, 'long');
-
-			Configure::write('favicon.runs', $runs_left - 1);
+		if ($cached === false) {
+			$cached = $this->cache_favicon($cachename, $url);
 		}
 
 		return $cached;
 	}
 
+	function cache_favicon($cachename, $url) {
+		$runs_left = Configure::read('favicon.runs');
+		if ($runs_left <= 0) {
+			return;
+		}
+		$start = microtime(true);
+		$contents = @file_get_contents($url);
+		if ($contents) {
+			$cached = base64_encode($contents);
+			$this->Session->setFlash(
+				sprintf(
+					__("Retrieved favicon for “%s”. (Took %.3f seconds)", true),
+					$this->Bookmark->field('title'),
+					microtime(true) - $start
+				)
+			);
+		}
+		else {
+			$cached = Cache::read('favicon-default', 'long');
+			if ($cached === false) {
+				$contents = file_get_contents("img/blank16.ico");
+				if ($contents) {
+					$contents = base64_encode($contents);
+					Cache::write('favicon-default', $contents, 'long');
+					$cached = $contents;
+				}
+			}
+			$this->Session->setFlash(
+				sprintf(
+					__("No favicon for “%s” found. (Took %.3f seconds)", true),
+					$this->Bookmark->field('title'),
+					microtime(true) - $start
+				)
+			);
+		}
+		Cache::write($cachename, $cached, 'long');
+
+		Configure::write('favicon.runs', $runs_left - 1);
+
+		return $cached;
+	}
 }
 ?>
