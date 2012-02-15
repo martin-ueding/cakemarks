@@ -1,6 +1,6 @@
 <?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
 
-<?php $sticky_keywords = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'sticky_keywords'), array('cache' => '+5 min')); ?>
+<?php $sticky_keywords = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'sticky_keywords'), array('cache' => '+1 min')); ?>
 
 <div id="sticky_keywords">
 <h2>Sticky Keywords</h2>

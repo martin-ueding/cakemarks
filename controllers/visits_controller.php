@@ -7,8 +7,7 @@ class VisitsController extends AppController {
 	var $uses = array('Visit');
 
 	function bins($id) {
-		# TODO Put this value into a config.
-		$bin_count = 10;
+		$bin_count = Configure::read("visits.bins");
 
 		$visits = $this->Visit->find('all', array(
 			"conditions" => array("Visit.bookmark_id" => $id)));
@@ -43,12 +42,10 @@ class VisitsController extends AppController {
 					$max = max($raw_bin[$i]);
 
 					if ($min == $max) {
-						# TODO Put date format into config.
-						$bins[$i]["title"] = date("Y-m-d", $min);
+						$bins[$i]["title"] = date(Configure::read("dateformat"), $min);
 					}
 					else {
-						# TODO Put date format into config.
-						$bins[$i]["title"] = date("Y-m-d", $min)." &ndash; ".date("Y-m-d", $max);
+						$bins[$i]["title"] = date(Configure::read("dateformat"), $min)." &ndash; ".date(Configure::read("dateformat"), $max);
 					}
 				}
 				else {

@@ -7,7 +7,7 @@
 	<p>
 	<?php echo $quote['Quote']['text']; ?>
 	<?php if (!empty($quote['Quote']['author'])): ?>
-		-- <?php echo $quote['Quote']['author']; ?>
+		&mdash; <?php echo $quote['Quote']['author']; ?>
 	<?php endif; ?>
 	</p>
 </div>

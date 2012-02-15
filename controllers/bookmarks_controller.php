@@ -2,10 +2,9 @@
 // Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
 
 class BookmarksController extends AppController {
-
 	var $name = 'Bookmarks';
 	var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
-	var $helpers = array('Time');
+	var $helpers = array('Time', 'Bookmark');
 
 	/**
 	 * Lists all bookmarks.
@@ -188,11 +187,21 @@ class BookmarksController extends AppController {
 	}
 
 	function sticky_keywords() {
-		// TODO Order the bookmarks in some predictable way.
-		return $this->Keyword->find('all', array(
+		$result = $this->Keyword->find('all', array(
 			'conditions' => array('Keyword.sticky' => 1),
 			'order' => array('Keyword.title'),
 		));
+
+
+		for ($i = 0; $i < count($result); $i++) {
+			uasort($result[$i]['Bookmark'], "BookmarksController::_bookmark_sort");
+		}
+
+		return $result;
+	}
+
+	static function _bookmark_sort($a, $b) {
+		return strcmp(strtolower($a['title']), strtolower($b['title']));
 	}
 
 	function stats() {

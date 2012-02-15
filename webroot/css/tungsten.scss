@@ -1,0 +1,258 @@
+/* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */
+
+/*****************************************************************************/
+/*                                  Common                                   */
+/*****************************************************************************/
+
+*:not(input) {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background-color: #eee;
+	font-family: arial, sans-serif;
+	font-size: 13px;
+	line-height: 140%;
+}
+
+/*****************************************************************************/
+/*                              Main Containers                              */
+/*****************************************************************************/
+
+#flashMessage {
+	background-color: #444;
+	border-bottom: #aaa;
+	color: #fff;
+	padding: 2px 5px;
+	text-align: center;
+}
+#navigation, #actions {
+	margin-bottom: 10px;
+	overflow: hidden;
+	h2 {
+		display: none;
+	}
+	li {
+		list-style: none;
+		a {
+			color: hsl(0, 0, 20%);
+			display: block;
+			float: left;
+			padding: 2px 5px;
+			text-decoration: none;
+			&:hover {
+				background-color: hsl(0, 0, 70%);
+				color: hsl(0, 0, 20%);
+			}
+		}
+	}
+}
+/* TODO Fix navigation on smaller screens. */
+#navigation {
+	a {
+		background-color: hsl(0, 0, 85%);
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		margin-left: 3px;
+		margin-bottom: 2px;
+	}
+
+	a.external {
+		&:after {
+			content: ' …';
+		}
+	}
+}
+#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
+	background-color: #fff;
+	box-shadow: 5px 5px 10px #777;
+	margin-bottom: 20px;
+	padding: 10px 10px;
+}
+#logo {
+	display: none;
+}
+#quote {
+	text-align: center;
+	h2 {
+		display: none;
+	}
+	p {
+		font-family: serif;
+		padding: 5px;
+	}
+}
+#keyword_tree {
+	text-overflow: ellipsis;
+	li {
+		list-style: none;
+
+		li {
+			margin-left: 20px;
+		}
+
+		a {
+			color: #000;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+#quickadd {
+	float: left;
+	max-width: 300px;
+}
+#stats {
+	float: left;
+	max-width: 400px;
+}
+
+/*****************************************************************************/
+/*                             Generic Elements                              */
+/*****************************************************************************/
+
+div.select {
+	label {
+		display: none;
+	}
+	margin: 10px 0px;
+	overflow: hidden;
+	div.checkbox {
+		float: left;
+		margin-right: 10px;
+		min-width: 150px;
+		label {
+			display: inline;
+		}
+		&:hover {
+			background-color: #eee;
+			border-radius: 5px;
+		}
+	}
+}
+dl {
+	dd {
+		margin-left: 15px;
+	}
+}
+div.bookmark_view {
+	li {
+		list-style: none;
+	}
+}
+a.bookmark_link {
+	color: hsl(0, 0, 0%);
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+a.edit_option {
+	color: hsl(0, 0, 60%);
+	text-decoration: none;
+	&:hover {
+		color: hsl(0, 0, 20%);
+	}
+}
+h2 {
+	margin-bottom: 4px;
+	padding-left: 1%;
+}
+h3 {
+	margin-bottom: 3px;
+	margin-top: 1px;
+}
+table {
+	border-collapse: collapse;
+	tr {
+		padding: 0;
+		margin: 0;
+		th {
+			a {
+				color: hsl(0, 0, 0%);
+			}
+		}
+		td {
+			border-bottom: 1px solid hsl(0, 0, 80%);
+		}
+		td, th {
+			padding: 2px 5px;
+		}
+		&:hover {
+			background-color: hsl(0, 0, 90%);
+		}
+	}
+}
+
+/*****************************************************************************/
+/*                                Smartphone                                 */
+/*****************************************************************************/
+
+@media(max-width:480px) {
+	#navigation, #actions {
+		li {
+			background-color: none;
+			a {
+				display: block;
+				border-radius: 5px;
+				width: 45%;
+				margin: 2px;
+			}
+		}
+	}
+	#quote, #stats, #quickadd {
+		display: none;
+	}
+}
+
+/*****************************************************************************/
+/*                          bigger than Smartphone                           */
+/*****************************************************************************/
+
+@media(min-width:481px) {
+	#navigation, #actions {
+		margin-left: 20px;
+	}
+	#quickadd, #stats {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	#content {
+		overflow: hidden;
+		div.bookmarkbox {
+			float: left;
+			margin: 5px 1%;
+			padding: 0;
+			width: 48%;
+		}
+	}
+	#keyword_tree {
+		float: left;
+		width: 200px;
+	}
+	#sticky_keywords {
+		margin-left: 240px;
+		overflow: hidden;
+		div.sticky_keyword {
+			float: left;
+			margin: 1%;
+			padding: 1%;
+			width: 45%
+		}
+	}
+}
+
+/*****************************************************************************/
+/*                            bigger than NetBook                            */
+/*****************************************************************************/
+
+@media(min-width:1000px) {
+	#content {
+		div.bookmarkbox {
+			width: 30%;
+		}
+	}
+}

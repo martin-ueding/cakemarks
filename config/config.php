@@ -7,5 +7,12 @@ $config["UI"] = array(
 	),
 	"VisitGraph" => array(
 		"BinCount" => 12
-	)
+	),
+	// You can change the main theme here.
+	// Available themes:
+	// - tungsten
+	'CSS' => 'tungsten',
 );
+
+Configure::write("dateformat", "Y-m-d");
+Configure::write("visits.bins", 10);
