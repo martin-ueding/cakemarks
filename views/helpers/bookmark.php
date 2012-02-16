@@ -39,6 +39,8 @@ class BookmarkHelper extends AppHelper {
 		}
 		else {
 			$favico_url = '';
+			preg_match('#(?:https?://)?([^/]+)/?.*#', $url, $matches);
+			$favico_url = 'http://'.$matches[1].'/favicon.ico';
 		}
 
 		return $favico_url;
