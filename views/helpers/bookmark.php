@@ -33,17 +33,14 @@ class BookmarkHelper extends AppHelper {
 	}
 
 	function favicon_url($url) {
-		$url = trim(
-			str_replace(
-				'http://',
-				'',
-				trim($url)
-			),
-			'/'
-		);
-		$url = explode('/', $url);
-		$url = 'http://' . $url[0] . '/favicon.ico';
+		preg_match('#(https?://[^/]+)/?.*#', $url, $matches);
+		if (count($matches) >= 2) {
+			$favico_url = $matches[1].'/favicon.ico';
+		}
+		else {
+			$favico_url = '';
+		}
 
-		return $url;
+		return $favico_url;
 	}
 }
