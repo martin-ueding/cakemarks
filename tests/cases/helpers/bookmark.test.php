@@ -27,6 +27,11 @@ class BookmarkTest extends CakeTestCase {
 		);
 
 		$this->assert_favico(
+			'http://example.com/favicon.ico',
+			'example.com'
+		);
+
+		$this->assert_favico(
 			'https://example.com/favicon.ico',
 			'https://example.com/favicon.ico'
 		);
