@@ -1,4 +1,4 @@
-<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <?php $sticky_keywords = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'sticky_keywords'), array('cache' => '+1 min')); ?>
 

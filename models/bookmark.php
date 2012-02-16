@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
+// Copyright (c) 2011-2012 Martin Ueding <dev@martin-ueding.de>
 
 class Bookmark extends AppModel {
 	var $name = 'Bookmark';
