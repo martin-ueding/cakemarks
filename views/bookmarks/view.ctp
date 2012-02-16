@@ -31,6 +31,7 @@
 			<dd><?php printf(__('every %d hours', true),
 				$bookmark['Bookmark']['revisit']); ?></dd>
 			<dt><?php __('Next Scheduled Visit'); ?></dt>
+			<!-- XXX This cannot be localized, bug in CakePHP. -->
 			<dd><?php echo $this->Time->timeAgoInWords($next_visit, array(), true); ?></dd>
 		<?php endif; ?>
 
