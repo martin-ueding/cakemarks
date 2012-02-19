@@ -34,33 +34,30 @@ body {
 	}
 	li {
 		list-style: none;
+		background-color: none;
 		a {
+			border-radius: 5px;
 			color: hsl(0, 0, 20%);
 			display: block;
 			float: left;
+			margin: 2px;
 			padding: 2px 5px;
 			text-decoration: none;
 			&:hover {
 				background-color: hsl(0, 0, 70%);
 				color: hsl(0, 0, 20%);
 			}
+			&.external {
+				&:after {
+					content: ' …';
+				}
+			}
 		}
 	}
 }
-/* TODO Fix navigation on smaller screens. */
 #navigation {
 	a {
 		background-color: hsl(0, 0, 85%);
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
-		margin-left: 3px;
-		margin-bottom: 2px;
-	}
-
-	a.external {
-		&:after {
-			content: ' …';
-		}
 	}
 }
 #content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
@@ -206,17 +203,6 @@ table.bookmark_view {
 /*****************************************************************************/
 
 @media(max-width:480px) {
-	#navigation, #actions {
-		li {
-			background-color: none;
-			a {
-				display: block;
-				border-radius: 5px;
-				width: 45%;
-				margin: 2px;
-			}
-		}
-	}
 	#quote, #stats, #quickadd {
 		display: none;
 	}
@@ -227,9 +213,6 @@ table.bookmark_view {
 /*****************************************************************************/
 
 @media(min-width:481px) {
-	#navigation, #actions {
-		margin-left: 20px;
-	}
 	#quickadd, #stats {
 		margin-left: 20px;
 		margin-right: 20px;
