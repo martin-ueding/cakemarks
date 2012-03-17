@@ -44,7 +44,7 @@ var showField = function () {
 	console.debug('showField()');
 	$('#navigation').after('<div id="search"><input id="search_input" type="text" /></div>');
 	$('#search_input').focus();
-	$('#search_input').focusout(exitSearch);
+	//$('#search_input').focusout(exitSearch);
 };
 
 /**
