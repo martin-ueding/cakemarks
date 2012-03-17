@@ -347,7 +347,8 @@ class BookmarksController extends AppController {
 			$conditions[] = array('Bookmark.title LIKE' => '%'.$word.'%');
 		}
 		$data = $this->Bookmark->find('all', array(
-			'conditions' => $conditions
+			'conditions' => $conditions,
+			'limit' => Configure::read('search.items');
 		));
 
 		$this->set("data", json_encode($data));

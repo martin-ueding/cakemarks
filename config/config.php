@@ -19,3 +19,5 @@ Configure::write("visits.bins", 10);
 
 Configure::write("favicon.runs", 1);
 Configure::write("favicon.show", true);
+
+Configure::write('search.items', 15);

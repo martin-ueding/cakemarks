@@ -1,7 +1,6 @@
 // Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
 
 var animationTime = 300;
-var limit = 20;
 
 /**
  * The time that has to elapse since the last AJAX event was sent off.
@@ -175,8 +174,7 @@ var formatResults = function (data) {
 	console.debug('formatResults()');
 	var parts = [];
 
-	// TODO Limit this in PHP, and not here to save transfer time.
-	for (var rowNum = 0; rowNum < data.length && rowNum < limit; rowNum++) {
+	for (var rowNum = 0; rowNum < data.length; rowNum++) {
 		var row = data[rowNum];
 		var hitTarget = 'bookmarks/visit/'+row.Bookmark.id
 		parts.push('<li class="search_entry">');
