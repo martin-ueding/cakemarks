@@ -6,11 +6,13 @@ var animationTime = 300;
  * The time that has to elapse since the last AJAX event was sent off.
  */
 var idleTime = 500;
+var ajaxTimeout = 1000;
 
 var currentData = [];
 var animationActive = false;
 var ajaxActive = false;
 var lastChange = 0;
+var lastAjax = 0;
 var currentQuery = "";
 
 /**
@@ -20,6 +22,20 @@ var searchMain = function () {
 	showField();
 	attachListener();
 };
+
+var isAjaxActive = function () {
+	console.debug('isAjaxActive()');
+	var now = new Date().getTime();
+	if (now - lastAjax > ajaxTimeout) {
+		console.debug('isAjaxActive(): Timeout reached.');
+		ajaxActive = false;
+		return false;
+	}
+	else {
+		console.debug('isAjaxActive(): Returning variable.');
+		return ajaxActive;
+	}
+}
 
 /**
  * Inserts the search field into the DOM and focuses it.
@@ -64,7 +80,7 @@ var formChanged = function () {
 var waitToQuery = function () {
 	console.debug('waitToQuery()');
 
-	if (ajaxActive) {
+	if (isAjaxActive()) {
 		console.debug('waitToQuery(): AJAX still active, abort.');
 		return;
 	}
@@ -90,6 +106,7 @@ var waitToQuery = function () {
 var performQuery = function () {
 	console.debug('perfomQuery()');
 	ajaxActive = true;
+	lastAjax = new Date().getTime();
 	$.ajax({
 		dataType: 'json',
 		success: querySuccess,
