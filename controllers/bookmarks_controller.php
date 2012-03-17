@@ -340,15 +340,12 @@ class BookmarksController extends AppController {
 
 		preg_match_all('/"(?:\\\\.|[^\\\\"])*"|\S+/', $query, $matches);
 		$conditions = array();
-		print_r($matches);
 		$words = $matches[0];
 
 		$words = array_map('BookmarksController::stripper', $words);
-		print_r($words);
 		foreach ($words as $word) {
 			$conditions[] = array('Bookmark.title LIKE' => '%'.$word.'%');
 		}
-		print_r($conditions);
 		$data = $this->Bookmark->find('all', array(
 			'conditions' => $conditions
 		));
