@@ -86,14 +86,25 @@ var animationDone = function () {
 
 var formatResults = function (data) {
 	console.debug('formatResults()');
-	var entries = '';
+	var parts = [];
 
-	for (var rowNum = 0; rowNum < data.length && rowNum < 15; rowNum++) {
+	// TODO Limit this in PHP, and not here to save transfer time.
+	for (var rowNum = 0; rowNum < data.length && rowNum < 10; rowNum++) {
 		var row = data[rowNum];
-		entries += '<li>'+row.Bookmark.title+'</li>';
+		var hitTarget = 'bookmarks/visit/'+row.Bookmark.id
+		parts.push('<li class="search_entry">');
+		parts.push('<a class="title" href="'+hitTarget+'">');
+		parts.push(row.Bookmark.title);
+		parts.push('</a>');
+		parts.push('<a class="url" href="'+hitTarget+'">');
+		parts.push(row.Bookmark.url);
+		parts.push('</a>');
+		parts.push('</li>');
 	}
 
-	return '<ul>'+entries+'</ul>';
+	var result = '<ul>'+parts.join('')+'</ul>';
+	console.debug(result);
+	return result;
 };
 
 $(searchMain);
