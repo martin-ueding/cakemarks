@@ -329,7 +329,6 @@ class BookmarksController extends AppController {
 		}
 	}
 
-
 	/**
 	 * Searches the bookmarks. AJAX only.
 	 *
