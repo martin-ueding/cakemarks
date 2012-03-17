@@ -62,9 +62,10 @@ var formChanged = function () {
  * function will wait and call itself again.
  */
 var waitToQuery = function () {
-	console.debug('formChanged()');
+	console.debug('waitToQuery()');
 
 	if (ajaxActive) {
+		console.debug('waitToQuery(): AJAX still active, abort.');
 		return;
 	}
 
@@ -72,12 +73,13 @@ var waitToQuery = function () {
 	var elapsed = now - lastChange;
 
 	if (elapsed > idleTime) {
+		console.debug('waitToQuery(): Performing update.');
 		hideResultPane();
 		performQuery();
 	}
 	else {
 		var toWait = idleTime - elapsed;
-		console.debug('formChanged(): Still have to wait '+toWait+'.');
+		console.debug('waitToQuery(): Still have to wait '+toWait+'.');
 		setTimeout(waitToQuery, toWait);
 	}
 };
