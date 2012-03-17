@@ -348,7 +348,7 @@ class BookmarksController extends AppController {
 		}
 		$data = $this->Bookmark->find('all', array(
 			'conditions' => $conditions,
-			'limit' => Configure::read('search.items');
+			'limit' => Configure::read('search.items'),
 		));
 
 		$this->set("data", json_encode($data));
