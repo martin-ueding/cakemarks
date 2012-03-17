@@ -342,16 +342,8 @@ class BookmarksController extends AppController {
 		$conditions = array();
 		print_r($matches);
 		$words = $matches[0];
-		$stripper = function ($input) {
-			if ($input[0] == '"') {
-				return substr($input, 1, strlen($input)-2);
-			}
-			else {
-				return $input;
-			}
-		};
 
-		$words = array_map($stripper, $words);
+		$words = array_map('BookmarksController::stripper', $words);
 		print_r($words);
 		foreach ($words as $word) {
 			$conditions[] = array('Bookmark.title LIKE' => '%'.$word.'%');
@@ -362,6 +354,15 @@ class BookmarksController extends AppController {
 		));
 
 		$this->set("data", json_encode($data));
+	}
+
+	static function stripper($input) {
+		if ($input[0] == '"') {
+			return substr($input, 1, strlen($input)-2);
+		}
+		else {
+			return $input;
+		}
 	}
 }
 ?>
