@@ -21,6 +21,8 @@ var searchMain = function () {
 var showField = function () {
 	console.debug('showField()');
 	$('#navigation').after('<div id="search"><input id="search_input" type="text" /></div>');
+	$('#search_input').focus();
+	$('#search_input').focusout(exitSearch);
 };
 
 var attachListener = function () {
@@ -103,6 +105,10 @@ var updateResultPane = function () {
 		return;
 	}
 
+	if (currentData === null) {
+		return;
+	}
+
 	initResultPane();
 	var searchResultPane = $('#search_result_pane');
 	searchResultPane.html(formatResults(currentData));
@@ -136,6 +142,11 @@ var formatResults = function (data) {
 	var result = '<ul>'+parts.join('')+'</ul>';
 	console.debug(result);
 	return result;
+};
+
+var exitSearch = function () {
+	currentData = null;
+	hideResultPane();
 };
 
 $(searchMain);
