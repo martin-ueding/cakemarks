@@ -49,6 +49,7 @@ var formChanged = function () {
 	console.debug('formChanged()');
 	var newQuery = $(this).val();
 	if (newQuery == currentQuery) {
+		console.debug('formChanged(): Query did not change, abort.');
 		return;
 	}
 	currentQuery = newQuery;
@@ -146,6 +147,7 @@ var updateResultPane = function () {
 	}
 
 	if (currentData === null) {
+		console.debug('updateResultPane(): currentData is null');
 		return;
 	}
 
