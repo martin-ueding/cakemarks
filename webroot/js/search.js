@@ -2,9 +2,16 @@
 
 var animationTime = 300;
 
+/**
+ * The time that has to elapse since the last AJAX event was sent off.
+ */
+var idleTime = 500;
+
 var currentData = [];
 var animationActive = false;
 var ajaxActive = false;
+var lastChange = 0;
+var currentQuery = "";
 
 var searchMain = function () {
 	showField();
@@ -23,20 +30,44 @@ var attachListener = function () {
 
 var formChanged = function () {
 	console.debug('formChanged()');
-	var input = $(this);
-	var query = $(this).val();
-	hideResultPane();
-	performQuery(query);
+	var newQuery = $(this).val();
+	if (newQuery == currentQuery) {
+		return;
+	}
+	currentQuery = newQuery;
+	lastChange = new Date().getTime();
+	waitToQuery();
 };
 
-var performQuery = function (query) {
+var waitToQuery = function () {
+	console.debug('formChanged()');
+
+	if (ajaxActive) {
+		return;
+	}
+
+	var now = new Date().getTime();
+	var elapsed = now - lastChange;
+
+	if (elapsed > idleTime) {
+		hideResultPane();
+		performQuery();
+	}
+	else {
+		var toWait = idleTime - elapsed;
+		console.debug('formChanged(): Still have to wait '+toWait+'.');
+		setTimeout(waitToQuery, toWait);
+	}
+};
+
+var performQuery = function () {
 	console.debug('perfomQuery()');
 	ajaxActive = true;
 	$.ajax({
 		dataType: 'json',
 		success: querySuccess,
 		type: 'GET',
-		url: 'bookmarks/search/'+query,
+		url: 'bookmarks/search/'+currentQuery,
 	});
 };
 
