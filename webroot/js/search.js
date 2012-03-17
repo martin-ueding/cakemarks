@@ -107,6 +107,11 @@ var querySuccess = function (data, textStatus, jqXHR) {
 	updateResultPane();
 };
 
+var ajaxError = function (data, textStatus, jqXHR) {
+	console.debug('ajaxError()');
+	ajaxActive = false;
+};
+
 /**
  * Initializes the result pane, creates it if needed.
  */
