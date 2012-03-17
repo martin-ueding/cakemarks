@@ -88,7 +88,7 @@ var formatResults = function (data) {
 	console.debug('formatResults()');
 	var entries = '';
 
-	for (var rowNum in data) {
+	for (var rowNum = 0; rowNum < data.length && rowNum < 15; rowNum++) {
 		var row = data[rowNum];
 		entries += '<li>'+row.Bookmark.title+'</li>';
 	}
