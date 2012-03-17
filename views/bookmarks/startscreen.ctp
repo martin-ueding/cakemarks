@@ -1,4 +1,6 @@
-<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright (c) 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+
+<?php echo $this->Html->script('search'); ?>
 
 <div id="content">
 	<h2><?php __('Startscreen'); ?></h2>

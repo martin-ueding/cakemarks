@@ -1,9 +1,8 @@
 <?php
-# Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
+# Copyright (c) 2011-2012 Martin Ueding <dev@martin-ueding.de>
 
 echo $this->Html->script("raphael");
 echo $this->Html->script("popup");
-echo $this->Html->script("jquery");
 echo $this->Html->script("analytics");
 
 $bin_data = $this->requestAction('/visits/bins/'.$id, array('cache' => '+5 min'));

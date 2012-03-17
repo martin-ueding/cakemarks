@@ -328,5 +328,17 @@ class BookmarksController extends AppController {
 			unset($q);
 		}
 	}
+
+	function search($query) {
+		$this->layout = 'ajax';
+		header('Content-type: application/json');
+		$data = $this->Bookmark->find('all', array(
+			'conditions' => array(
+				'Bookmark.title like' => '%'.$query.'%'
+			)
+		));
+
+		$this->set("data", json_encode($data));
+	}
 }
 ?>
