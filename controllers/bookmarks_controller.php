@@ -355,7 +355,7 @@ class BookmarksController extends AppController {
 		$words = array_map($stripper, $words);
 		print_r($words);
 		foreach ($words as $word) {
-			$conditions[] = array('Bookmark.url LIKE' => '%'.$word.'%');
+			$conditions[] = array('Bookmark.title LIKE' => '%'.$word.'%');
 		}
 		print_r($conditions);
 		$data = $this->Bookmark->find('all', array(
