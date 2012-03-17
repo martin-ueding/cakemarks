@@ -14,11 +14,17 @@ var ajaxActive = false;
 var lastChange = 0;
 var currentQuery = "";
 
+/**
+ * Initializes the search.
+ */
 var searchMain = function () {
 	showField();
 	attachListener();
 };
 
+/**
+ * Inserts the search field into the DOM and focuses it.
+ */
 var showField = function () {
 	console.debug('showField()');
 	$('#navigation').after('<div id="search"><input id="search_input" type="text" /></div>');
@@ -26,11 +32,20 @@ var showField = function () {
 	$('#search_input').focusout(exitSearch);
 };
 
+/**
+ * Attaches the listeners to the search input field.
+ */
 var attachListener = function () {
 	console.debug('attachListener()');
 	$('#search_input').keyup(formChanged);
 };
 
+/**
+ * This is called whenever the input has changed.
+ *
+ * It does not necessarily fire off an AJAX request if the last one was just a
+ * little time ago.
+ */
 var formChanged = function () {
 	console.debug('formChanged()');
 	var newQuery = $(this).val();
@@ -42,6 +57,10 @@ var formChanged = function () {
 	waitToQuery();
 };
 
+/**
+ * Checks whether another AJAX request can be performed. Otherwise this
+ * function will wait and call itself again.
+ */
 var waitToQuery = function () {
 	console.debug('formChanged()');
 
@@ -63,6 +82,9 @@ var waitToQuery = function () {
 	}
 };
 
+/**
+ * Performs the actual AJAX request and queries the database.
+ */
 var performQuery = function () {
 	console.debug('perfomQuery()');
 	ajaxActive = true;
@@ -74,6 +96,9 @@ var performQuery = function () {
 	});
 };
 
+/**
+ * This is called when the AJAX request suceeds.
+ */
 var querySuccess = function (data, textStatus, jqXHR) {
 	console.debug('querySuccess()');
 	ajaxActive = false;
@@ -82,6 +107,9 @@ var querySuccess = function (data, textStatus, jqXHR) {
 	updateResultPane();
 };
 
+/**
+ * Initializes the result pane, creates it if needed.
+ */
 var initResultPane = function () {
 	console.debug('initResultPane()');
 	if ($('#search_result_pane').length == 0) {
@@ -90,6 +118,10 @@ var initResultPane = function () {
 	}
 };
 
+/**
+ * Hides the result pane. When the animation is done, the ``animationDone()``
+ * will be called.
+ */
 var hideResultPane = function () {
 	console.debug('hideResultPane()');
 	if ($('#search_result_pane').length > 0) {
@@ -98,6 +130,9 @@ var hideResultPane = function () {
 	}
 };
 
+/**
+ * Inserts the current data into the results pane and slides it down.
+ */
 var updateResultPane = function () {
 	console.debug('updateResultPane()');
 
@@ -116,12 +151,21 @@ var updateResultPane = function () {
 	searchResultPane.slideDown(animationTime);
 };
 
+/**
+ * Called when the slide up animation is done.
+ */
 var animationDone = function () {
 	console.debug('animationDone()');
 	animationActive = false;
 	updateResultPane();
 };
 
+/**
+ * Formats the results.
+ *
+ * @param data Data from database.
+ * @return HTML string.
+ */
 var formatResults = function (data) {
 	console.debug('formatResults()');
 	var parts = [];
@@ -145,6 +189,9 @@ var formatResults = function (data) {
 	return result;
 };
 
+/**
+ * Deletes the cached data and hides the result pane.
+ */
 var exitSearch = function () {
 	currentData = null;
 	hideResultPane();

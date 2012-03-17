@@ -329,6 +329,12 @@ class BookmarksController extends AppController {
 		}
 	}
 
+
+	/**
+	 * Searches the bookmarks. AJAX only.
+	 *
+	 * @param $query String with words to query for.
+	 */
 	function search($query) {
 		$this->layout = 'ajax';
 		header('Content-type: application/json');
