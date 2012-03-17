@@ -60,7 +60,7 @@ body {
 		background-color: hsl(0, 0, 85%);
 	}
 }
-#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats {
+#content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats, #search {
 	background-color: #fff;
 	box-shadow: 5px 5px 10px #777;
 	margin-bottom: 20px;
@@ -250,6 +250,42 @@ table.bookmark_view {
 	#content {
 		div.bookmarkbox {
 			width: 30%;
+		}
+	}
+}
+
+/*****************************************************************************/
+/*                        JavaScript spawned objects                         */
+/*****************************************************************************/
+
+#search {
+	#search_input {
+		width: 100%;
+	}
+
+	ul {
+		list-style: none;
+
+		li.search_entry {
+			border-bottom: 1px solid hsl(0, 0%, 80%);
+
+			a {
+				display: block;
+			}
+
+			a.title {
+				text-decoration: none;
+				color: hsl(0, 0%, 0%);
+			}
+
+			a.url {
+				font-size: 90%;
+				color: hsl(0, 0%, 50%);
+			}
+
+			&:hover {
+				background-color: hsl(0, 0%, 90%);
+			}
 		}
 	}
 }
