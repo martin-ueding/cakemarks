@@ -339,11 +339,25 @@ class BookmarksController extends AppController {
 		$this->layout = 'ajax';
 		header('Content-type: application/json');
 
-		$words = str_getcsv($query, ' ');
+		preg_match_all('/"(?:\\\\.|[^\\\\"])*"|\S+/', $query, $matches);
 		$conditions = array();
+		print_r($matches);
+		$words = $matches[0];
+		$stripper = function ($input) {
+			if ($input[0] == '"') {
+				return substr($input, 1, strlen($input)-2);
+			}
+			else {
+				return $input;
+			}
+		};
+
+		$words = array_map($stripper, $words);
+		print_r($words);
 		foreach ($words as $word) {
 			$conditions[] = array('Bookmark.url LIKE' => '%'.$word.'%');
 		}
+		print_r($conditions);
 		$data = $this->Bookmark->find('all', array(
 			'conditions' => $conditions
 		));
