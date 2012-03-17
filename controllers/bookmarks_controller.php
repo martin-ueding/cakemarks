@@ -332,10 +332,14 @@ class BookmarksController extends AppController {
 	function search($query) {
 		$this->layout = 'ajax';
 		header('Content-type: application/json');
+
+		$words = str_getcsv($query, ' ');
+		$conditions = array();
+		foreach ($words as $word) {
+			$conditions[] = array('Bookmark.url LIKE' => '%'.$word.'%');
+		}
 		$data = $this->Bookmark->find('all', array(
-			'conditions' => array(
-				'Bookmark.title like' => '%'.$query.'%'
-			)
+			'conditions' => $conditions
 		));
 
 		$this->set("data", json_encode($data));
