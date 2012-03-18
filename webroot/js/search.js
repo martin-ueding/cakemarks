@@ -197,8 +197,9 @@ var formatResults = function (data) {
 
 	for (var rowNum = 0; rowNum < data.length; rowNum++) {
 		var row = data[rowNum];
-		var hitTarget = 'bookmarks/visit/'+row.Bookmark.id
-		var viewTarget = 'bookmarks/view/'+row.Bookmark.id
+		var hitTarget = 'bookmarks/visit/'+row.Bookmark.id;
+		var viewTarget = 'bookmarks/view/'+row.Bookmark.id;
+
 		parts.push('<li class="search_entry">');
 		parts.push('<a class="title" href="'+hitTarget+'">');
 		parts.push(row.Bookmark.title);
