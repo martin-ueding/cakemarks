@@ -6,7 +6,8 @@
 var animationTime = 300;
 
 /**
- * The time that has to elapse since the last AJAX event was sent off. In ms.
+ * The time before an AJAX request is sent off. This prevents that a request
+ * for every single keystroke is sent.
  */
 var idleTime = 500;
 
