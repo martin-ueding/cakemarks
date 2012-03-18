@@ -158,6 +158,8 @@ var performQuery = function () {
 
 /**
  * This is called when the AJAX request suceeds.
+ *
+ * @param data Search results from the server.
  */
 var querySuccess = function (data, textStatus, jqXHR) {
 	console.debug('querySuccess()');
@@ -275,6 +277,8 @@ var exitSearch = function () {
 
 /**
  * Handles the keydown event in the search field.
+ *
+ * @param e Key event.
  */
 var keyDown = function (e) {
 	console.debug('keyDown()');
