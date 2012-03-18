@@ -293,7 +293,7 @@ table.bookmark_view {
 				color: hsl(0, 0%, 50%);
 			}
 
-			&:hover {
+			&:hover, &.selected {
 				background-color: hsl(0, 0%, 90%);
 			}
 		}
