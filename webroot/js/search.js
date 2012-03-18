@@ -12,6 +12,7 @@ var ajaxActive = false;
 var animationActive = false;
 var currentData = [];
 var currentQuery = "";
+var currentSelection = 0;
 var lastAjax = 0;
 var lastChange = 0;
 
@@ -172,6 +173,7 @@ var updateResultPane = function () {
 
 	initResultPane();
 	var searchResultPane = $('#search_result_pane');
+	currentSelection = 0;
 	searchResultPane.html(formatResults(currentData));
 	searchResultPane.slideDown(animationTime);
 };
