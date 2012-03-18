@@ -276,19 +276,19 @@ table.bookmark_view {
 
 			div.title_view {
 				overflow: hidden;
+			}
 
-				a.title {
-					float: left;
-					text-decoration: none;
-					color: hsl(0, 0%, 0%);
-				}
+			a.title {
+				text-decoration: none;
+				color: hsl(0, 0%, 0%);
+			}
 
-				a.view {
-					float: right;
-				}
+			a.view {
+				float: right;
 			}
 
 			a.url {
+				float: left;
 				font-size: 90%;
 				color: hsl(0, 0%, 50%);
 			}
