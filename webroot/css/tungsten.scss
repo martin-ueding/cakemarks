@@ -267,19 +267,16 @@ table.bookmark_view {
 		list-style: none;
 
 		li.search_entry {
-			border-bottom: 1px solid hsl(0, 0%, 80%);
+			overflow: hidden;
 			padding: 0px 10px;
 
 			a {
 				display: block;
 			}
 
-			div.title_view {
-				overflow: hidden;
-			}
-
 			a.title {
 				text-decoration: none;
+				float: left;
 				color: hsl(0, 0%, 0%);
 			}
 
@@ -287,18 +284,12 @@ table.bookmark_view {
 				float: right;
 			}
 
-			a.url {
-				float: left;
-				font-size: 90%;
-				color: hsl(0, 0%, 50%);
-			}
-
 			&:hover {
-				background-color: hsl(0, 0%, 90%);
+				background-color: hsl(0, 0%, 95%);
 			}
 
 			&.selected {
-				background-color: hsl(0, 0%, 85%);
+				background-color: hsl(0, 0%, 90%);
 			}
 		}
 	}

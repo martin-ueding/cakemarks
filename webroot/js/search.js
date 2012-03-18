@@ -247,17 +247,16 @@ var formatResults = function (data) {
 
 		parts.push('<li class="search_entry">');
 		parts.push('<a class="title" href="'+hitTarget+'">');
+		parts.push('<strong>');
 		parts.push(row.Bookmark.title);
-		parts.push('</a>');
-		parts.push('<div class="title_view">');
-		parts.push('<a class="url" href="'+hitTarget+'">');
+		parts.push('</strong>');
+		parts.push(' – ');
 		parts.push(row.Bookmark.url);
 		parts.push('</a>');
 		parts.push('<a class="view" href="'+viewTarget+'">');
 		// TODO I18n.
 		parts.push('view');
 		parts.push('</a>');
-		parts.push('</div>');
 		parts.push('</li>');
 	}
 
