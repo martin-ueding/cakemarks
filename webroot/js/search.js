@@ -8,12 +8,12 @@ var animationTime = 300;
 var idleTime = 500;
 var ajaxTimeout = 1000;
 
-var currentData = [];
-var animationActive = false;
 var ajaxActive = false;
-var lastChange = 0;
-var lastAjax = 0;
+var animationActive = false;
+var currentData = [];
 var currentQuery = "";
+var lastAjax = 0;
+var lastChange = 0;
 
 /**
  * Initializes the search.
