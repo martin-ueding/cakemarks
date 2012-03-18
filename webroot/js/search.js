@@ -1,19 +1,54 @@
 // Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
 
+/**
+ * Time for the scroll up and down animation. In ms.
+ */
 var animationTime = 300;
 
 /**
- * The time that has to elapse since the last AJAX event was sent off.
+ * The time that has to elapse since the last AJAX event was sent off. In ms.
  */
 var idleTime = 500;
+
+/**
+ * Timeout for AJAX request. If this time is over, the ``ajaxActive`` flag is
+ * ignored. In ms.
+ */
 var ajaxTimeout = 1000;
 
+/**
+ * Whether an AJAX request is active.
+ */
 var ajaxActive = false;
+
+/**
+ * Whether the scroll up animation is active.
+ */
 var animationActive = false;
+
+/**
+ * The last data that the server sent.
+ */
 var currentData = [];
+
+/**
+ * Currently entered search query.
+ */
 var currentQuery = "";
+
+/**
+ * Currently selected result.
+ */
 var currentSelection = 0;
+
+/**
+ * Last AJAX request sent off. Timestamp in ms.
+ */
 var lastAjax = 0;
+
+/**
+ * Last change to the input field. Timestamp in ms.
+ */
 var lastChange = 0;
 
 /**
@@ -24,6 +59,9 @@ var searchMain = function () {
 	attachListener();
 };
 
+/**
+ * Checks whether there is an AJAX request pending.
+ */
 var isAjaxActive = function () {
 	console.debug('isAjaxActive()');
 	var now = new Date().getTime();
@@ -234,6 +272,9 @@ var exitSearch = function () {
 	hideResultPane();
 };
 
+/**
+ * Handles the keydown event in the search field.
+ */
 var keyDown = function (e) {
 	console.debug('keyDown()');
 	switch(e.keyCode) {
@@ -249,16 +290,27 @@ var keyDown = function (e) {
 	}
 };
 
+/**
+ * Moves the selection up one step.
+ */
 var moveUp = function () {
 	console.debug('moveUp()');
 	moveSelection(-1);
 };
 
+/**
+ * Moves the selection down one step.
+ */
 var moveDown = function () {
 	console.debug('moveDown()');
 	moveSelection(1);
 };
 
+/**
+ * Moves the selection the given steps.
+ *
+ * @param steps Positive or negative step number.
+ */
 var moveSelection = function (steps) {
 	console.debug('moveSelection()');
 	var entries = $('li.search_entry');
@@ -272,6 +324,9 @@ var moveSelection = function (steps) {
 	}
 };
 
+/**
+ * Points the browser to the currently selected URL.
+ */
 var visitSelected = function () {
 	console.debug('visitSelected()');
 	var entries = $('li.search_entry');
