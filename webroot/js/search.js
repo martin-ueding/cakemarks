@@ -54,6 +54,7 @@ var showField = function () {
 var attachListener = function () {
 	console.debug('attachListener()');
 	$('#search_input').keyup(formChanged);
+	$('#search_input').keydown(keyDown);
 };
 
 /**
@@ -175,6 +176,7 @@ var updateResultPane = function () {
 	var searchResultPane = $('#search_result_pane');
 	currentSelection = 0;
 	searchResultPane.html(formatResults(currentData));
+	moveSelection(0);
 	searchResultPane.slideDown(animationTime);
 };
 
@@ -227,8 +229,59 @@ var formatResults = function (data) {
  * Deletes the cached data and hides the result pane.
  */
 var exitSearch = function () {
+	console.debug('exitSearch()');
 	currentData = null;
 	hideResultPane();
+};
+
+var keyDown = function (e) {
+	console.debug('keyDown()');
+	switch(e.keyCode) { 
+		case 38:
+			moveUp();
+			break;
+		case 40:
+			moveDown();
+			break;
+		case 13:
+			visitSelected();
+			break;
+	}
+};
+
+var moveUp = function () {
+	console.debug('moveUp()');
+	moveSelection(-1);
+};
+
+var moveDown = function () {
+	console.debug('moveDown()');
+	moveSelection(1);
+};
+
+var moveSelection = function (steps) {
+	console.debug('moveSelection()');
+	var entries = $('li.search_entry');
+	console.debug(entries);
+	var entryCount = entries.length;
+	var newSelection = currentSelection + steps;
+	if (0 <= newSelection && newSelection < entryCount) {
+		$(entries[currentSelection]).removeClass('selected');
+		$(entries[newSelection]).addClass('selected');
+		currentSelection = newSelection;
+	}
+};
+
+var visitSelected = function () {
+	console.debug('visitSelected()');
+	var entries = $('li.search_entry');
+	var entry = $(entries[currentSelection]);
+	var titleLink = entry.children('a.title');
+	console.debug('visitSelected(): titleLink '+titleLink);
+	var url = titleLink.attr('href');
+	console.debug('visitSelected(): Going to '+url);
+	// TODO Make sure the referrer is not sent.
+	window.location = url;
 };
 
 $(searchMain);
