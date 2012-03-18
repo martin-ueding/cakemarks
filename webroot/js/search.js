@@ -236,7 +236,7 @@ var exitSearch = function () {
 
 var keyDown = function (e) {
 	console.debug('keyDown()');
-	switch(e.keyCode) { 
+	switch(e.keyCode) {
 		case 38:
 			moveUp();
 			break;
