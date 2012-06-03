@@ -12,6 +12,10 @@ class Keyword extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'isUnique' => array(
+				'rule' => 'isUnique',
+				'message' => 'The URL has to be unique.',
+			),
 		),
 		'sticky' => array(
 			'boolean' => array(
