@@ -34,6 +34,12 @@ Requirements
 -  PHP
 -  MySQL
 
+License
+=======
+
+cakemarks currently has no license. I have yet to decide between BSD-3-clause,
+GPL and Affero GPL.
+
 Written By
 ==========
 
