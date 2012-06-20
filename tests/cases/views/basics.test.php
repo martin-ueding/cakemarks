@@ -1,5 +1,5 @@
 <?php
-// Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de>
+// Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de>
 
 /**
  * This is a test case which just tries out some very basic features of the

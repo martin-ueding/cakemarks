@@ -1,5 +1,5 @@
 <?php
-# Copyright (c) 2011-2012 Martin Ueding <dev@martin-ueding.de>
+# Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de>
 
 echo $this->Html->script("raphael");
 echo $this->Html->script("popup");

@@ -1,4 +1,4 @@
-<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div class="bookmarkbox">
 	<h3><?php echo $title; ?></h3>

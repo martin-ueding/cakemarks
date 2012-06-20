@@ -1,4 +1,4 @@
-<?php /* Copyright (c) 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <?php echo $this->Html->script('search'); ?>
 

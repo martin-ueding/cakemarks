@@ -1,4 +1,4 @@
-<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <?php $stats = $this->requestAction(array('controller' => 'bookmarks', 'action' => 'stats'), array('cache' => '+5 min')); ?>
 

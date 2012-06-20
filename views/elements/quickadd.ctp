@@ -1,4 +1,4 @@
-<?php /* Copyright (c) 2011 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div id="quickadd">
 	<h2><?php __('Quick Add'); ?></h2>
