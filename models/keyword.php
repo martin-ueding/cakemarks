@@ -1,4 +1,7 @@
 <?php
+# Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+# Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
+
 class Keyword extends AppModel {
 	var $name = 'Keyword';
 	var $displayField = 'title';

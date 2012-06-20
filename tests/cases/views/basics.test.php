@@ -1,5 +1,6 @@
 <?php
-// Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de>
+# Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de>
+# Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 /**
  * This is a test case which just tries out some very basic features of the
