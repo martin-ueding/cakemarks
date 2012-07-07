@@ -46,3 +46,44 @@ isAjaxActive () ->
 	else
 		console.debug "isAjaxActive(): Returning variable."
 		ajaxActive
+
+showField = () ->
+	console.debug 'showField()'
+	$('#navigation').after '<div id="search"><input id="search_input" type="text" /></div>'
+	$('#search_input').focus()
+
+attachListener = () ->
+	console.debug 'attachListener()'
+	$('#search_input').keyup formChanged
+	$('#search_input').keydown keyDown
+
+formChanged = () ->
+	console.debug 'formChanged()'
+	newQuery = $(this).val()
+
+	if newQuery == currentQuery
+		console.debug 'formChanged(): Query did not change, abort.'
+		return
+
+	currentQuery = newQuery
+	lastChange = new Date().getTime()
+	waitToQuery()
+
+waitToQuery = () ->
+	console.debug 'waitToQuery()'
+
+	if isAjaxActive()
+		console.debug 'waitToQuery(): AJAX still active, abort.'
+		return
+
+	now = new Date().getTime()
+	elapsed = now - lastChange
+
+	if (elapsed > idleTime)
+		console.debug 'waitToQuery(): Performing update.'
+		hideResultPane()
+		performQuery()
+	else
+		toWait = idleTime - elapsed
+		console.debug 'waitToQuery(): Still have to wait '+toWait+'.'
+		setTimeout waitToQuery, toWait
