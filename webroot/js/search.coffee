@@ -167,8 +167,7 @@ formatResults = (data) ->
 		parts.push('</a>')
 		parts.push('</li>')
 
-	result = '<ul>'+parts.join('')+'</ul>'
-	return result
+	'<ul>'+parts.join('')+'</ul>'
 
 # Deletes the cached data and hides the result pane.
 exitSearch = ->
