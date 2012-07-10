@@ -1,4 +1,4 @@
-all: search2.js
+all: search.js
 
 %.js: %.coffee
 	coffee -c $<
