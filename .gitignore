@@ -1,3 +1,4 @@
+*.eml
 .htaccess
 .sass-cache
 _dev-doc
