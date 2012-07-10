@@ -37,7 +37,7 @@ searchMain = () ->
 	showField()
 	attachListener()
 
-isAjaxActive () ->
+isAjaxActive = () ->
 	console.debug "isAjaxActive()"
 	now = new Date().getTime()
 	if now - lastAjax > ajaxTimeout
@@ -163,8 +163,7 @@ formatResults = (data) ->
 	console.debug('formatResults()')
 	parts = []
 
-	for rowNum in [0..data.length]
-		row = data[rowNum]
+	for row in data
 		hitTarget = 'bookmarks/visit/'+row.Bookmark.id
 		viewTarget = 'bookmarks/view/'+row.Bookmark.id
 
