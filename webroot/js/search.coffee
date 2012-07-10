@@ -40,25 +40,20 @@ searchMain = ->
 
 # Checks whether there is an AJAX request pending.
 isAjaxActive = ->
-	console.debug "isAjaxActive()"
 	now = new Date().getTime()
 	if now - lastAjax > ajaxTimeout
-		console.debug "isAjaxActive(): Timeout reached."
 		ajaxActive = false
 		false
 	else
-		console.debug "isAjaxActive(): Returning variable."
 		ajaxActive
 
 # Inserts the search field into the DOM and focuses it.
 showField = ->
-	console.debug 'showField()'
 	$('#navigation').after '<div id="search"><input id="search_input" type="text" /></div>'
 	$('#search_input').focus()
 
 # Attaches the listeners to the search input field.
 attachListener = ->
-	console.debug 'attachListener()'
 	$('#search_input').keyup formChanged
 	$('#search_input').keydown keyDown
 
@@ -67,11 +62,9 @@ attachListener = ->
 # It does not necessarily fire off an AJAX request if the last one was just a
 # little time ago.
 formChanged = ->
-	console.debug 'formChanged()'
 	newQuery = $(this).val()
 
 	if newQuery == currentQuery
-		console.debug 'formChanged(): Query did not change, abort.'
 		return
 
 	currentQuery = newQuery
@@ -81,27 +74,21 @@ formChanged = ->
 # Checks whether another AJAX request can be performed. Otherwise this
 # function will wait and call itself again.
 waitToQuery = ->
-	console.debug 'waitToQuery()'
-
 	if isAjaxActive()
-		console.debug 'waitToQuery(): AJAX still active, abort.'
 		return
 
 	now = new Date().getTime()
 	elapsed = now - lastChange
 
 	if (elapsed > idleTime)
-		console.debug 'waitToQuery(): Performing update.'
 		hideResultPane()
 		performQuery()
 	else
 		toWait = idleTime - elapsed
-		console.debug 'waitToQuery(): Still have to wait '+toWait+'.'
 		setTimeout waitToQuery, toWait
 
 # Performs the actual AJAX request and queries the database.
 performQuery = ->
-	console.debug 'perfomQuery()'
 	ajaxActive = true
 	lastAjax = new Date().getTime()
 	$.ajax({
@@ -115,19 +102,15 @@ performQuery = ->
 #
 # @param data Search results from the server.
 querySuccess = (data, textStatus, jqXHR) ->
-	console.debug 'querySuccess()'
 	ajaxActive = false
-	console.debug data
 	currentData = data
 	updateResultPane()
 
 ajaxError = (data, textStatus, jqXHR) ->
-	console.debug 'ajaxError()'
 	ajaxActive = false
 
 # Initializes the result pane, creates it if needed.
 initResultPane = ->
-	console.debug 'initResultPane()'
 	if $('#search_result_pane').length == 0
 		$('#search').append('<div id="search_result_pane"></div>')
 		$('#search_result_pane').slideUp(0)
@@ -135,21 +118,16 @@ initResultPane = ->
 # Hides the result pane. When the animation is done, the ``animationDone()``
 # will be called.
 hideResultPane = ->
-	console.debug 'hideResultPane()'
 	if $('#search_result_pane').length > 0
 		animationActive = true
 		$('#search_result_pane').slideUp(animationTime, animationDone)
 
 # Inserts the current data into the results pane and slides it down.
 updateResultPane = ->
-	console.debug('updateResultPane()')
-
 	if ajaxActive || animationActive
-		console.debug('updateResultPane(): Quitting since active.')
 		return
 
 	if currentData is null
-		console.debug('updateResultPane(): currentData is null')
 		return
 
 	initResultPane()
@@ -161,7 +139,6 @@ updateResultPane = ->
 
 # Called when the slide up animation is done.
 animationDone = ->
-	console.debug('animationDone()')
 	animationActive = false
 	updateResultPane()
 
@@ -170,7 +147,6 @@ animationDone = ->
 # @param data Data from database.
 # @return HTML string.
 formatResults = (data) ->
-	console.debug('formatResults()')
 	parts = []
 
 	for row in data
@@ -192,12 +168,10 @@ formatResults = (data) ->
 		parts.push('</li>')
 
 	result = '<ul>'+parts.join('')+'</ul>'
-	console.debug(result)
 	return result
 
 # Deletes the cached data and hides the result pane.
 exitSearch = ->
-	console.debug('exitSearch()')
 	currentData = null
 	hideResultPane()
 
@@ -205,7 +179,6 @@ exitSearch = ->
 #
 # @param e Key event.
 keyDown = (e) ->
-	console.debug('keyDown()')
 	switch e.keyCode
 		when 38
 			moveUp()
@@ -216,21 +189,17 @@ keyDown = (e) ->
 
 # Moves the selection up one step.
 moveUp = ->
-	console.debug('moveUp()')
 	moveSelection(-1)
 
 # Moves the selection down one step.
 moveDown = ->
-	console.debug('moveDown()')
 	moveSelection(1)
 
 # Moves the selection the given steps.
 #
 # @param steps Positive or negative step number.
 moveSelection = (steps) ->
-	console.debug('moveSelection()')
 	entries = $('li.search_entry')
-	console.debug(entries)
 	entryCount = entries.length
 	newSelection = currentSelection + steps
 	if 0 <= newSelection < entryCount
@@ -240,13 +209,10 @@ moveSelection = (steps) ->
 
 # Points the browser to the currently selected URL.
 visitSelected = ->
-	console.debug('visitSelected()')
 	entries = $('li.search_entry')
 	entry = $(entries[currentSelection])
 	titleLink = entry.children('a.title')
-	console.debug('visitSelected(): titleLink '+titleLink)
 	url = titleLink.attr('href')
-	console.debug('visitSelected(): Going to '+url)
 	# TODO Make sure the referrer is not sent.
 	window.location = url
 
