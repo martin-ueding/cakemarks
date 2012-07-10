@@ -34,12 +34,12 @@ lastAjax = 0
 lastChange = 0
 
 # Initializes the search.
-searchMain = () ->
+searchMain = ->
 	showField()
 	attachListener()
 
 # Checks whether there is an AJAX request pending.
-isAjaxActive = () ->
+isAjaxActive = ->
 	console.debug "isAjaxActive()"
 	now = new Date().getTime()
 	if now - lastAjax > ajaxTimeout
@@ -51,13 +51,13 @@ isAjaxActive = () ->
 		ajaxActive
 
 # Inserts the search field into the DOM and focuses it.
-showField = () ->
+showField = ->
 	console.debug 'showField()'
 	$('#navigation').after '<div id="search"><input id="search_input" type="text" /></div>'
 	$('#search_input').focus()
 
 # Attaches the listeners to the search input field.
-attachListener = () ->
+attachListener = ->
 	console.debug 'attachListener()'
 	$('#search_input').keyup formChanged
 	$('#search_input').keydown keyDown
@@ -66,7 +66,7 @@ attachListener = () ->
 #
 # It does not necessarily fire off an AJAX request if the last one was just a
 # little time ago.
-formChanged = () ->
+formChanged = ->
 	console.debug 'formChanged()'
 	newQuery = $(this).val()
 
@@ -80,7 +80,7 @@ formChanged = () ->
 
 # Checks whether another AJAX request can be performed. Otherwise this
 # function will wait and call itself again.
-waitToQuery = () ->
+waitToQuery = ->
 	console.debug 'waitToQuery()'
 
 	if isAjaxActive()
@@ -100,7 +100,7 @@ waitToQuery = () ->
 		setTimeout waitToQuery, toWait
 
 # Performs the actual AJAX request and queries the database.
-performQuery = () ->
+performQuery = ->
 	console.debug 'perfomQuery()'
 	ajaxActive = true
 	lastAjax = new Date().getTime()
@@ -126,7 +126,7 @@ ajaxError = (data, textStatus, jqXHR) ->
 	ajaxActive = false
 
 # Initializes the result pane, creates it if needed.
-initResultPane = () ->
+initResultPane = ->
 	console.debug 'initResultPane()'
 	if $('#search_result_pane').length == 0
 		$('#search').append('<div id="search_result_pane"></div>')
@@ -134,14 +134,14 @@ initResultPane = () ->
 
 # Hides the result pane. When the animation is done, the ``animationDone()``
 # will be called.
-hideResultPane = () ->
+hideResultPane = ->
 	console.debug 'hideResultPane()'
 	if $('#search_result_pane').length > 0
 		animationActive = true
 		$('#search_result_pane').slideUp(animationTime, animationDone)
 
 # Inserts the current data into the results pane and slides it down.
-updateResultPane = () ->
+updateResultPane = ->
 	console.debug('updateResultPane()')
 
 	if ajaxActive || animationActive
@@ -160,7 +160,7 @@ updateResultPane = () ->
 	searchResultPane.slideDown animationTime
 
 # Called when the slide up animation is done.
-animationDone = () ->
+animationDone = ->
 	console.debug('animationDone()')
 	animationActive = false
 	updateResultPane()
@@ -196,7 +196,7 @@ formatResults = (data) ->
 	return result
 
 # Deletes the cached data and hides the result pane.
-exitSearch = () ->
+exitSearch = ->
 	console.debug('exitSearch()')
 	currentData = null
 	hideResultPane()
@@ -215,12 +215,12 @@ keyDown = (e) ->
 			visitSelected()
 
 # Moves the selection up one step.
-moveUp = () ->
+moveUp = ->
 	console.debug('moveUp()')
 	moveSelection(-1)
 
 # Moves the selection down one step.
-moveDown = () ->
+moveDown = ->
 	console.debug('moveDown()')
 	moveSelection(1)
 
@@ -239,7 +239,7 @@ moveSelection = (steps) ->
 		currentSelection = newSelection
 
 # Points the browser to the currently selected URL.
-visitSelected = () ->
+visitSelected = ->
 	console.debug('visitSelected()')
 	entries = $('li.search_entry')
 	entry = $(entries[currentSelection])
