@@ -33,10 +33,12 @@ lastAjax = 0
 # Last change to the input field. Timestamp in ms.
 lastChange = 0
 
+# Initializes the search.
 searchMain = () ->
 	showField()
 	attachListener()
 
+# Checks whether there is an AJAX request pending.
 isAjaxActive = () ->
 	console.debug "isAjaxActive()"
 	now = new Date().getTime()
@@ -48,16 +50,22 @@ isAjaxActive = () ->
 		console.debug "isAjaxActive(): Returning variable."
 		ajaxActive
 
+# Inserts the search field into the DOM and focuses it.
 showField = () ->
 	console.debug 'showField()'
 	$('#navigation').after '<div id="search"><input id="search_input" type="text" /></div>'
 	$('#search_input').focus()
 
+# Attaches the listeners to the search input field.
 attachListener = () ->
 	console.debug 'attachListener()'
 	$('#search_input').keyup formChanged
 	$('#search_input').keydown keyDown
 
+# This is called whenever the input has changed.
+#
+# It does not necessarily fire off an AJAX request if the last one was just a
+# little time ago.
 formChanged = () ->
 	console.debug 'formChanged()'
 	newQuery = $(this).val()
@@ -70,6 +78,8 @@ formChanged = () ->
 	lastChange = new Date().getTime()
 	waitToQuery()
 
+# Checks whether another AJAX request can be performed. Otherwise this
+# function will wait and call itself again.
 waitToQuery = () ->
 	console.debug 'waitToQuery()'
 
