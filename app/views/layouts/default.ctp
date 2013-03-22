@@ -1,6 +1,7 @@
-<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 <!doctype html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 		<?php echo $this->Html->charset(); ?>
 		<?php echo $this->Html->css(Configure::read("UI.CSS")); ?>
 		<?php echo $this->Html->Script('http://code.jquery.com/jquery-1.7.1.min.js'); ?>
