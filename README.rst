@@ -1,4 +1,4 @@
-.. Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+.. Copyright © 2012-2013 Martin Ueding <dev@martin-ueding.de>
 .. Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 #########
@@ -21,29 +21,14 @@ this is just a webpage, this problem does not arrive. The integration in your
 browser is not as close, but this enables cakemarks to work with virtually
 every browser.
 
-Installation
-============
-
-Download the `CakePHP 1.3.11
-<https://github.com/cakephp/cakephp/zipball/1.3.11>`_ and extract it. Then
-place this into the ``app/`` directory, replacing all the files that came with
-CakePHP in this folder.
-
 Requirements
 ============
 
--  CakePHP 1.3.11
--  Webspace
--  PHP
 -  MySQL
+-  PHP
+-  Webspace
 
 License
 =======
 
-cakemarks currently has no license. I have yet to decide between BSD-3-clause,
-GPL and Affero GPL.
-
-Written By
-==========
-
-Martin Ueding dev@martin-ueding.de
+Licensed under MIT license, just like CakePHP itself.
