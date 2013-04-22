@@ -6,6 +6,7 @@
 		<?php echo $this->Html->css(Configure::read("UI.CSS")); ?>
 		<?php echo $this->Html->Script('http://code.jquery.com/jquery-1.7.1.min.js'); ?>
 		<title><?php echo $title_for_layout; ?></title>
+		<link rel="icon" href="favicon.png" type="image/png">
 	</head>
 	<body>
 		<div id="page">
