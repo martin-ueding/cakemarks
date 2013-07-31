@@ -1,4 +1,4 @@
-<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <?php echo $this->Html->script('search'); ?>
 
@@ -14,6 +14,11 @@
 	<?=$this->element('bookmarkbox',
 		array('title' => __("Reading List", true), 'bookmarks' => $reading_list))?>
 	<?php endif; ?>
+
+    <?php if (!empty($revisit) || !empty($reading_list)): ?>
+        <br clear="both" />
+	<?php endif; ?>
+
 	<?=$this->element('bookmarkbox',
 		array('title' => __("Most Visits", true), 'bookmarks' => $most_visits))?>
 	<?=$this->element('bookmarkbox',
