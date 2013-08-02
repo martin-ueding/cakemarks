@@ -1,4 +1,4 @@
-<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div id="actions">
 	<h2><?php __('Actions'); ?></h2>
@@ -20,6 +20,7 @@
 	<?php echo $this->Form->input('url', array("type" => "text")); ?>
 	<?php echo $this->Form->input('revisit'); ?>
 	<?php echo $this->Form->input('reading_list'); ?>
+	<?php echo $this->Form->input('mobile'); ?>
 	<?php echo $this->Form->input('Keyword',
 		array('multiple' => 'checkbox')); ?>
 	<?php echo $this->Form->input('Keyword.title',
