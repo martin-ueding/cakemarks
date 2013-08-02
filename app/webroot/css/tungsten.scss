@@ -207,6 +207,9 @@ table.bookmark_view {
 	#quote, #stats, #quickadd {
 		display: none;
 	}
+	.nomobile {
+		display: none;
+	}
 }
 
 /*****************************************************************************/

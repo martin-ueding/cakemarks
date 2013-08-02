@@ -1,4 +1,4 @@
-<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div id="navigation">
 	<h2><?php __('Navigation'); ?></h2>
@@ -10,19 +10,19 @@
 			array('controller' => 'bookmarks', 'action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Bookmarks', true),
 			array('controller' => 'bookmarks', 'action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Quotes', true),
+		<li class="nomobile"><?php echo $this->Html->link(__('List Quotes', true),
 			array('controller' => 'quotes', 'action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Report a Bug', true),
+		<li class="nomobile"><?php echo $this->Html->link(__('Report a Bug', true),
 			"https://github.com/martin-ueding/cakemarks/issues/new",
 			array("class" => "external")); ?></li>
 		<li><?php echo $this->Html->link(__('Check Referrer', true),
 			array('controller' => 'pages', 'action' => 'referrer'),
 			array('rel' => 'noreferrer')); ?></li>
-		<li><?php echo $this->Html->link(__('Bookmarklet', true),
+		<li class="nomobile"><?php echo $this->Html->link(__('Bookmarklet', true),
 			array('controller' => 'pages', 'action' => 'bookmarklet')); ?></li>
-		<li><?php echo $this->Html->link(__('Import Bookmarks', true),
+		<li class="nomobile"><?php echo $this->Html->link(__('Import Bookmarks', true),
 			array('controller' => 'bookmarks', 'action' => 'import')); ?></li>
-		<li><?php echo $this->Html->link(__('Export Bookmarks', true),
+		<li class="nomobile"><?php echo $this->Html->link(__('Export Bookmarks', true),
 			array('controller' => 'bookmarks', 'action' => 'export')); ?></li>
 	</ul>
 </div>
