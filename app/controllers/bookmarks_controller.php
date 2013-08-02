@@ -1,5 +1,5 @@
 <?php
-# Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de>
+# Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de>
 # Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 class BookmarksController extends AppController {
@@ -130,6 +130,8 @@ class BookmarksController extends AppController {
 		$limit = Configure::read("UI.Startscreen.BoxLength");
 
 		$this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
+
+		$this->set('mobile', $this->Bookmark->find('all', array('conditions' => array('Bookmark.mobile' => 1))));
 
 		$this->set('most_visits', $this->Bookmark->find('all', array(
 			'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'count(Bookmark.id)'),
