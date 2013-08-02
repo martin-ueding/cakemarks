@@ -1,9 +1,17 @@
 <?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
+<?php if (!empty($mobile)): ?>
+<div id="mobile">
+	<?=$this->element('bookmarkbox',
+		array('title' => __("Mobile Bookmarks", true), 'bookmarks' => $mobile))?>
+</div>
+<?php endif; ?>
+
 <?php echo $this->Html->script('search'); ?>
 
 <div id="content">
 	<h2><?php __('Startscreen'); ?></h2>
+
 
 	<?php if (!empty($revisit)): ?>
 	<?=$this->element('bookmarkbox',
