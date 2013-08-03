@@ -1,4 +1,4 @@
-<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div id="actions">
 	<h2><?php __('Actions'); ?></h2>
@@ -38,6 +38,11 @@
 		<?php if ($bookmark['Bookmark']['reading_list']): ?>
 			<dt><?php __('Reading List'); ?></dt>
 			<dd><?php __('This is on your reading list.'); ?></dd>
+		<?php endif; ?>
+
+		<?php if ($bookmark['Bookmark']['mobile']): ?>
+			<dt><?php __('Mobile'); ?></dt>
+			<dd><?php __('This is a mobile bookmark.'); ?></dd>
 		<?php endif; ?>
 
 		<?php if (!empty($bookmark['Keyword'])): ?>
