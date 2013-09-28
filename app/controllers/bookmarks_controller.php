@@ -19,7 +19,7 @@ class BookmarksController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid bookmark', true));
+			$this->Session->setFlash(__('Invalid bookmark'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$data = $this->Bookmark->read(null, $id);
@@ -37,29 +37,29 @@ class BookmarksController extends AppController {
 	}
 
 	function add($url = null) {
-		if (!empty($this->data)) {
+		if (!empty($this->request->data)) {
 			$this->Bookmark->create();
 
 			// add page title if missing
-			if (empty($this->data['Bookmark']['title']) && !empty($this->data['Bookmark']['url'])) {
-				$this->data['Bookmark']['title'] = $this->_get_page_title($this->data['Bookmark']['url']);
+			if (empty($this->request->data['Bookmark']['title']) && !empty($this->request->data['Bookmark']['url'])) {
+				$this->request->data['Bookmark']['title'] = $this->_get_page_title($this->request->data['Bookmark']['url']);
 			}
 
-			if ($this->Bookmark->save($this->data)) {
-				if (!empty($this->data['Keyword']['title'])) {
-					$this->data['Bookmark']['id'] = $this->Bookmark->id;
-					$this->Keyword->save($this->data);
+			if ($this->Bookmark->save($this->request->data)) {
+				if (!empty($this->request->data['Keyword']['title'])) {
+					$this->request->data['Bookmark']['id'] = $this->Bookmark->id;
+					$this->Keyword->save($this->request->data);
 				}
 
-				$this->Session->setFlash(__('The bookmark has been saved', true));
+				$this->Session->setFlash(__('The bookmark has been saved'));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
 			}
 			else {
-				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.'));
 			}
 		}
 		if ($url != null) {
-			$this->data['Bookmark']['url'] = $this->_decode_url($url);
+			$this->request->data['Bookmark']['url'] = $this->_decode_url($url);
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
@@ -91,23 +91,23 @@ class BookmarksController extends AppController {
 	}
 
 	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid bookmark', true));
+		if (!$id && empty($this->request->data)) {
+			$this->Session->setFlash(__('Invalid bookmark'));
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data)) {
-			if ($this->Bookmark->save($this->data) &&
-				(empty($this->data['Keyword']['title']) || $this->Keyword->save($this->data))
+		if (!empty($this->request->data)) {
+			if ($this->Bookmark->save($this->request->data) &&
+				(empty($this->request->data['Keyword']['title']) || $this->Keyword->save($this->request->data))
 			) {
-				$this->Session->setFlash(__('The bookmark has been saved', true));
+				$this->Session->setFlash(__('The bookmark has been saved'));
 				$this->redirect(array('action' => 'view', $this->Bookmark->id));
 			}
 			else {
-				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The bookmark could not be saved. Please, try again.'));
 			}
 		}
-		if (empty($this->data)) {
-			$this->data = $this->Bookmark->read(null, $id);
+		if (empty($this->request->data)) {
+			$this->request->data = $this->Bookmark->read(null, $id);
 		}
 		$keywords = $this->Bookmark->Keyword->find('list', array('order' => 'Keyword.title'));
 		$this->set(compact('keywords'));
@@ -115,14 +115,14 @@ class BookmarksController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for bookmark', true));
+			$this->Session->setFlash(__('Invalid id for bookmark'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Bookmark->delete($id)) {
-			$this->Session->setFlash(__('Bookmark deleted', true));
+			$this->Session->setFlash(__('Bookmark deleted'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Bookmark was not deleted', true));
+		$this->Session->setFlash(__('Bookmark was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
 
@@ -259,8 +259,8 @@ class BookmarksController extends AppController {
 		$this->import_result['existing_bookmarks'] = 0;
 		$this->import_result['existing_keywords'] = 0;
 
-		if (isset($this->data['Bookmark']['json'])) {
-			$this->_import(json_decode($this->data['Bookmark']['json'], true));
+		if (isset($this->request->data['Bookmark']['json'])) {
+			$this->_import(json_decode($this->request->data['Bookmark']['json'], true));
 			$this->set('show_results', true);
 		}
 		else {

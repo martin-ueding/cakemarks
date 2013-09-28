@@ -3,7 +3,7 @@
 <?php $quote = $this->requestAction(array('controller' => 'quotes', 'action' => 'random')); ?>
 
 <div id="quote">
-	<h2><?php __('Quote'); ?></h2>
+	<h2><?php echo __('Quote'); ?></h2>
 	<p>
 	<?php echo $quote['Quote']['text']; ?>
 	<?php if (!empty($quote['Quote']['author'])): ?>

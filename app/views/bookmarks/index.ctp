@@ -1,7 +1,7 @@
 <?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div id="content" id="bookmark_view">
-	<h2><?php __('All Bookmarks');?></h2>
+	<h2><?php echo __('All Bookmarks');?></h2>
 	<table>
 	<tr>
 		<th><?php echo $this->Paginator->sort('title'); ?></th>
@@ -10,7 +10,7 @@
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
 		<th><?php echo $this->Paginator->sort('revisit'); ?></th>
 		<th><?php echo $this->Paginator->sort('reading_list'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
+		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php foreach ($bookmarks as $bookmark): ?>
 	<tr>
@@ -21,13 +21,13 @@
 		<td><?php echo $bookmark['Bookmark']['revisit']; ?></td>
 		<td><?php echo $bookmark['Bookmark']['reading_list']; ?></td>
 		<td class="actions"><nobr>
-			<?php echo $this->Html->link(__('View', true),
+			<?php echo $this->Html->link(__('View'),
 				array('action' => 'view', $bookmark['Bookmark']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true),
+			<?php echo $this->Html->link(__('Edit'),
 				array('action' => 'edit', $bookmark['Bookmark']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true),
+			<?php echo $this->Html->link(__('Delete'),
 				array('action' => 'delete', $bookmark['Bookmark']['id']), null,
-				sprintf(__('Are you sure you want to delete # %s?', true),
+				sprintf(__('Are you sure you want to delete # %s?'),
 				$bookmark['Bookmark']['id'])); ?>
 		</nobr></td>
 	</tr>
@@ -36,14 +36,14 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
+	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%')
 	));
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+		<?php echo $this->Paginator->prev('<< ' . __('previous'), array(), null, array('class'=>'disabled'));?>
 	 | 	<?php echo $this->Paginator->numbers();?>
  |
-		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+		<?php echo $this->Paginator->next(__('next') . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>

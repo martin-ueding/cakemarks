@@ -23,16 +23,16 @@
 			<?php echo $this->element('quote'); ?>
 
 			<div id="keyword_tree">
-				<h2><?php __('Keywords'); ?></h2>
+				<h2><?php echo __('Keywords'); ?></h2>
 				<?php echo $this->element('keyword_tree',
 					array('show_edit' => false)); ?>
 			</div>
 
 
 			<?php echo $this->element('sticky_keywords'); ?>
-			<?php if ($this->params['controller'] != 'bookmarks'
-				|| ($this->params['action'] != 'add'
-				&& $this->params['action'] != 'edit')) {
+			<?php if ($this->request->params['controller'] != 'bookmarks'
+				|| ($this->request->params['action'] != 'add'
+				&& $this->request->params['action'] != 'edit')) {
 				echo $this->element('quickadd');
 			}
 			?>

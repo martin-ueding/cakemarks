@@ -3,23 +3,23 @@
 <?php echo $this->Html->script('search'); ?>
 
 <div id="content">
-	<h2><?php __('Startscreen'); ?></h2>
+	<h2><?php echo __('Startscreen'); ?></h2>
 
 	<?php if (!empty($mobile)): ?>
 	<div id="mobile">
 		<?=$this->element('bookmarkbox',
-			array('title' => __("Mobile Bookmarks", true), 'bookmarks' => $mobile))?>
+			array('title' => __("Mobile Bookmarks"), 'bookmarks' => $mobile))?>
 	</div>
 	<?php endif; ?>
 
 	<?php if (!empty($revisit)): ?>
 	<?=$this->element('bookmarkbox',
-		array('title' => __("Revisit", true), 'bookmarks' => $revisit))?>
+		array('title' => __("Revisit"), 'bookmarks' => $revisit))?>
 	<?php endif; ?>
 
 	<?php if (!empty($reading_list)): ?>
 	<?=$this->element('bookmarkbox',
-		array('title' => __("Reading List", true), 'bookmarks' => $reading_list))?>
+		array('title' => __("Reading List"), 'bookmarks' => $reading_list))?>
 	<?php endif; ?>
 
     <?php if (!empty($revisit) || !empty($reading_list)): ?>
@@ -27,10 +27,10 @@
 	<?php endif; ?>
 
 	<?=$this->element('bookmarkbox',
-		array('title' => __("Most Visits", true), 'bookmarks' => $most_visits))?>
+		array('title' => __("Most Visits"), 'bookmarks' => $most_visits))?>
 	<?=$this->element('bookmarkbox',
-		array('title' => __("Recently Visited", true),
+		array('title' => __("Recently Visited"),
 		'bookmarks' => $recently_visited))?>
 	<?=$this->element('bookmarkbox',
-		array('title' => __("Newest", true), 'bookmarks' => $newest))?>
+		array('title' => __("Newest"), 'bookmarks' => $newest))?>
 </div>

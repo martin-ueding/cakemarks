@@ -15,7 +15,7 @@ class BookmarkHelper extends AppHelper {
 		echo '</td>';
 
 		echo '<td>';
-		echo $this->Html->link(__('View', true),
+		echo $this->Html->link(__('View'),
 			array('controller' => 'bookmarks', 'action' => 'view', $bookmark['id']),
 			array('class' => 'edit_option'));
 		echo '</td>';

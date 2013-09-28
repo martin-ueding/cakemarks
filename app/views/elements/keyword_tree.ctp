@@ -12,9 +12,9 @@ if (!function_exists('traverse_tree')) {
 
 			if ($show_edit) {
 				echo ' &nbsp; ';
-				echo $that->Html->link(__('Edit', true), array('action' => 'edit', $node['Keyword']['id']));
+				echo $that->Html->link(__('Edit'), array('action' => 'edit', $node['Keyword']['id']));
 				echo ' ';
-				echo $that->Html->link(__('Delete', true), array('action' => 'delete', $node['Keyword']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $node['Keyword']['id']));
+				echo $that->Html->link(__('Delete'), array('action' => 'delete', $node['Keyword']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $node['Keyword']['id']));
 			}
 
 			if (!empty($node['children'])) {
