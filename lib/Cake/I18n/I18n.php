@@ -161,7 +161,7 @@ class I18n {
 			$_this->_lang = $lang;
 		}
 
-		if (is_null($domain)) {
+		if ($domain === null) {
 			$domain = self::$defaultDomain;
 		}
 		if ($domain === '') {
@@ -326,7 +326,7 @@ class I18n {
 				if (is_file($localeDef)) {
 					$definitions = self::loadLocaleDefinition($localeDef);
 					if ($definitions !== false) {
-						$this->_domains[$domain][$this->_lang][$this->category] = self::loadLocaleDefinition($localeDef);
+						$this->_domains[$domain][$this->_lang][$this->category] = $definitions;
 						$this->_noLocale = false;
 						return $domain;
 					}
@@ -549,11 +549,11 @@ class I18n {
 				continue;
 			}
 			$count = count($parts);
-			if ($count == 2) {
+			if ($count === 2) {
 				$currentToken = $parts[0];
 				$value = $parts[1];
-			} elseif ($count == 1) {
-				$value .= $parts[0];
+			} elseif ($count === 1) {
+				$value = is_array($value) ? $parts[0] : $value . $parts[0];
 			} else {
 				continue;
 			}
@@ -575,7 +575,7 @@ class I18n {
 				$val = str_replace($replacements, $mustEscape, $val);
 				$value[$i] = $val;
 			}
-			if (count($value) == 1) {
+			if (count($value) === 1) {
 				$definitions[$currentToken] = array_pop($value);
 			} else {
 				$definitions[$currentToken] = $value;
