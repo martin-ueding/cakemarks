@@ -1,1 +1,5 @@
 cake/libs/cache/
+.sass-cache
+tmp/
+app/webroot/cache
+app/webroot/css/tungsten.css

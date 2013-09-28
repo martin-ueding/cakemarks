@@ -1,8 +1,0 @@
-*.eml
-.sass-cache
-_dev-doc
-config/database.php
-tmp/
-webroot/.htaccess
-webroot/cache
-webroot/css/tungsten.css
