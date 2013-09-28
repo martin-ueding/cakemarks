@@ -7,7 +7,7 @@ class KeywordsController extends AppController {
 	var $helpers = array('Bookmark');
 
 	function tree() {
-		$keyword_tree = $this->Keyword->find('threaded', array('order' => 'Keyword.title'));
+		$keyword_tree = $this->Keyword->find('all', array('order' => 'Keyword.title'));
 		if (!empty($this->request->params['requested'])) {
 			return $keyword_tree;
 		}
