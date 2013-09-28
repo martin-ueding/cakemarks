@@ -84,7 +84,7 @@ class DATABASE_CONFIG {
 	);
 
 	var $default = array(
-		'driver' => 'mysql',
+		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
