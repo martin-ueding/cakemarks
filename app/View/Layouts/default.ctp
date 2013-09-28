@@ -3,7 +3,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 		<?php echo $this->Html->charset(); ?>
-		<?php echo $this->Html->css(Configure::read("UI.CSS")); ?>
+		<?php echo $this->Html->css("tungsten"); ?>
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.7.1.min.js"></script>
 		<title><?php echo $title_for_layout; ?></title>
 		<link rel="icon" href="favicon.png" type="image/png">
