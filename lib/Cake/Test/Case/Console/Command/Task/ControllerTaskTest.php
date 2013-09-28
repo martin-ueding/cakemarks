@@ -5,16 +5,17 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Console.Command.Task
  * @since         CakePHP(tm) v 1.3
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ConsoleOutput', 'Console');
@@ -39,9 +40,10 @@ $imported = class_exists('BakeArticle') || class_exists('BakeComment') || class_
 if (!$imported) {
 	define('ARTICLE_MODEL_CREATED', true);
 
+/**
+ * Class BakeArticle
+ */
 	class BakeArticle extends Model {
-
-		public $name = 'BakeArticle';
 
 		public $hasMany = array('BakeComment');
 
@@ -195,9 +197,9 @@ class ControllerTaskTest extends CakeTestCase {
  */
 	public function testDoHelpersTrailingSpace() {
 		$this->Task->expects($this->at(0))->method('in')->will($this->returnValue('y'));
-		$this->Task->expects($this->at(1))->method('in')->will($this->returnValue(' Javascript, Ajax, CustomOne  '));
+		$this->Task->expects($this->at(1))->method('in')->will($this->returnValue(' Text, Number, CustomOne  '));
 		$result = $this->Task->doHelpers();
-		$expected = array('Javascript', 'Ajax', 'CustomOne');
+		$expected = array('Text', 'Number', 'CustomOne');
 		$this->assertEquals($expected, $result);
 	}
 
@@ -208,9 +210,9 @@ class ControllerTaskTest extends CakeTestCase {
  */
 	public function testDoHelpersTrailingCommas() {
 		$this->Task->expects($this->at(0))->method('in')->will($this->returnValue('y'));
-		$this->Task->expects($this->at(1))->method('in')->will($this->returnValue(' Javascript, Ajax, CustomOne, , '));
+		$this->Task->expects($this->at(1))->method('in')->will($this->returnValue(' Text, Number, CustomOne, , '));
 		$result = $this->Task->doHelpers();
-		$expected = array('Javascript', 'Ajax', 'CustomOne');
+		$expected = array('Text', 'Number', 'CustomOne');
 		$this->assertEquals($expected, $result);
 	}
 
@@ -222,7 +224,7 @@ class ControllerTaskTest extends CakeTestCase {
 	public function testDoComponentsNo() {
 		$this->Task->expects($this->any())->method('in')->will($this->returnValue('n'));
 		$result = $this->Task->doComponents();
-		$this->assertSame(array(), $result);
+		$this->assertSame(array('Paginator'), $result);
 	}
 
 /**
@@ -235,7 +237,7 @@ class ControllerTaskTest extends CakeTestCase {
 		$this->Task->expects($this->at(1))->method('in')->will($this->returnValue(' RequestHandler, Security  '));
 
 		$result = $this->Task->doComponents();
-		$expected = array('RequestHandler', 'Security');
+		$expected = array('Paginator', 'RequestHandler', 'Security');
 		$this->assertEquals($expected, $result);
 	}
 
@@ -249,7 +251,7 @@ class ControllerTaskTest extends CakeTestCase {
 		$this->Task->expects($this->at(1))->method('in')->will($this->returnValue(' RequestHandler, Security, , '));
 
 		$result = $this->Task->doComponents();
-		$expected = array('RequestHandler', 'Security');
+		$expected = array('Paginator', 'RequestHandler', 'Security');
 		$this->assertEquals($expected, $result);
 	}
 
@@ -261,11 +263,11 @@ class ControllerTaskTest extends CakeTestCase {
 	public function testConfirmController() {
 		$controller = 'Posts';
 		$scaffold = false;
-		$helpers = array('Ajax', 'Time');
+		$helpers = array('Js', 'Time');
 		$components = array('Acl', 'Auth');
 
 		$this->Task->expects($this->at(4))->method('out')->with("Controller Name:\n\t$controller");
-		$this->Task->expects($this->at(5))->method('out')->with("Helpers:\n\tAjax, Time");
+		$this->Task->expects($this->at(5))->method('out')->with("Helpers:\n\tJs, Time");
 		$this->Task->expects($this->at(6))->method('out')->with("Components:\n\tAcl, Auth");
 		$this->Task->confirmController($controller, $scaffold, $helpers, $components);
 	}
@@ -276,7 +278,7 @@ class ControllerTaskTest extends CakeTestCase {
  * @return void
  */
 	public function testBake() {
-		$helpers = array('Ajax', 'Time');
+		$helpers = array('Js', 'Time');
 		$components = array('Acl', 'Auth');
 		$this->Task->expects($this->any())->method('createFile')->will($this->returnValue(true));
 
@@ -284,9 +286,10 @@ class ControllerTaskTest extends CakeTestCase {
 		$this->assertContains(' * @property Article $Article', $result);
 		$this->assertContains(' * @property AclComponent $Acl', $result);
 		$this->assertContains(' * @property AuthComponent $Auth', $result);
+		$this->assertContains(' * @property PaginatorComponent $Paginator', $result);
 		$this->assertContains('class ArticlesController extends AppController', $result);
-		$this->assertContains("public \$components = array('Acl', 'Auth')", $result);
-		$this->assertContains("public \$helpers = array('Ajax', 'Time')", $result);
+		$this->assertContains("public \$components = array('Acl', 'Auth', 'Paginator')", $result);
+		$this->assertContains("public \$helpers = array('Js', 'Time')", $result);
 		$this->assertContains("--actions--", $result);
 
 		$result = $this->Task->bake('Articles', 'scaffold', $helpers, $components);
@@ -298,8 +301,8 @@ class ControllerTaskTest extends CakeTestCase {
 
 		$result = $this->Task->bake('Articles', '--actions--', array(), array());
 		$this->assertContains('class ArticlesController extends AppController', $result);
-		$this->assertSame(substr_count($result, '@property'), 1);
-		$this->assertNotContains('components', $result);
+		$this->assertSame(substr_count($result, '@property'), 2);
+		$this->assertContains("public \$components = array('Paginator')", $result);
 		$this->assertNotContains('helpers', $result);
 		$this->assertContains('--actions--', $result);
 	}
@@ -344,16 +347,16 @@ class ControllerTaskTest extends CakeTestCase {
  * @return void
  */
 	public function testBakeActionsUsingSessions() {
-
 		$result = $this->Task->bakeActions('BakeArticles', null, true);
 
 		$this->assertContains('function index() {', $result);
 		$this->assertContains('$this->BakeArticle->recursive = 0;', $result);
-		$this->assertContains("\$this->set('bakeArticles', \$this->paginate());", $result);
+		$this->assertContains("\$this->set('bakeArticles', \$this->Paginator->paginate());", $result);
 
 		$this->assertContains('function view($id = null)', $result);
 		$this->assertContains("throw new NotFoundException(__('Invalid bake article'));", $result);
-		$this->assertContains("\$this->set('bakeArticle', \$this->BakeArticle->read(null, \$id)", $result);
+		$this->assertContains("\$options = array('conditions' => array('BakeArticle.' . \$this->BakeArticle->primaryKey => \$id));", $result);
+		$this->assertContains("\$this->set('bakeArticle', \$this->BakeArticle->find('first', \$options));", $result);
 
 		$this->assertContains('function add()', $result);
 		$this->assertContains("if (\$this->request->is('post'))", $result);
@@ -382,16 +385,15 @@ class ControllerTaskTest extends CakeTestCase {
  * @return void
  */
 	public function testBakeActionsWithNoSessions() {
-
 		$result = $this->Task->bakeActions('BakeArticles', null, false);
 
 		$this->assertContains('function index() {', $result);
 		$this->assertContains('$this->BakeArticle->recursive = 0;', $result);
-		$this->assertContains("\$this->set('bakeArticles', \$this->paginate());", $result);
+		$this->assertContains("\$this->set('bakeArticles', \$this->Paginator->paginate());", $result);
 
 		$this->assertContains('function view($id = null)', $result);
 		$this->assertContains("throw new NotFoundException(__('Invalid bake article'));", $result);
-		$this->assertContains("\$this->set('bakeArticle', \$this->BakeArticle->read(null, \$id)", $result);
+		$this->assertContains("\$this->set('bakeArticle', \$this->BakeArticle->find('first', \$options));", $result);
 
 		$this->assertContains('function add()', $result);
 		$this->assertContains("if (\$this->request->is('post'))", $result);
@@ -404,6 +406,7 @@ class ControllerTaskTest extends CakeTestCase {
 		$this->assertContains("\$this->set(compact('bakeTags'))", $result);
 
 		$this->assertContains('function delete($id = null)', $result);
+		$this->assertContains("\$this->request->onlyAllow('post', 'delete')", $result);
 		$this->assertContains('if ($this->BakeArticle->delete())', $result);
 		$this->assertContains("\$this->flash(__('Bake article deleted'), array('action' => 'index'))", $result);
 	}
