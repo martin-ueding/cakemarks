@@ -218,6 +218,19 @@ div.input.error {
     margin: 2px 0px;
 }
 
+div.input {
+    &.text, &.number {
+        label {
+            display: block;
+            font-weight: bold;
+        }
+    }
+}
+
+div.submit {
+    margin-top: 5px;
+}
+
 /*****************************************************************************/
 /*                                Smartphone                                 */
 /*****************************************************************************/
