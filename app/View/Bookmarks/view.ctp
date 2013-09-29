@@ -20,6 +20,8 @@
     <dl>
         <dt><?php echo __('Title'); ?></dt>
         <dd><?php echo $bookmark['Bookmark']['title']; ?></dd>
+        <dt><?php echo __('Favicon'); ?></dt>
+        <dd><?php echo $favicon; ?></dd>
 
         <dt><?php echo __('URL'); ?></dt>
         <dd><?php echo $this->Html->link($bookmark['Bookmark']['url'],
