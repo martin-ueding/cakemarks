@@ -6,7 +6,7 @@ class BookmarksController extends AppController {
     public $name = 'Bookmarks';
     public $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
     public $helpers = array('Time', 'Bookmark');
-    public $components = array('Paginator');
+    public $components = array('Pagetitle', 'Paginator');
 
     /**
      * Lists all bookmarks.
@@ -43,7 +43,7 @@ class BookmarksController extends AppController {
 
             // add page title if missing
             if (empty($this->request->data['Bookmark']['title']) && !empty($this->request->data['Bookmark']['url'])) {
-                $this->request->data['Bookmark']['title'] = $this->get_page_title($this->request->data['Bookmark']['url']);
+                $this->request->data['Bookmark']['title'] = $this->Pagetitle->get_page_title($this->request->data['Bookmark']['url']);
             }
 
             if ($this->Bookmark->save($this->request->data)) {
@@ -73,22 +73,6 @@ class BookmarksController extends AppController {
         $url = str_replace("__ques__", "?", $url);
         $url = str_replace("__amp__", "&", $url);
         return $url;
-    }
-
-    private function get_page_title($url) {
-        // append the http in case it is missing
-        if (substr($url, 0, 4) != 'http') {
-            $url = 'http://'.$url;
-        }
-
-        $data = @file_get_contents($url);
-
-        preg_match('/<title>(.*?)<\/title>/', $data, $matches);
-        if (isset($matches[1])) {
-            $titel = $matches[1];
-            return $titel;
-        }
-        return __('NO TITLE');
     }
 
     public function edit($id = null) {
