@@ -297,17 +297,10 @@ class BookmarksController extends AppController {
             $conditions[] = array('Bookmark.title LIKE' => '%'.$word.'%');
         }
         $data = $this->Bookmark->find('all', array(
-            'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'count(Bookmark.id)'),
+            'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'Bookmark.visits'),
             'conditions' => $conditions,
             'limit' => Configure::read('search.items'),
-            'group' => 'cakemarks_visits.bookmark_id',
-            'joins' => array(
-                array(
-                    'table' => 'cakemarks_visits',
-                    'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id')
-                )
-            ),
-            'order' => 'count(Bookmark.id) DESC',
+            'order' => 'Bookmark.visits DESC',
         ));
 
         $this->set("data", json_encode($data));
