@@ -22,5 +22,9 @@
     &bull;
 
     <?php echo __('PHP Version:').' '.phpversion(); ?>
+
+    &bull;
+
+    <?php echo __('CakePHP Version:').' '.Configure::version(); ?>
     <p>
 </div>
