@@ -313,5 +313,25 @@ class BookmarksController extends AppController {
             $this->set('bookmarks', $data);
         }
     }
+
+    public function downloadfavicons() {
+        $this->layout = 'ajax';
+        $data = $this->Bookmark->find('all', array(
+            'fields' => array('Bookmark.url'),
+            'order' => 'visits DESC',
+        ));
+
+        $downloaded = array();
+        
+        foreach ($data as $entry) {
+            $url = $entry['Bookmark']['url'];
+            $file = $this->Favicon->download_favicon($url);
+            if (!empty($file)) {
+                $downloaded[] = $file;
+            }
+        }
+
+        $this->set('data', json_encode($downloaded));
+    }
 }
 ?>
