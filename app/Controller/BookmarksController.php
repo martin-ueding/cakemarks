@@ -33,7 +33,7 @@ class BookmarksController extends AppController {
             $this->set('last_visit', $last_visit_formatted);
         }
         if ($data['Bookmark']['revisit'] > 0) {
-            $this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
+            $this->set('next_visit',  $last_visit_formatted+$data['Bookmark']['revisit']*3600);
         }
 
         $this->Favicon->download_favicon($data['Bookmark']['url']);
