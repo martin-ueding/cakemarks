@@ -12,9 +12,6 @@
 			array('controller' => 'bookmarks', 'action' => 'index')); ?></li>
 		<li class="nomobile"><?php echo $this->Html->link(__('List Quotes'),
 			array('controller' => 'quotes', 'action' => 'index')); ?></li>
-		<li class="nomobile"><?php echo $this->Html->link(__('Report a Bug'),
-			"https://github.com/martin-ueding/cakemarks/issues/new",
-			array("class" => "external")); ?></li>
 		<li><?php echo $this->Html->link(__('Check Referrer'),
 			array('controller' => 'pages', 'action' => 'referrer'),
 			array('rel' => 'noreferrer')); ?></li>
