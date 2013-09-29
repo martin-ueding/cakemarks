@@ -95,7 +95,7 @@ performQuery = ->
 		dataType: 'json',
 		success: querySuccess,
 		type: 'GET',
-		url: 'bookmarks/search/'+currentQuery,
+		url: 'bookmarks/ajaxsearch/'+currentQuery,
 	})
 
 # This is called when the AJAX request suceeds.
