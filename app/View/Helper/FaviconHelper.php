@@ -19,7 +19,7 @@ class FaviconHelper extends AppHelper {
         if (is_file($favicon_name)) {
             $mime = finfo_file($this->finfo, $favicon_name);
             $base64 = base64_encode(file_get_contents($favicon_name));
-            return '<img src="data:'.$mime.';base64,'.$base64.'" />';
+            return '<img height="16" width="16" src="data:'.$mime.';base64,'.$base64.'" />';
         }
         else {
             return '<img height="16" width="16" src="" />';

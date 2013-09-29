@@ -5,6 +5,7 @@
         <?php echo $this->Html->charset(); ?>
         <?php echo $this->Html->css("tungsten"); ?>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+        <?php echo $this->Html->script("favicon-download"); ?>
         <title><?php echo $title_for_layout; ?></title>
         <link rel="icon" href="favicon.png" type="image/png">
     </head>
