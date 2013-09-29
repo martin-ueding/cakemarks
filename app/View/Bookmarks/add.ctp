@@ -12,6 +12,6 @@
 	<?php echo $this->Form->input('Keyword',
 		array('multiple' => 'checkbox')); ?>
 	<?php echo $this->Form->input('Keyword.title',
-		array('label' => __('new keyword'))); ?>
+		array('label' => __('new keyword'), 'required' => false)); ?>
 	<?php echo $this->Form->end(__('Submit')); ?>
 </div>
