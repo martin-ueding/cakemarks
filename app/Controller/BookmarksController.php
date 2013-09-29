@@ -165,7 +165,7 @@ class BookmarksController extends AppController {
     }
 
     function visit($id) {
-        $to_visit = $this->Bookmark->find('first', array('conditions' => array('Bookmark.id' => $id)));
+        $to_visit = $this->Bookmark->findById($id);
 
         // Write a Visit to the DB
         $visit = array('Visit' => array('bookmark_id' => $id));
