@@ -148,8 +148,6 @@ class BookmarksController extends AppController {
 
         $this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
 
-
-
         $latest_query = '
             SELECT Bookmark.id, Bookmark.title, Bookmark.url, Visit.created
             FROM (
@@ -165,7 +163,7 @@ class BookmarksController extends AppController {
             ORDER BY Visit.created DESC
             LIMIT '.$limit;
 
-        //$this->set('recently_visited', $this->Bookmark->query($latest_query));
+        $this->set('recently_visited', $this->Bookmark->query($latest_query));
 
 
         $revisit_query = '
