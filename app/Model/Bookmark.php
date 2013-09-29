@@ -112,7 +112,7 @@ class Bookmark extends AppModel {
             ) Visit
             JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
             WHERE Visit.created IS NOT NULL
-            && Bookmark.revisit IS NOT NULL
+            && Bookmark.revisit > 0
             && ADDTIME(Visit.created, MAKETIME(Bookmark.revisit, 0, 0)) < now()
             ORDER BY Visit.created DESC
             LIMIT '.$this->limit;
