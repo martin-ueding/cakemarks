@@ -1,19 +1,27 @@
 // Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de>
 // Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
+@mixin column-count($count) {
+    -moz-column-count: $count;
+    -webkit-column-count: $count;
+    column-count: $count;
+}
+
+$checkbox_width: 150px;
+
 /*****************************************************************************/
 /*                                  Common                                   */
 /*****************************************************************************/
 
 *:not(input) {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 body {
-	background-color: #eee;
-	font-family: arial, sans-serif;
-	font-size: 13px;
-	line-height: 140%;
+    background-color: #eee;
+    font-family: arial, sans-serif;
+    font-size: 13px;
+    line-height: 140%;
 }
 
 /*****************************************************************************/
@@ -21,91 +29,91 @@ body {
 /*****************************************************************************/
 
 #flashMessage {
-	background-color: #444;
-	border-bottom: #aaa;
-	color: #fff;
-	padding: 2px 5px;
-	text-align: center;
+    background-color: #444;
+    border-bottom: #aaa;
+    color: #fff;
+    padding: 2px 5px;
+    text-align: center;
 }
 #navigation, #actions {
-	margin-bottom: 10px;
-	overflow: hidden;
-	h2 {
-		display: none;
-	}
-	li {
-		list-style: none;
-		background-color: none;
-		a {
-			border-radius: 5px;
-			color: hsl(0, 0, 20%);
-			display: block;
-			float: left;
-			margin: 2px;
-			padding: 2px 5px;
-			text-decoration: none;
-			&:hover {
-				background-color: hsl(0, 0, 70%);
-				color: hsl(0, 0, 20%);
-			}
-			&.external {
-				&:after {
-					content: ' …';
-				}
-			}
-		}
-	}
+    margin-bottom: 10px;
+    overflow: hidden;
+    h2 {
+        display: none;
+    }
+    li {
+        list-style: none;
+        background-color: none;
+        a {
+            border-radius: 5px;
+            color: hsl(0, 0, 20%);
+            display: block;
+            float: left;
+            margin: 2px;
+            padding: 2px 5px;
+            text-decoration: none;
+            &:hover {
+                background-color: hsl(0, 0, 70%);
+                color: hsl(0, 0, 20%);
+            }
+            &.external {
+                &:after {
+                    content: ' …';
+                }
+            }
+        }
+    }
 }
 #navigation {
-	a {
-		background-color: hsl(0, 0, 85%);
-	}
+    a {
+        background-color: hsl(0, 0, 85%);
+    }
 }
 #content, #quote, #keyword_tree, #sticky_keywords, #quickadd, #stats, #search {
-	background-color: #fff;
-	box-shadow: 5px 5px 10px #777;
-	margin-bottom: 20px;
-	padding: 10px 10px;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px #777;
+    margin-bottom: 20px;
+    padding: 10px 10px;
 }
 #logo {
-	display: none;
+    display: none;
 }
 #quote {
-	text-align: center;
-	h2 {
-		display: none;
-	}
-	p {
-		font-family: serif;
-		padding: 5px;
-	}
+    text-align: center;
+    h2 {
+        display: none;
+    }
+    p {
+        font-family: serif;
+        padding: 5px;
+    }
 }
 #keyword_tree {
-	text-overflow: ellipsis;
-	li {
-		list-style: none;
+    text-overflow: ellipsis;
+    li {
+        list-style: none;
 
-		li {
-			margin-left: 20px;
-		}
+        li {
+            margin-left: 20px;
+        }
 
-		a {
-			color: #000;
-			text-decoration: none;
+        a {
+            color: #000;
+            text-decoration: none;
 
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 #quickadd {
-	float: left;
-	max-width: 300px;
+    float: left;
+    max-width: 300px;
 }
 #stats {
-	float: left;
-	max-width: 400px;
+    float: left;
+    max-width: 400px;
 }
 
 /*****************************************************************************/
@@ -113,91 +121,91 @@ body {
 /*****************************************************************************/
 
 div.select {
-	label {
-		display: none;
-	}
-	margin: 10px 0px;
-	overflow: hidden;
-	div.checkbox {
-		float: left;
-		margin-right: 10px;
-		min-width: 150px;
-		label {
-			display: inline;
-		}
-		&:hover {
-			background-color: #eee;
-			border-radius: 5px;
-		}
-	}
+    label {
+        display: none;
+    }
+    margin: 10px 0px;
+    overflow: hidden;
+    @include column-count(5);
+    div.checkbox {
+        margin-right: 10px;
+        min-width: $checkbox_width;
+        label {
+            display: inline;
+        }
+        &:hover {
+            background-color: #eee;
+            border-radius: 5px;
+        }
+    }
 }
 dl {
-	dd {
-		margin-left: 15px;
-	}
+    dd {
+        margin-left: 15px;
+    }
 }
 div.bookmark_view {
-	li {
-		list-style: none;
-	}
+    li {
+        list-style: none;
+    }
 }
 a.bookmark_link {
-	color: hsl(0, 0, 0%);
-	text-decoration: none;
-	&:hover {
-		text-decoration: underline;
-	}
+    color: hsl(0, 0, 0%);
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 a.edit_option {
-	color: hsl(0, 0, 60%);
-	text-decoration: none;
-	&:hover {
-		color: hsl(0, 0, 20%);
-	}
+    color: hsl(0, 0, 60%);
+    text-decoration: none;
+    &:hover {
+        color: hsl(0, 0, 20%);
+    }
 }
 h2 {
-	margin-bottom: 4px;
-	padding-left: 1%;
+    margin-bottom: 4px;
+    padding-left: 1%;
 }
 h3 {
-	margin-bottom: 3px;
-	margin-top: 1px;
+    margin-bottom: 3px;
+    margin-top: 1px;
 }
 table {
-	border-collapse: collapse;
-	tr {
-		padding: 0;
-		margin: 0;
-		th {
-			a {
-				color: hsl(0, 0, 0%);
-			}
-		}
-		td {
-			border-bottom: 1px solid hsl(0, 0, 80%);
-		}
-		td, th {
-			padding: 2px 5px;
-		}
-		&:hover {
-			background-color: hsl(0, 0, 90%);
-		}
-	}
+    border-collapse: collapse;
+    tr {
+        padding: 0;
+        margin: 0;
+        th {
+            a {
+                color: hsl(0, 0, 0%);
+            }
+        }
+        td {
+            border-bottom: 1px solid hsl(0, 0, 80%);
+        }
+        td, th {
+            padding: 2px 5px;
+        }
+        &:hover {
+            background-color: hsl(0, 0, 90%);
+        }
+    }
 }
 table.bookmark_view {
-	tr {
-		padding: 0;
-		margin: 0;
-		td {
-			padding: 0px 4px;
-			margin: 0;
-			border-bottom: 0;
-		}
-	}
+    tr {
+        padding: 0;
+        margin: 0;
+        td {
+            padding: 0px 4px;
+            margin: 0;
+            border-bottom: 0;
+        }
+    }
 }
 .cake-debug {
-	background-color: white;
-	overflow: auto;
+    background-color: white;
+    overflow: auto;
 }
 
 div.error-message {
@@ -215,12 +223,12 @@ div.input.error {
 /*****************************************************************************/
 
 @media(max-width:480px) {
-	#quote, #stats, #quickadd {
-		display: none;
-	}
-	.nomobile {
-		display: none;
-	}
+    #quote, #stats, #quickadd {
+        display: none;
+    }
+    .nomobile {
+        display: none;
+    }
 }
 
 /*****************************************************************************/
@@ -228,36 +236,36 @@ div.input.error {
 /*****************************************************************************/
 
 @media(min-width:481px) {
-	#quickadd, #stats {
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-	#content {
-		overflow: hidden;
-		div.bookmarkbox {
-			float: left;
-			margin: 5px 1%;
-			padding: 0;
-			width: 48%;
-		}
-	}
-	#keyword_tree {
-		float: left;
-		width: 200px;
-	}
-	#sticky_keywords {
-		margin-left: 240px;
-		overflow: hidden;
-		div.sticky_keyword {
-			float: left;
-			margin: 1%;
-			padding: 1%;
-			width: 45%
-		}
-	}
-	#mobile {
-		display: none;
-	}
+    #quickadd, #stats {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #content {
+        overflow: hidden;
+        div.bookmarkbox {
+            float: left;
+            margin: 5px 1%;
+            padding: 0;
+            width: 48%;
+        }
+    }
+    #keyword_tree {
+        float: left;
+        width: 200px;
+    }
+    #sticky_keywords {
+        margin-left: 240px;
+        overflow: hidden;
+        div.sticky_keyword {
+            float: left;
+            margin: 1%;
+            padding: 1%;
+            width: 45%
+        }
+    }
+    #mobile {
+        display: none;
+    }
 }
 
 /*****************************************************************************/
@@ -265,11 +273,11 @@ div.input.error {
 /*****************************************************************************/
 
 @media(min-width:1000px) {
-	#content {
-		div.bookmarkbox {
-			width: 30%;
-		}
-	}
+    #content {
+        div.bookmarkbox {
+            width: 30%;
+        }
+    }
 }
 
 /*****************************************************************************/
@@ -277,38 +285,98 @@ div.input.error {
 /*****************************************************************************/
 
 #search {
-	#search_input {
-		width: 100%;
-	}
+    #search_input {
+        width: 100%;
+    }
 
-	ul {
-		list-style: none;
+    ul {
+        list-style: none;
 
-		li.search_entry {
-			overflow: hidden;
-			padding: 0px 10px;
+        li.search_entry {
+            overflow: hidden;
+            padding: 0px 10px;
 
-			a {
-				display: block;
-			}
+            a {
+                display: block;
+            }
 
-			a.title {
-				text-decoration: none;
-				float: left;
-				color: hsl(0, 0%, 0%);
-			}
+            a.title {
+                text-decoration: none;
+                float: left;
+                color: hsl(0, 0%, 0%);
+            }
 
-			a.view {
-				float: right;
-			}
+            a.view {
+                float: right;
+            }
 
-			&:hover {
-				background-color: hsl(0, 0%, 95%);
-			}
+            &:hover {
+                background-color: hsl(0, 0%, 95%);
+            }
 
-			&.selected {
-				background-color: hsl(0, 0%, 90%);
-			}
-		}
-	}
+            &.selected {
+                background-color: hsl(0, 0%, 90%);
+            }
+        }
+    }
+}
+
+@media(max-width: 2*$checkbox_width) {
+    div.select {
+        @include column-count(1);
+    }
+}
+
+@media(min-width: 2*$checkbox_width) {
+    div.select {
+        @include column-count(2);
+    }
+}
+
+@media(min-width: 3*$checkbox_width) {
+    div.select {
+        @include column-count(3);
+    }
+}
+
+@media(min-width: 4*$checkbox_width) {
+    div.select {
+        @include column-count(4);
+    }
+}
+
+@media(min-width: 5*$checkbox_width) {
+    div.select {
+        @include column-count(5);
+    }
+}
+
+@media(min-width: 6*$checkbox_width) {
+    div.select {
+        @include column-count(6);
+    }
+}
+
+@media(min-width: 7*$checkbox_width) {
+    div.select {
+        @include column-count(7);
+    }
+}
+
+@media(min-width: 8*$checkbox_width) {
+    div.select {
+        @include column-count(8);
+    }
+}
+
+@media(min-width: 9*$checkbox_width) {
+    div.select {
+        @include column-count(9);
+    }
+}
+
+@media(min-width: 10*$checkbox_width) {
+    div.select {
+        @include column-count(10);
+    }
 }
