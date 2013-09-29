@@ -1,4 +1,4 @@
-<?php /* Copyright © 2011-2012 Martin Ueding <dev@martin-ueding.de> */ ?>
+<?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
 <div id="content" id="bookmark_view">
 	<h2><?php echo __('All Bookmarks');?></h2>
@@ -6,20 +6,16 @@
 	<tr>
 		<th><?php echo $this->Paginator->sort('title'); ?></th>
 		<th><?php echo $this->Paginator->sort('url'); ?></th>
-		<th><?php echo $this->Paginator->sort('created'); ?></th>
-		<th><?php echo $this->Paginator->sort('modified'); ?></th>
-		<th><?php echo $this->Paginator->sort('revisit'); ?></th>
-		<th><?php echo $this->Paginator->sort('reading_list'); ?></th>
+		<th><?php echo $this->Paginator->sort('revisit', __('RV')); ?></th>
+		<th><?php echo $this->Paginator->sort('reading_list', __('RL')); ?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php foreach ($bookmarks as $bookmark): ?>
 	<tr>
 		<td><?php echo $bookmark['Bookmark']['title']; ?></td>
-		<td><?php echo $bookmark['Bookmark']['url']; ?></td>
-		<td><?php echo $bookmark['Bookmark']['created']; ?></td>
-		<td><?php echo $bookmark['Bookmark']['modified']; ?></td>
-		<td><?php echo $bookmark['Bookmark']['revisit']; ?></td>
-		<td><?php echo $bookmark['Bookmark']['reading_list']; ?></td>
+		<td><?php echo String::truncate($bookmark['Bookmark']['url'], 100); ?></td>
+		<td><?php echo ($bookmark['Bookmark']['revisit'] ? __('RV') : ''); ?></td>
+		<td><?php echo ($bookmark['Bookmark']['reading_list'] ? __('RL') : ''); ?></td>
 		<td class="actions"><nobr>
 			<?php echo $this->Html->link(__('View'),
 				array('action' => 'view', $bookmark['Bookmark']['id'])); ?>
