@@ -3,9 +3,9 @@
 # Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 class BookmarksController extends AppController {
-    var $name = 'Bookmarks';
-    var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
-    var $helpers = array('Time', 'Bookmark');
+    public $name = 'Bookmarks';
+    public $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
+    public $helpers = array('Time', 'Bookmark');
     public $components = array('Paginator');
 
     /**
@@ -13,12 +13,12 @@ class BookmarksController extends AppController {
      *
      * @author Martin Ueding <dev@martin-ueding.de>
      */
-    function index() {
+    public function index() {
         $this->Bookmark->recursive = 0;
         $this->set('bookmarks', $this->paginate());
     }
 
-    function view($id = null) {
+    public function view($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid bookmark'));
             $this->redirect(array('action' => 'index'));
@@ -37,13 +37,13 @@ class BookmarksController extends AppController {
         }
     }
 
-    function add($url = null) {
+    public function add($url = null) {
         if (!empty($this->request->data)) {
             $this->Bookmark->create();
 
             // add page title if missing
             if (empty($this->request->data['Bookmark']['title']) && !empty($this->request->data['Bookmark']['url'])) {
-                $this->request->data['Bookmark']['title'] = $this->_get_page_title($this->request->data['Bookmark']['url']);
+                $this->request->data['Bookmark']['title'] = $this->get_page_title($this->request->data['Bookmark']['url']);
             }
 
             if ($this->Bookmark->save($this->request->data)) {
@@ -66,7 +66,7 @@ class BookmarksController extends AppController {
         $this->set(compact('keywords'));
     }
 
-    function _decode_url($url) {
+    private function _decode_url($url) {
         $url = str_replace("__slash__", "/", $url);
         $url = str_replace("__colon__", ":", $url);
         $url = str_replace("__hash__", "#", $url);
@@ -75,7 +75,7 @@ class BookmarksController extends AppController {
         return $url;
     }
 
-    function _get_page_title($url) {
+    private function get_page_title($url) {
         // append the http in case it is missing
         if (substr($url, 0, 4) != 'http') {
             $url = 'http://'.$url;
@@ -91,7 +91,7 @@ class BookmarksController extends AppController {
         return null;
     }
 
-    function edit($id = null) {
+    public function edit($id = null) {
         if (!$id && empty($this->request->data)) {
             $this->Session->setFlash(__('Invalid bookmark'));
             $this->redirect(array('action' => 'index'));
@@ -114,7 +114,7 @@ class BookmarksController extends AppController {
         $this->set(compact('keywords'));
     }
 
-    function delete($id = null) {
+    public function delete($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid id for bookmark'));
             $this->redirect(array('action'=>'index'));
@@ -127,7 +127,7 @@ class BookmarksController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 
-    function startscreen() {
+    public function startscreen() {
         $this->set('reading_list', $this->Bookmark->get_reading_list());
         $this->set('mobile', $this->Bookmark->get_mobile());
         $this->set('most_visits', $this->Bookmark->get_most_visits());
@@ -136,7 +136,7 @@ class BookmarksController extends AppController {
         $this->set('revisit', $this->Bookmark->get_revisit());
     }
 
-    function sticky_keywords() {
+    public function sticky_keywords() {
         $result = $this->Keyword->find('all', array(
             'conditions' => array('Keyword.sticky' => 1),
             'order' => array('Keyword.title'),
@@ -154,7 +154,7 @@ class BookmarksController extends AppController {
         return strcmp(strtolower($a['title']), strtolower($b['title']));
     }
 
-    function stats() {
+    public function stats() {
         $stats = array(
             'bookmark_count' => $this->Bookmark->find('count'),
             'quote_count' => $this->Quote->find('count'),
@@ -164,7 +164,7 @@ class BookmarksController extends AppController {
         return $stats;
     }
 
-    function visit($id) {
+    public function visit($id) {
         $to_visit = $this->Bookmark->findById($id);
 
         // Write a Visit to the DB
@@ -178,7 +178,7 @@ class BookmarksController extends AppController {
         $this->redirect($to_url);
     }
 
-    function export() {
+    public function export() {
         header('Content-type: application/json');
         $this->layout = 'ajax';
         $bookmarks = $this->Bookmark->find('all');
@@ -200,7 +200,7 @@ class BookmarksController extends AppController {
         $this->set("data", json_encode($data));
     }
 
-    function import() {
+    public function import() {
         $this->import_result['added_bookmarks'] = 0;
         $this->import_result['added_keywords'] = 0;
         $this->import_result['existing_bookmarks'] = 0;
@@ -226,7 +226,7 @@ class BookmarksController extends AppController {
      * @param input array Bookmarks and Keywords to be imported
      * @author Martin Ueding <dev@martin-ueding.de>
      */
-    function _import($input) {
+    public function _import($input) {
         if (!isset($input) || empty($input) || count($input) == 0) {
             return;
         }
@@ -284,7 +284,7 @@ class BookmarksController extends AppController {
      *
      * @param $query String with words to query for.
      */
-    function ajaxsearch($query) {
+    public function ajaxsearch($query) {
         $this->layout = 'ajax';
         header('Content-type: application/json');
 
@@ -306,7 +306,7 @@ class BookmarksController extends AppController {
         $this->set("data", json_encode($data));
     }
 
-    static function stripper($input) {
+    public static function stripper($input) {
         if ($input[0] == '"') {
             return substr($input, 1, strlen($input)-2);
         }
