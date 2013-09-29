@@ -39,14 +39,18 @@ class BookmarksController extends AppController {
         $this->Favicon->download_favicon($data['Bookmark']['url']);
     }
 
-    public function add($url = null) {
-        if (!empty($this->request->data)) {
-            $this->Bookmark->create();
-
+    private function add_page_title_if_missing() {
             // add page title if missing
             if (empty($this->request->data['Bookmark']['title']) && !empty($this->request->data['Bookmark']['url'])) {
                 $this->request->data['Bookmark']['title'] = $this->Pagetitle->get_page_title($this->request->data['Bookmark']['url']);
             }
+    }
+
+    public function add($url = null) {
+        if (!empty($this->request->data)) {
+            $this->Bookmark->create();
+
+            $this->add_page_title_if_missing();
 
             if ($this->Bookmark->save($this->request->data)) {
                 if (!empty($this->request->data['Keyword']['title'])) {
@@ -82,6 +86,9 @@ class BookmarksController extends AppController {
             $this->Session->setFlash(__('Invalid bookmark'));
             $this->redirect(array('action' => 'index'));
         }
+
+        $this->add_page_title_if_missing();
+
         if (!empty($this->request->data)) {
             if ($this->Bookmark->save($this->request->data) &&
                 (empty($this->request->data['Keyword']['title']) || $this->Keyword->save($this->request->data))
