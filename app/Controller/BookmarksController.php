@@ -127,64 +127,12 @@ class BookmarksController extends AppController {
     }
 
     function startscreen() {
-        $limit = Configure::read("UI.Startscreen.BoxLength");
-
-        $this->set('reading_list', $this->Bookmark->find('all', array('conditions' => array('Bookmark.reading_list' => 1), 'limit' => $limit)));
-
-        $this->set('mobile', $this->Bookmark->find('all', array('conditions' => array('Bookmark.mobile' => 1))));
-
-        $this->set('most_visits', $this->Bookmark->find('all', array(
-            'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'count(Bookmark.id)'),
-            'group' => 'cakemarks_visits.bookmark_id',
-            'joins' => array(
-                array(
-                    'table' => 'cakemarks_visits',
-                    'conditions' => array('cakemarks_visits.bookmark_id = Bookmark.id')
-                )
-            ),
-            'limit' => $limit,
-            'order' => 'count(Bookmark.id) DESC',
-        )));
-
-        $this->set('newest', $this->Bookmark->find('all', array('order' => array('Bookmark.created DESC'), 'limit' => $limit)));
-
-        $latest_query = '
-            SELECT Bookmark.id, Bookmark.title, Bookmark.url, Visit.created
-            FROM (
-                SELECT *
-                FROM (
-                    SELECT *
-                    FROM cakemarks_visits
-                    ORDER BY cakemarks_visits.created DESC
-                ) AS sorted_visits
-                GROUP BY bookmark_id
-            ) AS Visit
-            JOIN cakemarks_bookmarks AS Bookmark ON Visit.bookmark_id = Bookmark.id
-            ORDER BY Visit.created DESC
-            LIMIT '.$limit;
-
-        $this->set('recently_visited', $this->Bookmark->query($latest_query));
-
-
-        $revisit_query = '
-            SELECT Bookmark.id, Bookmark.title, Bookmark.url, Bookmark.revisit, Visit.created
-            FROM (
-                SELECT *
-                FROM (
-                    SELECT *
-                    FROM cakemarks_visits
-                    ORDER BY cakemarks_visits.created DESC
-                ) sorted_visits
-                GROUP BY bookmark_id
-            ) Visit
-            JOIN cakemarks_bookmarks Bookmark ON Visit.bookmark_id=Bookmark.id 
-            WHERE Visit.created IS NOT NULL
-            && Bookmark.revisit IS NOT NULL
-            && ADDTIME(Visit.created, MAKETIME(Bookmark.revisit, 0, 0)) < now()
-            ORDER BY Visit.created DESC
-            LIMIT '.$limit;
-
-        //$this->set('revisit', $this->Bookmark->query($revisit_query));
+        $this->set('reading_list', $this->Bookmark->get_reading_list());
+        $this->set('mobile', $this->Bookmark->get_mobile());
+        $this->set('most_visits', $this->Bookmark->get_most_visits());
+        $this->set('newest', $this->Bookmark->get_newest());
+        $this->set('recently_visited', $this->Bookmark->get_latest());
+        $this->set('revisit', $this->Bookmark->get_revisit());
     }
 
     function sticky_keywords() {
