@@ -3,8 +3,21 @@
 # Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 ?>
 
-<div id="content" id="bookmark_view">
-    <h2><?php echo __('All Bookmarks');?></h2>
+<div id="content" class="bookmark_view">
+    <h2><?php echo __('Search');?></h2>
+
+    <?php
+    echo $this->Form->create(false);
+    echo $this->Form->input('query');
+    echo $this->Form->end(__('Search'));
+    ?>
+
+    <?php if (isset($bookmarks)): ?>
+    <h3><?php echo __('Search Results'); ?></h3>
+
+    <?php if (count($bookmarks) == 0): ?>
+    <?php echo __('No search results.'); ?>
+    <?php else: ?>
     <table>
     <tr>
         <th><?php echo $this->Paginator->sort('title'); ?></th>
@@ -45,4 +58,6 @@
  |
         <?php echo $this->Paginator->next(__('next') . ' >>', array(), null, array('class' => 'disabled'));?>
     </div>
+    <?php endif; ?>
+    <?php endif; ?>
 </div>

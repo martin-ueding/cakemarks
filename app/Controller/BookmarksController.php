@@ -322,14 +322,17 @@ class BookmarksController extends AppController {
         }
     }
 
-    public function search($query) {
-        $this->Bookmark->recursive = -1;
-        $this->Paginator->settings = array(
-            'conditions' => array('Bookmark.title LIKE' => '%'.$query.'%'),
-            'limit' => 30
-        );
-        $data = $this->Paginator->paginate('Bookmark');
-        $this->set('bookmarks', $data);
+    public function search() {
+        if (isset($this->request->data['query'])) {
+            $query = $this->request->data['query'];
+            $this->Bookmark->recursive = -1;
+            $this->Paginator->settings = array(
+                'conditions' => array('Bookmark.title LIKE' => '%'.$query.'%'),
+                'limit' => 30
+            );
+            $data = $this->Paginator->paginate('Bookmark');
+            $this->set('bookmarks', $data);
+        }
     }
 }
 ?>
