@@ -1,4 +1,4 @@
-# Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+# Copyright © 2012-2013 Martin Ueding <dev@martin-ueding.de>
 # Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 # Time for the scroll up and down animation. In ms.
@@ -49,7 +49,7 @@ isAjaxActive = ->
 
 # Inserts the search field into the DOM and focuses it.
 showField = ->
-	$('#navigation').after '<div id="search"><input id="search_input" type="text" /></div>'
+	$('#navigation').after '<div id="search"><form action="bookmarks/search" method="post"><input id="search_input" name="data[query]" type="text" /></form></div>'
 	$('#search_input').focus()
 
 # Attaches the listeners to the search input field.
