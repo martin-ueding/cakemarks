@@ -5,7 +5,7 @@
 class BookmarksController extends AppController {
     public $name = 'Bookmarks';
     public $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
-    public $helpers = array('Time', 'Bookmark');
+    public $helpers = array('Favicon', 'Time', 'Bookmark');
     public $components = array('Favicon', 'Pagetitle', 'Paginator');
 
     /**
@@ -36,7 +36,7 @@ class BookmarksController extends AppController {
             $this->set('next_visit',  $last_visit+$data['Bookmark']['revisit']*3600);
         }
 
-        $this->set('favicon', $this->Favicon->get_favicon_img($data['Bookmark']['url']));
+        $this->Favicon->download_favicon($data['Bookmark']['url']);
     }
 
     public function add($url = null) {

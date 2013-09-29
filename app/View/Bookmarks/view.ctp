@@ -21,7 +21,7 @@
         <dt><?php echo __('Title'); ?></dt>
         <dd><?php echo $bookmark['Bookmark']['title']; ?></dd>
         <dt><?php echo __('Favicon'); ?></dt>
-        <dd><?php echo $favicon; ?></dd>
+        <dd><?php echo $this->Favicon->get_favicon_img($bookmark['Bookmark']['url']); ?></dd>
 
         <dt><?php echo __('URL'); ?></dt>
         <dd><?php echo $this->Html->link($bookmark['Bookmark']['url'],

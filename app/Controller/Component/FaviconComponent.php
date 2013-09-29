@@ -6,15 +6,19 @@ class FaviconComponent extends Component {
     public function __construct($collection, $settings) {
         parent::__construct($collection, $settings);
 
-        $this->finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $this->dir = TMP.'cakemarks-favicon';
     }
 
     public function get_favicon_filename($url) {
-        $dir = TMP.'cakemarks-favicon';
-        if (!is_dir($dir)) {
-            mkdir($dir);
+        return $this->dir.DS.sha1($url);
+    }
+
+    public function download_favicon($url) {
+        $target = $this->get_favicon_filename($url);
+
+        if (!is_dir($this->dir)) {
+            mkdir($this->dir);
         }
-        $target = TMP.'cakemarks-favicon'.DS.sha1($url);
 
         if (is_file($target)) {
             return $target;
@@ -25,11 +29,5 @@ class FaviconComponent extends Component {
             return $target;
         }
     }
-
-    public function get_favicon_img($url) {
-        $favicon_name = $this->get_favicon_filename($url);
-        $mime = finfo_file($this->finfo, $favicon_name);
-        $base64 = base64_encode(file_get_contents($favicon_name));
-        return '<img src="data:'.$mime.';base64,'.$base64.'" />';
-    }
 }
+?>
