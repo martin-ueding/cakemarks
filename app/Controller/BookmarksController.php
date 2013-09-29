@@ -24,8 +24,6 @@ class BookmarksController extends AppController {
         }
         $data = $this->Bookmark->read(null, $id);
         $this->set('bookmark', $data);
-        $this->set('visits', $this->Bookmark->Visit->find('count', array(
-            "conditions" => array("Visit.bookmark_id" => $id))));
         $last_visit = $this->Bookmark->Visit->find('first', array(
             "conditions" => array("Visit.bookmark_id" => $id),
             "order" => array('Visit.created DESC')));

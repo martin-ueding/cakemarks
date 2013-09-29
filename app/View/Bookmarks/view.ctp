@@ -55,14 +55,14 @@
         <?php endif; ?>
 
         <dt><?php echo __('Visit Count'); ?></dt>
-        <dd><?php echo $visits; ?></dd>
+        <dd><?php echo $bookmark['Bookmark']['visits']; ?></dd>
 
         <?php if (isset($last_visit)): ?>
             <dt><?php echo __('Last Visit'); ?></dt>
             <dd><?php echo $this->Time->timeAgoInWords($last_visit, array(), true); ?></dd>
         <?php endif; ?>
 
-        <?php if ($visits > 1): ?>
+        <?php if ($bookmark['Bookmark']['visits'] > 1): ?>
             <dt><?php echo __('visits by interval'); ?><dt>
             <dd>
             <?php echo $this->element('visit_graph', array("id" => $bookmark["Bookmark"]["id"])); ?>
