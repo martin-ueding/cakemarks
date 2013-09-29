@@ -69,10 +69,14 @@
             </dd>
         <?php endif; ?>
 
-        <dt><?php echo __('Created'); ?></dt>
-        <dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
+        <?php if ($bookmark['Bookmark']['created'] > 0): ?>
+            <dt><?php echo __('Created'); ?></dt>
+            <dd><?php echo $bookmark['Bookmark']['created']; ?></dd>
+        <?php endif; ?>
 
-        <dt><?php echo __('Modified'); ?></dt>
-        <dd><?php echo $bookmark['Bookmark']['modified']; ?></dd>
+        <?php if ($bookmark['Bookmark']['modified'] > 0): ?>
+            <dt><?php echo __('Modified'); ?></dt>
+            <dd><?php echo $bookmark['Bookmark']['modified']; ?></dd>
+        <?php endif; ?>
     </dl>
 </div>
