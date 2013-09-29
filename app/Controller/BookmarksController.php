@@ -81,14 +81,14 @@ class BookmarksController extends AppController {
             $url = 'http://'.$url;
         }
 
-        $data = file_get_contents($url);
+        $data = @file_get_contents($url);
 
         preg_match('/<title>(.*?)<\/title>/', $data, $matches);
         if (isset($matches[1])) {
             $titel = $matches[1];
             return $titel;
         }
-        return null;
+        return __('NO TITLE');
     }
 
     public function edit($id = null) {
