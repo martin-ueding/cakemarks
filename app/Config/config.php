@@ -4,7 +4,7 @@
 
 $config["UI"] = array(
 	"Startscreen" => array(
-		"BoxLength" => 30
+		"BoxLength" => 20
 	),
 	"VisitGraph" => array(
 		"BinCount" => 12
