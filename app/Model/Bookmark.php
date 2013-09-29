@@ -3,10 +3,10 @@
 # Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 class Bookmark extends AppModel {
-    var $name = 'Bookmark';
-    var $displayField = 'title';
+    public $name = 'Bookmark';
+    public $displayField = 'title';
 
-    var $hasMany = array(
+    public $hasMany = array(
         'Visit' => array(
             'className' => 'Visit',
             'foreignKey' => 'bookmark_id',
@@ -26,7 +26,7 @@ class Bookmark extends AppModel {
         'visits' => 'SELECT COUNT(Visit.bookmark_id) FROM cakemarks_visits Visit WHERE Visit.bookmark_id = Bookmark.id'
     );
 
-    var $hasAndBelongsToMany = array(
+    public $hasAndBelongsToMany = array(
         'Keyword' => array(
             'className' => 'Keyword',
             'joinTable' => 'bookmarks_keywords',
@@ -44,7 +44,7 @@ class Bookmark extends AppModel {
         )
     );
 
-    function __construct($id = false, $table = null, $ds = null) {
+    public function __construct($id = false, $table = null, $ds = null) {
         parent::__construct($id, $table, $ds);
 
         $this->validate = array(
