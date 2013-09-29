@@ -13,6 +13,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: de_DE\n"
+"X-Source-Language: C\n"
 
 #: Controller/BookmarksController.php:23;96
 msgid "Invalid bookmark"
@@ -108,8 +110,8 @@ msgstr "Abschicken"
 #: View/Bookmarks/edit.ctp:4 View/Bookmarks/index.ctp:11
 #: View/Bookmarks/search.ctp:27 View/Bookmarks/view.ctp:4
 #: View/Keywords/add.ctp:4 View/Keywords/edit.ctp:4 View/Keywords/view.ctp:4
-#: View/Quotes/add.ctp:2 View/Quotes/edit.ctp:2 View/Quotes/index.ctp:2;14
-#: View/Quotes/view.ctp:2
+#: View/Quotes/add.ctp:2 View/Quotes/edit.ctp:2 View/Quotes/view.ctp:2
+#: View/Quotes/index.ctp:2;14
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -163,11 +165,11 @@ msgstr "alle Lesezeichen"
 
 #: View/Bookmarks/index.ctp:9;17 View/Bookmarks/search.ctp:25;33
 msgid "RV"
-msgstr ""
+msgstr "WV"
 
 #: View/Bookmarks/index.ctp:10;18 View/Bookmarks/search.ctp:26;34
 msgid "RL"
-msgstr ""
+msgstr "LL"
 
 #: View/Bookmarks/index.ctp:20 View/Bookmarks/search.ctp:36
 #: View/Helper/BookmarkHelper.php:18 View/Quotes/index.ctp:21
@@ -213,24 +215,23 @@ msgstr "nächste"
 
 #: View/Bookmarks/search.ctp:7;12
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: View/Bookmarks/search.ctp:16
 msgid "Search Results"
-msgstr ""
+msgstr "Suchergebnisse"
 
 #: View/Bookmarks/search.ctp:19
 msgid "No search results."
-msgstr ""
+msgstr "Keine Suchergebnisse."
 
 #: View/Bookmarks/startscreen.ctp:6
 msgid "Startscreen"
 msgstr "Startseite"
 
 #: View/Bookmarks/startscreen.ctp:11
-#, fuzzy
 msgid "Mobile Bookmarks"
-msgstr "alle Lesezeichen"
+msgstr "Mobile Lesezeichen"
 
 #: View/Bookmarks/startscreen.ctp:17 View/Bookmarks/view.ctp:30
 msgid "Revisit"
@@ -271,7 +272,7 @@ msgstr "Titel"
 
 #: View/Bookmarks/view.ctp:24
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: View/Bookmarks/view.ctp:31
 msgid "every %d hours"
@@ -287,11 +288,11 @@ msgstr "Dies ist auf Ihrer Leseliste."
 
 #: View/Bookmarks/view.ctp:44
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 #: View/Bookmarks/view.ctp:45
 msgid "This is a mobile bookmark."
-msgstr ""
+msgstr "Dies ist ein mobiles Lesezeichen."
 
 #: View/Bookmarks/view.ctp:49
 msgid "Related Keywords"
@@ -319,7 +320,7 @@ msgstr "bearbeitet"
 
 #: View/Elements/navigation.ctp:4
 msgid "Navigation"
-msgstr ""
+msgstr "Navigation"
 
 #: View/Elements/navigation.ctp:6
 msgid "Home Page"
@@ -329,8 +330,8 @@ msgstr "Startseite"
 msgid "List Bookmarks"
 msgstr "Lesezeichen anzeigen"
 
-#: View/Elements/navigation.ctp:13 View/Quotes/add.ctp:4
-#: View/Quotes/edit.ctp:4 View/Quotes/view.ctp:6
+#: View/Elements/navigation.ctp:13 View/Quotes/add.ctp:4 View/Quotes/edit.ctp:4
+#: View/Quotes/view.ctp:6
 msgid "List Quotes"
 msgstr "Zitate anzeigen"
 
@@ -344,7 +345,7 @@ msgstr "Referrer überprüfen"
 
 #: View/Elements/navigation.ctp:21 View/pages/bookmarklet.ctp:4
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Bookmarklet"
 
 #: View/Elements/navigation.ctp:23
 msgid "Import Bookmarks"
@@ -394,7 +395,7 @@ msgid_plural "keywords"
 msgstr[0] "Schlüsselwort"
 msgstr[1] "Schlüsselwörter"
 
-#: View/Keywords/add.ctp:7;8 View/Keywords/edit.ctp:7
+#: View/Keywords/edit.ctp:7 View/Keywords/add.ctp:7;8
 msgid "List Keywords"
 msgstr "Schlüsselwörter anzeigen"
 
@@ -464,7 +465,7 @@ msgstr "Zitat löschen"
 
 #: View/Quotes/view.ctp:14
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: View/Quotes/view.ctp:18
 msgid "Author"
@@ -497,7 +498,7 @@ msgstr ""
 
 #: Model/Keyword.php:validation for field title
 msgid "The URL has to be unique."
-msgstr ""
+msgstr "Die URL muss einmalig sein."
 
 #: Model/Keyword.php:validation for field sticky
 msgid "boolean"
@@ -509,7 +510,7 @@ msgstr ""
 
 #: webroot/test.php:95
 msgid "Debug setting does not allow access to this url."
-msgstr ""
+msgstr "Debuggingeinstellungen erlauben die Anzeige dieser URL nicht."
 
 #~ msgid "Could not create favico temp dir"
 #~ msgstr "konnte keinen Ordner für Favicons nicht erstellen"
