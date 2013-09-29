@@ -6,6 +6,7 @@ class BookmarksController extends AppController {
     var $name = 'Bookmarks';
     var $uses = array('Bookmark', 'Visit', 'Quote', 'Keyword');
     var $helpers = array('Time', 'Bookmark');
+    public $components = array('Paginator');
 
     /**
      * Lists all bookmarks.
@@ -283,7 +284,7 @@ class BookmarksController extends AppController {
      *
      * @param $query String with words to query for.
      */
-    function search($query) {
+    function ajaxsearch($query) {
         $this->layout = 'ajax';
         header('Content-type: application/json');
 
@@ -319,6 +320,16 @@ class BookmarksController extends AppController {
         else {
             return $input;
         }
+    }
+
+    public function search($query) {
+        $this->Bookmark->recursive = -1;
+        $this->Paginator->settings = array(
+            'conditions' => array('Bookmark.title LIKE' => '%'.$query.'%'),
+            'limit' => 30
+        );
+        $data = $this->Paginator->paginate('Bookmark');
+        $this->set('bookmarks', $data);
     }
 }
 ?>
