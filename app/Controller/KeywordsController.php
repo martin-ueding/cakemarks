@@ -16,12 +16,29 @@ class KeywordsController extends AppController {
         }
     }
 
+    public static function bookmark_comparator($first, $second) {
+        $a = $first['title'];
+        $b = $second['title'];
+
+        if ($a < $b) {
+            return -1;
+        }
+        elseif ($a == $b) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+
     function view($id = null) {
         if (!$id) {
             $this->Session->setFlash(__('Invalid keyword'));
             $this->redirect(array('action' => 'index'));
         }
-        $this->set('keyword', $this->Keyword->read(null, $id));
+        $data = $this->Keyword->read(null, $id);
+        uasort($data['Bookmark'], "KeywordsController::bookmark_comparator");
+        $this->set('keyword', $data);
     }
 
     function add() {
