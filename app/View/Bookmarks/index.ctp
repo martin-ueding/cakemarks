@@ -1,5 +1,21 @@
 <?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 
+<div id="actions">
+    <h2><?php echo __('Actions'); ?></h2>
+    <ul>
+        <li><?php echo $this->Html->link(__('New Bookmark'),
+            array('controller' => 'bookmarks', 'action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Bookmark without Keywords'),
+            array('controller' => 'bookmarks', 'action' => 'nokeyword')); ?></li>
+        <li><?php echo $this->Html->link(__('Search'),
+            array('controller' => 'bookmarks', 'action' => 'search')); ?></li>
+        <li class="nomobile"><?php echo $this->Html->link(__('Import Bookmarks'),
+            array('controller' => 'bookmarks', 'action' => 'import')); ?></li>
+        <li class="nomobile"><?php echo $this->Html->link(__('Export Bookmarks'),
+            array('controller' => 'bookmarks', 'action' => 'export')); ?></li>
+    </ul>
+</div>
+
 <div id="content" id="bookmark_view">
     <h2><?php echo __('All Bookmarks');?></h2>
     <table>
