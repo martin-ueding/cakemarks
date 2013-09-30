@@ -13,6 +13,7 @@
 
         <title><?php echo $title_for_layout; ?></title>
         <link rel="icon" href="favicon.png" type="image/png">
+        <?php echo $this->Html->meta('icon', $this->Html->url('/favicon.png'), array('type' => 'image/png')); ?>
     </head>
     <body>
         <div id="page">
