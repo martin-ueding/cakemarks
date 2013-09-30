@@ -1,11 +1,16 @@
 <?php /* Copyright © 2011-2013 Martin Ueding <dev@martin-ueding.de> */ ?>
 <!doctype html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+        <?php echo $this->Html->meta(array('name' => 'viewport', 'content' => "width=device-width, initial-scale=1, maximum-scale=5")); ?>
+
         <?php echo $this->Html->charset(); ?>
+
         <?php echo $this->Html->css("tungsten"); ?>
+
         <?php echo $this->Html->script("//code.jquery.com/jquery-1.7.1.min.js"); ?>
+
         <?php echo $this->Html->script("favicon-download"); ?>
+
         <title><?php echo $title_for_layout; ?></title>
         <link rel="icon" href="favicon.png" type="image/png">
     </head>
