@@ -5,6 +5,7 @@
 class Keyword extends AppModel {
     public $name = 'Keyword';
     public $displayField = 'title';
+    public $actsAs = array('Tree');
     public $validate = array(
         'title' => array(
             'notempty' => array(
@@ -77,6 +78,8 @@ class Keyword extends AppModel {
             'insertQuery' => ''
         )
     );
+
+
 
 }
 ?>
