@@ -4,6 +4,27 @@
 Changelog
 #########
 
+v2.9
+    - Fix initial device width
+    - Clear floats after shorter boxes on startscreen
+    - **Added**: Special bookmarks for mobile devices
+    - Hide some navigation elements on mobile devices
+    - Use protocol relative URL for jQuery
+    - Migrate to CakePHP 2.4.1
+    - Make form validation errors more prominent
+    - Change indentation from Tabs to 4 Spaces (on some files)
+    - Download favicons to server, deliver them using Base 64
+    - Remove bug reporting link
+    - Order keywords in columns and not in lines
+    - Fetch page title from URL on edits as well
+    - Convert keywords to *tree behavior* so that they work on servers as well
+    - Sort bookmarks in keyword view
+    - Sort bookmarks by recent visit count
+    - Show unvisited items in search
+    - Add a full search page
+    - Fix favicon on all pages, use new favicon
+    - **Added**: View for a bookmarks that lack a keyword
+
 v2.8
     - Add the CakePHP installation into git
     - Remove debug code
@@ -23,7 +44,7 @@ v2.6
       
 v2.5.1
     - Show favicons for bookmarks without a protocol in the URL
-    - Show favicons for https:// websites
+    - Show favicons for ``https://`` websites
     - Add test case for BookmarkHelper
       
 v2.5
@@ -83,3 +104,5 @@ v2.1
       
 v2.0
     - Start off with CakePHP template
+
+.. vim: spell
