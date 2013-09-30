@@ -334,61 +334,61 @@ div.submit {
     }
 }
 
-@media(max-width: (2*$checkbox_width)) {
+@media(max-width: 2*$checkbox_width) {
     div.select {
         @include column-count(1);
     }
 }
 
-@media(min-width: (2*$checkbox_width)) {
+@media(min-width: 2*$checkbox_width) {
     div.select {
         @include column-count(2);
     }
 }
 
-@media(min-width: (3*$checkbox_width)) {
+@media(min-width: 3*$checkbox_width) {
     div.select {
         @include column-count(3);
     }
 }
 
-@media(min-width: (4*$checkbox_width)) {
+@media(min-width: 4*$checkbox_width) {
     div.select {
         @include column-count(4);
     }
 }
 
-@media(min-width: (5*$checkbox_width)) {
+@media(min-width: 5*$checkbox_width) {
     div.select {
         @include column-count(5);
     }
 }
 
-@media(min-width: (6*$checkbox_width)) {
+@media(min-width: 6*$checkbox_width) {
     div.select {
         @include column-count(6);
     }
 }
 
-@media(min-width: (7*$checkbox_width)) {
+@media(min-width: 7*$checkbox_width) {
     div.select {
         @include column-count(7);
     }
 }
 
-@media(min-width: (8*$checkbox_width)) {
+@media(min-width: 8*$checkbox_width) {
     div.select {
         @include column-count(8);
     }
 }
 
-@media(min-width: (9*$checkbox_width)) {
+@media(min-width: 9*$checkbox_width) {
     div.select {
         @include column-count(9);
     }
 }
 
-@media(min-width: (10*$checkbox_width)) {
+@media(min-width: 10*$checkbox_width) {
     div.select {
         @include column-count(10);
     }
