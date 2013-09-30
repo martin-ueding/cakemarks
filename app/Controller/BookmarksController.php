@@ -340,5 +340,46 @@ class BookmarksController extends AppController {
 
         $this->set('data', json_encode($downloaded));
     }
+
+    public function nokeyword() {
+        $this->Bookmark->recursive = 0;
+        $data = $this->Bookmark->find('all', array(
+            'fields' => array(
+                'Bookmark.id',
+                'Bookmark.url',
+                'Bookmark.title',
+                'BookmarksKeywords.id',
+                'BookmarksKeywords.bookmark_id',
+            ),
+            'conditions' => array(
+                'BookmarksKeywords.keyword_id' => null
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'bookmarks_keywords',
+                    'alias' => 'BookmarksKeywords',
+                    'type' => 'LEFT OUTER',
+                    'conditions' => array(
+                        'BookmarksKeywords.bookmark_id = Bookmark.id',
+                    ),
+                ),
+            ),
+            'order' => array(
+                'Bookmark.id',
+            ),
+        ));
+        $this->set('data', $data);
+    }
+
+    public function nokeyword2 () {
+        $sql = 'SELECT Bookmarks.*'
+            .' FROM cakemarks_bookmarks as Bookmarks'
+            .' LEFT OUTER JOIN cakemarks_bookmarks_keywords as BookmarksKeywords'
+            .' ON Bookmarks.id = BookmarksKeywords.bookmark_id'
+            .' WHERE BookmarksKeywords.id IS NULL'
+            .' LIMIT 10;';
+        $data = $this->Bookmark->query($sql);
+        $this->set('data', $data);
+    }
 }
 ?>
