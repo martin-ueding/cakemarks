@@ -293,7 +293,7 @@ class BookmarksController extends AppController {
             'fields' => array('Bookmark.id', 'Bookmark.title', 'Bookmark.url', 'Bookmark.visits'),
             'conditions' => $conditions,
             'limit' => Configure::read('search.items'),
-            'order' => 'Bookmark.visits DESC',
+            'order' => 'Bookmark.recent_visits DESC',
         ));
 
         $this->set("data", json_encode($data));

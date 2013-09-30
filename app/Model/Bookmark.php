@@ -23,7 +23,8 @@ class Bookmark extends AppModel {
     );
 
     public $virtualFields = array(
-        'visits' => 'SELECT COUNT(Visit.bookmark_id) FROM cakemarks_visits Visit WHERE Visit.bookmark_id = Bookmark.id'
+        'visits' => 'SELECT COUNT(Visit.bookmark_id) FROM cakemarks_visits Visit WHERE Visit.bookmark_id = Bookmark.id',
+        'recent_visits' => 'SELECT COUNT(Visit.bookmark_id) FROM cakemarks_visits Visit WHERE Visit.bookmark_id = Bookmark.id && ADDTIME(Visit.created, MAKETIME(24*90, 0, 0)) > now()'
     );
 
     public $hasAndBelongsToMany = array(
@@ -135,7 +136,7 @@ return $this->find('all', array(
                 )
             ),
             'limit' => $this->limit,
-            'order' => 'count(Bookmark.id) DESC',
+            'order' => 'Bookmark.recent_visits DESC',
         ));
     }
 

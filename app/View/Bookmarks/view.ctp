@@ -59,6 +59,9 @@
         <dt><?php echo __('Visit Count'); ?></dt>
         <dd><?php echo $bookmark['Bookmark']['visits']; ?></dd>
 
+        <dt><?php echo __('Recent Visit Count'); ?></dt>
+        <dd><?php echo $bookmark['Bookmark']['recent_visits']; ?></dd>
+
         <?php if (isset($last_visit)): ?>
             <dt><?php echo __('Last Visit'); ?></dt>
             <dd><?php echo $this->Time->timeAgoInWords($last_visit, array(), true); ?></dd>
