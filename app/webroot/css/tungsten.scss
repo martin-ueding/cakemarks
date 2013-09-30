@@ -343,7 +343,7 @@ div.submit {
     }
 }
 
-@media(max-width: ($checkbox_width_2)) {
+@media(max-width: (2*$checkbox_width)) {
     div.select {
         @include column-count(1);
     }
