@@ -3,9 +3,9 @@
 # Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php).
 
 class Keyword extends AppModel {
-    var $name = 'Keyword';
-    var $displayField = 'title';
-    var $validate = array(
+    public $name = 'Keyword';
+    public $displayField = 'title';
+    public $validate = array(
         'title' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
@@ -33,7 +33,7 @@ class Keyword extends AppModel {
     );
     //The Associations below have been created with all possible keys, those that are not needed can be removed
 
-    var $belongsTo = array(
+    public $belongsTo = array(
         'ParentKeyword' => array(
             'className' => 'Keyword',
             'foreignKey' => 'parent_id',
@@ -43,7 +43,7 @@ class Keyword extends AppModel {
         )
     );
 
-    var $hasMany = array(
+    public $hasMany = array(
         'ChildKeyword' => array(
             'className' => 'Keyword',
             'foreignKey' => 'parent_id',
@@ -60,7 +60,7 @@ class Keyword extends AppModel {
     );
 
 
-    var $hasAndBelongsToMany = array(
+    public $hasAndBelongsToMany = array(
         'Bookmark' => array(
             'className' => 'Bookmark',
             'joinTable' => 'bookmarks_keywords',
