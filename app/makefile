@@ -8,3 +8,6 @@ T-webroot:
 
 Locale/deu/LC_MESSAGES/%.po: Locale/%.pot
 	msgmerge -U $@ $^
+
+html: *.php */*.php */*/*.ctp
+	doxygen
