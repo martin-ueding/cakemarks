@@ -6,3 +6,4 @@ app/webroot/css/tungsten.css
 app/Locale/cake_dev.pot
 app/Locale/default.pot
 app/Locale/deu/LC_MESSAGES/default.po~
+app/html/
