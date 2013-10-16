@@ -49,7 +49,7 @@ isAjaxActive = ->
 
 # Inserts the search field into the DOM and focuses it.
 showField = ->
-    $('#navigation').after '<div id="search"><form action="bookmarks/search" method="post" autocomplete="off"><input id="search_input" name="data[query]" type="text" autocomplete="off" /></form></div>'
+    $('#navigation').after '<div id="search"><input id="search_input" name="data[query]" type="text" autocomplete="off" /></div>'
     $('#search_input').focus()
 
 # Attaches the listeners to the search input field.
